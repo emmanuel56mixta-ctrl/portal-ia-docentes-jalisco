@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lección 1 · Activa tu cuenta @jaliscoedu.mx</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0a0a0b; --panel:#141416; --panel-2:#1b1b1e; --line:#26262a;
+    --txt:#f4f4f5; --muted:#9a9aa2; --dim:#8a8a94; --lime:#c8f135;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:radial-gradient(60% 42% at 50% 0%, rgba(200,241,53,.17), transparent 72%) fixed,linear-gradient(rgba(255,255,255,.034) 1px, transparent 1px) 0 0/44px 44px fixed,linear-gradient(90deg, rgba(255,255,255,.034) 1px, transparent 1px) 0 0/44px 44px fixed,var(--bg);color:var(--txt);font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.5}
+  a{color:inherit;text-decoration:none}
+
+  /* two-column layout */
+  .layout{display:grid;grid-template-columns:250px 1fr;gap:44px;max-width:1120px;margin:0 auto;padding:0 22px 60px}
+
+  /* side route */
+  .route{position:sticky;top:22px;align-self:start;padding-top:22px}
+  .back-course{display:flex;align-items:center;gap:9px;color:var(--muted);font-size:15px;font-weight:600;margin-bottom:20px}
+  .back-course:hover{color:var(--txt)}
+  .back-course svg{width:16px;height:16px;flex:0 0 16px}
+  .rlist{display:flex;flex-direction:column}
+  .ll{position:relative;padding:9px 0 9px 16px;color:var(--dim);font-size:15.5px;line-height:1.35;border-left:2px solid var(--line)}
+  .ll:hover{color:var(--muted)}
+  .ll.active{color:var(--txt);font-weight:600;border-left:2px solid var(--lime)}
+
+  /* main column */
+  .main{min-width:0;padding-top:22px}
+  .topbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+  .iconbtn{width:40px;height:40px;border-radius:12px;background:var(--panel);border:1px solid var(--line);
+    display:grid;place-items:center;color:var(--muted);cursor:pointer}
+  .iconbtn:hover{border-color:#3a3a40;color:var(--txt)}
+  .iconbtn svg{width:18px;height:18px}
+
+  .preview{border-radius:18px;overflow:hidden;height:330px;position:relative;background:#0e120c}
+  .preview img{width:100%;height:100%;object-fit:cover}
+
+  .lk{color:var(--muted);font-size:15px;margin-top:24px}
+  .lt{font-family:'Archivo';font-weight:900;font-size:36px;line-height:1.05;letter-spacing:-.5px;margin-top:6px}
+
+  .body{margin-top:22px;max-width:680px}
+  .body p{color:#c4c5cc;font-size:17px;line-height:1.75;margin:0 0 20px}
+  .body h3{font-family:'Archivo';font-weight:800;font-size:20px;margin:36px 0 14px;letter-spacing:-.2px}
+  .body b,.body strong{color:var(--lime);font-weight:700}
+
+  .panel{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:20px 22px;margin:24px 0;max-width:680px}
+  .panel .plabel{display:flex;align-items:center;gap:9px;font-family:'Archivo';font-weight:800;font-size:15px;letter-spacing:1.2px;color:var(--txt)}
+  .panel .plabel svg{width:16px;height:16px;color:var(--muted)}
+  .panel .ptext{color:var(--muted);font-size:15px;margin:9px 0 16px}
+  .btn{display:inline-block;background:var(--lime);color:#0a0a0b;font-weight:700;font-size:16px;padding:10px 20px;border-radius:10px;border:none;cursor:pointer}
+
+  .callout{display:flex;gap:12px;background:rgba(200,241,53,.06);border:1px solid rgba(200,241,53,.25);
+    border-radius:14px;padding:16px 18px;margin:22px 0;max-width:680px;color:#cbcdd3;font-size:15.5px;line-height:1.6}
+  .callout .ci{flex:0 0 20px;color:var(--lime)}
+  .callout .ci svg{width:20px;height:20px}
+
+  .nextbar{border-top:1px solid var(--line);margin-top:38px;padding-top:24px;max-width:680px;display:flex;justify-content:space-between;align-items:center;gap:14px}
+  .prevlink{color:var(--muted);font-size:15px}
+  .btn-next{display:inline-flex;align-items:center;gap:9px;background:var(--lime);color:#0a0a0b;font-weight:700;
+    font-size:16px;padding:11px 22px;border-radius:10px}
+  .btn-next svg{width:16px;height:16px}
+
+  @media(max-width:820px){
+    .layout{grid-template-columns:1fr;gap:24px}
+    .route{position:static;padding-top:16px}
+    .rlist{max-height:none}
+  }
+  @media(max-width:600px){.lt{font-size:28px}.preview{height:210px}}
+
+  @media (prefers-reduced-motion:reduce){*,*::before,*::after{transition-duration:.01ms !important;animation-duration:.01ms !important;transition-delay:0s !important}html{scroll-behavior:auto}}
+  footer{margin:60px 0 40px;color:var(--dim);font-size:13.5px;border-top:1px solid var(--line);padding-top:26px}
+  .ft{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;text-align:left}
+  .ft-brand{display:flex;align-items:center;gap:12px}
+  .ft-brand img{height:42px;width:auto}
+  .ft-brand b{display:block;color:var(--muted);font-size:14.5px;font-weight:600}
+  .ft-brand span{color:var(--dim);font-size:13px}
+  .ft-links{display:flex;gap:18px;flex-wrap:wrap}
+  .ft-links a{color:var(--muted);font-size:14px}
+  .ft-links a:hover{color:var(--txt)}
+  .ft-social{display:flex;gap:10px}
+  .ft-social a{width:36px;height:36px;border-radius:50%;background:var(--panel-2);border:1px solid var(--line);display:grid;place-items:center;color:var(--muted);transition:.2s}
+  .ft-social a:hover{color:var(--txt);border-color:var(--lime)}
+  .ft-legal{margin-top:20px;color:var(--dim);font-size:13px;text-align:center;border-top:1px solid var(--line);padding-top:16px}
+  .ft-cols{display:flex;gap:44px;flex-wrap:wrap}
+  .ft-col{display:flex;flex-direction:column;gap:7px}
+  .ft-col b{color:var(--dim);font-size:12.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:3px}
+  .ft-col a{color:var(--muted);font-size:14px}
+  .ft-col a:hover{color:var(--txt)}
+  .ft-legal a{color:var(--muted)}
+  .ft-legal a:hover{color:var(--txt)}
+  .ft{align-items:flex-start}
+</style>
+</head>
+<body>
+<div class="layout">
+
+  <!-- RUTA LATERAL -->
+  <aside class="route">
+    <a class="back-course" href="curso-primeros-pasos.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
+      Primeros pasos con tu cuenta
+    </a>
+    <nav class="rlist">
+      <a class="ll active" href="leccion-1.html">Activa tu cuenta @jaliscoedu.mx</a>
+      <a class="ll" href="#">Entra a Gemini por primera vez</a>
+      <a class="ll" href="#">¿Qué es una Gema y cómo funciona?</a>
+      <a class="ll" href="#">Crea tu primera Gema</a>
+      <a class="ll" href="#">Configura tu Gema con tu contexto</a>
+      <a class="ll" href="#">Genera tu primera planeación</a>
+      <a class="ll" href="#">Comparte tu Gema con tu academia</a>
+      <a class="ll" href="#">Buenas prácticas y cuidado de datos</a>
+    </nav>
+  </aside>
+
+  <!-- CONTENIDO -->
+  <main class="main">
+    <div class="topbar">
+      <a class="iconbtn" href="curso-primeros-pasos.html" title="Volver">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
+      </a>
+      <span class="iconbtn" title="Compartir">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007 0l3-3a5 5 0 00-7-7l-1 1"/><path d="M14 11a5 5 0 00-7 0l-3 3a5 5 0 007 7l1-1"/></svg>
+      </span>
+    </div>
+
+    <div class="preview">
+      <img src="cuenta-jalisco.png" alt="Cuenta @jaliscoedu.mx" onerror="this.style.display='none'">
+    </div>
+
+    <div class="lk">Primeros pasos con tu cuenta @jaliscoedu.mx</div>
+    <h1 class="lt">Activa tu cuenta @jaliscoedu.mx</h1>
+
+    <div class="body">
+      <p>Tu cuenta institucional es la llave que abre todo: Gemini, las Gemas, NotebookLM y Google for Education. Antes de crear tu primera planeación con IA, vamos a asegurarnos de que puedas entrar sin contratiempos.</p>
+
+      <h3>Pensada para empezar sin fricción</h3>
+      <p>La mayoría de las herramientas de IA te piden crear una cuenta nueva y recordar otra contraseña. Aquí no: <strong>tu cuenta @jaliscoedu.mx</strong> ya es tu acceso. Con un solo inicio de sesión entras a todo el ecosistema, con los datos protegidos por la Secretaría.</p>
+
+      <h3>Cómo funciona este tutorial</h3>
+      <p>Empezarás por activar y verificar tu cuenta. Luego entrarás a Gemini por primera vez, conocerás <strong>qué es una Gema</strong>, crearás la tuya, la configurarás con tu grado y campo formativo, y generarás tu primera planeación. Al final aprenderás a compartirla con tu academia.</p>
+      <p>Cada lección es breve a propósito: <strong>una sola idea, unos pocos minutos</strong>. No necesitas conocimientos técnicos previos.</p>
+
+      <div class="panel">
+        <div class="plabel">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 018 0v3"/></svg>
+          ACCESO INCLUIDO EN TU CUENTA
+        </div>
+        <div class="ptext">Inicia sesión con tu cuenta @jaliscoedu.mx para activar Gemini y las Gemas.</div>
+        <a class="btn" href="#">Iniciar sesión</a>
+      </div>
+
+      <p>No necesitas pagar nada ni usar créditos. Todo lo que verás en este tutorial está <strong>incluido en tu cuenta institucional</strong>, así que puedes probarlo en tiempo real en lugar de solo leerlo. Lo que aparece en pantalla es siempre la herramienta actual, no una captura vieja.</p>
+
+      <h3>El único hábito</h3>
+      <p>No te limites a leer los pasos: <strong>entra y haz clic</strong>. Prueba cada opción que se acaba de activar y observa el resultado para confirmarlo. Si algo no sale como esperabas, no te preocupes: para eso está la Mesa de Ayuda.</p>
+
+      <div class="callout">
+        <span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg></span>
+        <span>Antes de cada paso, ten claro qué esperas que pase. Si el resultado te sorprende, detente un momento: ahí está justo la parte que vale la pena aprender.</span>
+      </div>
+
+      <p>Siguiente parada: <strong>Entra a Gemini por primera vez</strong>. Reconocerás la pantalla y escribirás tu primera indicación.</p>
+    </div>
+
+    <div class="nextbar">
+      <span class="prevlink">Lección 1 de 8</span>
+      <a class="btn-next" href="#">Siguiente lección
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </main>
+
+</div>
+<footer>
+  <div class="wrap">
+    <div class="ft">
+      <div class="ft-brand">
+        <img src="logo-sej.svg" alt="Secretaría de Educación Jalisco">
+        <div>
+          <b>Secretaría de Educación del Gobierno de Jalisco</b>
+          <span>IA para Docentes · Prototipo de lanzamiento</span>
+        </div>
+      </div>
+      <div class="ft-cols">
+        <nav class="ft-col" aria-label="Secciones del portal">
+          <b>Portal</b>
+          <a href="academia-docente-jalisco.html">Inicio</a>
+          <a href="gemas.html">Recursos</a>
+          <a href="banco-gemas.html">Banco de Gemas</a>
+          <a href="ruta.html">Ruta</a>
+          <a href="recuperar-cuenta.html">Mesa de Ayuda</a>
+        </nav>
+        <nav class="ft-col" aria-label="Enlaces institucionales">
+          <b>Institucional</b>
+          <a href="https://apprendedigital.jalisco.gob.mx" target="_blank" rel="noopener">APPrende Digital</a>
+          <a href="https://apprende.jalisco.gob.mx/contacto/" target="_blank" rel="noopener">Contacto</a>
+          <a href="https://transparencia.jalisco.gob.mx/informacion_fundamental/139/186" target="_blank" rel="noopener">Transparencia SEJ</a>
+          <a href="https://apprende.jalisco.gob.mx/aviso-de-privacidad/" target="_blank" rel="noopener">Aviso de privacidad</a>
+        </nav>
+      </div>
+      <div class="ft-social">
+        <a href="https://www.facebook.com/educacion.jalisco" target="_blank" rel="noopener" aria-label="Facebook de Educación Jalisco"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M13.5 21v-7h2.4l.4-3h-2.8V9.1c0-.9.3-1.5 1.6-1.5h1.3V4.9c-.3 0-1.1-.1-2-.1-2 0-3.4 1.2-3.4 3.5V11H8.5v3H11v7h2.5z"/></svg></a>
+        <a href="https://twitter.com/seceducacionjal" target="_blank" rel="noopener" aria-label="X (Twitter) de Educación Jalisco"><svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="M17.5 3h3l-6.6 7.6L21.7 21h-6.1l-4.8-6.2L5.3 21h-3l7-8.1L2.5 3h6.2l4.3 5.7L17.5 3zm-1 16h1.7L7.6 4.7H5.8L16.5 19z"/></svg></a>
+        <a href="https://www.youtube.com/user/educacionjalisco" target="_blank" rel="noopener" aria-label="YouTube de Educación Jalisco"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor"><path d="M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.5 2.5 0 0 0 2.4 7.2 26 26 0 0 0 2 12a26 26 0 0 0 .4 4.8 2.5 2.5 0 0 0 1.8 1.8c1.6.4 7.8.4 7.8.4s6.2 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8A26 26 0 0 0 22 12a26 26 0 0 0-.4-4.8zM10 15.2V8.8l5.2 3.2-5.2 3.2z"/></svg></a>
+      </div>
+    </div>
+    <div class="ft-legal">Soporte: <a href="mailto:alfadireccion.sej@jalisco.gob.mx">alfadireccion.sej@jalisco.gob.mx</a> · Algunos derechos reservados © 2026 · Secretaría de Educación Jalisco</div>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Centro de ayuda · Ruta con las Gemas</title>
+<meta name="description" content="Resuelve tus dudas sobre las Gemas, tu cuenta @jaliscoedu.mx y la ruta del diagnóstico al aula, con ejemplos y animaciones.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0a0a0b; --panel:#141416; --panel-2:#1b1b1e; --line:#26262a;
+    --txt:#f4f4f5; --muted:#9a9aa2; --dim:#8a8a94; --lime:#f5254f;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:radial-gradient(60% 42% at 50% 0%, rgba(245,37,79,.24), transparent 72%) fixed,linear-gradient(rgba(255,255,255,.034) 1px, transparent 1px) 0 0/44px 44px fixed,linear-gradient(90deg, rgba(255,255,255,.034) 1px, transparent 1px) 0 0/44px 44px fixed,var(--bg);color:var(--txt);font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.5}
+  .wrap{max-width:1000px;margin:0 auto;padding:0 22px}
+  a{color:inherit;text-decoration:none}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+  .back{display:inline-flex;align-items:center;gap:9px;color:var(--muted);font-size:15px;font-weight:600}
+  .back:hover{color:var(--txt)} .back svg{width:16px;height:16px}
+  .nav .right{font-size:15px;color:var(--muted)}
+
+  .hero{text-align:center;padding:34px 0 8px}
+  .hero .kick{color:var(--lime);font-family:'Archivo';font-weight:800;font-size:13px;letter-spacing:4px;text-transform:uppercase}
+  .hero h1{font-family:'Archivo';font-weight:900;font-size:42px;letter-spacing:-1.2px;text-transform:uppercase;margin-top:10px}
+  .hero p{color:var(--muted);font-size:16.5px;max-width:600px;margin:14px auto 0}
+  .hero .idx{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:22px}
+  .hero .idx a{background:var(--panel-2);border:1px solid var(--line);border-radius:20px;padding:8px 16px;font-size:14px;font-weight:600;color:var(--muted);transition:.2s}
+  .hero .idx a:hover{color:var(--txt);border-color:var(--lime)}
+
+  h2.sec{font-family:'Archivo';font-weight:900;font-size:28px;letter-spacing:-.6px;text-transform:uppercase;margin:70px 0 6px;text-align:center}
+  .sec-sub{color:var(--muted);font-size:15.5px;text-align:center;max-width:620px;margin:0 auto 26px}
+
+  .cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .c3{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:20px}
+  .c3 .n{width:26px;height:26px;border-radius:50%;background:var(--panel-2);border:1px solid var(--line);display:grid;place-items:center;font-size:14px;color:var(--muted);margin-bottom:12px}
+  .c3 h4{font-size:14.5px;font-weight:700}
+  .c3 p{color:var(--muted);font-size:14.5px;margin-top:6px;line-height:1.55}
+  .c3 p b{color:var(--txt);font-weight:600}
+  .cards3 .c3:nth-child(2) .vwin *{animation-delay:.6s}
+  .cards3 .c3:nth-child(3) .vwin *{animation-delay:1.2s}
+
+  .ej{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+  .ejc{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:20px}
+  .ejc .et{display:inline-block;background:var(--panel-2);border:1px solid var(--line);border-radius:14px;padding:3px 11px;font-size:12px;font-weight:700;color:var(--lime);letter-spacing:.5px;text-transform:uppercase}
+  .ejc h4{font-size:15.5px;font-weight:700;margin-top:10px}
+  .ejc .vwin{margin-top:12px}
+  .ejc p{color:var(--muted);font-size:14px;margin-top:10px;line-height:1.55}
+  .ejc p b{color:var(--txt);font-weight:600}
+  .ej .ejc:nth-child(2) .vwin *{animation-delay:.5s}
+  .ej .ejc:nth-child(3) .vwin *{animation-delay:1s}
+  .ej .ejc:nth-child(4) .vwin *{animation-delay:1.5s}
+
+  .faq{max-width:760px;margin:0 auto}
+  details{background:var(--panel);border:1px solid var(--line);border-radius:14px;margin-top:10px;overflow:hidden}
+  summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:14px;padding:16px 20px;font-size:15.5px;font-weight:600}
+  summary::-webkit-details-marker{display:none}
+  summary .tg{flex:0 0 auto;width:24px;height:24px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;color:var(--muted);font-size:14px;transition:.25s}
+  details[open] summary .tg{transform:rotate(45deg);color:var(--lime);border-color:rgba(245,37,79,.5)}
+  details[open] summary{color:var(--txt)}
+  .ans{padding:0 20px 18px;color:var(--muted);font-size:15px;line-height:1.65;animation:ansIn .35s cubic-bezier(.22,1.12,.32,1)}
+  .ans b{color:var(--txt);font-weight:600}
+  .ans a{color:var(--lime);font-weight:600}
+  @keyframes ansIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+
+  .prob{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .pb{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:20px;transition:.2s}
+  .pb:hover{border-color:#3a3a40;transform:translateY(-2px)}
+  .pb .ic{width:38px;height:38px;border-radius:10px;background:var(--panel-2);border:1px solid var(--line);display:grid;place-items:center;color:var(--lime);margin-bottom:12px;font-size:17px}
+  .pb h4{font-size:14.5px;font-weight:700}
+  .pb p{color:var(--muted);font-size:14px;margin-top:6px;line-height:1.55}
+  .pb a{display:inline-block;margin-top:10px;color:var(--lime);font-size:14px;font-weight:700}
+
+  .cta-fin{margin:80px auto 0;max-width:680px;text-align:center;background:var(--panel);border:1px solid rgba(245,37,79,.35);border-radius:22px;padding:34px 30px}
+  .cta-fin h3{font-family:'Archivo';font-weight:900;font-size:24px;letter-spacing:-.5px}
+  .cta-fin p{color:var(--muted);font-size:15.5px;margin-top:10px}
+  .cta-fin .btns{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:20px}
+  .cta-fin .b1{background:#ececee;color:#0a0a0b;font-weight:800;font-size:14.5px;padding:11px 22px;border-radius:12px}
+  .cta-fin .b2{border:1px solid var(--line);color:var(--muted);font-size:14.5px;font-weight:600;padding:11px 22px;border-radius:12px}
+  .cta-fin .b2:hover{color:var(--txt);border-color:#3a3a40}
+
+  .aviso-uso{max-width:760px;margin:56px auto 0;color:var(--dim);font-size:13.5px;line-height:1.6;border-top:1px solid var(--line);padding-top:18px;text-align:center}
+  .aviso-uso b{color:var(--muted)}
+  footer{margin:46px 0 40px;color:var(--dim);font-size:13.5px;text-align:center}
+
+  .rev{opacity:0;transform:translateY(14px);transition:opacity .55s cubic-bezier(.22,1.12,.32,1),transform .55s cubic-bezier(.22,1.12,.32,1)}
+  .rev.vis{opacity:1;transform:none}
+
+  @media(max-width:860px){
+    .hero h1{font-size:30px}
+    .cards3,.ej,.prob{grid-template-columns:1fr}
+    h2.sec{font-size:23px}
+  }
+  @media (prefers-reduced-motion:reduce){*,*::before,*::after{transition-duration:.01ms !important;animation-duration:.01ms !important;transition-delay:0s !important}html{scroll-behavior:auto}.rev{opacity:1;transform:none}}
+  /* mini-videos de los pasos (se animan al pasar el cursor) */
+  .vwin{position:relative;width:100%;aspect-ratio:16/10;background:#0d0d11;border:1px solid var(--line);border-radius:10px;margin:12px 0 14px;overflow:hidden}
+  .vwin *{animation-play-state:running}
+  .st3:nth-child(2) .vwin *{animation-delay:.6s}
+  .st3:nth-child(3) .vwin *{animation-delay:1.2s}
+  .st3:nth-child(4) .vwin *{animation-delay:1.8s}
+  .wbody{position:relative;height:calc(100% - 16px);transform-origin:50% 45%;transition:transform .4s cubic-bezier(.2,.7,.3,1)}
+  .vwin:hover .wbody{transform:scale(1.07)}
+  .vbar{height:16px;background:#1a1a1f;display:flex;align-items:center;gap:3px;padding:0 7px;border-bottom:1px solid #222}
+  .vbar i{width:5px;height:5px;border-radius:50%;background:#3a3a42}
+  .vbar.light{background:#e9eaee;border-bottom:1px solid #d5d7dd}
+  .vbar.light i{background:#c3c6cd}
+  .vwin.light{background:#fff;border-color:#2e2e34}
+  /* paso 1: banco de gemas */
+  .wsearch{margin:8px 10px 6px;height:12px;border-radius:7px;background:#131318;border:1px solid var(--line)}
+  .wgrid{display:grid;grid-template-columns:1fr 1fr;gap:6px;padding:0 10px}
+  .wgrid .mini{border-radius:5px;border:1.5px solid var(--line);overflow:hidden;background:var(--panel)}
+  .wgrid .mini b{display:block;height:16px}
+  .wgrid .mini i{display:block;height:5px;margin:4px 5px;border-radius:3px;background:#2c2c33}
+  .wgrid .g1 b{background:linear-gradient(135deg,#f5254f,#3a1622)}
+  .wgrid .g2 b{background:linear-gradient(135deg,#a142f4,#2a163a)}
+  .wgrid .g3 b{background:linear-gradient(135deg,#18b7a4,#0f3a34)}
+  .wgrid .g4 b{background:linear-gradient(135deg,#f98a1e,#3a2416)}
+  .wgrid .m-sel{animation:wsel 5s infinite}
+  @keyframes wsel{0%,25%{border-color:var(--line)}40%,75%{border-color:var(--lime)}90%,100%{border-color:var(--line)}}
+  .wcur{position:absolute;z-index:2;pointer-events:none;width:0;height:0;
+    border-left:8px solid #fff;border-bottom:5px solid transparent;border-top:2px solid transparent;
+    filter:drop-shadow(0 1px 2px rgba(0,0,0,.7));transform:rotate(-14deg);top:78%;left:74%;animation:wcur 5s infinite}
+  @keyframes wcur{0%,25%{top:78%;left:74%}40%,75%{top:40%;left:64%}100%{top:78%;left:74%}}
+  /* paso 2: acceso Google */
+  .wlogin{display:flex;flex-direction:column;align-items:center;gap:7px;padding:10px 16px}
+  .wg{font-family:'Archivo';font-weight:800;font-size:13px;line-height:1}
+  .wg span:nth-child(1){color:#4285f4}.wg span:nth-child(2){color:#ea4335}.wg span:nth-child(3){color:#fbbc05}.wg span:nth-child(4){color:#4285f4}.wg span:nth-child(5){color:#34a853}.wg span:nth-child(6){color:#ea4335}
+  .wtitle{color:#3c4043;font-size:8.5px}
+  .wfield{width:100%;height:18px;border-radius:4px;background:#fff;border:1.5px solid #dadce0;display:flex;align-items:center;padding:0 6px;overflow:hidden}
+  .wtype{color:#3c4043;font-size:9px;white-space:nowrap;overflow:hidden;border-right:1.5px solid #1a73e8;animation:wtype 5s steps(22) infinite}
+  @keyframes wtype{0%,10%{width:0}55%,90%{width:100%}98%,100%{width:0}}
+  .wbtn{align-self:flex-end;width:52px;height:15px;border-radius:8px;background:#1a73e8;color:#fff;font-size:7.5px;font-weight:700;display:grid;place-items:center;animation:wbtn 5s infinite}
+  @keyframes wbtn{0%,58%{opacity:.45}68%,80%{opacity:1}92%,100%{opacity:.45}}
+  /* paso 3: chat de Gemini */
+  .wgem{position:absolute;top:6px;left:10px;color:var(--lime);font-size:11px}
+  .wchat{display:flex;flex-direction:column;gap:5px;padding:9px 10px 8px;height:100%;justify-content:flex-end}
+  .wb{max-width:86%;align-self:flex-end;background:#28282e;border-radius:10px 10px 3px 10px;color:#cfcfd6;font-size:8.5px;padding:4px 7px;opacity:0;animation:wbub 6s infinite}
+  .wb.d2{animation-delay:1s}
+  @keyframes wbub{0%,6%{opacity:0;transform:translateY(5px)}14%,82%{opacity:1;transform:none}94%,100%{opacity:0}}
+  .wprompt{align-self:stretch;height:17px;border-radius:9px;background:#131318;border:1px solid #2e2e36;display:flex;align-items:center;gap:4px;padding:0 8px;color:#7a7a84}
+  .wprompt .plus{font-size:9px}
+  .wprompt i{width:4px;height:4px;border-radius:50%;background:var(--lime);animation:wdots 1.2s infinite}
+  .wprompt i:nth-child(3){animation-delay:.2s}
+  .wprompt i:nth-child(4){animation-delay:.4s}
+  @keyframes wdots{0%,100%{opacity:.25;transform:none}50%{opacity:1;transform:translateY(-2px)}}
+  /* paso 4: documento */
+  .wtool{height:10px;background:#f1f3f4;border-bottom:1px solid #e0e2e6;display:flex;align-items:center;gap:2px;padding:0 6px}
+  .wtool i{width:8px;height:4px;border-radius:2px;background:#c9ccd2}
+  .wdoc{position:relative;display:flex;flex-direction:column;gap:5px;padding:9px 12px;background:#fff;height:calc(100% - 10px)}
+  .wl{height:6px;border-radius:3px;background:#e3e5e9}
+  .wl.short{width:68%}
+  .wl.edit{animation:wedit 5s infinite}
+  @keyframes wedit{0%,28%{background:#e3e5e9;width:100%}42%,76%{background:var(--lime);width:80%}90%,100%{background:#e3e5e9;width:100%}}
+  .wok{position:absolute;right:10px;bottom:8px;width:15px;height:15px;border-radius:50%;background:var(--lime);color:#0a0a0b;font-size:9px;font-weight:900;display:grid;place-items:center;opacity:0;animation:wok 5s infinite}
+  @keyframes wok{0%,55%{opacity:0;transform:scale(.4)}66%,88%{opacity:1;transform:scale(1)}100%{opacity:0}}
+  /* pasos 1 y 2 personalizados */
+  .wetapa{position:absolute;inset:11px 21%;padding:1.5px;border-radius:9px;background:conic-gradient(from 210deg,#ea4335,#fbbc05,#34a853,#4285f4,#a142f4,#ea4335)}
+  .wetapa .in{background:#131318;border-radius:8px;height:100%;padding:8px 9px;display:flex;flex-direction:column;gap:4px}
+  .wetapa .k{width:34px;height:4px;border-radius:2px;background:var(--lime)}
+  .wetapa .t{width:72%;height:6px;border-radius:3px;background:#e7e7ec}
+  .wetapa .l{width:88%;height:4px;border-radius:2px;background:#2c2c33}
+  .wetapa .l.s{width:58%}
+  .wetapa .btn{margin-top:auto;width:66%;height:11px;border-radius:6px;background:#ececee;animation:wbtn 5s infinite}
+  .wcur.c2{animation-name:wcur2}
+  @keyframes wcur2{0%,22%{top:26%;left:84%}46%,78%{top:66%;left:44%}100%{top:26%;left:84%}}
+  .wia{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;height:100%;padding:10px;background:radial-gradient(62% 62% at 50% 42%,#10233c 0%,#0b0d12 72%)}
+  .whola{color:#dfe3ea;font-size:9.5px}
+  .wask{width:94%;height:17px;border-radius:9px;background:#1b1d24;border:1px solid #2c2f3a;display:flex;align-items:center;gap:5px;padding:0 8px}
+  .wask .plus{font-size:9px;color:#9aa0ad}
+  .wtypeg{color:#cfd3db;font-size:8.5px;white-space:nowrap;overflow:hidden;border-right:1.5px solid #8ab4f8;animation:wtype 5s steps(26) infinite;max-width:calc(100% - 16px)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <nav class="nav">
+    <a class="back" href="ruta-v2.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg> Volver a la ruta</a>
+    <span class="right">Centro de ayuda</span>
+  </nav>
+
+  <header class="hero">
+    <div class="kick">Centro de ayuda</div>
+    <h1>Resuelve tus dudas sobre las Gemas</h1>
+    <p>Todo lo que necesitas para recorrer la ruta del diagnóstico al aula: cómo funcionan las Gemas, cómo entrar con tu cuenta y qué hacer en cada etapa.</p>
+    <div class="idx">
+      <a href="#esencial">Lo esencial</a>
+      <a href="#ejemplos">Ejemplos por etapa</a>
+      <a href="#faq">Preguntas frecuentes</a>
+      <a href="#problemas">Problemas comunes</a>
+    </div>
+  </header>
+
+  <h2 class="sec rev" id="esencial">Lo esencial en 3 ideas</h2>
+  <p class="sec-sub rev">Así se usa la herramienta. Las animaciones muestran lo que verás en pantalla.</p>
+  <div class="cards3">
+    <div class="c3 rev">
+      <div class="n">1</div>
+      <div class="vwin" aria-hidden="true"><div class="vbar"><i></i><i></i><i></i></div><div class="wbody">
+        <div class="wetapa"><div class="in"><span class="k"></span><span class="t"></span><span class="l"></span><span class="l s"></span><span class="btn"></span></div></div>
+        <span class="wcur c2"></span>
+      </div></div>
+      <h4>Las Gemas se abren desde la ruta</h4>
+      <p>En la página <b>Del diagnóstico al aula</b>, cada etapa tiene su Gema. Pulsa <b>Abrir Gema</b> y se abrirá en otra pestaña de tu navegador.</p>
+    </div>
+    <div class="c3 rev">
+      <div class="n">2</div>
+      <div class="vwin" aria-hidden="true"><div class="vbar light"><i></i><i></i><i></i></div><div class="wbody">
+        <div class="wlogin"><div class="wg"><span>G</span><span>o</span><span>o</span><span>g</span><span>l</span><span>e</span></div><div class="wtitle">Inicia sesión</div><span class="wfield"><span class="wtype">usuario@jaliscoedu.mx</span></span><span class="wbtn">Siguiente</span></div>
+      </div></div>
+      <h4>Siempre con tu cuenta institucional</h4>
+      <p>Las Gemas funcionan con tu cuenta <b>@jaliscoedu.mx</b>. Si entras con otra cuenta de Google, es posible que no tengas acceso.</p>
+    </div>
+    <div class="c3 rev">
+      <div class="n">3</div>
+      <div class="vwin" aria-hidden="true"><div class="vbar"><i></i><i></i><i></i></div><div class="wbody">
+        <div class="wtabs"><b class="t1"></b><b class="t2"></b><b class="t3"></b><b class="t4"></b></div>
+        <span class="wback">↩</span>
+      </div></div>
+      <h4>Cada resultado alimenta al siguiente</h4>
+      <p>Guarda lo que generes en cada etapa: el diagnóstico sirve para el programa, el programa para la planeación y así hasta la evaluación.</p>
+    </div>
+  </div>
+
+  <h2 class="sec rev" id="ejemplos">Ejemplos de qué escribir en cada etapa</h2>
+  <p class="sec-sub rev">No hay fórmulas mágicas: describe tu contexto con claridad. Estos son ejemplos reales de indicaciones.</p>
+  <div class="ej">
+    <div class="ejc rev">
+      <span class="et">Etapa 1 · Diagnóstico</span>
+      <h4>Describe a tu grupo</h4>
+      <div class="vwin" aria-hidden="true"><div class="vbar"><i></i><i></i><i></i></div><div class="wbody">
+        <div class="wia"><span class="whola">Hola, ¿qué quieres hacer?</span><span class="wask"><span class="plus">＋</span><span class="wtypeg">Soy docente de 4° de primaria, 28 estudiantes…</span></span></div>
+      </div></div>
+      <p>Indica <b>nivel, grado, número de estudiantes</b>, contexto de la escuela y lo que has observado. La Gema te guiará con preguntas.</p>
+    </div>
+    <div class="ejc rev">
+      <span class="et">Etapa 2 · Programa analítico</span>
+      <h4>Comparte tu diagnóstico</h4>
+      <div class="vwin" aria-hidden="true"><div class="vbar"><i></i><i></i><i></i></div><div class="wbody">
+        <div class="wia"><span class="whola">Hola, ¿qué quieres hacer?</span><span class="wask"><span class="plus">＋</span><span class="wtypeg">Con este diagnóstico, ayúdame a contextualizar…</span></span></div>
+      </div></div>
+      <p>Pega o adjunta el <b>diagnóstico de la etapa anterior</b> y pide contextualizar los contenidos a tu comunidad y campos formativos.</p>
+    </div>
+    <div class="ejc rev">
+      <span class="et">Etapa 3 · Planeación</span>
+      <h4>Pide secuencias alineadas a los PDA</h4>
+      <div class="vwin" aria-hidden="true"><div class="vbar"><i></i><i></i><i></i></div><div class="wbody">
+        <div class="wia"><span class="whola">Hola, ¿qué quieres hacer?</span><span class="wask"><span class="plus">＋</span><span class="wtypeg">Genera una secuencia para el PDA de fracciones…</span></span></div>
+      </div></div>
+      <p>Señala el <b>PDA, el propósito y el tiempo disponible</b>. Pide actividades, materiales y evidencias, y ajusta lo que no encaje con tu grupo.</p>
+    </div>
+    <div class="ejc rev">
+      <span class="et">Etapa 4 · Evaluación</span>
+      <h4>Solicita rúbricas e instrumentos</h4>
+      <div class="vwin" aria-hidden="true"><div class="vbar"><i></i><i></i><i></i></div><div class="wbody">
+        <div class="wia"><span class="whola">Hola, ¿qué quieres hacer?</span><span class="wask"><span class="plus">＋</span><span class="wtypeg">Crea una rúbrica por PDA para esta planeación…</span></span></div>
+      </div></div>
+      <p>A partir de tu planeación, pide <b>rúbricas, listas de cotejo o retroalimentación</b> por PDA. Revisa los niveles de logro y adáptalos.</p>
+    </div>
+  </div>
+
+  <h2 class="sec rev" id="faq">Preguntas frecuentes</h2>
+  <p class="sec-sub rev">Las dudas que más nos comparten las y los docentes.</p>
+  <div class="faq rev">
+    <details>
+      <summary>¿Necesito saber de inteligencia artificial para usar las Gemas?<span class="tg">＋</span></summary>
+      <div class="ans">No. Las Gemas ya están configuradas para cada etapa: tú solo describes tu grupo y tu intención pedagógica en lenguaje natural, como si conversaras con un colega. Si puedes escribir un mensaje, puedes usar una Gema.</div>
+    </details>
+    <details>
+      <summary>¿Qué cuenta necesito y qué pasa si no la tengo activa?<span class="tg">＋</span></summary>
+      <div class="ans">Necesitas tu cuenta institucional <b>@jaliscoedu.mx</b>. Si no la recuerdas o no la has activado, sigue la guía de <a href="recuperar-cuenta-v2.html">Primeros pasos con tu cuenta</a> antes de abrir una Gema.</div>
+    </details>
+    <details>
+      <summary>¿Las Gemas guardan mi avance entre etapas?<span class="tg">＋</span></summary>
+      <div class="ans">No automáticamente. Por eso cada etapa te recuerda <b>guardar o copiar tu resultado</b> (documento, texto o archivo). Ese producto es tu insumo para la siguiente etapa: tú decides dónde guardarlo (Drive, tu computadora o impreso).</div>
+    </details>
+    <details>
+      <summary>¿Puedo empezar en cualquier etapa o saltarme alguna?<span class="tg">＋</span></summary>
+      <div class="ans">Puedes entrar a la etapa que necesites; la ruta no es rígida. Pero cada Gema aprovecha el producto de la anterior: si llegas a Planeación sin diagnóstico ni programa, las propuestas serán más genéricas. Recorrerla en orden da mejores resultados.</div>
+    </details>
+    <details>
+      <summary>¿Lo que genera la Gema es la versión final?<span class="tg">＋</span></summary>
+      <div class="ans">Nunca. Las respuestas son <b>sugerencias elaboradas a partir de la información que proporcionas</b>. La decisión pedagógica, la contextualización y la versión final corresponden siempre a ti y a tu colectivo escolar.</div>
+    </details>
+    <details>
+      <summary>¿Puedo escribir nombres de mis estudiantes?<span class="tg">＋</span></summary>
+      <div class="ans"><b>No ingreses nombres ni datos personales de estudiantes.</b> Describe al grupo de forma general: grado, número de estudiantes, características, necesidades. La orientación pedagógica no requiere identificar a nadie.</div>
+    </details>
+    <details>
+      <summary>¿Qué son las referencias oficiales que aparecen junto a cada etapa?<span class="tg">＋</span></summary>
+      <div class="ans">Son documentos de la <b>SEP y de la Secretaría de Educación Jalisco</b> (orientaciones de CTE, programas sintéticos, líneas de evaluación) que enriquecen tu trabajo en esa etapa. Algunas corresponden a ciclos anteriores: contrástalas con las disposiciones vigentes.</div>
+    </details>
+  </div>
+
+  <h2 class="sec rev" id="problemas">Problemas comunes</h2>
+  <p class="sec-sub rev">Soluciones rápidas antes de escribir a la mesa de ayuda.</p>
+  <div class="prob">
+    <div class="pb rev">
+      <div class="ic">🔑</div>
+      <h4>No puedo entrar a la Gema</h4>
+      <p>Verifica que iniciaste sesión con tu cuenta @jaliscoedu.mx y no con tu Gmail personal. Cierra sesión de otras cuentas e inténtalo de nuevo.</p>
+      <a href="recuperar-cuenta-v2.html">Recuperar mi cuenta ▸</a>
+    </div>
+    <div class="pb rev">
+      <div class="ic">🧭</div>
+      <h4>La Gema responde muy general</h4>
+      <p>Suele faltar contexto. Comparte tu diagnóstico o planeación, indica grado, PDA y propósito, y pide ajustes específicos: mientras más contexto, mejor propuesta.</p>
+    </div>
+    <div class="pb rev">
+      <div class="ic">📄</div>
+      <h4>Perdí el resultado de una etapa</h4>
+      <p>Abre de nuevo la Gema de esa etapa y vuelve a generarlo: con tu misma información llegarás a un producto equivalente. Esta vez, guárdalo en tu Drive.</p>
+    </div>
+  </div>
+
+  <div class="cta-fin rev">
+    <h3>¿Sigues con dudas?</h3>
+    <p>El equipo de la mesa de ayuda de la Secretaría de Educación Jalisco puede acompañarte con tu cuenta, las Gemas o cualquier paso de la ruta.</p>
+    <div class="btns">
+      <a class="b1" href="https://apprende.jalisco.gob.mx/contacto/" target="_blank" rel="noopener">Contactar a la mesa de ayuda ↗</a>
+      <a class="b2" href="ruta-v2.html">Volver a la ruta</a>
+    </div>
+  </div>
+
+  <p class="aviso-uso">Las Gemas son asistentes de apoyo que ofrecen orientaciones y sugerencias para el diagnóstico, el programa analítico, la planeación y la evaluación. <b>Nunca sustituyen el conocimiento, la experiencia ni el criterio profesional del docente.</b> Revisa, adapta y valida cada propuesta de acuerdo con las necesidades, el contexto y los aprendizajes de tu grupo.</p>
+
+  <footer>Secretaría de Educación del Gobierno de Jalisco · IA para Docentes</footer>
+</div>
+
+<script>
+(function(){
+  if(!('IntersectionObserver' in window)){Array.prototype.forEach.call(document.querySelectorAll('.rev'),function(e){e.classList.add('vis');});return;}
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('vis');io.unobserve(e.target);}});
+  },{threshold:.12});
+  Array.prototype.forEach.call(document.querySelectorAll('.rev'),function(e){io.observe(e);});
+})();
+</script>
+</body>
+</html>

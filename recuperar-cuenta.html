@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Mesa de Ayuda del portal IA para Docentes: crea o recupera tu cuenta @jaliscoedu.mx y accede a Gemini, Google Workspace, APPrende y Mi Muro.">
+<link rel="icon" href="logo-sej.svg" type="image/svg+xml">
+<meta property="og:title" content="Mesa de Ayuda · Tu cuenta jaliscoedu.mx">
+<meta property="og:description" content="Crea o recupera tu cuenta institucional y accede a todo el ecosistema de la SEJ.">
+<meta property="og:image" content="mesa-ayuda-llave.jpg">
+<title>Recupera tu cuenta jaliscoedu.mx · Mesa de Ayuda · IA para Docentes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#0a0a0b;--panel:#141416;--panel-2:#1b1b1e;--line:#26262a;--txt:#f4f4f5;--muted:#9a9aa2;--dim:#8a8a94;--lime:#c8f135;--radius:18px}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:radial-gradient(60% 42% at 50% 0%, rgba(200,241,53,.17), transparent 72%) fixed,linear-gradient(rgba(255,255,255,.034) 1px, transparent 1px) 0 0/44px 44px fixed,linear-gradient(90deg, rgba(255,255,255,.034) 1px, transparent 1px) 0 0/44px 44px fixed,var(--bg);color:var(--txt);font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.5}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 22px}
+  a{color:inherit;text-decoration:none}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:18px 0 6px}
+  .brand{display:flex;align-items:center;gap:9px;font-weight:800;font-family:'Archivo';font-size:15px}
+  .brand-logo{height:36px;width:auto;display:block}
+  .crumb{color:var(--muted);font-size:14.5px;margin-top:14px}
+  .crumb a{color:var(--muted)}
+  .crumb a:hover{color:var(--txt)}
+  .hero{position:relative;margin-top:20px;border-radius:24px;overflow:hidden;min-height:330px;display:flex;align-items:center;background:#0c0e13}
+  .hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:right center;z-index:0}
+  .hero::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,#0a0c12 0%,rgba(10,12,18,.9) 30%,rgba(10,12,18,.55) 50%,rgba(10,12,18,.08) 70%,rgba(10,12,18,0) 100%)}
+  .hero-inner{position:relative;z-index:2;padding:42px 44px;max-width:560px}
+  .kick{color:var(--lime);font-family:'Archivo';font-weight:800;font-size:13px;letter-spacing:5px}
+  h1{font-family:'Archivo';font-weight:900;font-size:36px;line-height:1.02;letter-spacing:-.8px;text-transform:uppercase;margin:12px 0 0;max-width:480px;color:#fff}
+  .lead{color:#c3c6cf;font-size:16.5px;margin-top:14px;max-width:440px}
+  @media(max-width:760px){.hero-inner{padding:28px 24px}h1{font-size:26px}.hero::after{background:linear-gradient(90deg,#0a0c12 0%,rgba(10,12,18,.82) 55%,rgba(10,12,18,.35) 80%,rgba(10,12,18,.15) 100%)}}
+  .sec{margin-top:44px}
+  .sec h2{font-family:'Archivo';font-weight:800;font-size:22px;letter-spacing:-.2px}
+  .sec .sub{color:var(--muted);font-size:13.5px;margin-top:6px;max-width:560px}
+  /* triaje estilo referencia */
+  .tri-head{text-align:center}
+  .tri-ic{width:48px;height:48px;margin:0 auto 14px;border-radius:13px;background:linear-gradient(135deg,#c8f135,#7fae12);display:grid;place-items:center;font-size:23px}
+  .tri-head h2{text-transform:uppercase;letter-spacing:-.2px}
+  .tri-head .sub{margin-left:auto;margin-right:auto}
+                          .tri-label{margin:44px 0 14px;font-family:'Archivo';font-weight:800;font-size:14px;letter-spacing:2.5px;text-transform:uppercase}
+  .triage{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .tcard{display:flex;flex-direction:column;gap:8px;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:12px 12px 16px;transition:.2s border-color,.2s transform}
+  .tcard:hover{border-color:#3a3a40;transform:translateY(-2px)}
+  .tart{width:100%;height:150px;object-fit:cover;border-radius:12px;display:block;margin-bottom:6px}
+  .tcard h3{font-size:15px;font-weight:700;padding:0 6px}
+  .tcard p{color:var(--muted);font-size:14.5px;line-height:1.55;flex:1;padding:0 6px}
+  .tcard .go{color:var(--lime);font-size:15px;font-weight:700;padding:0 6px}
+  /* ventajas */
+  .vent{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:20px}
+  .vcardv{display:flex;flex-direction:column;gap:8px;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:18px 16px;transition:.2s border-color,.2s transform}
+  .vcardv:hover{border-color:#3a3a40;transform:translateY(-2px)}
+  .vcardv .vic{width:34px;height:34px;border-radius:10px;background:var(--panel-2);border:1px solid var(--line);display:grid;place-items:center;font-size:18px;color:var(--lime)}
+  .vcardv h3{font-size:14.5px;font-weight:700}
+  .vcardv p{color:var(--muted);font-size:14.5px;line-height:1.5;flex:1;margin:0}
+  .vcardv .vtag{align-self:flex-start;background:var(--panel-2);border:1px solid var(--line);color:var(--muted);font-size:14px;padding:4px 9px;border-radius:16px}
+  .vcardv.destacada{border-color:rgba(200,241,53,.35)}
+  .vcardv .vtag.lime{color:var(--lime);border-color:rgba(200,241,53,.35)}
+  /* seguridad */
+  .safe{margin-top:44px;background:var(--panel);border:1px solid rgba(200,241,53,.35);border-radius:var(--radius);padding:22px 24px;display:flex;gap:16px;align-items:flex-start}
+  .safe .sic{flex:0 0 38px;width:38px;height:38px;border-radius:10px;background:var(--panel-2);border:1px solid var(--line);display:grid;place-items:center;font-size:20px;color:var(--lime)}
+  .safe h3{font-family:'Archivo';font-weight:800;font-size:15px}
+  .safe p{color:var(--muted);font-size:15px;margin-top:6px;max-width:720px}
+  .safe b{color:var(--txt);font-weight:600}
+  /* ayuda extra */
+  .nova{margin-top:20px;color:var(--muted);font-size:15px;max-width:720px}
+  .nova a{color:var(--lime);font-weight:600}
+  footer{margin:60px 0 40px;color:var(--dim);font-size:13.5px;text-align:center;border-top:1px solid var(--line);padding-top:22px}
+  @media(max-width:820px){.triage{grid-template-columns:1fr}.vent{grid-template-columns:1fr 1fr}h1{font-size:27px}}
+  @media(max-width:520px){.vent{grid-template-columns:1fr}}
+  a:focus-visible,button:focus-visible{outline:2px solid var(--lime);outline-offset:2px;border-radius:8px}
+    .extc{position:relative}
+  .extc::after{content:"↗";position:absolute;top:10px;right:13px;color:var(--dim);font-size:13px}
+  .tcard.extc::after{color:rgba(255,255,255,.55)}
+  @media (prefers-reduced-motion:reduce){*,*::before,*::after{transition-duration:.01ms !important;animation-duration:.01ms !important}html{scroll-behavior:auto}}
+  .ft{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;text-align:left}
+  .ft-brand{display:flex;align-items:center;gap:12px}
+  .ft-brand img{height:42px;width:auto}
+  .ft-brand b{display:block;color:var(--muted);font-size:14.5px;font-weight:600}
+  .ft-brand span{color:var(--dim);font-size:13px}
+  .ft-links{display:flex;gap:18px;flex-wrap:wrap}
+  .ft-links a{color:var(--muted);font-size:14px}
+  .ft-links a:hover{color:var(--txt)}
+  .ft-social{display:flex;gap:10px}
+  .ft-social a{width:36px;height:36px;border-radius:50%;background:var(--panel-2);border:1px solid var(--line);display:grid;place-items:center;color:var(--muted);transition:.2s}
+  .ft-social a:hover{color:var(--txt);border-color:var(--lime)}
+  .ft-legal{margin-top:20px;color:var(--dim);font-size:13px;text-align:center;border-top:1px solid var(--line);padding-top:16px}
+  .ft-cols{display:flex;gap:44px;flex-wrap:wrap}
+  .ft-col{display:flex;flex-direction:column;gap:7px}
+  .ft-col b{color:var(--dim);font-size:12.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:3px}
+  .ft-col a{color:var(--muted);font-size:14px}
+  .ft-col a:hover{color:var(--txt)}
+  .ft-legal a{color:var(--muted)}
+  .ft-legal a:hover{color:var(--txt)}
+  .ft{align-items:flex-start}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <nav class="nav">
+    <a class="brand" href="academia-docente-jalisco.html"><img src="logo-sej.svg" class="brand-logo" alt="Secretaría de Educación Jalisco"> IA para Docentes</a>
+    <a class="crumb" href="academia-docente-jalisco.html">← Volver al inicio</a>
+  </nav>
+
+  <nav class="crumb" aria-label="Ruta de navegación"><a href="academia-docente-jalisco.html">IA para Docentes</a> / <span aria-current="page">Mesa de ayuda</span></nav>
+
+  <header class="hero">
+    <img src="mesa-ayuda-llave.jpg" class="hero-bg" alt="Llave luminosa con el dominio @jaliscoedu.mx frente a una laptop" onerror="this.style.display='none'">
+    <div class="hero-inner">
+      <div class="kick">MESA DE AYUDA</div>
+      <h1>Recupera tu cuenta jaliscoedu.mx</h1>
+      <p class="lead">¿No puedes acceder a tu cuenta jaliscoedu.mx? Recibe acompañamiento para restablecer tu acceso y volver a ingresar a tus servicios institucionales.</p>
+    </div>
+  </header>
+
+  <section class="sec tri">
+    <div class="tri-head">
+      <div class="tri-ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#0a0a0b" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13a8 8 0 0 1 16 0"/><rect x="2.6" y="13" width="4.2" height="6" rx="2"/><rect x="17.2" y="13" width="4.2" height="6" rx="2"/><path d="M19.5 19a4.5 4.5 0 0 1-4.5 2.4"/></svg></div>
+      <h2>¿Cuál es tu caso?</h2>
+      <div class="sub">Elige tu situación y te llevamos directo al trámite oficial en Mi SEJ. Ten a la mano tu CURP y tu correo alternativo registrado.</div>
+    </div>
+
+
+
+    <div class="tri-label">Qué resuelve cada trámite</div>
+    <div class="triage">
+      <a class="tcard extc" href="https://mi.sej.jalisco.gob.mx/recuperar_cuenta" target="_blank" rel="noopener" title="Se abre en pestaña nueva">
+        <img class="tart" src="tri-usuario.jpg" alt="" aria-hidden="true" onerror="this.style.display='none'">
+        <h3>No recuerdo mi usuario</h3>
+        <p>Olvidaste cuál es tu cuenta @jaliscoedu.mx o nunca la anotaste. Recupera tu nombre de usuario con tus datos de verificación.</p>
+        <span class="go">Recuperar usuario en Mi SEJ →</span>
+      </a>
+      <a class="tcard extc" href="https://mi.sej.jalisco.gob.mx/recuperar_password" target="_blank" rel="noopener" title="Se abre en pestaña nueva">
+        <img class="tart" src="tri-password.jpg" alt="" aria-hidden="true" onerror="this.style.display='none'">
+        <h3>No recuerdo mi contraseña</h3>
+        <p>Conoces tu cuenta pero la contraseña no funciona. Restablécela con tu correo alternativo registrado.</p>
+        <span class="go">Restablecer contraseña →</span>
+      </a>
+      <a class="tcard extc" href="https://mi.sej.jalisco.gob.mx/ayuda" target="_blank" rel="noopener" title="Se abre en pestaña nueva">
+        <img class="tart" src="tri-ticket.jpg" alt="" aria-hidden="true" onerror="this.style.display='none'">
+        <h3>Otro problema</h3>
+        <p>Tu cuenta está bloqueada, no existe o nada de lo anterior funcionó. Abre un ticket con el asistente virtual NOVA: escribe “Hola”, elige tu perfil y guarda tu número de ticket.</p>
+        <span class="go">Abrir un ticket de ayuda →</span>
+      </a>
+    </div>
+    <p class="nova">El estatus de tu ticket llega a tu correo. Si lo necesitas, consulta las <a href="https://mi.sej.jalisco.gob.mx/preguntas_frecuentes" target="_blank" rel="noopener">preguntas frecuentes de Mi SEJ</a> o escribe a <a href="mailto:alfadireccion.sej@jalisco.gob.mx">alfadireccion.sej@jalisco.gob.mx</a>.</p>
+  </section>
+
+  <section class="sec">
+    <h2>Tu cuenta @jaliscoedu.mx es la llave:</h2>
+    <div class="sub">Accede a todo el ecosistema de la Secretaría: contenidos, trámites, formación, Google Workspace, la IA de Gemini y más...</div>
+    <div class="vent">
+      <a class="vcardv extc" href="https://apprendedigital.jalisco.gob.mx" target="_blank" rel="noopener" title="Se abre en pestaña nueva">
+        <div class="vic" aria-hidden="true">▤</div>
+        <h3>APPrende</h3>
+        <p>La plataforma educativa de la SEJ (antes RecreaApp): contenidos, recursos didácticos y comunicados para tu práctica, también desde la app móvil.</p>
+        <span class="vtag">Contenidos · Recursos</span>
+      </a>
+      <a class="vcardv extc" href="https://mimuro.jalisco.gob.mx" target="_blank" rel="noopener" title="Se abre en pestaña nueva">
+        <div class="vic" aria-hidden="true">◫</div>
+        <h3>Mi Muro</h3>
+        <p>Trámites administrativos ante la Secretaría sin filas: solicita, da seguimiento y comunícate con las áreas 24/7.</p>
+        <span class="vtag">Trámites · Personal SEJ</span>
+      </a>
+      <a class="vcardv" href="curso-primeros-pasos.html">
+        <div class="vic" aria-hidden="true">✉</div>
+        <h3>Google Workspace</h3>
+        <p>Gmail, Drive, Classroom, Meet y Docs institucionales, sin costo. Más de 80 mil docentes de Jalisco ya usan su cuenta educativa.</p>
+        <span class="vtag">Incluido desde 2019</span>
+      </a>
+      <a class="vcardv destacada" href="gemas.html">
+        <div class="vic" aria-hidden="true">✦</div>
+        <h3>Gemini y las Gemas</h3>
+        <p>IA para planear, evaluar y crear materiales: Gemini, NotebookLM y las Gemas de este portal, incluidos en tu cuenta.</p>
+        <span class="vtag lime">El corazón de este portal</span>
+      </a>
+      <a class="vcardv extc" href="https://formacionse.jalisco.gob.mx" target="_blank" rel="noopener" title="Se abre en pestaña nueva">
+        <div class="vic" aria-hidden="true">◔</div>
+        <h3>Formación y certificaciones</h3>
+        <p>Cursos y talleres de la SEJ, Gemini Academy y becas de certificación Google para Educadores, con constancias para tu trayectoria.</p>
+        <span class="vtag">Formación continua</span>
+      </a>
+      <a class="vcardv extc" href="https://mi.sej.jalisco.gob.mx" target="_blank" rel="noopener" title="Se abre en pestaña nueva">
+        <div class="vic" aria-hidden="true">⚙</div>
+        <h3>Mi SEJ</h3>
+        <p>Administra tu cuenta: actívala con los datos de tu talón de pago, recupera usuario o contraseña y recibe soporte técnico.</p>
+        <span class="vtag">Gestión de tu cuenta</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="safe">
+    <div class="sic" aria-hidden="true">🛡</div>
+    <div>
+      <h3>Protege tu cuenta</h3>
+      <p>La Secretaría <b>nunca</b> te pedirá tu contraseña por WhatsApp, llamada o correo. El único sitio oficial para recuperar tu cuenta es <b>mi.sej.jalisco.gob.mx</b>. Ante cualquier mensaje sospechoso, no compartas tus datos y repórtalo a la Mesa de Ayuda.</p>
+    </div>
+  </section>
+
+<footer>
+  <div class="wrap">
+    <div class="ft">
+      <div class="ft-brand">
+        <img src="logo-sej.svg" alt="Secretaría de Educación Jalisco">
+        <div>
+          <b>Secretaría de Educación del Gobierno de Jalisco</b>
+          <span>IA para Docentes · Prototipo de lanzamiento</span>
+        </div>
+      </div>
+      <div class="ft-cols">
+        <nav class="ft-col" aria-label="Secciones del portal">
+          <b>Portal</b>
+          <a href="academia-docente-jalisco.html">Inicio</a>
+          <a href="gemas.html">Recursos</a>
+          <a href="banco-gemas.html">Banco de Gemas</a>
+          <a href="ruta.html">Ruta</a>
+          <a href="recuperar-cuenta.html">Mesa de Ayuda</a>
+        </nav>
+        <nav class="ft-col" aria-label="Enlaces institucionales">
+          <b>Institucional</b>
+          <a href="https://apprendedigital.jalisco.gob.mx" target="_blank" rel="noopener">APPrende Digital</a>
+          <a href="https://apprende.jalisco.gob.mx/contacto/" target="_blank" rel="noopener">Contacto</a>
+          <a href="https://transparencia.jalisco.gob.mx/informacion_fundamental/139/186" target="_blank" rel="noopener">Transparencia SEJ</a>
+          <a href="https://apprende.jalisco.gob.mx/aviso-de-privacidad/" target="_blank" rel="noopener">Aviso de privacidad</a>
+        </nav>
+      </div>
+      <div class="ft-social">
+        <a href="https://www.facebook.com/educacion.jalisco" target="_blank" rel="noopener" aria-label="Facebook de Educación Jalisco"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M13.5 21v-7h2.4l.4-3h-2.8V9.1c0-.9.3-1.5 1.6-1.5h1.3V4.9c-.3 0-1.1-.1-2-.1-2 0-3.4 1.2-3.4 3.5V11H8.5v3H11v7h2.5z"/></svg></a>
+        <a href="https://twitter.com/seceducacionjal" target="_blank" rel="noopener" aria-label="X (Twitter) de Educación Jalisco"><svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="M17.5 3h3l-6.6 7.6L21.7 21h-6.1l-4.8-6.2L5.3 21h-3l7-8.1L2.5 3h6.2l4.3 5.7L17.5 3zm-1 16h1.7L7.6 4.7H5.8L16.5 19z"/></svg></a>
+        <a href="https://www.youtube.com/user/educacionjalisco" target="_blank" rel="noopener" aria-label="YouTube de Educación Jalisco"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor"><path d="M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.5 2.5 0 0 0 2.4 7.2 26 26 0 0 0 2 12a26 26 0 0 0 .4 4.8 2.5 2.5 0 0 0 1.8 1.8c1.6.4 7.8.4 7.8.4s6.2 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8A26 26 0 0 0 22 12a26 26 0 0 0-.4-4.8zM10 15.2V8.8l5.2 3.2-5.2 3.2z"/></svg></a>
+      </div>
+    </div>
+    <div class="ft-legal">Soporte: <a href="mailto:alfadireccion.sej@jalisco.gob.mx">alfadireccion.sej@jalisco.gob.mx</a> · Algunos derechos reservados © 2026 · Secretaría de Educación Jalisco</div>
+  </div>
+</footer>
+
+</div>
+
+</body>
+</html>

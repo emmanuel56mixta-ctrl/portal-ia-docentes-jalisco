@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Banco de Gemas especializadas para docentes de educación básica de Jalisco: valores, proyectos, LEO y matemáticas.">
+<link rel="icon" href="logo-sej.svg" type="image/svg+xml">
+<title>Banco de Gemas especializadas · IA para Docentes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#0a0a0b;--panel:#141416;--panel-2:#1b1b1e;--line:#26262a;--txt:#f4f4f5;--muted:#9a9aa2;--dim:#8a8a94;--lime:#c8f135;--radius:18px}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:radial-gradient(60% 42% at 50% 0%, rgba(200,241,53,.17), transparent 72%) fixed,linear-gradient(rgba(255,255,255,.034) 1px, transparent 1px) 0 0/44px 44px fixed,linear-gradient(90deg, rgba(255,255,255,.034) 1px, transparent 1px) 0 0/44px 44px fixed,var(--bg);color:var(--txt);font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.5}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+  a{color:inherit;text-decoration:none}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:18px 0 6px}
+  .brand{display:flex;align-items:center;gap:9px;font-weight:800;font-family:'Archivo';font-size:15px}
+  .brand-logo{height:36px;width:auto;display:block}
+  .crumb{color:var(--muted);font-size:14.5px;margin-top:14px}
+  .crumb a:hover{color:var(--txt)}
+  .head{position:relative;margin-top:26px;border-radius:22px;overflow:hidden;border:1px solid var(--line);min-height:300px;display:flex;align-items:center;justify-content:flex-end;padding:36px 40px}
+  .head-vid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:left center;z-index:0}
+  .head::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(8,8,10,0) 0%,rgba(10,10,12,.12) 38%,rgba(8,8,10,.7) 60%,rgba(8,8,10,.93) 100%)}
+  .head-txt{position:relative;z-index:2;max-width:560px;background:rgba(10,10,13,.74);backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px);border:1px solid rgba(255,255,255,.09);border-radius:16px;padding:22px 26px}
+  @media(max-width:760px){
+    .head{justify-content:flex-start;align-items:flex-end;min-height:340px;padding:24px 22px}
+    .head::after{background:linear-gradient(0deg,rgba(8,8,10,.9) 0%,rgba(8,8,10,.55) 55%,rgba(8,8,10,.1) 100%)}
+  }
+  .kick{color:var(--lime);font-family:'Archivo';font-weight:800;font-size:13px;letter-spacing:4px;text-transform:uppercase}
+  h1{font-family:'Archivo';font-weight:900;font-size:30px;letter-spacing:-.5px;margin-top:10px;text-transform:uppercase}
+  .sub{color:var(--muted);font-size:15.5px;margin-top:10px;max-width:640px}
+  /* buscador */
+  .rbar{margin:26px 0 0;max-width:640px;display:flex;align-items:center;gap:10px;background:#131318;border:1px solid rgba(255,255,255,.08);border-radius:32px;padding:8px 8px 8px 20px;box-shadow:0 0 46px rgba(200,241,53,.13),0 10px 34px rgba(0,0,0,.45);transition:.25s border-color,.25s box-shadow}
+  .rbar:focus-within{border-color:rgba(200,241,53,.5);box-shadow:0 0 64px rgba(200,241,53,.24),0 10px 34px rgba(0,0,0,.45)}
+  .rb-ic{flex:0 0 auto;display:grid;place-items:center;color:var(--muted)}
+  .rbar input{flex:1;background:none;border:0;outline:none;color:var(--txt);font-family:inherit;font-size:15.5px;height:40px}
+  .rbar input::placeholder{color:var(--muted)}
+  /* chips */
+  .bg-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+  .bg-chip{display:inline-flex;align-items:center;gap:7px;background:var(--panel-2);border:1px solid var(--line);border-radius:20px;padding:8px 15px;font-size:14px;font-weight:600;color:var(--muted);cursor:pointer;font-family:inherit;transition:.2s}
+  .bg-chip:hover{color:var(--txt);border-color:#3a3a40}
+  .bg-chip.on{color:var(--txt);border-color:var(--lime)}
+  .bg-dot{width:9px;height:9px;border-radius:50%;flex:0 0 9px}
+  .bg-meta{display:flex;align-items:center;gap:14px;margin-top:16px;color:var(--dim);font-size:14px}
+  .bg-clear{background:none;border:0;color:var(--lime);font-weight:600;font-size:14px;cursor:pointer;font-family:inherit}
+  /* grid estilo showcase */
+  .hg-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:20px}
+  @media(max-width:1000px){.hg-grid{grid-template-columns:repeat(3,1fr)}}
+  @media(max-width:760px){.hg-grid{grid-template-columns:1fr 1fr}}
+  @media(max-width:500px){.hg-grid{grid-template-columns:1fr}}
+  .hg-card{display:flex;flex-direction:column;background:var(--panel);border:1px solid var(--line);border-radius:14px;overflow:hidden;transition:.2s border-color,.2s transform}
+  .hg-card:hover{border-color:#3a3a40;transform:translateY(-2px)}
+  .hg-thumb{height:118px;display:flex;align-items:flex-end;padding:12px}
+  .hg-thumb span{font-family:'Archivo';font-weight:900;font-size:15.5px;line-height:1.1;letter-spacing:-.2px;text-transform:uppercase;color:#fff;text-shadow:0 2px 10px rgba(0,0,0,.55)}
+  .hg-body{padding:11px 13px 13px;display:flex;flex-direction:column;gap:9px}
+  .hg-chips{display:flex;flex-wrap:wrap;gap:6px}
+  .hg-tag{border:1px solid;border-radius:14px;padding:3px 9px;font-size:12.5px;font-weight:700}
+  .hg-campo{background:var(--panel-2);border:1px solid var(--line);border-radius:14px;padding:3px 9px;font-size:12.5px;color:var(--muted)}
+  .hg-stats{display:flex;flex-wrap:wrap;gap:10px;color:var(--dim);font-size:12.5px;align-items:center}
+  .hg-eje{margin-left:auto;font-weight:700;font-size:11.5px;text-transform:uppercase;letter-spacing:.4px}
+  .bg-empty{color:var(--muted);font-size:15px;margin-top:26px}
+  footer{margin:60px 0 40px;color:var(--dim);font-size:13.5px;text-align:center;border-top:1px solid var(--line);padding-top:22px}
+  a:focus-visible,button:focus-visible{outline:2px solid var(--lime);outline-offset:2px;border-radius:8px}
+  @media (prefers-reduced-motion:reduce){*,*::before,*::after{transition-duration:.01ms !important;animation-duration:.01ms !important}html{scroll-behavior:auto}}
+  .ft{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;text-align:left}
+  .ft-brand{display:flex;align-items:center;gap:12px}
+  .ft-brand img{height:42px;width:auto}
+  .ft-brand b{display:block;color:var(--muted);font-size:14.5px;font-weight:600}
+  .ft-brand span{color:var(--dim);font-size:13px}
+  .ft-links{display:flex;gap:18px;flex-wrap:wrap}
+  .ft-links a{color:var(--muted);font-size:14px}
+  .ft-links a:hover{color:var(--txt)}
+  .ft-social{display:flex;gap:10px}
+  .ft-social a{width:36px;height:36px;border-radius:50%;background:var(--panel-2);border:1px solid var(--line);display:grid;place-items:center;color:var(--muted);transition:.2s}
+  .ft-social a:hover{color:var(--txt);border-color:var(--lime)}
+  .ft-legal{margin-top:20px;color:var(--dim);font-size:13px;text-align:center;border-top:1px solid var(--line);padding-top:16px}
+  .ft-cols{display:flex;gap:44px;flex-wrap:wrap}
+  .ft-col{display:flex;flex-direction:column;gap:7px}
+  .ft-col b{color:var(--dim);font-size:12.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:3px}
+  .ft-col a{color:var(--muted);font-size:14px}
+  .ft-col a:hover{color:var(--txt)}
+  .ft-legal a{color:var(--muted)}
+  .ft-legal a:hover{color:var(--txt)}
+  .ft{align-items:flex-start}
+  /* mini-videos de los pasos (se animan al pasar el cursor) */
+  .vwin{position:relative;width:100%;aspect-ratio:16/10;background:#0d0d11;border:1px solid var(--line);border-radius:10px;margin:12px 0 14px;overflow:hidden}
+  .vwin *{animation-play-state:running}
+  .st3:nth-child(2) .vwin *{animation-delay:.6s}
+  .st3:nth-child(3) .vwin *{animation-delay:1.2s}
+  .st3:nth-child(4) .vwin *{animation-delay:1.8s}
+  .wbody{position:relative;height:calc(100% - 16px);transform-origin:50% 45%;transition:transform .4s cubic-bezier(.2,.7,.3,1)}
+  .vwin:hover .wbody{transform:scale(1.07)}
+  .vbar{height:16px;background:#1a1a1f;display:flex;align-items:center;gap:3px;padding:0 7px;border-bottom:1px solid #222}
+  .vbar i{width:5px;height:5px;border-radius:50%;background:#3a3a42}
+  .vbar.light{background:#e9eaee;border-bottom:1px solid #d5d7dd}
+  .vbar.light i{background:#c3c6cd}
+  .vwin.light{background:#fff;border-color:#2e2e34}
+  /* paso 1: banco de gemas */
+  .wsearch{margin:8px 10px 6px;height:12px;border-radius:7px;background:#131318;border:1px solid var(--line)}
+  .wgrid{display:grid;grid-template-columns:1fr 1fr;gap:6px;padding:0 10px}
+  .wgrid .mini{border-radius:5px;border:1.5px solid var(--line);overflow:hidden;background:var(--panel)}
+  .wgrid .mini b{display:block;height:16px}
+  .wgrid .mini i{display:block;height:5px;margin:4px 5px;border-radius:3px;background:#2c2c33}
+  .wgrid .g1 b{background:linear-gradient(135deg,#f5254f,#3a1622)}
+  .wgrid .g2 b{background:linear-gradient(135deg,#a142f4,#2a163a)}
+  .wgrid .g3 b{background:linear-gradient(135deg,#18b7a4,#0f3a34)}
+  .wgrid .g4 b{background:linear-gradient(135deg,#f98a1e,#3a2416)}
+  .wgrid .m-sel{animation:wsel 5s infinite}
+  @keyframes wsel{0%,25%{border-color:var(--line)}40%,75%{border-color:var(--lime)}90%,100%{border-color:var(--line)}}
+  .wcur{position:absolute;z-index:2;pointer-events:none;width:0;height:0;
+    border-left:8px solid #fff;border-bottom:5px solid transparent;border-top:2px solid transparent;
+    filter:drop-shadow(0 1px 2px rgba(0,0,0,.7));transform:rotate(-14deg);top:78%;left:74%;animation:wcur 5s infinite}
+  @keyframes wcur{0%,25%{top:78%;left:74%}40%,75%{top:40%;left:64%}100%{top:78%;left:74%}}
+  /* paso 2: acceso Google */
+  .wlogin{display:flex;flex-direction:column;align-items:center;gap:7px;padding:10px 16px}
+  .wg{font-family:'Archivo';font-weight:800;font-size:13px;line-height:1}
+  .wg span:nth-child(1){color:#4285f4}.wg span:nth-child(2){color:#ea4335}.wg span:nth-child(3){color:#fbbc05}.wg span:nth-child(4){color:#4285f4}.wg span:nth-child(5){color:#34a853}.wg span:nth-child(6){color:#ea4335}
+  .wtitle{color:#3c4043;font-size:8.5px}
+  .wfield{width:100%;height:18px;border-radius:4px;background:#fff;border:1.5px solid #dadce0;display:flex;align-items:center;padding:0 6px;overflow:hidden}
+  .wtype{color:#3c4043;font-size:9px;white-space:nowrap;overflow:hidden;border-right:1.5px solid #1a73e8;animation:wtype 5s steps(22) infinite}
+  @keyframes wtype{0%,10%{width:0}55%,90%{width:100%}98%,100%{width:0}}
+  .wbtn{align-self:flex-end;width:52px;height:15px;border-radius:8px;background:#1a73e8;color:#fff;font-size:7.5px;font-weight:700;display:grid;place-items:center;animation:wbtn 5s infinite}
+  @keyframes wbtn{0%,58%{opacity:.45}68%,80%{opacity:1}92%,100%{opacity:.45}}
+  /* paso 3: chat de Gemini */
+  .wgem{position:absolute;top:6px;left:10px;color:var(--lime);font-size:11px}
+  .wchat{display:flex;flex-direction:column;gap:5px;padding:9px 10px 8px;height:100%;justify-content:flex-end}
+  .wb{max-width:86%;align-self:flex-end;background:#28282e;border-radius:10px 10px 3px 10px;color:#cfcfd6;font-size:8.5px;padding:4px 7px;opacity:0;animation:wbub 6s infinite}
+  .wb.d2{animation-delay:1s}
+  @keyframes wbub{0%,6%{opacity:0;transform:translateY(5px)}14%,82%{opacity:1;transform:none}94%,100%{opacity:0}}
+  .wprompt{align-self:stretch;height:17px;border-radius:9px;background:#131318;border:1px solid #2e2e36;display:flex;align-items:center;gap:4px;padding:0 8px;color:#7a7a84}
+  .wprompt .plus{font-size:9px}
+  .wprompt i{width:4px;height:4px;border-radius:50%;background:var(--lime);animation:wdots 1.2s infinite}
+  .wprompt i:nth-child(3){animation-delay:.2s}
+  .wprompt i:nth-child(4){animation-delay:.4s}
+  @keyframes wdots{0%,100%{opacity:.25;transform:none}50%{opacity:1;transform:translateY(-2px)}}
+  /* paso 4: documento */
+  .wtool{height:10px;background:#f1f3f4;border-bottom:1px solid #e0e2e6;display:flex;align-items:center;gap:2px;padding:0 6px}
+  .wtool i{width:8px;height:4px;border-radius:2px;background:#c9ccd2}
+  .wdoc{position:relative;display:flex;flex-direction:column;gap:5px;padding:9px 12px;background:#fff;height:calc(100% - 10px)}
+  .wl{height:6px;border-radius:3px;background:#e3e5e9}
+  .wl.short{width:68%}
+  .wl.edit{animation:wedit 5s infinite}
+  @keyframes wedit{0%,28%{background:#e3e5e9;width:100%}42%,76%{background:var(--lime);width:80%}90%,100%{background:#e3e5e9;width:100%}}
+  .wok{position:absolute;right:10px;bottom:8px;width:15px;height:15px;border-radius:50%;background:var(--lime);color:#0a0a0b;font-size:9px;font-weight:900;display:grid;place-items:center;opacity:0;animation:wok 5s infinite}
+  @keyframes wok{0%,55%{opacity:0;transform:scale(.4)}66%,88%{opacity:1;transform:scale(1)}100%{opacity:0}}
+  /* connect panel */
+  .connect{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:24px;margin-top:40px;position:relative;overflow:hidden}
+  .connect::before{content:"";position:absolute;inset:0;background:radial-gradient(70% 60% at 50% 0%, rgba(200,241,53,.06), transparent 60%);pointer-events:none}
+  .cbar{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:26px;position:relative}
+  .tabs{display:inline-flex;background:var(--panel-2);border:1px solid var(--line);border-radius:12px;padding:4px}
+  .tabs button{background:none;border:none;color:var(--muted);font-size:14.5px;font-weight:600;padding:7px 13px;border-radius:9px;cursor:pointer;font-family:inherit}
+  .tabs button.on{background:var(--bg);color:var(--txt)}
+  .agents{display:inline-flex;gap:6px;flex-wrap:wrap}
+  .agents button{background:var(--panel-2);border:1px solid var(--line);color:var(--muted);font-size:14px;font-weight:600;padding:7px 12px;border-radius:20px;cursor:pointer;font-family:inherit}
+  .agents button.on{border-color:var(--lime);color:var(--txt)}
+  .steps3{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;position:relative}
+  .steps4{grid-template-columns:repeat(4,1fr)}
+  .chow{font-family:'Archivo';font-weight:800;font-size:20px;letter-spacing:-.2px}
+  .cfoot.uso{text-align:left;max-width:820px;color:var(--muted);border-top:1px solid var(--line);padding-top:16px;margin-top:26px}
+  .cfoot.uso b{color:var(--txt);font-weight:600}
+  .st3{padding-left:20px;border-left:1px solid var(--line)}
+  .st3:first-child{border-left:none;padding-left:0}
+  .st3 .n{width:26px;height:26px;border-radius:50%;background:var(--panel-2);border:1px solid var(--line);display:grid;place-items:center;font-size:14px;color:var(--muted);margin-bottom:14px}
+  .st3 h4{font-size:14px;font-weight:700}
+  .st3 p{color:var(--muted);font-size:14.5px;margin-top:6px;line-height:1.5}
+  .st3 p b{color:var(--txt);font-weight:600}
+  .copyfield{margin-top:14px;display:flex;align-items:center;justify-content:space-between;gap:8px;
+    background:rgba(200,241,53,.08);border:1px solid rgba(200,241,53,.3);border-radius:10px;padding:10px 12px;font-size:14.5px;color:var(--lime);cursor:pointer}
+  .copyfield svg{width:15px;height:15px;flex:0 0 15px}
+  .s3btn{margin-top:14px;display:inline-flex;align-items:center;gap:8px;background:var(--lime);color:#0a0a0b;font-weight:700;font-size:15px;padding:10px 16px;border-radius:9px}
+  .s3btn svg{width:14px;height:14px}
+  .cfoot{margin-top:22px;color:var(--dim);font-size:14.5px;text-align:center;position:relative}
+
+  @media(max-width:860px){.steps3,.steps4{grid-template-columns:1fr}.st3{border-left:none;padding-left:0}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <nav class="nav">
+    <a class="brand" href="academia-docente-jalisco.html"><img src="logo-sej.svg" class="brand-logo" alt="Secretaría de Educación Jalisco"> IA para Docentes</a>
+    <a class="crumb" href="gemas.html">← Volver a recursos</a>
+  </nav>
+  <nav class="crumb" aria-label="Ruta de navegación"><a href="academia-docente-jalisco.html">IA para Docentes</a> / <a href="gemas.html">Recursos</a> / <span aria-current="page">Banco de Gemas</span></nav>
+
+  <header class="head">
+    <video class="head-vid" src="grok-video-422d11fa-6435-4a67-9297-396d9efb962f.mp4" autoplay muted loop playsinline aria-hidden="true"></video>
+    <div class="head-txt">
+      <div class="kick">Hecho por docentes, para docentes</div>
+      <h1>Banco de Gemas especializadas</h1>
+      <p class="sub">Asistentes listos para usar con tu cuenta @jaliscoedu.mx. Busca por nombre o etiqueta, filtra por eje y abre cada Gema directamente en Gemini. Recuerda: cada propuesta debe ser revisada y adaptada con tu criterio profesional.</p>
+    </div>
+  </header>
+
+  <!-- PANEL: cómo usar una Gema -->
+  <div class="connect">
+    <div class="cbar"><h2 class="chow">Cómo utilizar una Gema</h2></div>
+    <div class="steps3 steps4">
+      <div class="st3">
+        <div class="n">1</div>
+                <div class="vwin" aria-hidden="true"><div class="vbar"><i></i><i></i><i></i></div><div class="wbody">
+          <div class="wsearch"></div>
+          <div class="wgrid"><span class="mini g1"><b></b><i></i></span><span class="mini g3 m-sel"><b></b><i></i></span><span class="mini g2"><b></b><i></i></span><span class="mini g4"><b></b><i></i></span></div>
+          <span class="wcur"></span>
+        </div></div>
+        <h4>Selecciona la Gema</h4>
+        <p>Identifica la herramienta que responde a la <b>necesidad pedagógica</b> que deseas atender.</p>
+      </div>
+      <div class="st3">
+        <div class="n">2</div>
+                <div class="vwin light" aria-hidden="true"><div class="vbar light"><i></i><i></i><i></i></div><div class="wbody">
+          <div class="wlogin"><div class="wg"><span>G</span><span>o</span><span>o</span><span>g</span><span>l</span><span>e</span></div><div class="wtitle">Inicia sesión</div><span class="wfield"><span class="wtype">usuario@jaliscoedu.mx</span></span><span class="wbtn">Siguiente</span></div>
+        </div></div>
+        <h4>Accede con tu cuenta institucional</h4>
+        <p>Abre la Gema en Gemini e inicia sesión con tu cuenta <b>@jaliscoedu.mx</b>.</p>
+        <a class="s3btn" href="#">Abrir Gemini
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg>
+        </a>
+      </div>
+      <div class="st3">
+        <div class="n">3</div>
+                <div class="vwin" aria-hidden="true"><div class="vbar"><i></i><i></i><i></i></div><div class="wbody">
+          <span class="wgem">✦</span>
+          <div class="wchat"><span class="wb">Primaria · 4° grado</span><span class="wb d2">Campo: Lenguajes · PDA…</span><span class="wprompt"><span class="plus">＋</span><i></i><i></i><i></i></span></div>
+        </div></div>
+        <h4>Proporciona el contexto de tu grupo</h4>
+        <p>Indica el nivel, grado, campo formativo, <b>PDA</b>, propósito y características generales de tus estudiantes.</p>
+      </div>
+      <div class="st3">
+        <div class="n">4</div>
+                <div class="vwin light" aria-hidden="true"><div class="vbar light"><i></i><i></i><i></i></div><div class="wbody">
+          <div class="wtool"><i></i><i></i><i></i><i></i></div>
+          <div class="wdoc"><span class="wl"></span><span class="wl short"></span><span class="wl edit"></span><span class="wl short"></span><span class="wok">✓</span></div>
+        </div></div>
+        <h4>Revisa y adapta la propuesta</h4>
+        <p>Valora las sugerencias, realiza los ajustes necesarios y construye la <b>versión que utilizarás</b> en tu práctica.</p>
+      </div>
+    </div>
+    <div class="cfoot uso">Las respuestas generadas por las Gemas son sugerencias elaboradas a partir de la información que proporcionas. La decisión pedagógica y la versión final siempre corresponden al docente. <b>No ingreses nombres ni datos personales de estudiantes.</b></div>
+  </div>
+
+
+  <form class="rbar" id="bgSearch" onsubmit="return false" role="search">
+    <span class="rb-ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.8-3.8"/></svg></span>
+    <input type="search" id="bgInput" placeholder="Busca una Gema: “rúbrica”, “convivencia”, “fracciones”…" aria-label="Buscar en el banco de Gemas">
+  </form>
+
+  <div class="bg-chips" role="group" aria-label="Filtrar por eje">
+    <button type="button" class="bg-chip on" data-eje="todos">Todos</button>
+      <button type="button" class="bg-chip" data-eje="Valores y convivencia"><span class="bg-dot" style="background:#f5254f"></span> Formación del Carácter</button>
+      <button type="button" class="bg-chip" data-eje="Proyectos integradores"><span class="bg-dot" style="background:#a142f4"></span> Proyectos integradores</button>
+      <button type="button" class="bg-chip" data-eje="Programa LEO"><span class="bg-dot" style="background:#18b7a4"></span> Programa LEO</button>
+      <button type="button" class="bg-chip" data-eje="Matemáticas"><span class="bg-dot" style="background:#f98a1e"></span> Matemáticas</button>
+  </div>
+
+  <div class="bg-meta"><button type="button" class="bg-clear" id="bgClear" hidden>Limpiar filtros ×</button></div>
+
+  <div class="hg-grid" id="bgGrid">
+      <a class="hg-card" data-eje="Valores y convivencia" data-search="disenador de asambleas de aula convivencia, asambleas, democracia escolar, acuerdos, nem valores y convivencia de lo humano y lo comunitario" href="https://gemini.google.com/gem/1CgSAnw-5OUoYLNExl8vXORAVsajuWZd8?usp=sharing" target="_blank" rel="noopener" title="Se abre en Gemini, en pestaña nueva">
+        <div class="hg-thumb" style="background:linear-gradient(150deg,#3a1622,#160810)"><span>Diseñador de Asambleas de Aula</span></div>
+        <div class="hg-body">
+          <div class="hg-chips"><span class="hg-tag" style="color:#f5254f;border-color:#f5254f55">Convivencia</span><span class="hg-campo">De lo Humano y lo Comunitario</span></div>
+          <div class="hg-stats"><span class="hg-eje" style="color:#f5254f">● Formación del Carácter</span></div>
+        </div>
+      </a>
+      <a class="hg-card" data-eje="Valores y convivencia" data-search="mediador de conflictos entre pares mediacion, resolucion de conflictos, convivencia, primaria, secundaria valores y convivencia de lo humano y lo comunitario" href="https://gemini.google.com/gem/1tV7FvXjzHiCvEvvnTJTO5cKbmTRhHzQT?usp=sharing" target="_blank" rel="noopener" title="Se abre en Gemini, en pestaña nueva">
+        <div class="hg-thumb" style="background:linear-gradient(150deg,#3a1626,#12060c)"><span>Mediador de Conflictos entre Pares</span></div>
+        <div class="hg-body">
+          <div class="hg-chips"><span class="hg-tag" style="color:#f5254f;border-color:#f5254f55">Mediación</span><span class="hg-campo">De lo Humano y lo Comunitario</span></div>
+          <div class="hg-stats"><span class="hg-eje" style="color:#f5254f">● Formación del Carácter</span></div>
+        </div>
+      </a>
+      <a class="hg-card" data-eje="Valores y convivencia" data-search="taller de educacion socioemocional socioemocional, autorregulacion, empatia, sesiones, nem valores y convivencia de lo humano y lo comunitario" href="https://gemini.google.com/gem/1jYdxYLyY6W8NinbrOF3_Jl5pcgtSoRt-?usp=sharing" target="_blank" rel="noopener" title="Se abre en Gemini, en pestaña nueva">
+        <div class="hg-thumb" style="background:linear-gradient(150deg,#40182a,#170a10)"><span>Taller de Educación Socioemocional</span></div>
+        <div class="hg-body">
+          <div class="hg-chips"><span class="hg-tag" style="color:#f5254f;border-color:#f5254f55">Socioemocional</span><span class="hg-campo">De lo Humano y lo Comunitario</span></div>
+          <div class="hg-stats"><span class="hg-eje" style="color:#f5254f">● Formación del Carácter</span></div>
+        </div>
+      </a>
+      <a class="hg-card" data-eje="Valores y convivencia" data-search="constructor de acuerdos de convivencia acuerdos de aula, disciplina positiva, derechos, participacion valores y convivencia de lo humano y lo comunitario" href="https://gemini.google.com/gem/1qXqGflRfEBAcdOdBMi73mNg_yvOUk2zl?usp=sharing" target="_blank" rel="noopener" title="Se abre en Gemini, en pestaña nueva">
+        <div class="hg-thumb" style="background:linear-gradient(150deg,#3a1622,#160810)"><span>Constructor de Acuerdos de Convivencia</span></div>
+        <div class="hg-body">
+          <div class="hg-chips"><span class="hg-tag" style="color:#f5254f;border-color:#f5254f55">Acuerdos de aula</span><span class="hg-campo">De lo Humano y lo Comunitario</span></div>
+          <div class="hg-stats"><span class="hg-eje" style="color:#f5254f">● Formación del Carácter</span></div>
+        </div>
+      </a>
+      <a class="hg-card" data-eje="Valores y convivencia" data-search="generador de dilemas morales dilemas eticos, pensamiento critico, juicio moral, debate valores y convivencia de lo humano y lo comunitario" href="https://gemini.google.com/gem/1RQIkcoeNSN-61wwrokikXbcDFQN6-2Uc?usp=sharing" target="_blank" rel="noopener" title="Se abre en Gemini, en pestaña nueva">
+        <div class="hg-thumb" style="background:linear-gradient(150deg,#3a1626,#12060c)"><span>Generador de Dilemas Morales</span></div>
+        <div class="hg-body">
+          <div class="hg-chips"><span class="hg-tag" style="color:#f5254f;border-color:#f5254f55">Dilemas éticos</span><span class="hg-campo">De lo Humano y lo Comunitario</span></div>
+          <div class="hg-stats"><span class="hg-eje" style="color:#f5254f">● Formación del Carácter</span></div>
+        </div>
+      </a>
+      <a class="hg-card" data-eje="Valores y convivencia" data-search="prevencion del acoso escolar bullying, ciberacoso, prevencion, protocolo, familias valores y convivencia de lo humano y lo comunitario" href="https://gemini.google.com/gem/18IvlktUV76AB8B8cLyGE6t8Rks04K9pq?usp=sharing" target="_blank" rel="noopener" title="Se abre en Gemini, en pestaña nueva">
+        <div class="hg-thumb" style="background:linear-gradient(150deg,#40182a,#170a10)"><span>Prevención del Acoso Escolar</span></div>
+        <div class="hg-body">
+          <div class="hg-chips"><span class="hg-tag" style="color:#f5254f;border-color:#f5254f55">Bullying</span><span class="hg-campo">De lo Humano y lo Comunitario</span></div>
+          <div class="hg-stats"><span class="hg-eje" style="color:#f5254f">● Formación del Carácter</span></div>
+        </div>
+      </a>
+      <a class="hg-card" data-eje="Valores y convivencia" data-search="circulos de dialogo restaurativo practicas restaurativas, reparacion, dialogo, justicia escolar valores y convivencia de lo humano y lo comunitario" href="https://gemini.google.com/gem/1qlthBhFkKQH0oq1VHfKW0b1-cJsm1jZa?usp=sharing" target="_blank" rel="noopener" title="Se abre en Gemini, en pestaña nueva">
+        <div class="hg-thumb" style="background:linear-gradient(150deg,#3a1622,#160810)"><span>Círculos de Diálogo Restaurativo</span></div>
+        <div class="hg-body">
+          <div class="hg-chips"><span class="hg-tag" style="color:#f5254f;border-color:#f5254f55">Prácticas restaurativas</span><span class="hg-campo">De lo Humano y lo Comunitario</span></div>
+          <div class="hg-stats"><span class="hg-eje" style="color:#f5254f">● Formación del Carácter</span></div>
+        </div>
+      </a>
+      <a class="hg-card" data-eje="Valores y convivencia" data-search="juegos cooperativos con proposito juego cooperativo, habilidades sociales, inclusion, recreo valores y convivencia de lo humano y lo comunitario" href="https://gemini.google.com/gem/12aLZgLth4sudoxezhcerUr_h4ScxP1Qw?usp=sharing" target="_blank" rel="noopener" title="Se abre en Gemini, en pestaña nueva">
+        <div class="hg-thumb" style="background:linear-gradient(150deg,#3a1626,#12060c)"><span>Juegos Cooperativos con Propósito</span></div>
+        <div class="hg-body">
+          <div class="hg-chips"><span class="hg-tag" style="color:#f5254f;border-color:#f5254f55">Juego cooperativo</span><span class="hg-campo">De lo Humano y lo Comunitario</span></div>
+          <div class="hg-stats"><span class="hg-eje" style="color:#f5254f">● Formación del Carácter</span></div>
+        </div>
+      </a>
+      <a class="hg-card" data-eje="Valores y convivencia" data-search="cuentos con valores personalizados cuentos, valores, literatura infantil, guia de lectura valores y convivencia de lo humano y lo comunitario" href="https://gemini.google.com/gem/1npiwHkixlTv6xE8iEV0YBZGR7K3fice1?usp=sharing" target="_blank" rel="noopener" title="Se abre en Gemini, en pestaña nueva">
+        <div class="hg-thumb" style="background:linear-gradient(150deg,#40182a,#170a10)"><span>Cuentos con Valores Personalizados</span></div>
+        <div class="hg-body">
+          <div class="hg-chips"><span class="hg-tag" style="color:#f5254f;border-color:#f5254f55">Cuentos</span><span class="hg-campo">De lo Humano y lo Comunitario</span></div>
+          <div class="hg-stats"><span class="hg-eje" style="color:#f5254f">● Formación del Carácter</span></div>
+        </div>
+      </a>
+      <a class="hg-card" data-eje="Valores y convivencia" data-search="educacion para la paz e interculturalidad interculturalidad critica, inclusion, igualdad de genero, ejes articuladores valores y convivencia de lo humano y lo comunitario" href="https://gemini.google.com/gem/1h0G0zXKgLKhSuIEjYVsMb870RfUZi4Uv?usp=sharing" target="_blank" rel="noopener" title="Se abre en Gemini, en pestaña nueva">
+        <div class="hg-thumb" style="background:linear-gradient(150deg,#3a1622,#160810)"><span>Educación para la Paz e Interculturalidad</span></div>
+        <div class="hg-body">
+          <div class="hg-chips"><span class="hg-tag" style="color:#f5254f;border-color:#f5254f55">Interculturalidad crítica</span><span class="hg-campo">De lo Humano y lo Comunitario</span></div>
+          <div class="hg-stats"><span class="hg-eje" style="color:#f5254f">● Formación del Carácter</span></div>
+        </div>
+      </a>
+      <a class="hg-card" data-eje="Valores y convivencia" data-search="escuela de familias familias, talleres, circulares, crianza, comunicacion valores y convivencia de lo humano y lo comunitario" href="https://gemini.google.com/gem/1loCW20aMpAzmkcw8WM69H6a3hGfPGOjc?usp=sharing" target="_blank" rel="noopener" title="Se abre en Gemini, en pestaña nueva">
+        <div class="hg-thumb" style="background:linear-gradient(150deg,#3a1626,#12060c)"><span>Escuela de Familias</span></div>
+        <div class="hg-body">
+          <div class="hg-chips"><span class="hg-tag" style="color:#f5254f;border-color:#f5254f55">Familias</span><span class="hg-campo">De lo Humano y lo Comunitario</span></div>
+          <div class="hg-stats"><span class="hg-eje" style="color:#f5254f">● Formación del Carácter</span></div>
+        </div>
+      </a>
+      <a class="hg-card" data-eje="Valores y convivencia" data-search="termometro de la convivencia diagnostico, clima de aula, sociograma, encuestas valores y convivencia de lo humano y lo comunitario" href="https://gemini.google.com/gem/1eMM0nO05usBzu1kWyItVUJyiYXGcMeSy?usp=sharing" target="_blank" rel="noopener" title="Se abre en Gemini, en pestaña nueva">
+        <div class="hg-thumb" style="background:linear-gradient(150deg,#40182a,#170a10)"><span>Termómetro de la Convivencia</span></div>
+        <div class="hg-body">
+          <div class="hg-chips"><span class="hg-tag" style="color:#f5254f;border-color:#f5254f55">Diagnóstico</span><span class="hg-campo">De lo Humano y lo Comunitario</span></div>
+          <div class="hg-stats"><span class="hg-eje" style="color:#f5254f">● Formación del Carácter</span></div>
+        </div>
+      </a>
+      <a class="hg-card" data-eje="Proyectos integradores" data-search="arquitecto de proyectos comunitarios abp comunitario, nem, 11 momentos, planeacion, comunidad proyectos integradores interdisciplinario" href="https://gemini.google.com/gem/1B4omUvgUNRrrMF0Uxq3b8ZB4p56edcah?usp=sharing" target="_blank" rel="noopener" title="Se abre en Gemini, en pestaña nueva">
+        <div class="hg-thumb" style="background:linear-gradient(150deg,#2a163a,#120818)"><span>Arquitecto de Proyectos Comunitarios</span></div>
+        <div class="hg-body">
+          <div class="hg-chips"><span class="hg-tag" style="color:#a142f4;border-color:#a142f455">Abp comunitario</span><span class="hg-campo">Interdisciplinario</span></div>
+          <div class="hg-stats"><span class="hg-eje" style="color:#a142f4">● Proyectos integradores</span></div>
+        </div>
+      </a>
+      <a class="hg-card" data-eje="Proyectos integradores" data-search="lector de la realidad comunitaria diagnostico comunitario, problematicas, pregunta generadora, contexto proyectos integradores interdisciplinario" href="https://gemini.google.com/gem/1C4ME_Fv5dMZKVZ0NbT-q3fI91xC7UjjR?usp=sharing" target="_blank" rel="noopener" title="Se abre en Gemini, en pestaña nueva">
+        <div class="hg-thumb" style="background:linear-gradient(150deg,#32184a,#150a20)"><span>Lector de la Realidad Comunitaria</span></div>
+        <div class="hg-body">
+          <div class="hg-chips"><span class="hg-tag" style="color:#a142f4;border-color:#a142f455">Diagnóstico comunitario</span><span class="hg-campo">Interdisciplinario</span></div>
+          <div class="hg-stats"><span class="hg-eje" style="color:#a142f4">● Proyectos integradores</span></div>
+        </div>
+      </a>
+      <a class="hg-card" data-eje="Proyectos integradores" data-search="proyectos steam por indagacion steam, indagacion, ciencia, experimentos, saberes proyectos integradores interdisciplinario" href="https://gemini.google.com/gem/1kW7P0tK0Exu01b9YL3McVgwtqGQWslyd?usp=sharing" target="_blank" rel="noopener" title="Se abre en Gemini, en pestaña nueva">
+        <div class="hg-thumb" style="background:linear-gradient(150deg,#241040,#0e0618)"><span>Proyectos STEAM por Indagación</span></div>
+        <div class="hg-body">
+          <div class="hg-chips"><span class="hg-tag" style="color:#a142f4;border-color:#a142f455">Steam</span><span class="hg-campo">Interdisciplinario</span></div>
+          <div class="hg-stats"><span class="hg-eje" style="color:#a142f4">● Proyectos integradores</span></div>
+        </div>
+      </a>
+      <a class="hg-card" data-eje="Proyectos integradores" data-search="aprendizaje servicio solidario aprendizaje servicio, solidaridad, comunidad, reflexion proyectos integradores interdisciplinario" href="https://gemini.google.com/gem/1i4NWjTffc9vvz6u6yn-6_1NXwOY9yRGD?usp=sharing" target="_blank" rel="noopener" title="Se abre en Gemini, en pestaña nueva">
+        <div class="hg-thumb" style="background:linear-gradient(150deg,#2a163a,#120818)"><span>Aprendizaje Servicio Solidario</span></div>
+        <div class="hg-body">
+          <div class="hg-chips"><span class="hg-tag" style="color:#a142f4;border-color:#a142f455">Aprendizaje servicio</span><span class="hg-campo">Interdisciplinario</span></div>
+          <div class="hg-stats"><span class="hg-eje" style="color:#a142f4">● Proyectos integradores</span></div>
+        </div>
+      </a>
+      <a class="hg-card" data-eje="Proyectos integradores" data-search="aprendizaje basado en problemas abp, escenarios, etica naturaleza y sociedades, argumentacion proyectos integradores interdisciplinario" href="https://gemini.google.com/gem/1W9771Lq8ZCPJk32bungR8Pg1iruT-Bzf?usp=sharing" target="_blank" rel="noopener" title="Se abre en Gemini, en pestaña nueva">
+        <div class="hg-thumb" style="background:linear-gradient(150deg,#32184a,#150a20)"><span>Aprendizaje Basado en Problemas</span></div>
+        <div class="hg-body">
+          <div class="hg-chips"><span class="hg-tag" style="color:#a142f4;border-color:#a142f455">Abp</span><span class="hg-campo">Interdisciplinario</span></div>
+          <div class="hg-stats"><span class="hg-eje" style="color:#a142f4">● Proyectos integradores</span></div>
+        </div>
+      </a>
+      <a class="hg-card" data-eje="Proyectos integradores" data-search="vinculador curricular de proyectos campos formativos, pda, contenidos, programa sintetico proyectos integradores interdisciplinario" href="https://gemini.google.com/gem/1RYIoOg6iC1lKKcOCxIQ_qPQRgFakfmhq?usp=sharing" target="_blank" rel="noopener" title="Se abre en Gemini, en pestaña nueva">
+        <div class="hg-thumb" style="background:linear-gradient(150deg,#241040,#0e0618)"><span>Vinculador Curricular de Proyectos</span></div>
+        <div class="hg-body">
+          <div class="hg-chips"><span class="hg-tag" style="color:#a142f4;border-color:#a142f455">Campos formativos</span><span class="hg-campo">Interdisciplinario</span></div>
+          <div class="hg-stats"><span class="hg-eje" style="color:#a142f4">● Proyectos integradores</span></div>
+        </div>
+      </a>
+      <a class="hg-card" data-eje="Proyectos integradores" data-search="asistente de programa analitico programa analitico, codiseno, contextualizacion, cte proyectos integradores interdisciplinario" href="https://gemini.google.com/gem/1SoJdjNUJZZ7yo0V-1NdUEq47r9otOraK?usp=sharing" target="_blank" rel="noopener" title="Se abre en Gemini, en pestaña nueva">
+        <div class="hg-thumb" style="background:linear-gradient(150deg,#2a163a,#120818)"><span>Asistente de Programa Analítico</span></div>
+        <div class="hg-body">
+          <div class="hg-chips"><span class="hg-tag" style="color:#a142f4;border-color:#a142f455">Programa analítico</span><span class="hg-campo">Interdisciplinario</span></div>
+          <div class="hg-stats"><span class="hg-eje" style="color:#a142f4">● Proyectos integradores</span></div>
+        </div>
+      </a>
+      <a class="hg-card" data-eje="Proyectos integradores" data-search="huerto escolar integrador huerto escolar, proyecto integrador, sustentabilidad, campos formativos proyectos integradores interdisciplinario" href="https://gemini.google.com/gem/1m2NCSXGHrL8bVnIwtwGzfuBHHk0zpBQL?usp=sharing" target="_blank" rel="noopener" title="Se abre en Gemini, en pestaña nueva">
+        <div class="hg-thumb" style="background:linear-gradient(150deg,#32184a,#150a20)"><span>Huerto Escolar Integrador</span></div>
+        <div class="hg-body">
+          <div class="hg-chips"><span class="hg-tag" style="color:#a142f4;border-color:#a142f455">Huerto escolar</span><span class="hg-campo">Interdisciplinario</span></div>
+          <div class="hg-stats"><span class="hg-eje" style="color:#a142f4">● Proyectos integradores</span></div>
+        </div>
+      </a>
+      <a class="hg-card" data-eje="Proyectos integradores" data-search="proyectos de vida saludable vida saludable, alimentacion, habitos, cooperativa escolar proyectos integradores interdisciplinario" href="https://gemini.google.com/gem/1ewLtKjk_OflR6lDK-fWBHvw5Hbjtrn-a?usp=sharing" target="_blank" rel="noopener" title="Se abre en Gemini, en pestaña nueva">
+        <div class="hg-thumb" style="background:linear-gradient(150deg,#241040,#0e0618)"><span>Proyectos de Vida Saludable</span></div>
+        <div class="hg-body">
+          <div class="hg-chips"><span class="hg-tag" style="color:#a142f4;border-color:#a142f455">Vida saludable</span><span class="hg-campo">Interdisciplinario</span></div>
+          <div class="hg-stats"><span class="hg-eje" style="color:#a142f4">● Proyectos integradores</span></div>
+        </div>
+      </a>
+      <a class="hg-card" data-eje="Proyectos integradores" data-search="ferias y muestras de aprendizaje difusion, ferias, exposicion, cierre de proyectos proyectos integradores interdisciplinario" href="https://gemini.google.com/gem/1VrnhqP5PcmfMgdQRrIQgHbubyHX9b6q2?usp=sharing" target="_blank" rel="noopener" title="Se abre en Gemini, en pestaña nueva">
+        <div class="hg-thumb" style="background:linear-gradient(150deg,#2a163a,#120818)"><span>Ferias y Muestras de Aprendizaje</span></div>
+        <div class="hg-body">
+          <div class="hg-chips"><span class="hg-tag" style="color:#a142f4;border-color:#a142f455">Difusión</span><span class="hg-campo">Interdisciplinario</span></div>
+          <div class="hg-stats"><span class="hg-eje" style="color:#a142f4">● Proyectos integradores</span></div>
+        </div>
+      </a>
+      <a class="hg-card" data-eje="Proyectos integradores" data-search="evaluador formativo de proyectos evaluacion formativa, rubricas, portafolio, autoevaluacion proyectos integradores interdisciplinario" href="https://gemini.google.com/gem/18YueLy7UzgOcxJarmjhoblSdhEBDsXeY?usp=sharing" target="_blank" rel="noopener" title="Se abre en Gemini, en pestaña nueva">
+        <div class="hg-thumb" style="background:linear-gradient(150deg,#32184a,#150a20)"><span>Evaluador Formativo de Proyectos</span></div>
+        <div class="hg-body">
+          <div class="hg-chips"><span class="hg-tag" style="color:#a142f4;border-color:#a142f455">Evaluación formativa</span><span class="hg-campo">Interdisciplinario</span></div>
+          <div class="hg-stats"><span class="hg-eje" style="color:#a142f4">● Proyectos integradores</span></div>
+        </div>
+      </a>
+      <a class="hg-card" data-eje="Proyectos integradores" data-search="patrimonio y saberes comunitarios patrimonio, historia oral, saberes locales, comunidad proyectos integradores interdisciplinario" href="https://gemini.google.com/gem/1ez_ouwwBoXPTjL_F5lCvfw7F3JaoEEjf?usp=sharing" target="_blank" rel="noopener" title="Se abre en Gemini, en pestaña nueva">
+        <div class="hg-thumb" style="background:linear-gradient(150deg,#241040,#0e0618)"><span>Patrimonio y Saberes Comunitarios</span></div>
+        <div class="hg-body">
+          <div class="hg-chips"><span class="hg-tag" style="color:#a142f4;border-color:#a142f455">Patrimonio</span><span class="hg-campo">Interdisciplinario</span></div>
+          <div class="hg-stats"><span class="hg-eje" style="color:#a142f4">● Proyectos integradores</span></div>
+        </div>
+      </a>
+      <a class="hg-card" data-eje="Proyectos integradores" data-search="proyectos socioambientales medio ambiente, agua, residuos, accion comunitaria proyectos integradores interdisciplinario" href="https://gemini.google.com/gem/1YPBVkED2KkUKnK6nM9UpSg1XhAAGEpjI?usp=sharing" target="_blank" rel="noopener" title="Se abre en Gemini, en pestaña nueva">
+        <div class="hg-thumb" style="background:linear-gradient(150deg,#2a163a,#120818)"><span>Proyectos Socioambientales</span></div>
+        <div class="hg-body">
+          <div class="hg-chips"><span class="hg-tag" style="color:#a142f4;border-color:#a142f455">Medio ambiente</span><span class="hg-campo">Interdisciplinario</span></div>
+          <div class="hg-stats"><span class="hg-eje" style="color:#a142f4">● Proyectos integradores</span></div>
+        </div>
+      </a>
+      <a class="hg-card" data-eje="Programa LEO" data-search="entrenador de fluidez lectora fluidez lectora, lectura repetida, teatro de lectores, leo programa leo lenguajes" href="https://gemini.google.com/gem/1tJFXK195whugmxcJjAQSaoCu_1RzGWa5?usp=sharing" target="_blank" rel="noopener" title="Se abre en Gemini, en pestaña nueva">
+        <div class="hg-thumb" style="background:linear-gradient(150deg,#0f4038,#061410)"><span>Entrenador de Fluidez Lectora</span></div>
+        <div class="hg-body">
+          <div class="hg-chips"><span class="hg-tag" style="color:#18b7a4;border-color:#18b7a455">Fluidez lectora</span><span class="hg-campo">Lenguajes</span></div>
+          <div class="hg-stats"><span class="hg-eje" style="color:#18b7a4">● Programa LEO</span></div>
+        </div>
+      </a>
+      <a class="hg-card" data-eje="Programa LEO" data-search="taller de comprension lectora comprension lectora, niveles de lectura, inferencias, leo programa leo lenguajes" href="https://gemini.google.com/gem/19WGP0RwQdPowjPC6kodH4RHIGhRB1_Jq?usp=sharing" target="_blank" rel="noopener" title="Se abre en Gemini, en pestaña nueva">
+        <div class="hg-thumb" style="background:linear-gradient(150deg,#145248,#081812)"><span>Taller de Comprensión Lectora</span></div>
+        <div class="hg-body">
+          <div class="hg-chips"><span class="hg-tag" style="color:#18b7a4;border-color:#18b7a455">Comprensión lectora</span><span class="hg-campo">Lenguajes</span></div>
+          <div class="hg-stats"><span class="hg-eje" style="color:#18b7a4">● Programa LEO</span></div>
+        </div>
+      </a>
+      <a class="hg-card" data-eje="Programa LEO" data-search="taller de escritura por proceso escritura, proceso, borradores, tipos textuales, leo programa leo lenguajes" href="https://gemini.google.com/gem/1dzFcGuM161wzmGpWb5-bh0caiPyIYuWm?usp=sharing" target="_blank" rel="noopener" title="Se abre en Gemini, en pestaña nueva">
+        <div class="hg-thumb" style="background:linear-gradient(150deg,#123a34,#08110f)"><span>Taller de Escritura por Proceso</span></div>
+        <div class="hg-body">
+          <div class="hg-chips"><span class="hg-tag" style="color:#18b7a4;border-color:#18b7a455">Escritura</span><span class="hg-campo">Lenguajes</span></div>
+          <div class="hg-stats"><span class="hg-eje" style="color:#18b7a4">● Programa LEO</span></div>
+        </div>
+      </a>
+      <a class="hg-card" data-eje="Programa LEO" data-search="club de oralidad y debate oralidad, debate, exposicion, andamiajes, leo programa leo lenguajes" href="https://gemini.google.com/gem/1W3THz5De6m4-EGpR-ekcHopgZCqcun4W?usp=sharing" target="_blank" rel="noopener" title="Se abre en Gemini, en pestaña nueva">
+        <div class="hg-thumb" style="background:linear-gradient(150deg,#0f4038,#061410)"><span>Club de Oralidad y Debate</span></div>
+        <div class="hg-body">
+          <div class="hg-chips"><span class="hg-tag" style="color:#18b7a4;border-color:#18b7a455">Oralidad</span><span class="hg-campo">Lenguajes</span></div>
+          <div class="hg-stats"><span class="hg-eje" style="color:#18b7a4">● Programa LEO</span></div>
+        </div>
+      </a>
+      <a class="hg-card" data-eje="Programa LEO" data-search="tertulias literarias dialogicas tertulias, lectura compartida, dialogo, literatura programa leo lenguajes" href="https://gemini.google.com/gem/1jjLLmkwkm_MNzx--5zwfqaKCpAHbl4rR?usp=sharing" target="_blank" rel="noopener" title="Se abre en Gemini, en pestaña nueva">
+        <div class="hg-thumb" style="background:linear-gradient(150deg,#145248,#081812)"><span>Tertulias Literarias Dialógicas</span></div>
+        <div class="hg-body">
+          <div class="hg-chips"><span class="hg-tag" style="color:#18b7a4;border-color:#18b7a455">Tertulias</span><span class="hg-campo">Lenguajes</span></div>
+          <div class="hg-stats"><span class="hg-eje" style="color:#18b7a4">● Programa LEO</span></div>
+        </div>
+      </a>
+      <a class="hg-card" data-eje="Programa LEO" data-search="alfabetizacion inicial alfabetizacion, psicogenesis, fase 2-3, lectoescritura programa leo lenguajes" href="https://gemini.google.com/gem/17KwWq1IWNAo8cRBRFsH-g6o6vtw8kn33?usp=sharing" target="_blank" rel="noopener" title="Se abre en Gemini, en pestaña nueva">
+        <div class="hg-thumb" style="background:linear-gradient(150deg,#123a34,#08110f)"><span>Alfabetización Inicial</span></div>
+        <div class="hg-body">
+          <div class="hg-chips"><span class="hg-tag" style="color:#18b7a4;border-color:#18b7a455">Alfabetización</span><span class="hg-campo">Lenguajes</span></div>
+          <div class="hg-stats"><span class="hg-eje" style="color:#18b7a4">● Programa LEO</span></div>
+        </div>
+      </a>
+      <a class="hg-card" data-eje="Programa LEO" data-search="biblioteca de aula y fomento lector biblioteca de aula, fomento lector, libros del rincon, leo programa leo lenguajes" href="https://gemini.google.com/gem/1lGhK7YCuj3Ufe_OOh6yyBJpoBEV7iI2J?usp=sharing" target="_blank" rel="noopener" title="Se abre en Gemini, en pestaña nueva">
+        <div class="hg-thumb" style="background:linear-gradient(150deg,#0f4038,#061410)"><span>Biblioteca de Aula y Fomento Lector</span></div>
+        <div class="hg-body">
+          <div class="hg-chips"><span class="hg-tag" style="color:#18b7a4;border-color:#18b7a455">Biblioteca de aula</span><span class="hg-campo">Lenguajes</span></div>
+          <div class="hg-stats"><span class="hg-eje" style="color:#18b7a4">● Programa LEO</span></div>
+        </div>
+      </a>
+      <a class="hg-card" data-eje="Programa LEO" data-search="podcast y booktubers escolares podcast, booktuber, radio escolar, oralidad, medios programa leo lenguajes" href="https://gemini.google.com/gem/1NfK-af3l3RLfpfvFomfLJCURP-1k5fAX?usp=sharing" target="_blank" rel="noopener" title="Se abre en Gemini, en pestaña nueva">
+        <div class="hg-thumb" style="background:linear-gradient(150deg,#145248,#081812)"><span>Podcast y Booktubers Escolares</span></div>
+        <div class="hg-body">
+          <div class="hg-chips"><span class="hg-tag" style="color:#18b7a4;border-color:#18b7a455">Podcast</span><span class="hg-campo">Lenguajes</span></div>
+          <div class="hg-stats"><span class="hg-eje" style="color:#18b7a4">● Programa LEO</span></div>
+        </div>
+      </a>
+      <a class="hg-card" data-eje="Programa LEO" data-search="taller de escritura creativa escritura creativa, cuento, poesia, consignas, leo programa leo lenguajes" href="https://gemini.google.com/gem/15esgehz9d56eEEdRN6y7DH5yKs03ThCa?usp=sharing" target="_blank" rel="noopener" title="Se abre en Gemini, en pestaña nueva">
+        <div class="hg-thumb" style="background:linear-gradient(150deg,#123a34,#08110f)"><span>Taller de Escritura Creativa</span></div>
+        <div class="hg-body">
+          <div class="hg-chips"><span class="hg-tag" style="color:#18b7a4;border-color:#18b7a455">Escritura creativa</span><span class="hg-campo">Lenguajes</span></div>
+          <div class="hg-stats"><span class="hg-eje" style="color:#18b7a4">● Programa LEO</span></div>
+        </div>
+      </a>
+      <a class="hg-card" data-eje="Programa LEO" data-search="lectura en voz alta diaria lectura en voz alta, mediacion lectora, ritual, leo programa leo lenguajes" href="https://gemini.google.com/gem/1g3ZRCr3a-0veSlN3EuIVVjK9qEFIb0wb?usp=sharing" target="_blank" rel="noopener" title="Se abre en Gemini, en pestaña nueva">
+        <div class="hg-thumb" style="background:linear-gradient(150deg,#0f4038,#061410)"><span>Lectura en Voz Alta Diaria</span></div>
+        <div class="hg-body">
+          <div class="hg-chips"><span class="hg-tag" style="color:#18b7a4;border-color:#18b7a455">Lectura en voz alta</span><span class="hg-campo">Lenguajes</span></div>
+          <div class="hg-stats"><span class="hg-eje" style="color:#18b7a4">● Programa LEO</span></div>
+        </div>
+      </a>
+      <a class="hg-card" data-eje="Programa LEO" data-search="retroalimentador de escritos retroalimentacion, correccion formativa, textos de alumnos, leo programa leo lenguajes" href="https://gemini.google.com/gem/1nSy1-I61nqhpf9Jn4awaxHCE8fingJ6y?usp=sharing" target="_blank" rel="noopener" title="Se abre en Gemini, en pestaña nueva">
+        <div class="hg-thumb" style="background:linear-gradient(150deg,#145248,#081812)"><span>Retroalimentador de Escritos</span></div>
+        <div class="hg-body">
+          <div class="hg-chips"><span class="hg-tag" style="color:#18b7a4;border-color:#18b7a455">Retroalimentación</span><span class="hg-campo">Lenguajes</span></div>
+          <div class="hg-stats"><span class="hg-eje" style="color:#18b7a4">● Programa LEO</span></div>
+        </div>
+      </a>
+      <a class="hg-card" data-eje="Programa LEO" data-search="leo cientifico divulgacion cientifica, bitacora, oralidad, leo cientifico programa leo lenguajes" href="https://gemini.google.com/gem/14JCI_GpHIfdoQ66ieEtZX_NzmV2Estwa?usp=sharing" target="_blank" rel="noopener" title="Se abre en Gemini, en pestaña nueva">
+        <div class="hg-thumb" style="background:linear-gradient(150deg,#123a34,#08110f)"><span>LEO Científico</span></div>
+        <div class="hg-body">
+          <div class="hg-chips"><span class="hg-tag" style="color:#18b7a4;border-color:#18b7a455">Divulgación científica</span><span class="hg-campo">Lenguajes</span></div>
+          <div class="hg-stats"><span class="hg-eje" style="color:#18b7a4">● Programa LEO</span></div>
+        </div>
+      </a>
+      <a class="hg-card" data-eje="Matemáticas" data-search="disenador de problemas contextualizados resolucion de problemas, contexto, gestion didactica, nem matematicas saberes y pensamiento cientifico" href="https://gemini.google.com/gem/1CQGRHxmQp9NXvGcYrK7mwTAN_a1HEE-8?usp=sharing" target="_blank" rel="noopener" title="Se abre en Gemini, en pestaña nueva">
+        <div class="hg-thumb" style="background:linear-gradient(150deg,#42280f,#180e05)"><span>Diseñador de Problemas Contextualizados</span></div>
+        <div class="hg-body">
+          <div class="hg-chips"><span class="hg-tag" style="color:#f98a1e;border-color:#f98a1e55">Resolución de problemas</span><span class="hg-campo">Saberes y Pensamiento Científico</span></div>
+          <div class="hg-stats"><span class="hg-eje" style="color:#f98a1e">● Matemáticas</span></div>
+        </div>
+      </a>
+      <a class="hg-card" data-eje="Matemáticas" data-search="rutinas de pensamiento matematico rutinas, conversaciones numericas, sentido numerico, argumentacion matematicas saberes y pensamiento cientifico" href="https://gemini.google.com/gem/1X_FFcp0_gF2I5CJhW85o_yuitHscJPKa?usp=sharing" target="_blank" rel="noopener" title="Se abre en Gemini, en pestaña nueva">
+        <div class="hg-thumb" style="background:linear-gradient(150deg,#4a2c12,#1a1006)"><span>Rutinas de Pensamiento Matemático</span></div>
+        <div class="hg-body">
+          <div class="hg-chips"><span class="hg-tag" style="color:#f98a1e;border-color:#f98a1e55">Rutinas</span><span class="hg-campo">Saberes y Pensamiento Científico</span></div>
+          <div class="hg-stats"><span class="hg-eje" style="color:#f98a1e">● Matemáticas</span></div>
+        </div>
+      </a>
+      <a class="hg-card" data-eje="Matemáticas" data-search="matematicas en tres actos tres actos, estimacion, lecciones, resolucion de problemas matematicas saberes y pensamiento cientifico" href="https://gemini.google.com/gem/1I6GftgQxm2ZbzhiCLTZWiFDg-7E04GZ_?usp=sharing" target="_blank" rel="noopener" title="Se abre en Gemini, en pestaña nueva">
+        <div class="hg-thumb" style="background:linear-gradient(150deg,#3a2416,#140c08)"><span>Matemáticas en Tres Actos</span></div>
+        <div class="hg-body">
+          <div class="hg-chips"><span class="hg-tag" style="color:#f98a1e;border-color:#f98a1e55">Tres actos</span><span class="hg-campo">Saberes y Pensamiento Científico</span></div>
+          <div class="hg-stats"><span class="hg-eje" style="color:#f98a1e">● Matemáticas</span></div>
+        </div>
+      </a>
+      <a class="hg-card" data-eje="Matemáticas" data-search="laboratorio de material concreto material concreto, cpa, manipulables, bajo costo matematicas saberes y pensamiento cientifico" href="https://gemini.google.com/gem/10vjdzkIxLddjvOI3q_WHU9DpvFx0iITN?usp=sharing" target="_blank" rel="noopener" title="Se abre en Gemini, en pestaña nueva">
+        <div class="hg-thumb" style="background:linear-gradient(150deg,#42280f,#180e05)"><span>Laboratorio de Material Concreto</span></div>
+        <div class="hg-body">
+          <div class="hg-chips"><span class="hg-tag" style="color:#f98a1e;border-color:#f98a1e55">Material concreto</span><span class="hg-campo">Saberes y Pensamiento Científico</span></div>
+          <div class="hg-stats"><span class="hg-eje" style="color:#f98a1e">● Matemáticas</span></div>
+        </div>
+      </a>
+      <a class="hg-card" data-eje="Matemáticas" data-search="clinica de errores matematicos analisis de errores, diagnostico, contraejemplos, intervencion matematicas saberes y pensamiento cientifico" href="https://gemini.google.com/gem/1jH65eFY2TQgDbOR35zeTdw_-LZNfN-_i?usp=sharing" target="_blank" rel="noopener" title="Se abre en Gemini, en pestaña nueva">
+        <div class="hg-thumb" style="background:linear-gradient(150deg,#4a2c12,#1a1006)"><span>Clínica de Errores Matemáticos</span></div>
+        <div class="hg-body">
+          <div class="hg-chips"><span class="hg-tag" style="color:#f98a1e;border-color:#f98a1e55">Análisis de errores</span><span class="hg-campo">Saberes y Pensamiento Científico</span></div>
+          <div class="hg-stats"><span class="hg-eje" style="color:#f98a1e">● Matemáticas</span></div>
+        </div>
+      </a>
+      <a class="hg-card" data-eje="Matemáticas" data-search="juegos matematicos por contenido juegos, calculo, baraja, dados, practica ludica matematicas saberes y pensamiento cientifico" href="https://gemini.google.com/gem/1BcqJE3QfN-jtue4GX2OK9N0Znp8xnwrC?usp=sharing" target="_blank" rel="noopener" title="Se abre en Gemini, en pestaña nueva">
+        <div class="hg-thumb" style="background:linear-gradient(150deg,#3a2416,#140c08)"><span>Juegos Matemáticos por Contenido</span></div>
+        <div class="hg-body">
+          <div class="hg-chips"><span class="hg-tag" style="color:#f98a1e;border-color:#f98a1e55">Juegos</span><span class="hg-campo">Saberes y Pensamiento Científico</span></div>
+          <div class="hg-stats"><span class="hg-eje" style="color:#f98a1e">● Matemáticas</span></div>
+        </div>
+      </a>
+      <a class="hg-card" data-eje="Matemáticas" data-search="gestor de discusiones matematicas puesta en comun, cinco practicas, discusion, estrategias matematicas saberes y pensamiento cientifico" href="https://gemini.google.com/gem/1znNwNqGYHNlygR4nxvwYToazpW3xEImk?usp=sharing" target="_blank" rel="noopener" title="Se abre en Gemini, en pestaña nueva">
+        <div class="hg-thumb" style="background:linear-gradient(150deg,#42280f,#180e05)"><span>Gestor de Discusiones Matemáticas</span></div>
+        <div class="hg-body">
+          <div class="hg-chips"><span class="hg-tag" style="color:#f98a1e;border-color:#f98a1e55">Puesta en común</span><span class="hg-campo">Saberes y Pensamiento Científico</span></div>
+          <div class="hg-stats"><span class="hg-eje" style="color:#f98a1e">● Matemáticas</span></div>
+        </div>
+      </a>
+      <a class="hg-card" data-eje="Matemáticas" data-search="calculo mental y fluidez calculo mental, estrategias, tablas, fluidez aritmetica matematicas saberes y pensamiento cientifico" href="https://gemini.google.com/gem/1Zv16AmVjvktSOW3YsySiQfyF-k1gJ1cN?usp=sharing" target="_blank" rel="noopener" title="Se abre en Gemini, en pestaña nueva">
+        <div class="hg-thumb" style="background:linear-gradient(150deg,#4a2c12,#1a1006)"><span>Cálculo Mental y Fluidez</span></div>
+        <div class="hg-body">
+          <div class="hg-chips"><span class="hg-tag" style="color:#f98a1e;border-color:#f98a1e55">Cálculo mental</span><span class="hg-campo">Saberes y Pensamiento Científico</span></div>
+          <div class="hg-stats"><span class="hg-eje" style="color:#f98a1e">● Matemáticas</span></div>
+        </div>
+      </a>
+      <a class="hg-card" data-eje="Matemáticas" data-search="matematica financiera escolar educacion financiera, porcentajes, consumo, vida cotidiana matematicas saberes y pensamiento cientifico" href="https://gemini.google.com/gem/1TRXUGGPy4i5bgT7M4FFJluToSoaBK5wd?usp=sharing" target="_blank" rel="noopener" title="Se abre en Gemini, en pestaña nueva">
+        <div class="hg-thumb" style="background:linear-gradient(150deg,#3a2416,#140c08)"><span>Matemática Financiera Escolar</span></div>
+        <div class="hg-body">
+          <div class="hg-chips"><span class="hg-tag" style="color:#f98a1e;border-color:#f98a1e55">Educación financiera</span><span class="hg-campo">Saberes y Pensamiento Científico</span></div>
+          <div class="hg-stats"><span class="hg-eje" style="color:#f98a1e">● Matemáticas</span></div>
+        </div>
+      </a>
+      <a class="hg-card" data-eje="Matemáticas" data-search="geometria y pensamiento espacial geometria activa, van hiele, doblado de papel, construccion matematicas saberes y pensamiento cientifico" href="https://gemini.google.com/gem/1SOnBUvwAhd5wQ3u2OXqehZfV5lVO9w9H?usp=sharing" target="_blank" rel="noopener" title="Se abre en Gemini, en pestaña nueva">
+        <div class="hg-thumb" style="background:linear-gradient(150deg,#42280f,#180e05)"><span>Geometría y Pensamiento Espacial</span></div>
+        <div class="hg-body">
+          <div class="hg-chips"><span class="hg-tag" style="color:#f98a1e;border-color:#f98a1e55">Geometría activa</span><span class="hg-campo">Saberes y Pensamiento Científico</span></div>
+          <div class="hg-stats"><span class="hg-eje" style="color:#f98a1e">● Matemáticas</span></div>
+        </div>
+      </a>
+      <a class="hg-card" data-eje="Matemáticas" data-search="datos y azar en el aula estadistica, probabilidad, graficas, proyectos de datos matematicas saberes y pensamiento cientifico" href="https://gemini.google.com/gem/1HntkkXqvsjO2hJ2EBfGtvmEA00lX6grf?usp=sharing" target="_blank" rel="noopener" title="Se abre en Gemini, en pestaña nueva">
+        <div class="hg-thumb" style="background:linear-gradient(150deg,#4a2c12,#1a1006)"><span>Datos y Azar en el Aula</span></div>
+        <div class="hg-body">
+          <div class="hg-chips"><span class="hg-tag" style="color:#f98a1e;border-color:#f98a1e55">Estadística</span><span class="hg-campo">Saberes y Pensamiento Científico</span></div>
+          <div class="hg-stats"><span class="hg-eje" style="color:#f98a1e">● Matemáticas</span></div>
+        </div>
+      </a>
+      <a class="hg-card" data-eje="Matemáticas" data-search="ruta de fracciones y decimales fracciones, decimales, modelos, recta numerica matematicas saberes y pensamiento cientifico" href="https://gemini.google.com/gem/1adMANg-tzntD_x2xaEhtmw_m3qh2cjk8?usp=sharing" target="_blank" rel="noopener" title="Se abre en Gemini, en pestaña nueva">
+        <div class="hg-thumb" style="background:linear-gradient(150deg,#3a2416,#140c08)"><span>Ruta de Fracciones y Decimales</span></div>
+        <div class="hg-body">
+          <div class="hg-chips"><span class="hg-tag" style="color:#f98a1e;border-color:#f98a1e55">Fracciones</span><span class="hg-campo">Saberes y Pensamiento Científico</span></div>
+          <div class="hg-stats"><span class="hg-eje" style="color:#f98a1e">● Matemáticas</span></div>
+        </div>
+      </a>
+      <a class="hg-card" data-eje="Matemáticas" data-search="planeador de secuencias de matematicas planeacion, secuencias didacticas, evaluacion formativa, nem matematicas saberes y pensamiento cientifico" href="https://gemini.google.com/gem/1-7XKtsSSyGfy9yiEqfjKs7sujfd6yMIH?usp=sharing" target="_blank" rel="noopener" title="Se abre en Gemini, en pestaña nueva">
+        <div class="hg-thumb" style="background:linear-gradient(150deg,#42280f,#180e05)"><span>Planeador de Secuencias de Matemáticas</span></div>
+        <div class="hg-body">
+          <div class="hg-chips"><span class="hg-tag" style="color:#f98a1e;border-color:#f98a1e55">Planeación</span><span class="hg-campo">Saberes y Pensamiento Científico</span></div>
+          <div class="hg-stats"><span class="hg-eje" style="color:#f98a1e">● Matemáticas</span></div>
+        </div>
+      </a>
+  </div>
+  <p class="bg-empty" id="bgEmpty" hidden>No encontramos Gemas con esa búsqueda. Intenta con otra palabra o limpia los filtros.</p>
+
+<footer>
+  <div class="wrap">
+    <div class="ft">
+      <div class="ft-brand">
+        <img src="logo-sej.svg" alt="Secretaría de Educación Jalisco">
+        <div>
+          <b>Secretaría de Educación del Gobierno de Jalisco</b>
+          <span>IA para Docentes · Prototipo de lanzamiento</span>
+        </div>
+      </div>
+      <div class="ft-cols">
+        <nav class="ft-col" aria-label="Secciones del portal">
+          <b>Portal</b>
+          <a href="academia-docente-jalisco.html">Inicio</a>
+          <a href="gemas.html">Recursos</a>
+          <a href="banco-gemas.html">Banco de Gemas</a>
+          <a href="ruta.html">Ruta</a>
+          <a href="recuperar-cuenta.html">Mesa de Ayuda</a>
+        </nav>
+        <nav class="ft-col" aria-label="Enlaces institucionales">
+          <b>Institucional</b>
+          <a href="https://apprendedigital.jalisco.gob.mx" target="_blank" rel="noopener">APPrende Digital</a>
+          <a href="https://apprende.jalisco.gob.mx/contacto/" target="_blank" rel="noopener">Contacto</a>
+          <a href="https://transparencia.jalisco.gob.mx/informacion_fundamental/139/186" target="_blank" rel="noopener">Transparencia SEJ</a>
+          <a href="https://apprende.jalisco.gob.mx/aviso-de-privacidad/" target="_blank" rel="noopener">Aviso de privacidad</a>
+        </nav>
+      </div>
+      <div class="ft-social">
+        <a href="https://www.facebook.com/educacion.jalisco" target="_blank" rel="noopener" aria-label="Facebook de Educación Jalisco"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M13.5 21v-7h2.4l.4-3h-2.8V9.1c0-.9.3-1.5 1.6-1.5h1.3V4.9c-.3 0-1.1-.1-2-.1-2 0-3.4 1.2-3.4 3.5V11H8.5v3H11v7h2.5z"/></svg></a>
+        <a href="https://twitter.com/seceducacionjal" target="_blank" rel="noopener" aria-label="X (Twitter) de Educación Jalisco"><svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="M17.5 3h3l-6.6 7.6L21.7 21h-6.1l-4.8-6.2L5.3 21h-3l7-8.1L2.5 3h6.2l4.3 5.7L17.5 3zm-1 16h1.7L7.6 4.7H5.8L16.5 19z"/></svg></a>
+        <a href="https://www.youtube.com/user/educacionjalisco" target="_blank" rel="noopener" aria-label="YouTube de Educación Jalisco"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor"><path d="M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.5 2.5 0 0 0 2.4 7.2 26 26 0 0 0 2 12a26 26 0 0 0 .4 4.8 2.5 2.5 0 0 0 1.8 1.8c1.6.4 7.8.4 7.8.4s6.2 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8A26 26 0 0 0 22 12a26 26 0 0 0-.4-4.8zM10 15.2V8.8l5.2 3.2-5.2 3.2z"/></svg></a>
+      </div>
+    </div>
+    <div class="ft-legal">Soporte: <a href="mailto:alfadireccion.sej@jalisco.gob.mx">alfadireccion.sej@jalisco.gob.mx</a> · Algunos derechos reservados © 2026 · Secretaría de Educación Jalisco</div>
+  </div>
+</footer>
+
+</div>
+<script>
+(function(){
+  var input=document.getElementById('bgInput');
+  var chips=Array.prototype.slice.call(document.querySelectorAll('.bg-chip'));
+  var cards=Array.prototype.slice.call(document.querySelectorAll('.hg-card'));
+  var count=document.getElementById('bgCount'), empty=document.getElementById('bgEmpty'), clear=document.getElementById('bgClear');
+  var eje='todos';
+  function norm(t){return t.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');}
+  function apply(){
+    var q=norm(input.value.trim()), v=0;
+    cards.forEach(function(c){
+      var ok=(eje==='todos'||c.dataset.eje===eje)&&(!q||c.dataset.search.indexOf(q)!==-1);
+      c.style.display=ok?'':'none'; if(ok)v++;
+    });
+    if(count)count.textContent='';
+    empty.hidden=v!==0;
+    clear.hidden=(eje==='todos'&&!q);
+  }
+  chips.forEach(function(ch){ch.addEventListener('click',function(){
+    chips.forEach(function(x){x.classList.remove('on');});ch.classList.add('on');eje=ch.dataset.eje;apply();
+  });});
+  input.addEventListener('input',apply);
+  clear.addEventListener('click',function(){input.value='';eje='todos';
+    chips.forEach(function(x){x.classList.toggle('on',x.dataset.eje==='todos');});apply();input.focus();});
+})();
+</script>
+<style>
+  .gmodal-overlay{position:fixed;inset:0;z-index:60;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(4,4,6,.66);backdrop-filter:blur(3px)}
+  .gmodal-overlay.open{display:flex}
+  .gmodal{background:var(--panel);border:1px solid var(--line);border-radius:18px;max-width:440px;width:100%;padding:26px}
+  .gmodal h3{font-family:'Archivo';font-weight:800;font-size:19px}
+  .gm-ic{width:56px;height:56px;border-radius:14px;background:var(--panel-2);border:1px solid var(--line);display:grid;place-items:center;margin-bottom:14px}
+  .gm-txt{margin-top:12px;color:var(--muted);font-size:15px;line-height:1.65}
+  .gm-txt b{color:var(--txt);font-weight:700}
+  .gm-actions{display:flex;gap:12px;margin-top:22px;flex-wrap:wrap}
+  .gm-open{background:#ececee;color:#0a0a0b;font-weight:800;font-size:14.5px;padding:10px 18px;border-radius:12px;text-decoration:none}
+  .gm-cancel{background:none;border:1px solid var(--line);color:var(--muted);font-size:14.5px;padding:10px 18px;border-radius:12px;cursor:pointer;font-family:inherit}
+  .gm-cancel:hover{color:var(--txt);border-color:#3a3a40}
+</style>
+<div class="gmodal-overlay" id="gOverlay">
+  <div class="gmodal" role="dialog" aria-modal="true" aria-labelledby="gmTitle">
+    <div class="gm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="34" height="34"><defs><linearGradient id="gmg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ea4335"/><stop offset=".5" stop-color="#4285f4"/><stop offset="1" stop-color="#34a853"/></linearGradient></defs><path d="M12 0C13 7 17 11 24 12 17 13 13 17 12 24 11 17 7 13 0 12 7 11 11 7 12 0Z" fill="url(#gmg)"/></svg></div>
+    <h3 id="gmTitle">Antes de usar esta Gema</h3>
+    <p class="gm-txt">Las Gemas son asistentes de apoyo que ofrecen orientaciones y sugerencias para el diagnóstico, el programa analítico, la planeación y la evaluación. <b>Nunca sustituyen el conocimiento, la experiencia ni el criterio profesional del docente.</b> Revisa, adapta y valida cada propuesta de acuerdo con las necesidades, el contexto y los aprendizajes de tu grupo.</p>
+    <div class="gm-actions">
+      <a class="gm-open" id="gmOpen" href="#" target="_blank" rel="noopener">Acceder a la Gema ↗</a>
+      <button type="button" class="gm-cancel" id="gmCancel">Cancelar</button>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  var overlay=document.getElementById('gOverlay'),gmOpen=document.getElementById('gmOpen'),gmCancel=document.getElementById('gmCancel'),lastFocus=null;
+  function close(){overlay.classList.remove('open');if(lastFocus)lastFocus.focus();}
+  Array.prototype.forEach.call(document.querySelectorAll('a[href*="gemini.google.com"]'),function(a){
+    a.addEventListener('click',function(e){
+      e.preventDefault();
+      lastFocus=a;
+      gmOpen.href=a.href;
+      overlay.classList.add('open');
+      gmCancel.focus();
+    });
+  });
+  gmCancel.addEventListener('click',close);
+  gmOpen.addEventListener('click',close);
+  overlay.addEventListener('click',function(e){if(e.target===overlay)close();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
+})();
+</script>
+
+</body>
+</html>

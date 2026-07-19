@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Constructor pedagógico · Del diagnóstico al aula</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0a0a0b; --panel:#141416; --panel-2:#1b1b1e; --line:#26262a;
+    --txt:#f4f4f5; --muted:#9a9aa2; --dim:#8a8a94; --lime:#c8f135;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:radial-gradient(60% 42% at 50% 0%, rgba(200,241,53,.17), transparent 72%) fixed,linear-gradient(rgba(255,255,255,.034) 1px, transparent 1px) 0 0/44px 44px fixed,linear-gradient(90deg, rgba(255,255,255,.034) 1px, transparent 1px) 0 0/44px 44px fixed,var(--bg);color:var(--txt);font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.5}
+  .wrap{max-width:1000px;margin:0 auto;padding:0 22px}
+  a{color:inherit;text-decoration:none}
+
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+  .back{display:inline-flex;align-items:center;gap:9px;color:var(--muted);font-size:15px;font-weight:600}
+  .back:hover{color:var(--txt)} .back svg{width:16px;height:16px}
+  .nav .right{font-size:15px;color:var(--muted)}
+
+  /* hero */
+  .hero{position:relative;margin-top:12px;border-radius:24px;overflow:hidden;min-height:420px;display:flex;flex-direction:column;
+    align-items:center;justify-content:center;text-align:center;padding:50px 24px;
+    background:radial-gradient(70% 90% at 50% 8%, rgba(200,241,53,.16), transparent 55%),
+      radial-gradient(90% 70% at 50% 110%, rgba(200,241,53,.22), transparent 60%),
+      linear-gradient(180deg,#12160c 0%,#0c0f08 55%,#080a06 100%)}
+  .hero .kick{color:var(--lime);font-family:'Archivo';font-weight:800;font-size:13px;letter-spacing:4px;text-transform:uppercase}
+  .hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:left center;z-index:0}
+  .hero::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(8,8,10,.25) 0%,rgba(8,8,10,.45) 55%,rgba(8,8,10,.78) 100%)}
+  .hero-txt{position:relative;z-index:2;margin-top:auto;padding-bottom:8px}
+  .hero h1{text-shadow:0 2px 18px rgba(0,0,0,.55);font-family:'Archivo';font-weight:900;font-size:52px;line-height:.98;letter-spacing:-1.6px;text-transform:uppercase;margin-top:14px;max-width:760px}
+  .hchips{display:flex;flex-wrap:wrap;gap:9px;justify-content:center;margin-top:22px}
+  .hchip{background:rgba(15,17,12,.5);backdrop-filter:blur(4px);border:1px solid rgba(255,255,255,.12);border-radius:20px;padding:7px 15px;font-size:14.5px;color:#d7d7dc}
+  .cta{display:inline-block;margin-top:28px;background:var(--lime);color:#0a0a0b;font-weight:700;font-size:16.5px;padding:13px 26px;border-radius:11px}
+
+  /* intro */
+  .intro{text-align:center;max-width:760px;margin:56px auto 0;font-family:'Archivo';font-weight:800;font-size:28px;line-height:1.32;letter-spacing:-.4px}
+  .aviso{display:flex;gap:14px;align-items:flex-start;text-align:left;margin-top:0;background:var(--panel);border:1px solid rgba(200,241,53,.4);border-radius:var(--radius);padding:18px 20px}
+  .aviso-ic{flex:0 0 34px;width:34px;height:34px;border-radius:9px;background:var(--panel-2);border:1px solid var(--line);display:grid;place-items:center;color:#fbbc05}
+  .aviso p{font-family:'Inter',system-ui,sans-serif;font-weight:400;font-size:15.5px;line-height:1.65;letter-spacing:0;color:var(--muted);margin:0}
+  .intro .g{color:var(--lime)}
+  .intro .d{color:var(--muted);font-weight:700}
+
+  /* benefit cards */
+  .bens{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:44px}
+  .ben{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:22px;min-height:170px;display:flex;flex-direction:column}
+  .ben h3{color:var(--lime);font-size:14px;font-weight:700}
+  .ben p{color:#c6c7cd;font-size:15px;line-height:1.6;margin-top:10px}
+
+  /* how / timeline */
+  .how{margin-top:80px}
+  .howgrid{display:grid;grid-template-columns:300px 1fr;gap:50px}
+  .how .title{font-family:'Archivo';font-weight:900;font-size:34px;letter-spacing:-.8px;text-transform:uppercase}
+  .how .sub{color:var(--muted);font-size:13.5px;margin-top:12px;max-width:230px}
+  .how .cta{margin-top:22px}
+  .tl-row{display:grid;grid-template-columns:96px 40px 1fr;gap:16px;align-items:start;padding-bottom:38px}
+  .tl-row .lbl{font-family:'Archivo';font-weight:900;font-size:24px;line-height:1.05;letter-spacing:-.4px}
+  .tl-row .lbl span{display:block;font-size:13px;font-weight:700;color:var(--dim);letter-spacing:1px}
+  .tl-row .mid{position:relative;display:flex;justify-content:center}
+  .tl-row .mid::before{content:"";position:absolute;top:6px;bottom:-38px;left:50%;width:1px;background:var(--line);transform:translateX(-.5px)}
+  .tl-row:last-child .mid::before{display:none}
+  .tl-row .dot{width:34px;height:34px;border-radius:50%;background:var(--panel);border:1px solid var(--line);display:grid;place-items:center;z-index:2;font-size:15px}
+  .tl-row .bd h4{font-size:15px;font-weight:700}
+  .tl-row .bd p{color:#bfc0c6;font-size:15.5px;line-height:1.6;margin-top:6px;max-width:460px}
+  .tl-row .bd .mini{display:inline-block;margin-top:12px;background:var(--panel-2);border:1px solid var(--line);color:var(--txt);font-size:14.5px;font-weight:600;padding:8px 15px;border-radius:9px}
+
+  /* course cards */
+  .starttitle{font-family:'Archivo';font-weight:900;font-size:32px;letter-spacing:-.7px;text-transform:uppercase;margin:78px 0 22px}
+  .ccards{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .cc{background:var(--panel);border:1px solid var(--line);border-radius:18px;overflow:hidden;transition:.2s}
+  .cc:hover{border-color:#3a3a40;transform:translateY(-2px)}
+  .cc .cth{height:150px;display:grid;place-items:center;color:#e7ecd6;font-family:'Archivo';font-weight:900;font-size:22px;text-transform:uppercase;letter-spacing:-.5px;position:relative}
+  .cc .cmeta{padding:14px 16px 16px}
+  .cc .cmeta h4{font-size:14.5px;font-weight:700}
+  .cc .cmeta p{color:var(--dim);font-size:14.5px;margin-top:3px}
+  .cc .row{display:flex;flex-wrap:wrap;gap:6px;margin-top:11px}
+  .cc .tg{background:var(--panel-2);border:1px solid var(--line);color:var(--muted);font-size:12.5px;padding:3px 8px;border-radius:14px}
+  .cc .tg.hi{color:var(--lime);border-color:rgba(200,241,53,.3)}
+
+  /* details */
+  .details{margin-top:70px;background:var(--panel);border:1px solid var(--line);border-radius:22px;padding:34px 36px}
+  .details h2{font-size:20px;font-weight:700;margin-bottom:22px}
+  .dgrid{display:grid;grid-template-columns:1fr 1fr;gap:26px 44px}
+  .dgrid .k{font-size:16px;font-weight:700}
+  .dgrid .v{color:var(--muted);font-size:15px;margin-top:4px}
+
+  footer{margin:56px 0 40px;color:var(--dim);font-size:13.5px;border-top:1px solid var(--line);padding-top:22px;text-align:center}
+
+  @media(max-width:820px){
+    .hero h1{font-size:34px}.intro{font-size:22px}
+    .bens{grid-template-columns:1fr}
+    .howgrid{grid-template-columns:1fr;gap:26px}
+    .tl-row{grid-template-columns:70px 34px 1fr;gap:12px}
+    .ccards{grid-template-columns:1fr}
+    .dgrid{grid-template-columns:1fr}
+    .starttitle,.how .title{font-size:26px}
+  }
+
+  @media (prefers-reduced-motion:reduce){*,*::before,*::after{transition-duration:.01ms !important;animation-duration:.01ms !important;transition-delay:0s !important}html{scroll-behavior:auto}}
+  /* ruta interactiva */
+  .tk2{text-align:center}
+  .tk2 h2{font-family:'Archivo';font-weight:900;font-size:34px;letter-spacing:-.8px;text-transform:uppercase}
+  .tk2-sub{color:var(--muted);font-size:16px;margin-top:10px}
+  .et-flow{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:10px;margin-top:18px}
+  .et-flow span{display:inline-flex;align-items:center;gap:7px;background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:8px 15px;font-size:14.5px;color:var(--muted)}
+  .et-flow span b{color:var(--lime);font-family:'Archivo';font-weight:900}
+  .et-flow i{color:var(--dim);font-style:normal;font-size:15px}
+  .et-q{text-align:center;margin-top:34px;font-family:'Archivo';font-weight:800;font-size:17px}
+  .et-tabs{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:12px}
+  .et-tab{display:inline-flex;align-items:center;gap:8px;background:var(--panel-2);border:1px solid var(--line);border-radius:20px;padding:9px 17px;font-size:15px;font-weight:600;color:var(--muted);cursor:pointer;font-family:inherit;transition:.2s}
+  .et-tab b{font-family:'Archivo';font-weight:900;color:var(--dim)}
+  .et-tab:hover{color:var(--txt);border-color:#3a3a40}
+  .et-tab.on{color:var(--txt);border-color:var(--lime)}
+  .et-tab.on b{color:var(--lime)}
+  .et-panel{max-width:1020px;margin:22px auto 0}
+  .et-cols{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.92fr);gap:18px;align-items:start}
+  .et-refs{background:rgba(66,133,244,.07);border:1px solid rgba(66,133,244,.28);border-radius:18px;padding:20px 20px 16px}
+  .et-refs-t{font-family:'Archivo';font-weight:800;font-size:15px}
+  .et-refs-s{color:var(--dim);font-size:12.5px;margin-top:3px}
+  .ref{display:flex;align-items:flex-start;gap:10px;padding:10px 12px;border:1px solid var(--line);border-radius:12px;margin-top:10px;background:var(--panel-2);transition:.15s}
+  .ref:hover{border-color:#3a3a40;transform:translateY(-1px)}
+  .ref-src{flex:0 0 auto;font-size:10.5px;font-weight:800;letter-spacing:.5px;padding:3px 7px;border-radius:7px;margin-top:1px}
+  .ref-src.sep{background:rgba(66,133,244,.16);color:#8ab4f8;border:1px solid rgba(66,133,244,.35)}
+  .ref-src.sej{background:rgba(249,138,30,.14);color:#f7a94f;border:1px solid rgba(249,138,30,.35)}
+  .ref-tt{font-size:13.5px;color:#d6d6dc;line-height:1.4;flex:1}
+  .ref-go{color:var(--dim);font-size:13px}
+  .ref-fases{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+  .ref-fases a{font-size:12px;border:1px solid var(--line);border-radius:9px;padding:4px 9px;color:var(--muted);background:var(--panel-2)}
+  .ref-fases a:hover{color:var(--txt);border-color:#3a3a40}
+  .et-refs-note{color:var(--dim);font-size:12px;margin-top:12px;line-height:1.5}
+  @media(max-width:900px){.et-cols{grid-template-columns:1fr}}
+  /* animacion organica de etapas */
+  .et-panel:not([hidden]) .et-card{animation:etIn .55s cubic-bezier(.22,1.12,.32,1) both}
+  .et-panel:not([hidden]) .et-refs{animation:etIn .5s cubic-bezier(.22,1.12,.32,1) .1s both}
+  .et-panel:not([hidden]) .et-refs>*{animation:refIn .5s cubic-bezier(.22,1.12,.32,1) both}
+  .et-panel:not([hidden]) .et-refs>*:nth-child(1){animation-delay:0.215s}
+  .et-panel:not([hidden]) .et-refs>*:nth-child(2){animation-delay:0.270s}
+  .et-panel:not([hidden]) .et-refs>*:nth-child(3){animation-delay:0.325s}
+  .et-panel:not([hidden]) .et-refs>*:nth-child(4){animation-delay:0.380s}
+  .et-panel:not([hidden]) .et-refs>*:nth-child(5){animation-delay:0.435s}
+  .et-panel:not([hidden]) .et-refs>*:nth-child(6){animation-delay:0.490s}
+  .et-panel:not([hidden]) .et-refs>*:nth-child(7){animation-delay:0.545s}
+  .et-panel:not([hidden]) .et-refs>*:nth-child(8){animation-delay:0.600s}
+  .et-panel:not([hidden]) .et-refs>*:nth-child(9){animation-delay:0.655s}
+  .et-panel:not([hidden]) .et-refs>*:nth-child(10){animation-delay:0.710s}
+  .et-panel:not([hidden]) .et-refs>*:nth-child(11){animation-delay:0.765s}
+  .et-panel:not([hidden]) .et-refs>*:nth-child(12){animation-delay:0.820s}
+  .et-panel:not([hidden]) .et-refs>*:nth-child(13){animation-delay:0.875s}
+  .et-panel:not([hidden]) .et-refs>*:nth-child(14){animation-delay:0.930s}
+  @keyframes etIn{from{opacity:0;transform:translateY(14px) scale(.985)}to{opacity:1;transform:translateY(0) scale(1)}}
+  @keyframes refIn{from{opacity:0;transform:translateY(9px)}to{opacity:1;transform:translateY(0)}}
+  .et-card{transition:transform .35s cubic-bezier(.22,1.12,.32,1)}
+  .et-card:hover{transform:translateY(-3px)}
+  .ref{transition:transform .25s cubic-bezier(.22,1.12,.32,1),border-color .2s}
+  .ref:hover{transform:translateY(-2px) translateX(2px)}
+  .et-card{position:relative;isolation:isolate;border:0;border-radius:20px;padding:27px 29px 46px;
+    background:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cdefs%3E%3ClinearGradient id='s' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23ea4335'/%3E%3Cstop offset='.5' stop-color='%234285f4'/%3E%3Cstop offset='1' stop-color='%2334a853'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M12 0C13 7 17 11 24 12 17 13 13 17 12 24 11 17 7 13 0 12 7 11 11 7 12 0Z' fill='url(%23s)'/%3E%3C/svg%3E") no-repeat 24px calc(100% - 16px)/26px 26px,
+      radial-gradient(60% 45% at 7% 5%,rgba(234,67,53,.22),transparent 60%),
+      radial-gradient(55% 45% at 96% 5%,rgba(66,133,244,.22),transparent 60%),
+      radial-gradient(55% 50% at 6% 97%,rgba(52,168,83,.20),transparent 60%),
+      #141419}
+  .et-card::after{content:"";position:absolute;inset:0;border-radius:20px;z-index:-1;padding:1.6px;
+    background:conic-gradient(from var(--ring,210deg),#ea4335,#fbbc05,#34a853,#4285f4,#a142f4,#ea4335);
+    -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:etspin 10s linear infinite}
+  .et-card::before{content:"";position:absolute;inset:-3px;border-radius:23px;z-index:-2;padding:7px;
+    background:conic-gradient(from var(--ring,210deg),#ea4335,#fbbc05,#34a853,#4285f4,#a142f4,#ea4335);
+    -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;
+    filter:blur(6px);opacity:.65;animation:etspin 10s linear infinite}
+  .et-card>*{position:relative;z-index:1}
+  @property --ring{syntax:'<angle>';inherits:false;initial-value:210deg}
+  @keyframes etspin{to{--ring:570deg}}
+  .et-num{color:var(--lime);font-family:'Archivo';font-weight:800;font-size:13px;letter-spacing:2.5px;text-transform:uppercase}
+  .et-card h3{font-family:'Archivo';font-weight:900;font-size:24px;letter-spacing:-.4px;margin-top:6px}
+  .et-desc{color:var(--muted);font-size:15.5px;margin-top:6px}
+  .et-lbl{color:var(--dim);font-size:13px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-top:20px}
+  .et-txt{color:#cfcfd6;font-size:15.5px;margin-top:6px}
+  .et-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+  .et-chip{background:var(--panel-2);border:1px solid var(--line);border-radius:16px;padding:5px 13px;font-size:14px;color:var(--muted)}
+  .et-guarda{margin-top:8px;color:var(--txt);font-size:14.5px;background:var(--panel-2);border:1px solid var(--line);border-radius:10px;padding:9px 13px}
+  .et-fuentes{display:flex;gap:9px;align-items:flex-start;margin-top:10px;color:var(--muted);font-size:13.5px;line-height:1.55;background:rgba(66,133,244,.07);border:1px solid rgba(66,133,244,.28);border-radius:10px;padding:9px 12px}
+  .et-fuentes svg{flex:0 0 15px;margin-top:2px;color:#8ab4f8}
+  .et-open{display:inline-block;margin-top:22px;background:#ececee;color:#0a0a0b;font-weight:800;font-size:15px;padding:11px 22px;border-radius:12px;border:0;cursor:pointer;font-family:inherit}
+  .et-note{color:var(--dim);font-size:13.5px;margin-top:8px}
+  .et-next{text-align:center;margin-top:26px}
+  .et-next p{color:var(--muted);font-size:15.5px;max-width:420px;margin:0 auto}
+  .et-arrow{display:block;color:var(--lime);font-size:22px;margin:10px 0}
+  .et-go{background:none;border:1.5px solid var(--lime);color:var(--lime);font-weight:700;font-size:14.5px;padding:10px 20px;border-radius:22px;cursor:pointer;font-family:inherit;transition:.2s}
+  .et-go:hover{background:var(--lime);color:#0a0a0b}
+  /* modal */
+  .gmodal-overlay{position:fixed;inset:0;z-index:60;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(4,4,6,.66);backdrop-filter:blur(3px)}
+  .gmodal-overlay.open{display:flex}
+  .gmodal{background:var(--panel);border:1px solid var(--line);border-radius:18px;max-width:400px;width:100%;padding:26px}
+  .gmodal h3{font-family:'Archivo';font-weight:800;font-size:19px}
+  .gm-ic{width:56px;height:56px;border-radius:14px;background:var(--panel-2);border:1px solid var(--line);display:grid;place-items:center;margin-bottom:14px}
+  .gm-txt{margin-top:12px;color:var(--muted);font-size:15px;line-height:1.65}
+  .gm-txt b{color:var(--txt);font-weight:700}
+  .gmodal ol{margin:14px 0 0 20px;color:var(--muted);font-size:15.5px;display:flex;flex-direction:column;gap:7px}
+  .gm-actions{display:flex;gap:12px;margin-top:22px}
+  .gm-open{background:#ececee;color:#0a0a0b;font-weight:800;font-size:14.5px;padding:10px 18px;border-radius:12px}
+  .gm-cancel{background:none;border:1px solid var(--line);color:var(--muted);font-size:14.5px;padding:10px 18px;border-radius:12px;cursor:pointer;font-family:inherit}
+  .gm-cancel:hover{color:var(--txt);border-color:#3a3a40}
+  a:focus-visible,button:focus-visible{outline:2px solid var(--lime);outline-offset:2px;border-radius:8px}
+  .ft{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;text-align:left}
+  .ft-brand{display:flex;align-items:center;gap:12px}
+  .ft-brand img{height:42px;width:auto}
+  .ft-brand b{display:block;color:var(--muted);font-size:14.5px;font-weight:600}
+  .ft-brand span{color:var(--dim);font-size:13px}
+  .ft-links{display:flex;gap:18px;flex-wrap:wrap}
+  .ft-links a{color:var(--muted);font-size:14px}
+  .ft-links a:hover{color:var(--txt)}
+  .ft-social{display:flex;gap:10px}
+  .ft-social a{width:36px;height:36px;border-radius:50%;background:var(--panel-2);border:1px solid var(--line);display:grid;place-items:center;color:var(--muted);transition:.2s}
+  .ft-social a:hover{color:var(--txt);border-color:var(--lime)}
+  .ft-legal{margin-top:20px;color:var(--dim);font-size:13px;text-align:center;border-top:1px solid var(--line);padding-top:16px}
+  .ft-cols{display:flex;gap:44px;flex-wrap:wrap}
+  .ft-col{display:flex;flex-direction:column;gap:7px}
+  .ft-col b{color:var(--dim);font-size:12.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:3px}
+  .ft-col a{color:var(--muted);font-size:14px}
+  .ft-col a:hover{color:var(--txt)}
+  .ft-legal a{color:var(--muted)}
+  .ft-legal a:hover{color:var(--txt)}
+  .ft{align-items:flex-start}
+  /* mini-videos de los pasos (se animan al pasar el cursor) */
+  .vwin{position:relative;width:100%;aspect-ratio:16/10;background:#0d0d11;border:1px solid var(--line);border-radius:10px;margin:12px 0 14px;overflow:hidden}
+  .vwin *{animation-play-state:running}
+  .st3:nth-child(2) .vwin *{animation-delay:.6s}
+  .st3:nth-child(3) .vwin *{animation-delay:1.2s}
+  .st3:nth-child(4) .vwin *{animation-delay:1.8s}
+  .wbody{position:relative;height:calc(100% - 16px);transform-origin:50% 45%;transition:transform .4s cubic-bezier(.2,.7,.3,1)}
+  .vwin:hover .wbody{transform:scale(1.07)}
+  .vbar{height:16px;background:#1a1a1f;display:flex;align-items:center;gap:3px;padding:0 7px;border-bottom:1px solid #222}
+  .vbar i{width:5px;height:5px;border-radius:50%;background:#3a3a42}
+  .vbar.light{background:#e9eaee;border-bottom:1px solid #d5d7dd}
+  .vbar.light i{background:#c3c6cd}
+  .vwin.light{background:#fff;border-color:#2e2e34}
+  /* paso 1: banco de gemas */
+  .wsearch{margin:8px 10px 6px;height:12px;border-radius:7px;background:#131318;border:1px solid var(--line)}
+  .wgrid{display:grid;grid-template-columns:1fr 1fr;gap:6px;padding:0 10px}
+  .wgrid .mini{border-radius:5px;border:1.5px solid var(--line);overflow:hidden;background:var(--panel)}
+  .wgrid .mini b{display:block;height:16px}
+  .wgrid .mini i{display:block;height:5px;margin:4px 5px;border-radius:3px;background:#2c2c33}
+  .wgrid .g1 b{background:linear-gradient(135deg,#f5254f,#3a1622)}
+  .wgrid .g2 b{background:linear-gradient(135deg,#a142f4,#2a163a)}
+  .wgrid .g3 b{background:linear-gradient(135deg,#18b7a4,#0f3a34)}
+  .wgrid .g4 b{background:linear-gradient(135deg,#f98a1e,#3a2416)}
+  .wgrid .m-sel{animation:wsel 5s infinite}
+  @keyframes wsel{0%,25%{border-color:var(--line)}40%,75%{border-color:var(--lime)}90%,100%{border-color:var(--line)}}
+  .wcur{position:absolute;z-index:2;pointer-events:none;width:0;height:0;
+    border-left:8px solid #fff;border-bottom:5px solid transparent;border-top:2px solid transparent;
+    filter:drop-shadow(0 1px 2px rgba(0,0,0,.7));transform:rotate(-14deg);top:78%;left:74%;animation:wcur 5s infinite}
+  @keyframes wcur{0%,25%{top:78%;left:74%}40%,75%{top:40%;left:64%}100%{top:78%;left:74%}}
+  /* paso 2: acceso Google */
+  .wlogin{display:flex;flex-direction:column;align-items:center;gap:7px;padding:10px 16px}
+  .wg{font-family:'Archivo';font-weight:800;font-size:13px;line-height:1}
+  .wg span:nth-child(1){color:#4285f4}.wg span:nth-child(2){color:#ea4335}.wg span:nth-child(3){color:#fbbc05}.wg span:nth-child(4){color:#4285f4}.wg span:nth-child(5){color:#34a853}.wg span:nth-child(6){color:#ea4335}
+  .wtitle{color:#3c4043;font-size:8.5px}
+  .wfield{width:100%;height:18px;border-radius:4px;background:#fff;border:1.5px solid #dadce0;display:flex;align-items:center;padding:0 6px;overflow:hidden}
+  .wtype{color:#3c4043;font-size:9px;white-space:nowrap;overflow:hidden;border-right:1.5px solid #1a73e8;animation:wtype 5s steps(22) infinite}
+  @keyframes wtype{0%,10%{width:0}55%,90%{width:100%}98%,100%{width:0}}
+  .wbtn{align-self:flex-end;width:52px;height:15px;border-radius:8px;background:#1a73e8;color:#fff;font-size:7.5px;font-weight:700;display:grid;place-items:center;animation:wbtn 5s infinite}
+  @keyframes wbtn{0%,58%{opacity:.45}68%,80%{opacity:1}92%,100%{opacity:.45}}
+  /* paso 3: chat de Gemini */
+  .wgem{position:absolute;top:6px;left:10px;color:var(--lime);font-size:11px}
+  .wchat{display:flex;flex-direction:column;gap:5px;padding:9px 10px 8px;height:100%;justify-content:flex-end}
+  .wb{max-width:86%;align-self:flex-end;background:#28282e;border-radius:10px 10px 3px 10px;color:#cfcfd6;font-size:8.5px;padding:4px 7px;opacity:0;animation:wbub 6s infinite}
+  .wb.d2{animation-delay:1s}
+  @keyframes wbub{0%,6%{opacity:0;transform:translateY(5px)}14%,82%{opacity:1;transform:none}94%,100%{opacity:0}}
+  .wprompt{align-self:stretch;height:17px;border-radius:9px;background:#131318;border:1px solid #2e2e36;display:flex;align-items:center;gap:4px;padding:0 8px;color:#7a7a84}
+  .wprompt .plus{font-size:9px}
+  .wprompt i{width:4px;height:4px;border-radius:50%;background:var(--lime);animation:wdots 1.2s infinite}
+  .wprompt i:nth-child(3){animation-delay:.2s}
+  .wprompt i:nth-child(4){animation-delay:.4s}
+  @keyframes wdots{0%,100%{opacity:.25;transform:none}50%{opacity:1;transform:translateY(-2px)}}
+  /* paso 4: documento */
+  .wtool{height:10px;background:#f1f3f4;border-bottom:1px solid #e0e2e6;display:flex;align-items:center;gap:2px;padding:0 6px}
+  .wtool i{width:8px;height:4px;border-radius:2px;background:#c9ccd2}
+  .wdoc{position:relative;display:flex;flex-direction:column;gap:5px;padding:9px 12px;background:#fff;height:calc(100% - 10px)}
+  .wl{height:6px;border-radius:3px;background:#e3e5e9}
+  .wl.short{width:68%}
+  .wl.edit{animation:wedit 5s infinite}
+  @keyframes wedit{0%,28%{background:#e3e5e9;width:100%}42%,76%{background:var(--lime);width:80%}90%,100%{background:#e3e5e9;width:100%}}
+  .wok{position:absolute;right:10px;bottom:8px;width:15px;height:15px;border-radius:50%;background:var(--lime);color:#0a0a0b;font-size:9px;font-weight:900;display:grid;place-items:center;opacity:0;animation:wok 5s infinite}
+  @keyframes wok{0%,55%{opacity:0;transform:scale(.4)}66%,88%{opacity:1;transform:scale(1)}100%{opacity:0}}
+  /* flujo de la ruta con mini-ventanas */
+  .flow3{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin:30px auto 0;max-width:920px;text-align:left}
+  .flow3 .fs{padding-left:20px;border-left:1px solid var(--line)}
+  .flow3 .fs:first-child{border-left:none;padding-left:0}
+  .flow3 .n{width:26px;height:26px;border-radius:50%;background:var(--panel-2);border:1px solid var(--line);display:grid;place-items:center;font-size:14px;color:var(--muted);margin-bottom:14px}
+  .flow3 h4{font-size:14px;font-weight:700}
+  .flow3 p{color:var(--muted);font-size:14.5px;margin-top:6px;line-height:1.5}
+  .flow3 p b{color:var(--txt);font-weight:600}
+  .flow3 .fs:nth-child(2) .vwin *{animation-delay:.6s}
+  .flow3 .fs:nth-child(3) .vwin *{animation-delay:1.2s}
+  .wtabs{display:flex;gap:7px;padding:16px 12px}
+  .wtabs b{flex:1;height:20px;border-radius:10px;background:#17171b;border:1px solid #26262a}
+  .wtabs .t1{border-color:var(--lime);opacity:.65}
+  .wtabs .t2{animation:wtab2 5s infinite}
+  @keyframes wtab2{0%,45%{background:#17171b;border-color:#26262a}58%,92%{background:rgba(255,255,255,.07);border-color:var(--lime)}100%{background:#17171b;border-color:#26262a}}
+  .wback{position:absolute;right:12px;bottom:10px;color:var(--lime);font-size:16px;opacity:0;animation:wbackin 5s infinite}
+  @keyframes wbackin{0%,30%{opacity:0;transform:translateX(9px)}46%,62%{opacity:1;transform:translateX(0)}78%,100%{opacity:0}}
+  @media(max-width:860px){.flow3{grid-template-columns:1fr}.flow3 .fs{border-left:none;padding-left:0}}
+  /* pasos 1 y 2 personalizados */
+  .wetapa{position:absolute;inset:11px 21%;padding:1.5px;border-radius:9px;background:conic-gradient(from 210deg,#ea4335,#fbbc05,#34a853,#4285f4,#a142f4,#ea4335)}
+  .wetapa .in{background:#131318;border-radius:8px;height:100%;padding:8px 9px;display:flex;flex-direction:column;gap:4px}
+  .wetapa .k{width:34px;height:4px;border-radius:2px;background:var(--lime)}
+  .wetapa .t{width:72%;height:6px;border-radius:3px;background:#e7e7ec}
+  .wetapa .l{width:88%;height:4px;border-radius:2px;background:#2c2c33}
+  .wetapa .l.s{width:58%}
+  .wetapa .btn{margin-top:auto;width:66%;height:11px;border-radius:6px;background:#ececee;animation:wbtn 5s infinite}
+  .wcur.c2{animation-name:wcur2}
+  @keyframes wcur2{0%,22%{top:26%;left:84%}46%,78%{top:66%;left:44%}100%{top:26%;left:84%}}
+  .wia{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;height:100%;padding:10px;background:radial-gradient(62% 62% at 50% 42%,#10233c 0%,#0b0d12 72%)}
+  .whola{color:#dfe3ea;font-size:9.5px}
+  .wask{width:94%;height:17px;border-radius:9px;background:#1b1d24;border:1px solid #2c2f3a;display:flex;align-items:center;gap:5px;padding:0 8px}
+  .wask .plus{font-size:9px;color:#9aa0ad}
+  .wtypeg{color:#cfd3db;font-size:8.5px;white-space:nowrap;overflow:hidden;border-right:1.5px solid #8ab4f8;animation:wtype 5s steps(26) infinite;max-width:calc(100% - 16px)}
+  /* shell tipo app */
+  .app{margin-top:34px;border:1px solid rgba(245,37,79,.28);border-radius:26px;background:#0b0b0e;display:grid;grid-template-columns:200px minmax(0,1fr);overflow:hidden}
+  .app-side{padding:24px 16px;display:flex;flex-direction:column;align-items:center;border-right:1px solid var(--line)}
+  .app-logo{color:var(--lime);margin-bottom:22px}
+  .app-logo svg{width:26px;height:26px;display:block}
+  .app .et-tabs{flex-direction:column;gap:0;margin:0;width:100%}
+  .app .et-tab{flex-direction:column;align-items:center;gap:7px;width:100%;background:none;border:1px solid transparent;border-radius:18px;padding:14px 8px;color:var(--muted)}
+  .app .et-tab+.et-tab::before{content:"";display:block;height:20px;border-left:1px dashed #33333a;margin:-24px auto 10px}
+  .app .et-tab .ic{width:44px;height:44px;border-radius:50%;background:var(--panel-2);border:1px solid var(--line);display:grid;place-items:center;color:var(--muted);transition:.2s}
+  .app .et-tab .ic svg{width:19px;height:19px}
+  .app .et-tab b{font-family:'Archivo';font-weight:900;font-size:15px;color:var(--muted)}
+  .app .et-tab .lbl{font-size:14px;font-weight:600}
+  .app .et-tab .cur{display:none;background:rgba(245,37,79,.14);color:var(--lime);border:1px solid rgba(245,37,79,.45);border-radius:12px;padding:2px 11px;font-size:11.5px;font-weight:700}
+  .app .et-tab.on{border-color:rgba(245,37,79,.55);background:rgba(245,37,79,.05);color:var(--txt)}
+  .app .et-tab.on b{color:var(--txt)}
+  .app .et-tab.on .ic{color:var(--lime);border-color:rgba(245,37,79,.5);background:rgba(245,37,79,.12)}
+  .app .et-tab.on .cur{display:inline-block}
+  .app-help{margin-top:26px;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:12px 10px;width:100%;text-align:center;color:var(--muted);font-size:13px;display:flex;flex-direction:column;gap:5px}
+  .app-help a{color:#d6d6dc;font-weight:600}
+  .app-help a:hover{color:var(--txt)}
+  .app-main{min-width:0;display:flex;flex-direction:column}
+  .app-top{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:20px 28px}
+  .app-title{font-family:'Archivo';font-weight:800;font-size:17px}
+  .app-how{color:var(--muted);font-size:14px;display:inline-flex;align-items:center;gap:7px}
+  .app-how:hover{color:var(--txt)}
+  .app-how .q{width:20px;height:20px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;font-size:12px}
+  .app-body{padding:6px 28px 30px}
+  .app .et-panel{max-width:none;margin-top:18px}
+  @media(max-width:900px){
+    .app{grid-template-columns:1fr}
+    .app-side{flex-direction:row;align-items:center;gap:10px;border-right:none;border-bottom:1px solid var(--line);padding:14px 12px;overflow-x:auto}
+    .app-logo,.app-help{display:none}
+    .app .et-tabs{flex-direction:row}
+    .app .et-tab{padding:8px 6px}
+    .app .et-tab+.et-tab::before{display:none}
+    .app .et-tab .cur{display:none !important}
+    .app-body{padding:4px 16px 22px}
+  }
+  /* app compacta */
+  .app{margin-top:24px;grid-template-columns:168px minmax(0,1fr)}
+  .app-side{padding:16px 12px}
+  .app-logo{margin-bottom:14px;color:inherit}
+  .app-logo img{width:46px;height:auto;display:block}
+  .app .et-tab{padding:8px 6px;gap:5px}
+  .app .et-tab+.et-tab::before{height:12px;margin:-12px auto 5px}
+  .app .et-tab .ic{width:36px;height:36px}
+  .app .et-tab .ic svg{width:16px;height:16px}
+  .app .et-tab b{font-size:13.5px}
+  .app .et-tab .lbl{font-size:13px}
+  .app .et-tab .cur{padding:1px 9px;font-size:11px}
+  .app-help{margin-top:16px;padding:10px 8px;font-size:12.5px}
+  .app-top{padding:13px 22px}
+  .app-body{padding:2px 22px 20px}
+  .app .et-panel{margin-top:14px}
+  .app .et-cols{gap:14px}
+  .app .et-card{padding:20px 22px 38px}
+  .app .et-card h3{font-size:21px}
+  .app .et-desc{margin-top:4px}
+  .app .et-lbl{margin-top:13px}
+  .app .et-txt{margin-top:4px}
+  .app .et-fuentes{margin-top:8px;padding:8px 11px}
+  .app .et-guarda{padding:8px 11px}
+  .app .et-open{margin-top:14px;padding:10px 19px}
+  .app .et-note{margin-top:6px}
+  .app .et-next{margin-top:16px}
+  .app .et-refs{padding:15px 15px 11px}
+  .app .ref{padding:8px 10px;margin-top:8px;gap:9px}
+  .app .et-refs-note{margin-top:9px}
+  /* recorrido ¿como funciona? */
+  .hiw-overlay{position:fixed;inset:0;z-index:70;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(4,4,6,.72);backdrop-filter:blur(4px)}
+  .hiw-overlay.open{display:flex}
+  .hiw{position:relative;background:var(--panel);border:1px solid var(--line);border-radius:22px;max-width:1080px;width:100%;padding:30px 34px;animation:hiwIn .35s cubic-bezier(.22,1.12,.32,1)}
+  @keyframes hiwIn{from{opacity:0;transform:translateY(12px) scale(.98)}to{opacity:1;transform:none}}
+  .hiw-x{position:absolute;top:12px;right:14px;width:32px;height:32px;border-radius:50%;background:rgba(0,0,0,.35);border:1px solid var(--line);color:#fff;font-size:19px;cursor:pointer;display:grid;place-items:center;z-index:2}
+  .hiw-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:34px;align-items:center}
+  .hiw-stage .vwin{margin:0}
+  .hiw-step{color:var(--lime);font-family:'Archivo';font-weight:800;font-size:12px;letter-spacing:2px;text-transform:uppercase}
+  .hiw h3{font-family:'Archivo';font-weight:900;font-size:26px;margin-top:8px;letter-spacing:-.4px}
+  .hiw-side p{color:var(--muted);font-size:16px;line-height:1.65;margin-top:12px;min-height:150px}
+  #hiwDesc.typing::after{content:"▍";color:var(--lime);animation:hiwBlink 1s steps(1) infinite}
+  @keyframes hiwBlink{50%{opacity:0}}
+  .hiw-side p b{color:var(--txt);font-weight:600}
+  .hiw-ctr{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:14px}
+  .hiw-ctr button{background:none;border:1px solid var(--line);color:var(--muted);font-size:13.5px;font-weight:600;padding:8px 14px;border-radius:10px;cursor:pointer;font-family:inherit}
+  .hiw-ctr button:hover:not(:disabled){color:var(--txt);border-color:#3a3a40}
+  .hiw-ctr button:disabled{opacity:.4;cursor:default}
+  #hiwNext{background:#ececee;color:#0a0a0b;border:0;font-weight:800}
+  .hiw-dots{display:flex;gap:5px}
+  .hiw-dots i{width:6px;height:6px;border-radius:50%;background:#2c2c33;cursor:pointer;transition:.2s}
+  .hiw-dots i.on{background:var(--lime)}
+  .hcur{position:absolute;z-index:3;pointer-events:none;width:0;height:0;border-left:8px solid #fff;border-bottom:5px solid transparent;border-top:2px solid transparent;filter:drop-shadow(0 1px 2px rgba(0,0,0,.7));transform:rotate(-14deg)}
+  /* e1 elegir modulo */
+  .h1side{position:absolute;left:10px;top:12px;bottom:12px;width:34px;border-right:1px solid #222;display:flex;flex-direction:column;gap:8px;align-items:center;padding-top:2px}
+  .h1side b{width:15px;height:15px;border-radius:50%;background:#1b1b1e;border:1px solid #2c2c33}
+  .h1side b.a{animation:h1on 6s infinite}
+  @keyframes h1on{0%,28%{border-color:#2c2c33;background:#1b1b1e}38%,90%{border-color:var(--lime);background:rgba(245,37,79,.28)}100%{border-color:#2c2c33}}
+  .h1card{position:absolute;left:56px;right:14px;top:16px;bottom:16px;border:1px solid #26262a;border-radius:8px;background:#131318;padding:8px 9px;display:flex;flex-direction:column;gap:4px;animation:h1card 6s infinite}
+  @keyframes h1card{0%,34%{opacity:.35;transform:translateY(3px)}44%,92%{opacity:1;transform:none}100%{opacity:.35}}
+  .h1card .k{width:30px;height:4px;background:var(--lime);border-radius:2px}
+  .h1card .t{width:66%;height:6px;background:#e7e7ec;border-radius:3px}
+  .h1card .l{width:86%;height:4px;background:#2c2c33;border-radius:2px}
+  .h1card .l.s{width:55%}
+  .h1card .b{margin-top:auto;width:60%;height:10px;border-radius:6px;background:#ececee}
+  .hcur.h1c{animation:h1cur 6s infinite}
+  @keyframes h1cur{0%{top:70%;left:66%}30%,44%{top:5.5%;left:4%}62%,100%{top:70%;left:66%}}
+  .hcur.h2c{animation:h2cur 5s infinite}
+  @keyframes h2cur{0%,20%{top:22%;left:80%}45%,80%{top:82%;left:42%}100%{top:22%;left:80%}}
+  /* e3 gema titulo */
+  .h3t{position:absolute;top:7px;left:10px;display:flex;align-items:center;gap:4px;color:#cfd3db;font-size:8.5px;font-weight:600}
+  .h3t b{color:var(--lime);font-weight:900}
+  /* e4 referencias */
+  .h4list{position:absolute;left:12px;top:16px;width:44%;display:flex;flex-direction:column;gap:6px}
+  .h4r{height:16px;border-radius:8px;background:rgba(66,133,244,.08);border:1px solid rgba(66,133,244,.3);display:flex;align-items:center;gap:5px;padding:0 6px}
+  .h4r em{font-style:normal;font-size:7px;font-weight:800;color:#8ab4f8;border:1px solid rgba(66,133,244,.4);border-radius:4px;padding:0 3px}
+  .h4r i{flex:1;height:4px;border-radius:2px;background:#2c3242}
+  .h4r.sel{animation:h4sel 6s infinite}
+  @keyframes h4sel{0%,22%{border-color:rgba(66,133,244,.3);background:rgba(66,133,244,.08)}32%,60%{border-color:#8ab4f8;background:rgba(66,133,244,.22)}72%,100%{border-color:rgba(66,133,244,.3);background:rgba(66,133,244,.08)}}
+  .h4doc{position:absolute;right:12px;top:12px;bottom:12px;width:40%;background:#fff;border-radius:6px;padding:8px;display:flex;flex-direction:column;gap:4px;opacity:0;animation:h4doc 6s infinite}
+  @keyframes h4doc{0%,36%{opacity:0;transform:translateY(6px)}46%,94%{opacity:1;transform:none}100%{opacity:0}}
+  .h4doc i{height:4px;border-radius:2px;background:#e3e5e9}
+  .h4doc i.w{width:68%}
+  .h4doc .cp{margin-top:auto;align-self:flex-end;font-size:7.5px;font-weight:800;color:#0a0a0b;background:#c6dafc;border-radius:5px;padding:2px 6px;animation:h4cp 6s infinite}
+  @keyframes h4cp{0%,58%{opacity:.4;transform:none}68%,86%{opacity:1;transform:scale(1.1)}100%{opacity:.4}}
+  .hcur.h4c{animation:h4cur 6s infinite}
+  @keyframes h4cur{0%{top:78%;left:58%}24%,36%{top:6%;left:20%}60%,74%{top:87%;left:84%}100%{top:78%;left:58%}}
+  /* e5 anexar */
+  .h5{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;gap:6px;padding:10px}
+  .h5chip{align-self:flex-start;display:flex;gap:4px;align-items:center;font-size:7.5px;color:#cfd3db;background:#20232c;border:1px solid #343947;border-radius:6px;padding:3px 7px;opacity:0;animation:h5chip 6s infinite}
+  @keyframes h5chip{0%,18%{opacity:0;transform:translateY(4px)}28%,100%{opacity:1;transform:none}}
+  .h5bub{align-self:flex-end;max-width:82%;background:#28282e;border-radius:10px 10px 3px 10px;padding:4px 7px;font-size:8px;color:#cfcfd6;opacity:0;animation:h5bub 6s infinite}
+  @keyframes h5bub{0%,50%{opacity:0;transform:translateY(5px)}62%,100%{opacity:1;transform:none}}
+  .h5bar{align-self:stretch;height:17px;border-radius:9px;background:#131318;border:1px solid #2e2e36;display:flex;align-items:center;gap:5px;padding:0 8px;color:#7a7a84;font-size:8px}
+  /* e6 gema trabaja */
+  .h6{position:absolute;inset:0;padding:12px 12px 10px;display:flex;flex-direction:column;gap:5px;justify-content:flex-end}
+  .h6think{display:flex;gap:3px;animation:h6think 8s infinite}
+  .h6think i{width:4px;height:4px;border-radius:50%;background:var(--lime);animation:wdots 1.2s infinite}
+  .h6think i:nth-child(2){animation-delay:.2s}
+  .h6think i:nth-child(3){animation-delay:.4s}
+  @keyframes h6think{0%,22%{opacity:1}30%,100%{opacity:0}}
+  .h6r{height:5px;border-radius:2px;background:#2f3038;width:88%;opacity:0}
+  .h6r.r1{animation:h6r1 8s infinite}
+  .h6r.r2{width:80%;animation:h6r2 8s infinite}
+  .h6r.r3{width:64%;animation:h6r3 8s infinite}
+  @keyframes h6r1{0%,26%{opacity:0}32%,100%{opacity:1}}
+  @keyframes h6r2{0%,32%{opacity:0}38%,100%{opacity:1}}
+  @keyframes h6r3{0%,38%{opacity:0}44%,100%{opacity:1}}
+  .h6u{align-self:flex-end;max-width:70%;background:#28282e;border-radius:10px 10px 3px 10px;padding:4px 7px;font-size:8px;color:#cfcfd6;opacity:0;animation:h6u 8s infinite}
+  @keyframes h6u{0%,54%{opacity:0;transform:translateY(5px)}62%,100%{opacity:1;transform:none}}
+  .h6r.r4{width:84%;animation:h6r4 8s infinite}
+  @keyframes h6r4{0%,74%{opacity:0}82%,100%{opacity:1}}
+  /* e7 docs */
+  .h7{position:absolute;inset:0;background:#fff;display:flex;flex-direction:column}
+  .h7bar{height:14px;background:#f1f3f4;display:flex;align-items:center;gap:4px;padding:0 8px}
+  .h7ic{width:6px;height:9px;background:#1a73e8;border-radius:1px}
+  .h7bar i{width:26px;height:4px;border-radius:2px;background:#dadce0}
+  .h7doc{flex:1;padding:9px 13px;display:flex;flex-direction:column;gap:5px;position:relative}
+  .h7doc .wl{background:#e3e5e9}
+  .h7dl{position:absolute;right:10px;bottom:8px;font-size:7.5px;font-weight:800;color:#0a0a0b;background:#c6f0d4;border-radius:5px;padding:2px 6px;animation:h4cp 6s infinite}
+  /* e8 siguiente modulo */
+  .h8paste{position:absolute;left:12px;bottom:10px;font-size:7.5px;color:#cfd3db;background:#20232c;border:1px solid #343947;border-radius:6px;padding:3px 7px;animation:h8p 5s infinite}
+  @keyframes h8p{0%,28%{opacity:0;transform:translateY(4px)}40%,84%{opacity:1;transform:none}100%{opacity:0}}
+  @media(max-width:760px){.hiw-grid{grid-template-columns:1fr}.hiw-side p{min-height:0}}
+  /* titulo de la herramienta */
+  .app-head{padding:24px 28px 18px;border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:6px}
+  .app-head h3{font-family:'Archivo';font-weight:900;font-size:24px;letter-spacing:-.5px}
+  .app-head p{color:var(--muted);font-size:14.5px;max-width:600px;line-height:1.55}
+  .app-badge{align-self:flex-start;margin-top:14px;display:inline-flex;align-items:center;gap:7px;font-size:12.5px;color:var(--dim);letter-spacing:.3px}
+  .app-badge i{font-style:normal;background:linear-gradient(90deg,#4285f4,#a142f4,#ea4335);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;font-weight:800}
+  @media(max-width:900px){.app-head{padding:18px 16px 14px}.app-head h3{font-size:20px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="nav">
+    <a class="back" href="academia-docente-jalisco.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
+      IA para Docentes
+    </a>
+    
+  </div>
+
+  <!-- HERO -->
+  <header class="hero">
+    <video class="hero-bg" src="grok-video-3ab718b7-b540-4c1e-b2c2-bebd28cd699a.mp4" poster="ruta-banner.jpg" autoplay muted loop playsinline aria-hidden="true" onerror="this.outerHTML='&lt;img class=&quot;hero-bg&quot; src=&quot;ruta-banner.jpg&quot; alt=&quot;&quot; aria-hidden=&quot;true&quot;&gt;'"></video>
+    <div class="hero-txt">
+      <div class="kick">✦ Constructor pedagógico ✦</div>
+      <h1>Del diagnóstico al aula</h1>
+    </div>
+  </header>
+
+  <!-- INTRO -->
+  <div class="intro">
+    <div class="aviso" role="note">
+      <span class="aviso-ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3L2 20h20L12 3z"/><path d="M12 10v4"/><circle cx="12" cy="17" r=".5" fill="currentColor"/></svg></span>
+      <p>Las Gemas son asistentes de apoyo que ofrecen orientaciones y sugerencias para el diagnóstico, el programa analítico, la planeación y la evaluación. Nunca sustituyen el conocimiento, la experiencia ni el criterio profesional del docente. Revisa, adapta y valida cada propuesta de acuerdo con las necesidades, el contexto y los aprendizajes de tu grupo.</p>
+    </div>
+  </div>
+
+  <!-- CÓMO FUNCIONA · RUTA INTERACTIVA -->
+  <div class="how" id="ruta-int">
+    <div class="tk2">
+      <h2>Constructor pedagógico</h2>
+      <p class="tk2-sub">Herramientas Gemas para apoyar tu trabajo docente. Utiliza los módulos para organizar información y generar propuestas: trabaja cada uno por separado o aprovecha sus resultados como insumo para el siguiente.</p>
+      <div class="flow3">
+        <div class="fs">
+          <div class="n">1</div>
+          <div class="vwin" aria-hidden="true"><div class="vbar"><i></i><i></i><i></i></div><div class="wbody">
+            <div class="wetapa"><div class="in"><span class="k"></span><span class="t"></span><span class="l"></span><span class="l s"></span><span class="btn"></span></div></div>
+            <span class="wcur c2"></span>
+          </div></div>
+          <h4>Abre la Gema</h4>
+          <p>Estás aquí: en la tarjeta de tu módulo, pulsa <b>Abrir herramienta</b> y se abrirá en otra pestaña.</p>
+        </div>
+        <div class="fs">
+          <div class="n">2</div>
+          <div class="vwin" aria-hidden="true"><div class="vbar"><i></i><i></i><i></i></div><div class="wbody">
+            <div class="wia"><span class="whola">Hola, ¿qué quieres hacer?</span><span class="wask"><span class="plus">＋</span><span class="wtypeg">Elabora el diagnóstico de mi grupo…</span></span></div>
+          </div></div>
+          <h4>Escribe en la Gema</h4>
+          <p>Comparte tu contexto y tu indicación, genera el resultado y <b>guárdalo</b>.</p>
+        </div>
+        <div class="fs">
+          <div class="n">3</div>
+          <div class="vwin" aria-hidden="true"><div class="vbar"><i></i><i></i><i></i></div><div class="wbody">
+            <div class="wtabs"><b class="t1"></b><b class="t2"></b><b class="t3"></b><b class="t4"></b></div>
+            <span class="wback">↩</span>
+          </div></div>
+          <h4>Vuelve y continúa</h4>
+          <p>Regresa a esta página y <b>continúa con el siguiente módulo</b> cuando lo necesites.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="app">
+      <aside class="app-side">
+        <div class="app-logo"><img src="logo-sej-2024.svg" alt="Secretaría de Educación Jalisco"></div>
+        <div class="et-tabs" role="tablist" aria-label="Módulos del Constructor pedagógico">
+        <button type="button" class="et-tab on" role="tab" aria-selected="true" aria-controls="etp1" data-et="1">
+          <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 20v-7"/><path d="M12 20V5"/><path d="M19 20v-4"/></svg></span>
+          <b>1</b><span class="lbl">Diagnóstico</span>
+          <span class="cur">Actual</span>
+        </button>
+        <button type="button" class="et-tab" role="tab" aria-selected="false" aria-controls="etp2" data-et="2">
+          <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="4" width="12" height="17" rx="2"/><path d="M9 4.5h6"/><path d="M9 10h6M9 14h6M9 18h4"/></svg></span>
+          <b>2</b><span class="lbl">Programa</span>
+          <span class="cur">Actual</span>
+        </button>
+        <button type="button" class="et-tab" role="tab" aria-selected="false" aria-controls="etp3" data-et="3">
+          <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="6" width="16" height="14" rx="2"/><path d="M4 11h16M8 3v5M16 3v5"/></svg></span>
+          <b>3</b><span class="lbl">Planeación</span>
+          <span class="cur">Actual</span>
+        </button>
+        <button type="button" class="et-tab" role="tab" aria-selected="false" aria-controls="etp4" data-et="4">
+          <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19l5-6 4 3 7-9"/><circle cx="4" cy="19" r="1"/><circle cx="20" cy="7" r="1"/></svg></span>
+          <b>4</b><span class="lbl">Evaluación</span>
+          <span class="cur">Actual</span>
+        </button>
+        </div>
+        <div class="app-help"><span>¿Necesitas ayuda?</span><a href="ayuda-ruta.html">Centro de ayuda ↗</a></div>
+      </aside>
+      <div class="app-main">
+        <div class="app-head">
+          <h3>Constructor pedagógico</h3>
+          <p>Herramienta digital con inteligencia artificial para elaborar y organizar tu trabajo docente.</p>
+          <span class="app-badge"><i>✦</i> Impulsado por Google Gemini</span>
+        </div>
+        <div class="app-top"><span class="app-title">¿Qué necesitas elaborar?</span><a class="app-how" id="hiwOpen" href="#ruta-int"><span class="q">?</span> ¿Cómo funciona?</a></div>
+        <div class="app-body">
+
+    <div class="et-panel" id="etp1" role="tabpanel">
+      <div class="et-cols"><div class="et-card">
+        <div class="et-num">Módulo de diagnóstico</div>
+        <h3>Diagnóstico inicial</h3>
+        <p class="et-desc">Conoce las necesidades y características de tu grupo.</p>
+        <div class="et-lbl">Antes de entrar</div>
+        <p class="et-txt">Reúne información sobre tu grupo, su contexto y sus principales necesidades.</p>
+        <p class="et-fuentes"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg><span>Apóyate en las referencias oficiales de este módulo para enriquecer la lectura de tu realidad escolar antes de generar el diagnóstico.</span></p>
+        <div class="et-lbl">Realízala</div>
+        <div class="et-chips"><span class="et-chip">Individual</span><span class="et-chip">Con estudiantes</span></div>
+        <div class="et-lbl">Al terminar</div>
+        <p class="et-txt">Obtendrás un diagnóstico de tu grupo.</p>
+        <p class="et-guarda">💾 Guárdalo: lo necesitarás para elaborar el programa analítico.</p>
+        <button type="button" class="et-open" data-gema="#" data-nombre="Abrir herramienta de diagnóstico">Abrir herramienta de diagnóstico ↗</button>
+        <p class="et-note">Se abrirá en otra pestaña. Cuando termines, vuelve aquí para continuar.</p>
+      </div><aside class="et-refs" aria-label="Referencias oficiales del módulo 1"><div class="et-refs-t">Referencias oficiales sugeridas</div><div class="et-refs-s">Documentos de apoyo del módulo: Diagnóstico inicial</div><a class="ref" href="https://educacionbasica.sep.gob.mx/primera-sesion-ordinaria/" target="_blank" rel="noopener" title="Se abre en pestaña nueva"><span class="ref-src sep">SEP</span><span class="ref-tt">Lectura de la realidad y diagnóstico socioeducativo</span><span class="ref-go">↗</span></a><a class="ref" href="https://educacionbasica.sep.gob.mx/wp-content/uploads/2024/09/2425_insumos_direc_proceso_mejora_continua.pdf" target="_blank" rel="noopener" title="Se abre en pestaña nueva"><span class="ref-src sep">SEP</span><span class="ref-tt">El proceso de mejora continua</span><span class="ref-go">↗</span></a><a class="ref" href="https://educacionbasica.sep.gob.mx/evaluacion-diagnostica/" target="_blank" rel="noopener" title="Se abre en pestaña nueva"><span class="ref-src sep">SEP</span><span class="ref-tt">Evaluación diagnóstica y formativa</span><span class="ref-go">↗</span></a><a class="ref" href="https://apprende.jalisco.gob.mx/cemej/wp-content/uploads/sites/37/2024/06/Instructivo-_Autodiagnostico-CAVv3.pdf" target="_blank" rel="noopener" title="Se abre en pestaña nueva"><span class="ref-src sej">SEJ</span><span class="ref-tt">Instructivo para el Autodiagnóstico CAV</span><span class="ref-go">↗</span></a><a class="ref" href="https://apprende.jalisco.gob.mx/cemej/wp-content/uploads/sites/37/2023/03/Indicadores-del-Autodiagnostico-CAV.pdf" target="_blank" rel="noopener" title="Se abre en pestaña nueva"><span class="ref-src sej">SEJ</span><span class="ref-tt">Indicadores del Autodiagnóstico CAV</span><span class="ref-go">↗</span></a><a class="ref" href="https://forms.gle/7XzCVFMLtCkwqSw56" target="_blank" rel="noopener" title="Se abre en pestaña nueva"><span class="ref-src sej">SEJ</span><span class="ref-tt">Autodiagnóstico CAV en línea</span><span class="ref-go">↗</span></a><a class="ref" href="https://apprende.jalisco.gob.mx/direccion-evaluacion-educativa/resultados-evaluaciones/" target="_blank" rel="noopener" title="Se abre en pestaña nueva"><span class="ref-src sej">SEJ</span><span class="ref-tt">Resultados de Jalisco Avanza</span><span class="ref-go">↗</span></a><p class="et-refs-note">Materiales oficiales de consulta y referencia. Algunas orientaciones corresponden a ciclos anteriores: contrástalas con las disposiciones vigentes y las características de tu grupo.</p></aside></div>
+      <div class="et-next">
+        <p>Tu diagnóstico será el punto de partida para elaborar el programa analítico.</p>
+        <span class="et-arrow" aria-hidden="true">↓</span>
+        <button type="button" class="et-go" data-goto="2">Continuar con Programa analítico</button>
+      </div>
+    </div>
+    <div class="et-panel" id="etp2" role="tabpanel" hidden>
+      <div class="et-cols"><div class="et-card">
+        <div class="et-num">Módulo de programa analítico</div>
+        <h3>Programa analítico</h3>
+        <p class="et-desc">Contextualiza el programa a tu comunidad y campos formativos.</p>
+        <div class="et-lbl">Antes de entrar</div>
+        <p class="et-txt">Ten a la mano el diagnóstico generado en el módulo anterior.</p>
+        <p class="et-fuentes"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg><span>Consulta las referencias oficiales de este módulo: te ayudarán a contextualizar el currículo y fortalecer tu programa analítico.</span></p>
+        <div class="et-lbl">Realízala</div>
+        <div class="et-chips"><span class="et-chip">En colectivo</span><span class="et-chip">Con tu CAV</span></div>
+        <div class="et-lbl">Al terminar</div>
+        <p class="et-txt">Obtendrás un programa analítico contextualizado para tu comunidad.</p>
+        <p class="et-guarda">💾 Guárdalo: lo necesitarás para tu planeación didáctica.</p>
+        <button type="button" class="et-open" data-gema="#" data-nombre="Abrir herramienta de programa analítico">Abrir herramienta de programa analítico ↗</button>
+        <p class="et-note">Se abrirá en otra pestaña. Cuando termines, vuelve aquí para continuar.</p>
+      </div><aside class="et-refs" aria-label="Referencias oficiales del módulo 2"><div class="et-refs-t">Referencias oficiales sugeridas</div><div class="et-refs-s">Documentos de apoyo del módulo: Programa analítico</div><a class="ref" href="https://educacionbasica.sep.gob.mx/wp-content/uploads/2024/06/Plan-de-Estudio-ISBN-ELECTRONICO.pdf" target="_blank" rel="noopener" title="Se abre en pestaña nueva"><span class="ref-src sep">SEP</span><span class="ref-tt">Plan de Estudio para la Educación Preescolar, Primaria y Secundaria 2022</span><span class="ref-go">↗</span></a><div class="ref-fases"><span class="ref-tt" style="flex:0 0 100%;margin-top:2px">Programas sintéticos por fase:</span><a href="https://educacionbasica.sep.gob.mx/wp-content/uploads/2024/09/2425_s0_Programa_Sintetico_Fase2.pdf" target="_blank" rel="noopener">Fase 2 ↗</a><a href="https://educacionbasica.sep.gob.mx/wp-content/uploads/2024/09/Programa_Sintetico_Fase_3.pdf" target="_blank" rel="noopener">Fase 3 ↗</a><a href="https://educacionbasica.sep.gob.mx/wp-content/uploads/2024/09/Programa_Sintetico_Fase_4.pdf" target="_blank" rel="noopener">Fase 4 ↗</a><a href="https://educacionbasica.sep.gob.mx/wp-content/uploads/2024/09/Programa_Sintetico_Fase_5.pdf" target="_blank" rel="noopener">Fase 5 ↗</a><a href="https://educacionbasica.sep.gob.mx/wp-content/uploads/2024/09/Programa_Sintetico_Fase_6.pdf" target="_blank" rel="noopener">Fase 6 ↗</a></div><a class="ref" href="https://educacionbasica.sep.gob.mx/cuarta-sesion-ordinaria/" target="_blank" rel="noopener" title="Se abre en pestaña nueva"><span class="ref-src sep">SEP</span><span class="ref-tt">Cuarta Sesión Ordinaria de Consejo Técnico Escolar</span><span class="ref-go">↗</span></a><a class="ref" href="https://formacioncontinua.sep.gob.mx/" target="_blank" rel="noopener" title="Se abre en pestaña nueva"><span class="ref-src sep">SEP</span><span class="ref-tt">Materiales para la apropiación del Plan y Programas 2022</span><span class="ref-go">↗</span></a><a class="ref" href="https://apprende.jalisco.gob.mx/cemej/wp-content/uploads/sites/37/2024/11/Codiseno-en-la-Practica-Educativav3.pdf" target="_blank" rel="noopener" title="Se abre en pestaña nueva"><span class="ref-src sej">SEJ</span><span class="ref-tt">El Codiseño en la Práctica Educativa</span><span class="ref-go">↗</span></a><a class="ref" href="https://apprende.jalisco.gob.mx/cemej/wp-content/uploads/sites/37/2023/08/Pautas-para-La-Reforma-Curricular-desde-las-CAV.pdf" target="_blank" rel="noopener" title="Se abre en pestaña nueva"><span class="ref-src sej">SEJ</span><span class="ref-tt">Pautas para la Reforma Curricular desde las CAV</span><span class="ref-go">↗</span></a><a class="ref" href="https://apprende.jalisco.gob.mx/cemej/wp-content/uploads/sites/37/2025/08/comunidadesdeaprendizajeenyparalavida2025.pdf" target="_blank" rel="noopener" title="Se abre en pestaña nueva"><span class="ref-src sej">SEJ</span><span class="ref-tt">Comunidades de Aprendizaje en y para la Vida 2025</span><span class="ref-go">↗</span></a><p class="et-refs-note">Materiales oficiales de consulta y referencia. Algunas orientaciones corresponden a ciclos anteriores: contrástalas con las disposiciones vigentes y las características de tu grupo.</p></aside></div>
+      <div class="et-next">
+        <p>Tu programa analítico guiará tu planeación didáctica.</p>
+        <span class="et-arrow" aria-hidden="true">↓</span>
+        <button type="button" class="et-go" data-goto="3">Continuar con Planeación didáctica</button>
+      </div>
+    </div>
+    <div class="et-panel" id="etp3" role="tabpanel" hidden>
+      <div class="et-cols"><div class="et-card">
+        <div class="et-num">Módulo de planeación</div>
+        <h3>Planeación didáctica</h3>
+        <p class="et-desc">Diseña actividades y materiales para tu grupo.</p>
+        <div class="et-lbl">Antes de entrar</div>
+        <p class="et-txt">Ten a la mano tu programa analítico y los PDA que trabajarás.</p>
+        <p class="et-fuentes"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg><span>Explora las referencias oficiales de este módulo para nutrir tu planeación con metodologías, orientaciones y ejemplos.</span></p>
+        <div class="et-lbl">Realízala</div>
+        <div class="et-chips"><span class="et-chip">Individual</span><span class="et-chip">Entre docentes</span></div>
+        <div class="et-lbl">Al terminar</div>
+        <p class="et-txt">Obtendrás una planeación con actividades y materiales para tu grupo.</p>
+        <p class="et-guarda">💾 Guárdala: la usarás al evaluar y retroalimentar.</p>
+        <button type="button" class="et-open" data-gema="#" data-nombre="Abrir herramienta de planeación">Abrir herramienta de planeación ↗</button>
+        <p class="et-note">Se abrirá en otra pestaña. Cuando termines, vuelve aquí para continuar.</p>
+      </div><aside class="et-refs" aria-label="Referencias oficiales del módulo 3"><div class="et-refs-t">Referencias oficiales sugeridas</div><div class="et-refs-s">Documentos de apoyo del módulo: Planeación didáctica</div><a class="ref" href="https://educacionbasica.sep.gob.mx/taller-intensivo-de-formacion-continua-para-directivos-y-docentes/" target="_blank" rel="noopener" title="Se abre en pestaña nueva"><span class="ref-src sep">SEP</span><span class="ref-tt">Taller Intensivo de Formación Continua para Directivos y Docentes</span><span class="ref-go">↗</span></a><a class="ref" href="https://educacionbasica.sep.gob.mx/cuarta-sesion-ordinaria/" target="_blank" rel="noopener" title="Se abre en pestaña nueva"><span class="ref-src sep">SEP</span><span class="ref-tt">Del Programa analítico a la planeación (Cuarta Sesión CTE)</span><span class="ref-go">↗</span></a><a class="ref" href="https://educacionbasica.sep.gob.mx/segunda-sesion-ordinaria-2/" target="_blank" rel="noopener" title="Se abre en pestaña nueva"><span class="ref-src sep">SEP</span><span class="ref-tt">Temas pedagógicos y metodológicos (Segunda Sesión CTE)</span><span class="ref-go">↗</span></a><a class="ref" href="https://apprende.jalisco.gob.mx/cemej/wp-content/uploads/sites/37/2024/11/Codiseno-en-la-Practica-Educativav3.pdf" target="_blank" rel="noopener" title="Se abre en pestaña nueva"><span class="ref-src sej">SEJ</span><span class="ref-tt">El Codiseño en la Práctica Educativa</span><span class="ref-go">↗</span></a><a class="ref" href="https://apprende.jalisco.gob.mx/cemej/publicaciones/" target="_blank" rel="noopener" title="Se abre en pestaña nueva"><span class="ref-src sej">SEJ</span><span class="ref-tt">Publicaciones de CEMEJ</span><span class="ref-go">↗</span></a><p class="et-refs-note">Materiales oficiales de consulta y referencia. Algunas orientaciones corresponden a ciclos anteriores: contrástalas con las disposiciones vigentes y las características de tu grupo.</p></aside></div>
+      <div class="et-next">
+        <p>Tu planeación es la base para evaluar y retroalimentar.</p>
+        <span class="et-arrow" aria-hidden="true">↓</span>
+        <button type="button" class="et-go" data-goto="4">Continuar con Evaluación</button>
+      </div>
+    </div>
+    <div class="et-panel" id="etp4" role="tabpanel" hidden>
+      <div class="et-cols"><div class="et-card">
+        <div class="et-num">Módulo de evaluación</div>
+        <h3>Evaluación y retroalimentación</h3>
+        <p class="et-desc">Valora los aprendizajes y retroalimenta a tu grupo.</p>
+        <div class="et-lbl">Antes de entrar</div>
+        <p class="et-txt">Ten a la mano tu planeación y, cuando corresponda, las evidencias de aprendizaje.</p>
+        <p class="et-fuentes"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg><span>Revisa las referencias oficiales de este módulo para afinar tus instrumentos de evaluación y la retroalimentación.</span></p>
+        <div class="et-lbl">Realízala</div>
+        <div class="et-chips"><span class="et-chip">Como docente</span><span class="et-chip">Con estudiantes</span></div>
+        <div class="et-lbl">Al terminar</div>
+        <p class="et-txt">Obtendrás instrumentos de evaluación y propuestas de retroalimentación.</p>
+        <button type="button" class="et-open" data-gema="#" data-nombre="Abrir herramienta de evaluación">Abrir herramienta de evaluación ↗</button>
+        <p class="et-note">Se abrirá en otra pestaña. Cuando termines, vuelve aquí para continuar.</p>
+      </div><aside class="et-refs" aria-label="Referencias oficiales del módulo 4"><div class="et-refs-t">Referencias oficiales sugeridas</div><div class="et-refs-s">Documentos de apoyo del módulo: Evaluación y retroalimentación</div><a class="ref" href="https://educacionbasica.sep.gob.mx/tercera-sesion-ordinaria/" target="_blank" rel="noopener" title="Se abre en pestaña nueva"><span class="ref-src sep">SEP</span><span class="ref-tt">Evaluación formativa y retroalimentación (Tercera Sesión CTE)</span><span class="ref-go">↗</span></a><a class="ref" href="https://educacionbasica.sep.gob.mx/wp-content/uploads/2023/11/2324_s3_La_Evaluacion_formativa_en_la_NEM.pdf" target="_blank" rel="noopener" title="Se abre en pestaña nueva"><span class="ref-src sep">SEP</span><span class="ref-tt">La evaluación formativa en la Nueva Escuela Mexicana</span><span class="ref-go">↗</span></a><a class="ref" href="https://educacionbasica.sep.gob.mx/octava-sesion-ordinaria/" target="_blank" rel="noopener" title="Se abre en pestaña nueva"><span class="ref-src sep">SEP</span><span class="ref-tt">Evaluación formativa y acreditación (Octava Sesión CTE)</span><span class="ref-go">↗</span></a><a class="ref" href="https://educacionbasica.sep.gob.mx/segunda-sesion-ordinaria-2/" target="_blank" rel="noopener" title="Se abre en pestaña nueva"><span class="ref-src sep">SEP</span><span class="ref-tt">Estrategias para la evaluación formativa (Segunda Sesión CTE)</span><span class="ref-go">↗</span></a><a class="ref" href="https://apprende.jalisco.gob.mx/cemej/wp-content/uploads/sites/37/2024/02/Lineas-orientadoras-Evaluacion-de-los-aprendizajes.pdf" target="_blank" rel="noopener" title="Se abre en pestaña nueva"><span class="ref-src sej">SEJ</span><span class="ref-tt">Líneas orientadoras. Evaluación de los aprendizajes</span><span class="ref-go">↗</span></a><a class="ref" href="https://apprende.jalisco.gob.mx/cemej/wp-content/uploads/sites/37/2024/03/autas-para-la-Estrategia-Estatal-de-Evaluacion.pdf" target="_blank" rel="noopener" title="Se abre en pestaña nueva"><span class="ref-src sej">SEJ</span><span class="ref-tt">Pautas para la Estrategia Estatal de Evaluación</span><span class="ref-go">↗</span></a><a class="ref" href="https://apprende.jalisco.gob.mx/direccion-evaluacion-educativa/" target="_blank" rel="noopener" title="Se abre en pestaña nueva"><span class="ref-src sej">SEJ</span><span class="ref-tt">Dirección de Evaluación Educativa de Jalisco</span><span class="ref-go">↗</span></a><a class="ref" href="https://apprende.jalisco.gob.mx/direccion-evaluacion-educativa/resultados-evaluaciones/" target="_blank" rel="noopener" title="Se abre en pestaña nueva"><span class="ref-src sej">SEJ</span><span class="ref-tt">Resultados de Jalisco Avanza</span><span class="ref-go">↗</span></a><p class="et-refs-note">Materiales oficiales de consulta y referencia. Algunas orientaciones corresponden a ciclos anteriores: contrástalas con las disposiciones vigentes y las características de tu grupo.</p></aside></div>
+      <div class="et-next">
+        <p>Con la evaluación cierras el ciclo: del diagnóstico al aula. Puedes volver a recorrer la ruta cuando inicie un nuevo periodo.</p>
+      </div>
+    </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RECORRIDO COMO FUNCIONA -->
+  <div class="hiw-overlay" id="hiwOverlay">
+    <div class="hiw" role="dialog" aria-modal="true" aria-labelledby="hiwTitle">
+      <button type="button" class="hiw-x" id="hiwClose" aria-label="Cerrar">×</button>
+      <div class="hiw-grid">
+        <div class="hiw-stage" id="hiwStage">
+          <div class="hiw-scene"><div class="vwin" aria-hidden="true"><div class="vbar"><i></i><i></i><i></i></div><div class="wbody">
+            <div class="h1side"><b class="a"></b><b></b><b></b><b></b></div>
+            <div class="h1card"><span class="k"></span><span class="t"></span><span class="l"></span><span class="l s"></span><span class="b"></span></div>
+            <span class="hcur h1c"></span>
+          </div></div></div>
+          <div class="hiw-scene" hidden><div class="vwin" aria-hidden="true"><div class="vbar"><i></i><i></i><i></i></div><div class="wbody">
+            <div class="wetapa"><div class="in"><span class="k"></span><span class="t"></span><span class="l"></span><span class="l s"></span><span class="btn"></span></div></div>
+            <span class="hcur h2c"></span>
+          </div></div></div>
+          <div class="hiw-scene" hidden><div class="vwin" aria-hidden="true"><div class="vbar"><i></i><i></i><i></i></div><div class="wbody">
+            <span class="h3t"><b>✦</b> Herramienta de diagnóstico</span>
+            <div class="wia"><span class="whola">Hola, ¿qué quieres hacer?</span><span class="wask"><span class="plus">＋</span><span class="wtypeg">Hola, soy docente de 4° de primaria…</span></span></div>
+          </div></div></div>
+          <div class="hiw-scene" hidden><div class="vwin" aria-hidden="true"><div class="vbar"><i></i><i></i><i></i></div><div class="wbody">
+            <div class="h4list"><span class="h4r sel"><em>SEP</em><i></i></span><span class="h4r"><em>SEJ</em><i></i></span><span class="h4r"><em>SEJ</em><i></i></span></div>
+            <div class="h4doc"><i></i><i></i><i class="w"></i><i></i><i class="w"></i><span class="cp">Copiar</span></div>
+            <span class="hcur h4c"></span>
+          </div></div></div>
+          <div class="hiw-scene" hidden><div class="vwin" aria-hidden="true"><div class="vbar"><i></i><i></i><i></i></div><div class="wbody">
+            <div class="h5">
+              <span class="h5chip">📄 referencia-sep.pdf</span>
+              <span class="h5bub">Anexo la orientación oficial para mi diagnóstico</span>
+              <span class="h5bar"><span>＋</span><span>Escribe aquí…</span></span>
+            </div>
+          </div></div></div>
+          <div class="hiw-scene" hidden><div class="vwin" aria-hidden="true"><div class="vbar"><i></i><i></i><i></i></div><div class="wbody">
+            <div class="h6">
+              <span class="h6think"><i></i><i></i><i></i></span>
+              <span class="h6r r1"></span><span class="h6r r2"></span><span class="h6r r3"></span>
+              <span class="h6u">Considera que 5 estudiantes requieren apoyo en lectura</span>
+              <span class="h6r r4"></span>
+            </div>
+          </div></div></div>
+          <div class="hiw-scene" hidden><div class="vwin" aria-hidden="true"><div class="vbar light"><i></i><i></i><i></i></div><div class="wbody">
+            <div class="h7"><div class="h7bar"><span class="h7ic"></span><i></i></div>
+              <div class="h7doc"><span class="wl"></span><span class="wl short"></span><span class="wl edit"></span><span class="wl"></span><span class="wl short"></span><span class="h7dl">⬇ Descargar</span></div>
+            </div>
+          </div></div></div>
+          <div class="hiw-scene" hidden><div class="vwin" aria-hidden="true"><div class="vbar"><i></i><i></i><i></i></div><div class="wbody">
+            <div class="wtabs"><b class="t1"></b><b class="t2"></b><b class="t3"></b><b class="t4"></b></div>
+            <span class="h8paste">Ctrl+V · tu diagnóstico</span>
+            <span class="wback">↩</span>
+          </div></div></div>
+        </div>
+        <div class="hiw-side">
+          <div class="hiw-step" id="hiwStep">Paso 1 de 8</div>
+          <h3 id="hiwTitle"></h3>
+          <p id="hiwDesc"></p>
+          <div class="hiw-ctr">
+            <button type="button" id="hiwPrev">‹ Anterior</button>
+            <div class="hiw-dots" id="hiwDots"></div>
+            <button type="button" id="hiwNext">Siguiente ›</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL ABRIR GEMA -->
+  <div class="gmodal-overlay" id="gOverlay">
+    <div class="gmodal" role="dialog" aria-modal="true" aria-labelledby="gmTitle">
+      <div id="gmStep1">
+        <h3 id="gmTitle">Abrirás la Gema en otra pestaña</h3>
+        <ol>
+          <li>Realiza la actividad.</li>
+          <li>Guarda o copia el resultado.</li>
+          <li>Regresa a esta pestaña para continuar.</li>
+        </ol>
+        <div class="gm-actions">
+          <button type="button" class="gm-open" id="gmNext" style="border:0;cursor:pointer;font-family:inherit">Siguiente</button>
+          <button type="button" class="gm-cancel" id="gmCancel">Cancelar</button>
+        </div>
+      </div>
+      <div id="gmStep2" hidden>
+        <div class="gm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="34" height="34"><defs><linearGradient id="gmg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ea4335"/><stop offset=".5" stop-color="#4285f4"/><stop offset="1" stop-color="#34a853"/></linearGradient></defs><path d="M12 0C13 7 17 11 24 12 17 13 13 17 12 24 11 17 7 13 0 12 7 11 11 7 12 0Z" fill="url(#gmg)"/></svg></div>
+        <h3>Antes de usar esta Gema</h3>
+        <p class="gm-txt">Las Gemas son asistentes de apoyo que ofrecen orientaciones y sugerencias para el diagnóstico, el programa analítico, la planeación y la evaluación. <b>Nunca sustituyen el conocimiento, la experiencia ni el criterio profesional del docente.</b> Revisa, adapta y valida cada propuesta de acuerdo con las necesidades, el contexto y los aprendizajes de tu grupo.</p>
+        <div class="gm-actions">
+          <a class="gm-open" id="gmOpen" href="#" target="_blank" rel="noopener">Acceder a la Gema ↗</a>
+          <button type="button" class="gm-cancel" id="gmCancel2">Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<footer>
+  <div class="wrap">
+    <div class="ft">
+      <div class="ft-brand">
+        <img src="logo-sej.svg" alt="Secretaría de Educación Jalisco">
+        <div>
+          <b>Secretaría de Educación del Gobierno de Jalisco</b>
+          <span>IA para Docentes · Prototipo de lanzamiento</span>
+        </div>
+      </div>
+      <div class="ft-cols">
+        <nav class="ft-col" aria-label="Secciones del portal">
+          <b>Portal</b>
+          <a href="academia-docente-jalisco.html">Inicio</a>
+          <a href="gemas.html">Recursos</a>
+          <a href="banco-gemas.html">Banco de Gemas</a>
+          <a href="ruta.html">Ruta</a>
+          <a href="recuperar-cuenta.html">Mesa de Ayuda</a>
+        </nav>
+        <nav class="ft-col" aria-label="Enlaces institucionales">
+          <b>Institucional</b>
+          <a href="https://apprendedigital.jalisco.gob.mx" target="_blank" rel="noopener">APPrende Digital</a>
+          <a href="https://apprende.jalisco.gob.mx/contacto/" target="_blank" rel="noopener">Contacto</a>
+          <a href="https://transparencia.jalisco.gob.mx/informacion_fundamental/139/186" target="_blank" rel="noopener">Transparencia SEJ</a>
+          <a href="https://apprende.jalisco.gob.mx/aviso-de-privacidad/" target="_blank" rel="noopener">Aviso de privacidad</a>
+        </nav>
+      </div>
+      <div class="ft-social">
+        <a href="https://www.facebook.com/educacion.jalisco" target="_blank" rel="noopener" aria-label="Facebook de Educación Jalisco"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M13.5 21v-7h2.4l.4-3h-2.8V9.1c0-.9.3-1.5 1.6-1.5h1.3V4.9c-.3 0-1.1-.1-2-.1-2 0-3.4 1.2-3.4 3.5V11H8.5v3H11v7h2.5z"/></svg></a>
+        <a href="https://twitter.com/seceducacionjal" target="_blank" rel="noopener" aria-label="X (Twitter) de Educación Jalisco"><svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="M17.5 3h3l-6.6 7.6L21.7 21h-6.1l-4.8-6.2L5.3 21h-3l7-8.1L2.5 3h6.2l4.3 5.7L17.5 3zm-1 16h1.7L7.6 4.7H5.8L16.5 19z"/></svg></a>
+        <a href="https://www.youtube.com/user/educacionjalisco" target="_blank" rel="noopener" aria-label="YouTube de Educación Jalisco"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor"><path d="M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.5 2.5 0 0 0 2.4 7.2 26 26 0 0 0 2 12a26 26 0 0 0 .4 4.8 2.5 2.5 0 0 0 1.8 1.8c1.6.4 7.8.4 7.8.4s6.2 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8A26 26 0 0 0 22 12a26 26 0 0 0-.4-4.8zM10 15.2V8.8l5.2 3.2-5.2 3.2z"/></svg></a>
+      </div>
+    </div>
+    <div class="ft-legal">Soporte: <a href="mailto:alfadireccion.sej@jalisco.gob.mx">alfadireccion.sej@jalisco.gob.mx</a> · Algunos derechos reservados © 2026 · Secretaría de Educación Jalisco</div>
+  </div>
+</footer>
+
+</div>
+
+<script>
+(function(){
+  var tabs=Array.prototype.slice.call(document.querySelectorAll('.et-tab'));
+  if(!tabs.length)return;
+  function show(n){
+    tabs.forEach(function(t){
+      var on=t.dataset.et==String(n);
+      t.classList.toggle('on',on);
+      t.setAttribute('aria-selected',on?'true':'false');
+    });
+    for(var i=1;i<=4;i++){
+      var p=document.getElementById('etp'+i);
+      if(p)p.hidden=(i!==n);
+    }
+  }
+  tabs.forEach(function(t){t.addEventListener('click',function(){show(+t.dataset.et);});});
+  Array.prototype.forEach.call(document.querySelectorAll('.et-go'),function(b){
+    b.addEventListener('click',function(){
+      show(+b.dataset.goto);
+      document.getElementById('ruta-int').scrollIntoView({behavior:'smooth',block:'start'});
+    });
+  });
+  // modal
+  var overlay=document.getElementById('gOverlay'), gmOpen=document.getElementById('gmOpen'), gmCancel=document.getElementById('gmCancel');
+  var gmNext=document.getElementById('gmNext'), gmCancel2=document.getElementById('gmCancel2');
+  var step1=document.getElementById('gmStep1'), step2=document.getElementById('gmStep2');
+  var lastFocus=null;
+  function showStep(n){step1.hidden=(n!==1);step2.hidden=(n!==2);}
+  function close(){overlay.classList.remove('open');showStep(1);if(lastFocus)lastFocus.focus();}
+  Array.prototype.forEach.call(document.querySelectorAll('.et-open'),function(b){
+    b.addEventListener('click',function(){
+      lastFocus=b;
+      gmOpen.href=b.dataset.gema||'#';
+      showStep(1);
+      overlay.classList.add('open');
+      gmCancel.focus();
+    });
+  });
+  gmNext.addEventListener('click',function(){showStep(2);gmCancel2.focus();});
+  gmCancel.addEventListener('click',close);
+  gmCancel2.addEventListener('click',close);
+  gmOpen.addEventListener('click',close);
+  overlay.addEventListener('click',function(e){if(e.target===overlay)close();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
+})();
+</script>
+<script>
+(function(){
+  var pasos=[
+    {t:"Elige tu módulo",d:"En el panel lateral del Constructor selecciona <b>qué necesitas elaborar</b>: diagnóstico, programa analítico, planeación o evaluación. Al elegirlo, su tarjeta aparece al centro con todo lo que necesitas saber antes de entrar."},
+    {t:"Abre la herramienta",d:"Dentro de la tarjeta, pulsa <b>Abrir herramienta</b>. Verás primero un aviso importante: la Gema ofrece sugerencias, <b>la decisión pedagógica siempre es tuya</b>. Después se abrirá en otra pestaña."},
+    {t:"Preséntate a la Gema",d:"En Gemini verás el nombre de la herramienta. Escribe quién eres y cómo es tu grupo: <b>“Hola, soy docente de 4° de primaria…”</b>. Nivel, grado, contexto y necesidades: mientras más contexto, mejor propuesta. <b>No incluyas nombres de estudiantes.</b>"},
+    {t:"Consulta una referencia oficial",d:"Junto a cada módulo está el <b>panel azul de referencias</b> de la SEP y la SEJ. Abre el documento que necesites, léelo y <b>copia</b> los fragmentos que quieras trabajar."},
+    {t:"Anexa la referencia a tu Gema",d:"Vuelve a la conversación y <b>pega el fragmento o adjunta el documento</b>. Así la propuesta de la Gema se alinea con las orientaciones oficiales y con tu contexto."},
+    {t:"Trabaja con la Gema",d:"La Gema <b>piensa, escribe y te hace preguntas</b>. Tú respondes, corriges y pides cambios — es una conversación de ida y vuelta hasta que la propuesta refleje de verdad a tu grupo."},
+    {t:"Descarga y ajusta en Google Docs",d:"Cuando el resultado te convenza, <b>descárgalo o ábrelo en Google Docs</b>. Ahí haces los ajustes finales con tu criterio profesional: tú construyes la versión que usarás en tu práctica."},
+    {t:"Copia y abre el siguiente módulo",d:"Guarda tu producto y vuelve al Constructor. <b>Pégalo como insumo en el siguiente módulo</b>: el diagnóstico alimenta al programa, el programa a la planeación y así hasta la evaluación."}
+  ];
+  var ov=document.getElementById('hiwOverlay'); if(!ov) return;
+  var open=document.getElementById('hiwOpen'), stage=document.getElementById('hiwStage');
+  var scenes=stage.querySelectorAll('.hiw-scene');
+  var tt=document.getElementById('hiwTitle'), dd=document.getElementById('hiwDesc'), st=document.getElementById('hiwStep');
+  var prev=document.getElementById('hiwPrev'), next=document.getElementById('hiwNext'), dots=document.getElementById('hiwDots');
+  var idx=0, lastFocus=null, tmr=null;
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  pasos.forEach(function(_,i){var d=document.createElement('i');d.addEventListener('click',function(){idx=i;render();});dots.appendChild(d);});
+  function setDesc(html){
+    if(tmr){clearInterval(tmr);tmr=null;}
+    dd.innerHTML='';
+    var segs=[];
+    html.split(/(<b>[\s\S]*?<\/b>)/).forEach(function(p){
+      if(!p)return;
+      if(p.indexOf('<b>')===0)segs.push({t:p.replace(/<\/?b>/g,''),b:true});
+      else segs.push({t:p,b:false});
+    });
+    if(reduce){
+      segs.forEach(function(s){
+        if(s.b){var b=document.createElement('b');b.textContent=s.t;dd.appendChild(b);}
+        else dd.appendChild(document.createTextNode(s.t));
+      });
+      return;
+    }
+    dd.classList.add('typing');
+    var si=0, ci=0, node=null;
+    tmr=setInterval(function(){
+      if(si>=segs.length){clearInterval(tmr);tmr=null;dd.classList.remove('typing');return;}
+      var s=segs[si];
+      if(!node){
+        if(s.b){node=document.createElement('b');dd.appendChild(node);}
+        else{node=document.createTextNode('');dd.appendChild(node);}
+      }
+      node.textContent+=s.t.charAt(ci++);
+      if(ci>=s.t.length){si++;ci=0;node=null;}
+    },22);
+  }
+  function render(){
+    scenes.forEach(function(s,i){s.hidden=(i!==idx);});
+    st.textContent='Paso '+(idx+1)+' de '+pasos.length;
+    tt.textContent=pasos[idx].t;
+    setDesc(pasos[idx].d);
+    prev.disabled=idx===0;
+    next.textContent=idx===pasos.length-1?'Terminar':'Siguiente ›';
+    Array.prototype.forEach.call(dots.children,function(d,i){d.classList.toggle('on',i===idx);});
+  }
+  function show(e){if(e)e.preventDefault();idx=0;render();lastFocus=document.activeElement;ov.classList.add('open');next.focus();}
+  function close(){ov.classList.remove('open');if(tmr){clearInterval(tmr);tmr=null;dd.classList.remove('typing');}if(lastFocus)lastFocus.focus();}
+  if(open)open.addEventListener('click',show);
+  prev.addEventListener('click',function(){if(idx>0){idx--;render();}});
+  next.addEventListener('click',function(){if(idx<pasos.length-1){idx++;render();}else{close();}});
+  document.getElementById('hiwClose').addEventListener('click',close);
+  ov.addEventListener('click',function(e){if(e.target===ov)close();});
+  document.addEventListener('keydown',function(e){
+    if(!ov.classList.contains('open'))return;
+    if(e.key==='Escape')close();
+    if(e.key==='ArrowRight'&&idx<pasos.length-1){idx++;render();}
+    if(e.key==='ArrowLeft'&&idx>0){idx--;render();}
+  });
+})();
+</script>
+</body>
+</html>

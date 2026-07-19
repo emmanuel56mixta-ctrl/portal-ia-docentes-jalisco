@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Trayecto autogestivo para dominar Gemini, las Gemas y NotebookLM a tu propio ritmo. IA para Docentes · Secretaría de Educación Jalisco.">
+<link rel="icon" href="logo-sej.svg" type="image/svg+xml">
+<title>Aprende a usar las herramientas de IA · IA para Docentes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#0a0a0b;--panel:#141416;--panel-2:#1b1b1e;--line:#26262a;--txt:#f4f4f5;--muted:#9a9aa2;--dim:#8a8a94;--lime:#f5254f;--radius:18px}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:radial-gradient(60% 42% at 50% 0%, rgba(245,37,79,.24), transparent 72%) fixed,linear-gradient(rgba(255,255,255,.034) 1px, transparent 1px) 0 0/44px 44px fixed,linear-gradient(90deg, rgba(255,255,255,.034) 1px, transparent 1px) 0 0/44px 44px fixed,var(--bg);color:var(--txt);font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.5}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 22px}
+  a{color:inherit;text-decoration:none}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:18px 0 6px}
+  .brand{display:flex;align-items:center;gap:9px;font-weight:800;font-family:'Archivo';font-size:15px}
+  .brand-logo{height:36px;width:auto;display:block}
+  .crumb{color:var(--muted);font-size:14.5px;margin-top:14px}
+  .crumb a:hover{color:var(--txt)}
+  /* hero */
+  .hero{position:relative;margin-top:16px;border-radius:24px;overflow:hidden;background:#0d0d11;
+    border:1px solid var(--line);padding:46px 44px;min-height:320px;display:flex;flex-direction:column;justify-content:center}
+  .hero-vid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:right center;z-index:0}
+  .hero::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(8,8,10,.9) 0%,rgba(8,8,10,.72) 34%,rgba(10,10,12,.3) 62%,rgba(8,8,10,.05) 100%),linear-gradient(0deg,rgba(8,8,10,.3) 0%,transparent 45%)}
+  .hero-txt{position:relative;z-index:2;max-width:590px;background:rgba(10,10,13,.66);backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px);border:1px solid rgba(255,255,255,.09);border-radius:16px;padding:24px 28px}
+  .hero h1{font-family:'Archivo';font-weight:900;font-size:38px;letter-spacing:-.8px;line-height:1.04;max-width:560px}
+  .hero .sub{color:var(--muted);font-size:15.5px;margin-top:12px;max-width:480px}
+  .hero-cta{display:flex;align-items:center;gap:16px;margin-top:26px;flex-wrap:wrap}
+  .start{display:inline-block;background:#ececee;color:#0a0a0b;font-weight:800;font-size:15px;padding:12px 24px;border-radius:12px;box-shadow:0 6px 0 rgba(0,0,0,.35)}
+  .start:hover{transform:translateY(-1px)}
+  .taught{color:var(--dim);font-size:14px}
+  .taught b{color:var(--muted);font-weight:600}
+  @media(max-width:860px){.hero h1{font-size:29px}.hero{padding:26px 20px}.hero-txt{padding:18px 20px}}
+  /* layout */
+  .grid{display:grid;grid-template-columns:1fr 300px;gap:44px;margin-top:44px}
+  @media(max-width:860px){.grid{grid-template-columns:1fr}}
+  h2{font-family:'Archivo';font-weight:800;font-size:22px;letter-spacing:-.2px}
+  /* lo que aprenderas */
+  .learn{display:grid;grid-template-columns:1fr 1fr;gap:12px 26px;margin-top:18px}
+  @media(max-width:600px){.learn{grid-template-columns:1fr}}
+  .li{position:relative;padding-left:26px;color:#cfcfd6;font-size:14.5px}
+  .li::before{content:"✓";position:absolute;left:0;top:0;width:17px;height:17px;border-radius:50%;border:1.5px solid var(--lime);color:var(--lime);font-size:10px;font-weight:800;display:grid;place-items:center}
+  /* temario */
+  .syll{margin-top:54px}
+  .lessons{margin-top:16px;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--panel)}
+  .lesson{display:flex;align-items:center;gap:14px;padding:12px 14px;border-bottom:1px solid var(--line);transition:.15s background}
+  .lesson:last-child{border-bottom:0}
+  .lesson:hover{background:var(--panel-2)}
+  .lthumb{flex:0 0 86px;height:50px;border-radius:9px}
+  .lgrow{flex:1;min-width:0}
+  .lnum{color:var(--lime);font-size:12.5px;font-weight:700;letter-spacing:1px;text-transform:uppercase}
+  .ltitle{font-size:15px;font-weight:600;margin-top:2px}
+  .play{flex:0 0 30px;width:30px;height:30px;border-radius:50%;border:1.5px solid var(--line);display:grid;place-items:center;color:var(--muted)}
+  .play::after{content:"";border-left:8px solid currentColor;border-top:5px solid transparent;border-bottom:5px solid transparent;margin-left:2px}
+  .t1{background:linear-gradient(135deg,#12303a,#0a1216)}
+  .t2{background:linear-gradient(135deg,#3a1626,#160a10)}
+  .t3{background:linear-gradient(135deg,#16283a,#0a0f16)}
+  .t4{background:linear-gradient(135deg,#2a163a,#100a16)}
+  .t5{background:linear-gradient(135deg,#3a2a16,#16100a)}
+  .t6{background:linear-gradient(135deg,#163a22,#0a160e)}
+  /* descripcion */
+  .descsec{margin-top:54px}
+  .descsec p{color:var(--muted);font-size:15px;margin-top:14px;max-width:640px;line-height:1.65}
+  /* sidebar */
+  .side h3{font-family:'Archivo';font-weight:800;font-size:16px;margin-bottom:12px}
+  .side .blk{margin-bottom:32px}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chip{display:inline-flex;align-items:center;gap:6px;background:var(--panel-2);border:1px solid var(--line);color:var(--muted);font-size:14px;font-weight:500;padding:6px 12px;border-radius:10px}
+  .chip.hl{color:var(--lime);border-color:rgba(245,37,79,.4)}
+  footer{margin:60px 0 40px;color:var(--dim);font-size:13.5px;text-align:center;border-top:1px solid var(--line);padding-top:22px}
+  a:focus-visible,button:focus-visible{outline:2px solid var(--lime);outline-offset:2px;border-radius:8px}
+  @media (prefers-reduced-motion:reduce){*,*::before,*::after{transition-duration:.01ms !important;animation-duration:.01ms !important}html{scroll-behavior:auto}}
+  .ft{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;text-align:left}
+  .ft-brand{display:flex;align-items:center;gap:12px}
+  .ft-brand img{height:42px;width:auto}
+  .ft-brand b{display:block;color:var(--muted);font-size:14.5px;font-weight:600}
+  .ft-brand span{color:var(--dim);font-size:13px}
+  .ft-links{display:flex;gap:18px;flex-wrap:wrap}
+  .ft-links a{color:var(--muted);font-size:14px}
+  .ft-links a:hover{color:var(--txt)}
+  .ft-social{display:flex;gap:10px}
+  .ft-social a{width:36px;height:36px;border-radius:50%;background:var(--panel-2);border:1px solid var(--line);display:grid;place-items:center;color:var(--muted);transition:.2s}
+  .ft-social a:hover{color:var(--txt);border-color:var(--lime)}
+  .ft-legal{margin-top:20px;color:var(--dim);font-size:13px;text-align:center;border-top:1px solid var(--line);padding-top:16px}
+  .ft-cols{display:flex;gap:44px;flex-wrap:wrap}
+  .ft-col{display:flex;flex-direction:column;gap:7px}
+  .ft-col b{color:var(--dim);font-size:12.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:3px}
+  .ft-col a{color:var(--muted);font-size:14px}
+  .ft-col a:hover{color:var(--txt)}
+  .ft-legal a{color:var(--muted)}
+  .ft-legal a:hover{color:var(--txt)}
+  .ft{align-items:flex-start}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <nav class="nav">
+    <a class="brand" href="academia-docente-jalisco-v2.html"><img src="logo-sej.svg" class="brand-logo" alt="Secretaría de Educación Jalisco"> IA para Docentes</a>
+    <a class="crumb" href="academia-docente-jalisco-v2.html">← Volver al inicio</a>
+  </nav>
+  <nav class="crumb" aria-label="Ruta de navegación"><a href="academia-docente-jalisco-v2.html">IA para Docentes</a> / <span aria-current="page">Aprende a usar las herramientas de IA</span></nav>
+
+  <header class="hero">
+    <video class="hero-vid" src="grok-video-55364e15-8733-4458-b34b-f4e378fb42b5.mp4" autoplay muted loop playsinline aria-hidden="true"></video>
+    <div class="hero-txt">
+      <h1>Aprende a usar las herramientas de IA</h1>
+      <p class="sub">Trayecto autogestivo para dominar Gemini, las Gemas y NotebookLM a tu propio ritmo.</p>
+      <div class="hero-cta">
+        <a class="start" href="#temario">Comenzar el trayecto</a>
+        <span class="taught">Impartido por el equipo <b>Academia IA · Jalisco</b></span>
+      </div>
+    </div>
+  </header>
+
+  <div class="grid">
+    <div>
+      <section>
+        <h2>Lo que aprenderás</h2>
+        <div class="learn">
+          <div class="li">Escribe indicaciones (prompts) claras y efectivas</div>
+          <div class="li">Genera planeaciones y materiales con Gemini</div>
+          <div class="li">Usa las Gemas del catálogo y adáptalas a tu grupo</div>
+          <div class="li">Convierte tus documentos en resúmenes y pódcast con NotebookLM</div>
+          <div class="li">Crea rúbricas e instrumentos de evaluación con IA</div>
+          <div class="li">Integra la IA de forma responsable y segura en tu aula</div>
+        </div>
+      </section>
+
+      <section class="syll" id="temario">
+        <h2>Temario</h2>
+        <div class="lessons">
+          <a class="lesson" href="#"><div class="lthumb t1"></div><div class="lgrow"><div class="lnum">Lección 1</div><div class="ltitle">Conoce Gemini: tu primera conversación</div></div><span class="play"></span></a>
+          <a class="lesson" href="#"><div class="lthumb t2"></div><div class="lgrow"><div class="lnum">Lección 2</div><div class="ltitle">Prompts que funcionan: contexto, rol y formato</div></div><span class="play"></span></a>
+          <a class="lesson" href="#"><div class="lthumb t3"></div><div class="lgrow"><div class="lnum">Lección 3</div><div class="ltitle">Las Gemas: copia, configura y úsalas con tu grupo</div></div><span class="play"></span></a>
+          <a class="lesson" href="#"><div class="lthumb t4"></div><div class="lgrow"><div class="lnum">Lección 4</div><div class="ltitle">NotebookLM: tus documentos convertidos en conocimiento</div></div><span class="play"></span></a>
+          <a class="lesson" href="#"><div class="lthumb t5"></div><div class="lgrow"><div class="lnum">Lección 5</div><div class="ltitle">Materiales y evaluación: rúbricas, exámenes y adaptaciones</div></div><span class="play"></span></a>
+          <a class="lesson" href="#"><div class="lthumb t6"></div><div class="lgrow"><div class="lnum">Lección 6</div><div class="ltitle">Uso responsable: datos, criterio docente y buenas prácticas</div></div><span class="play"></span></a>
+        </div>
+      </section>
+
+      <section class="descsec">
+        <h2>Descripción</h2>
+        <p>Este trayecto autogestivo te lleva de cero a dominar las herramientas de IA incluidas en tu cuenta @jaliscoedu.mx. En seis lecciones breves aprenderás a conversar con Gemini, aprovechar las Gemas del catálogo, transformar tus documentos con NotebookLM y producir materiales y evaluaciones listos para el aula — siempre con tu criterio docente al centro. Avanza a tu propio ritmo: cada lección es una sola idea, en pocos minutos.</p>
+      </section>
+    </div>
+
+    <aside class="side">
+      <div class="blk">
+        <h3>Detalles del trayecto</h3>
+        <div class="chips">
+          <span class="chip">◑ Autogestivo</span>
+          <span class="chip">▤ 6 lecciones</span>
+          <span class="chip">◷ 30 minutos</span>
+          <span class="chip hl">✦ Sin costo con tu cuenta</span>
+        </div>
+      </div>
+      <div class="blk">
+        <h3>Habilidades que obtendrás</h3>
+        <div class="chips">
+          <span class="chip">Escritura de prompts</span>
+          <span class="chip">Planeación con IA</span>
+          <span class="chip">Evaluación con IA</span>
+          <span class="chip">Uso responsable</span>
+        </div>
+      </div>
+      <div class="blk">
+        <h3>Modelos que usarás</h3>
+        <div class="chips">
+          <span class="chip">Gemini</span>
+          <span class="chip">Gemini Pro</span>
+          <span class="chip">NotebookLM</span>
+        </div>
+      </div>
+      <div class="blk">
+        <h3>Herramientas que aprenderás</h3>
+        <div class="chips">
+          <span class="chip">Gemas</span>
+          <span class="chip">Docs</span>
+          <span class="chip">Slides</span>
+          <span class="chip">Google Vids</span>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+<footer>
+  <div class="wrap">
+    <div class="ft">
+      <div class="ft-brand">
+        <img src="logo-sej.svg" alt="Secretaría de Educación Jalisco">
+        <div>
+          <b>Secretaría de Educación del Gobierno de Jalisco</b>
+          <span>IA para Docentes · Prototipo de lanzamiento</span>
+        </div>
+      </div>
+      <div class="ft-cols">
+        <nav class="ft-col" aria-label="Secciones del portal">
+          <b>Portal</b>
+          <a href="academia-docente-jalisco-v2.html">Inicio</a>
+          <a href="gemas-v2.html">Recursos</a>
+          <a href="banco-gemas-v2.html">Banco de Gemas</a>
+          <a href="ruta-v2.html">Ruta</a>
+          <a href="recuperar-cuenta-v2.html">Mesa de Ayuda</a>
+        </nav>
+        <nav class="ft-col" aria-label="Enlaces institucionales">
+          <b>Institucional</b>
+          <a href="https://apprendedigital.jalisco.gob.mx" target="_blank" rel="noopener">APPrende Digital</a>
+          <a href="https://apprende.jalisco.gob.mx/contacto/" target="_blank" rel="noopener">Contacto</a>
+          <a href="https://transparencia.jalisco.gob.mx/informacion_fundamental/139/186" target="_blank" rel="noopener">Transparencia SEJ</a>
+          <a href="https://apprende.jalisco.gob.mx/aviso-de-privacidad/" target="_blank" rel="noopener">Aviso de privacidad</a>
+        </nav>
+      </div>
+      <div class="ft-social">
+        <a href="https://www.facebook.com/educacion.jalisco" target="_blank" rel="noopener" aria-label="Facebook de Educación Jalisco"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M13.5 21v-7h2.4l.4-3h-2.8V9.1c0-.9.3-1.5 1.6-1.5h1.3V4.9c-.3 0-1.1-.1-2-.1-2 0-3.4 1.2-3.4 3.5V11H8.5v3H11v7h2.5z"/></svg></a>
+        <a href="https://twitter.com/seceducacionjal" target="_blank" rel="noopener" aria-label="X (Twitter) de Educación Jalisco"><svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="M17.5 3h3l-6.6 7.6L21.7 21h-6.1l-4.8-6.2L5.3 21h-3l7-8.1L2.5 3h6.2l4.3 5.7L17.5 3zm-1 16h1.7L7.6 4.7H5.8L16.5 19z"/></svg></a>
+        <a href="https://www.youtube.com/user/educacionjalisco" target="_blank" rel="noopener" aria-label="YouTube de Educación Jalisco"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor"><path d="M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.5 2.5 0 0 0 2.4 7.2 26 26 0 0 0 2 12a26 26 0 0 0 .4 4.8 2.5 2.5 0 0 0 1.8 1.8c1.6.4 7.8.4 7.8.4s6.2 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8A26 26 0 0 0 22 12a26 26 0 0 0-.4-4.8zM10 15.2V8.8l5.2 3.2-5.2 3.2z"/></svg></a>
+      </div>
+    </div>
+    <div class="ft-legal">Soporte: <a href="mailto:alfadireccion.sej@jalisco.gob.mx">alfadireccion.sej@jalisco.gob.mx</a> · Algunos derechos reservados © 2026 · Secretaría de Educación Jalisco</div>
+  </div>
+</footer>
+
+</div>
+</body>
+</html>
