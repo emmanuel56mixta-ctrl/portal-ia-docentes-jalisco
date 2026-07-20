@@ -393,11 +393,16 @@
   /* recorrido ¿como funciona? */
   .hiw-overlay{position:fixed;inset:0;z-index:70;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(4,4,6,.72);backdrop-filter:blur(4px)}
   .hiw-overlay.open{display:flex}
-  .hiw{position:relative;background:var(--panel);border:1px solid var(--line);border-radius:22px;max-width:1080px;width:100%;padding:30px 34px;animation:hiwIn .35s cubic-bezier(.22,1.12,.32,1)}
+  .hiw{position:relative;background:var(--panel);border:1px solid var(--line);border-radius:22px;max-width:1220px;width:100%;padding:30px 34px;animation:hiwIn .35s cubic-bezier(.22,1.12,.32,1)}
   @keyframes hiwIn{from{opacity:0;transform:translateY(12px) scale(.98)}to{opacity:1;transform:none}}
   .hiw-x{position:absolute;top:12px;right:14px;width:32px;height:32px;border-radius:50%;background:rgba(0,0,0,.35);border:1px solid var(--line);color:#fff;font-size:19px;cursor:pointer;display:grid;place-items:center;z-index:2}
-  .hiw-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:34px;align-items:center}
-  .hiw-stage .vwin{margin:0}
+  .hiw-grid{display:grid;grid-template-columns:1.5fr .8fr;gap:36px;align-items:center}
+  .hiw-stage .vwin{margin:0;aspect-ratio:16/9}
+  .hiw-stage .hcur{border-left:13px solid #fff;border-bottom:8px solid transparent;border-top:3px solid transparent}
+  .s1app .f1card,.s1app .f1refs{animation:h1card 6s infinite}
+  .s1app .f1side b.a{animation:h1on 6s infinite}
+  .hcur.hh1{animation:hh1 6s infinite}
+  @keyframes hh1{0%,22%{top:62%;left:72%}42%,78%{top:4.5%;left:2.5%}100%{top:62%;left:72%}}
   .hiw-step{color:var(--lime);font-family:'Archivo';font-weight:800;font-size:12px;letter-spacing:2px;text-transform:uppercase}
   .hiw h3{font-family:'Archivo';font-weight:900;font-size:26px;margin-top:8px;letter-spacing:-.4px}
   .hiw-side p{color:var(--muted);font-size:16px;line-height:1.65;margin-top:12px;min-height:150px}
@@ -728,18 +733,20 @@
       <button type="button" class="hiw-x" id="hiwClose" aria-label="Cerrar">×</button>
       <div class="hiw-grid">
         <div class="hiw-stage" id="hiwStage">
-          <div class="hiw-scene"><div class="vwin" aria-hidden="true"><div class="vbar"><i></i><i></i><i></i></div><div class="wbody">
-            <div class="h1side"><b class="a"></b><b></b><b></b><b></b></div>
-            <div class="h1card"><span class="k"></span><span class="t"></span><span class="l"></span><span class="l s"></span><span class="b"></span></div>
-            <span class="hcur h1c"></span>
+          <div class="hiw-scene s1app"><div class="vwin" aria-hidden="true"><div class="vbar"><i></i><i></i><i></i></div><div class="wbody">
+            <div class="f1side"><b class="a"></b><b></b><b></b><b></b></div>
+            <div class="f1card"><div class="in"><span class="k"></span><span class="t"></span><span class="l"></span><span class="btn" style="animation:none"></span></div></div>
+            <div class="f1refs"><i></i><i></i><i></i><i></i></div>
+            <span class="hcur hh1"></span>
           </div></div></div>
           <div class="hiw-scene" hidden><div class="vwin" aria-hidden="true"><div class="vbar"><i></i><i></i><i></i></div><div class="wbody">
-            <div class="wetapa"><div class="in"><span class="k"></span><span class="t"></span><span class="l"></span><span class="l s"></span><span class="btn"></span></div></div>
-            <span class="hcur h2c"></span>
+            <div class="f1side"><b class="a"></b><b></b><b></b><b></b></div>
+            <div class="f1card"><div class="in"><span class="k"></span><span class="t"></span><span class="l"></span><span class="btn"></span></div></div>
+            <div class="f1refs"><i></i><i></i><i></i><i></i></div>
+            <span class="hcur f1c"></span>
           </div></div></div>
           <div class="hiw-scene" hidden><div class="vwin" aria-hidden="true"><div class="vbar"><i></i><i></i><i></i></div><div class="wbody">
-            <span class="h3t"><b>✦</b> Herramienta de diagnóstico</span>
-            <div class="wia"><span class="whola">Hola, ¿qué quieres hacer?</span><span class="wask"><span class="plus">＋</span><span class="wtypeg">Hola, soy docente de 4° de primaria…</span></span></div>
+            <div class="g2"><span class="g2av">A</span><span class="g2name">Asistente de Diagnóstico</span><span class="whola">Hola, ¿qué quieres hacer?</span><span class="g2bar"><span class="plus">＋</span><span class="wtypeg">Hola, soy docente de 4° de primaria…</span><span class="g2think">Pensar ▾</span><span class="g2send">↑</span></span></div>
           </div></div></div>
           <div class="hiw-scene" hidden><div class="vwin" aria-hidden="true"><div class="vbar"><i></i><i></i><i></i></div><div class="wbody">
             <div class="h4list"><span class="h4r sel"><em>SEP</em><i></i></span><span class="h4r"><em>SEJ</em><i></i></span><span class="h4r"><em>SEJ</em><i></i></span></div>
@@ -767,7 +774,8 @@
             </div>
           </div></div></div>
           <div class="hiw-scene" hidden><div class="vwin" aria-hidden="true"><div class="vbar"><i></i><i></i><i></i></div><div class="wbody">
-            <div class="wtabs"><b class="t1"></b><b class="t2"></b><b class="t3"></b><b class="t4"></b></div>
+            <div class="f1side"><b class="s1"></b><b class="s2"></b><b></b><b></b></div>
+            <div class="f3card"><div class="in"><span class="k"></span><span class="t"></span><span class="l"></span><span class="l"></span><span class="btn2"></span></div></div>
             <span class="h8paste">Ctrl+V · tu diagnóstico</span>
             <span class="wback">↩</span>
           </div></div></div>
