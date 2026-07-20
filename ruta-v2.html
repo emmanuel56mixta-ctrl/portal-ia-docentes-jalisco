@@ -491,6 +491,36 @@
   .app-badge{align-self:flex-start;margin-top:14px;display:inline-flex;align-items:center;gap:7px;font-size:12.5px;color:var(--dim);letter-spacing:.3px}
   .app-badge i{font-style:normal;background:linear-gradient(90deg,#4285f4,#a142f4,#ea4335);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;font-weight:800}
   @media(max-width:900px){.app-head{padding:18px 16px 14px}.app-head h3{font-size:20px}}
+  /* escenas del panel de pasos v2 */
+  .f1side{position:absolute;left:8px;top:10px;bottom:10px;width:26px;border-right:1px solid #222;display:flex;flex-direction:column;gap:6px;align-items:center;padding-top:4px}
+  .f1side b{width:12px;height:12px;border-radius:50%;background:#1b1b1e;border:1px solid #2c2c33}
+  .f1side b.a{border-color:var(--lime);background:rgba(245,37,79,.25)}
+  .f1card{position:absolute;left:42px;top:13px;bottom:13px;width:44%;padding:1.2px;border-radius:8px;background:conic-gradient(from 210deg,#ea4335,#fbbc05,#34a853,#4285f4,#a142f4,#ea4335)}
+  .f1card .in{background:#131318;border-radius:7px;height:100%;padding:7px 8px;display:flex;flex-direction:column;gap:4px}
+  .f1card .k{width:26px;height:3.5px;border-radius:2px;background:var(--lime)}
+  .f1card .t{width:70%;height:5px;border-radius:3px;background:#e7e7ec}
+  .f1card .l{width:88%;height:3.5px;border-radius:2px;background:#2c2c33}
+  .f1card .btn{margin-top:auto;width:72%;height:9px;border-radius:5px;background:#ececee;animation:wbtn 5s infinite}
+  .f1refs{position:absolute;right:9px;top:13px;bottom:13px;left:calc(44% + 52px);border:1px solid rgba(66,133,244,.3);background:rgba(66,133,244,.07);border-radius:8px;padding:7px;display:flex;flex-direction:column;gap:5px}
+  .f1refs i{height:9px;border-radius:5px;background:rgba(66,133,244,.15);border:1px solid rgba(66,133,244,.28)}
+  .hcur.f1c{animation:f1cur 5s infinite}
+  @keyframes f1cur{0%,16%{top:22%;left:88%}45%,80%{top:80%;left:32%}100%{top:22%;left:88%}}
+  .g2{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;padding:10px;background:radial-gradient(62% 62% at 50% 40%,#10233c 0%,#0b0d12 72%)}
+  .g2av{width:20px;height:20px;border-radius:50%;background:#8a3d1e;color:#f2a679;font-size:10px;font-weight:800;display:grid;place-items:center}
+  .g2name{color:#e5e8ee;font-size:9.5px;font-weight:600}
+  .g2 .whola{color:#aeb4bf;font-size:8.5px}
+  .g2bar{width:94%;height:18px;border-radius:10px;background:#1b1d24;border:1px solid #2c2f3a;display:flex;align-items:center;gap:5px;padding:0 6px;margin-top:4px}
+  .g2bar .plus{font-size:9px;color:#9aa0ad}
+  .g2think{margin-left:auto;font-size:7px;color:#9aa0ad;white-space:nowrap}
+  .g2send{flex:0 0 auto;width:12px;height:12px;border-radius:50%;background:#1a73e8;color:#fff;font-size:8px;font-weight:800;display:grid;place-items:center}
+  .f3tabs{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:7px;padding:0 10px}
+  .f3tabs .p{flex:1;height:22px;border-radius:12px;background:#17171b;border:1px solid #26262a;display:flex;align-items:center;gap:4px;padding:0 7px}
+  .f3tabs .p b{font-size:8.5px;color:#8a8a94;font-family:'Archivo';font-weight:900}
+  .f3tabs .p i{flex:1;height:4px;border-radius:2px;background:#2c2c33}
+  .f3tabs .p1{animation:f3a 6s infinite}
+  .f3tabs .p2{animation:f3b 6s infinite}
+  @keyframes f3a{0%,32%{border-color:var(--lime);background:rgba(245,37,79,.12)}46%,100%{border-color:#26262a;background:#17171b}}
+  @keyframes f3b{0%,42%{border-color:#26262a;background:#17171b}56%,92%{border-color:var(--lime);background:rgba(245,37,79,.12)}100%{border-color:#26262a;background:#17171b}}
 </style>
 </head>
 <body>
@@ -531,8 +561,10 @@
         <div class="fs">
           <div class="n">1</div>
           <div class="vwin" aria-hidden="true"><div class="vbar"><i></i><i></i><i></i></div><div class="wbody">
-            <div class="wetapa"><div class="in"><span class="k"></span><span class="t"></span><span class="l"></span><span class="l s"></span><span class="btn"></span></div></div>
-            <span class="wcur c2"></span>
+            <div class="f1side"><b class="a"></b><b></b><b></b><b></b></div>
+            <div class="f1card"><div class="in"><span class="k"></span><span class="t"></span><span class="l"></span><span class="btn"></span></div></div>
+            <div class="f1refs"><i></i><i></i><i></i><i></i></div>
+            <span class="hcur f1c"></span>
           </div></div>
           <h4>Abre la Gema</h4>
           <p>Selecciona el módulo que necesitas y pulsa <b>Abrir herramienta</b>: la Gema se mostrará en una nueva pestaña.</p>
@@ -540,7 +572,7 @@
         <div class="fs">
           <div class="n">2</div>
           <div class="vwin" aria-hidden="true"><div class="vbar"><i></i><i></i><i></i></div><div class="wbody">
-            <div class="wia"><span class="whola">Hola, ¿qué quieres hacer?</span><span class="wask"><span class="plus">＋</span><span class="wtypeg">Elabora el diagnóstico de mi grupo…</span></span></div>
+            <div class="g2"><span class="g2av">A</span><span class="g2name">Asistente de Diagnóstico</span><span class="whola">Hola, ¿qué quieres hacer?</span><span class="g2bar"><span class="plus">＋</span><span class="wtypeg">Elabora el diagnóstico de mi grupo…</span><span class="g2think">Pensar ▾</span><span class="g2send">↑</span></span></div>
           </div></div>
           <h4>Genera y guarda tu resultado</h4>
           <p>Proporciona la información solicitada, revisa la propuesta y <b>guárdala en un documento de tu elección</b>.</p>
@@ -548,7 +580,7 @@
         <div class="fs">
           <div class="n">3</div>
           <div class="vwin" aria-hidden="true"><div class="vbar"><i></i><i></i><i></i></div><div class="wbody">
-            <div class="wtabs"><b class="t1"></b><b class="t2"></b><b class="t3"></b><b class="t4"></b></div>
+            <div class="f3tabs"><span class="p p1"><b>1</b><i></i></span><span class="p p2"><b>2</b><i></i></span><span class="p"><b>3</b><i></i></span><span class="p"><b>4</b><i></i></span></div>
             <span class="wback">↩</span>
           </div></div>
           <h4>Regresa cuando desees continuar</h4>
