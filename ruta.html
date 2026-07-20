@@ -513,12 +513,18 @@
   .g2bar .plus{font-size:9px;color:#9aa0ad}
   .g2think{margin-left:auto;font-size:7px;color:#9aa0ad;white-space:nowrap}
   .g2send{flex:0 0 auto;width:12px;height:12px;border-radius:50%;background:#1a73e8;color:#fff;font-size:8px;font-weight:800;display:grid;place-items:center}
-  .f3tabs{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:7px;padding:0 10px}
-  .f3tabs .p{flex:1;height:22px;border-radius:12px;background:#17171b;border:1px solid #26262a;display:flex;align-items:center;gap:4px;padding:0 7px}
-  .f3tabs .p b{font-size:8.5px;color:#8a8a94;font-family:'Archivo';font-weight:900}
-  .f3tabs .p i{flex:1;height:4px;border-radius:2px;background:#2c2c33}
-  .f3tabs .p1{animation:f3a 6s infinite}
-  .f3tabs .p2{animation:f3b 6s infinite}
+  .f3card{position:absolute;left:42px;right:10px;top:13px;bottom:13px;padding:1.2px;border-radius:8px;background:conic-gradient(from 210deg,#ea4335,#fbbc05,#34a853,#4285f4,#a142f4,#ea4335)}
+  .f3card .in{background:#131318;border-radius:7px;height:100%;padding:7px 8px;display:flex;flex-direction:column;gap:4px}
+  .f3card .k{width:26px;height:3.5px;border-radius:2px;animation:f3k 6s infinite}
+  .f3card .t{width:64%;height:5px;border-radius:3px;background:#e7e7ec}
+  .f3card .l{width:86%;height:3.5px;border-radius:2px;background:#2c2c33}
+  .f3card .btn2{margin-top:auto;width:58%;height:9px;border-radius:5px;background:#ececee}
+  .f3card .in>*{animation-name:f3sw;animation-duration:6s;animation-iteration-count:infinite}
+  .f3card .k{animation-name:f3k,f3sw}
+  @keyframes f3sw{0%,38%{opacity:1;transform:none}46%{opacity:.12;transform:translateY(2px)}56%,100%{opacity:1;transform:none}}
+  @keyframes f3k{0%,44%{background:var(--lime)}56%,100%{background:#fbbc05}}
+  .f1side b.s1{animation:f3a 6s infinite}
+  .f1side b.s2{animation:f3b 6s infinite}
   @keyframes f3a{0%,32%{border-color:var(--lime);background:rgba(245,37,79,.12)}46%,100%{border-color:#26262a;background:#17171b}}
   @keyframes f3b{0%,42%{border-color:#26262a;background:#17171b}56%,92%{border-color:var(--lime);background:rgba(245,37,79,.12)}100%{border-color:#26262a;background:#17171b}}
 </style>
@@ -580,7 +586,8 @@
         <div class="fs">
           <div class="n">3</div>
           <div class="vwin" aria-hidden="true"><div class="vbar"><i></i><i></i><i></i></div><div class="wbody">
-            <div class="f3tabs"><span class="p p1"><b>1</b><i></i></span><span class="p p2"><b>2</b><i></i></span><span class="p"><b>3</b><i></i></span><span class="p"><b>4</b><i></i></span></div>
+            <div class="f1side"><b class="s1"></b><b class="s2"></b><b></b><b></b></div>
+            <div class="f3card"><div class="in"><span class="k"></span><span class="t"></span><span class="l"></span><span class="l"></span><span class="btn2"></span></div></div>
             <span class="wback">↩</span>
           </div></div>
           <h4>Regresa cuando desees continuar</h4>
