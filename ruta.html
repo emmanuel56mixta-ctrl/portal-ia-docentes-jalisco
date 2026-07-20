@@ -571,6 +571,14 @@
   .tour-gem{position:fixed;left:50%;top:36%;transform:translate(-50%,-50%);z-index:84;width:min(600px,92vw);display:none}
   body.tour-gem-on .tour-gem{display:block}
   .tour-gem .vwin{margin:0;aspect-ratio:16/9;cursor:default}
+  /* tour: escala y division en cajas */
+  body.tour-on .app{position:relative;z-index:81;transform:scale(.92);transform-origin:top center;transition:transform .55s cubic-bezier(.22,1.12,.32,1);overflow:visible}
+  .app-side{transition:transform .6s cubic-bezier(.22,1.12,.32,1),border-radius .6s,background .6s}
+  .app .et-cols{transition:gap .6s cubic-bezier(.22,1.12,.32,1)}
+  body.tour-split .app{column-gap:26px}
+  body.tour-split .app-side{transform:translateX(-14px);border-radius:18px;border-right:1px solid var(--line);background:#151517}
+  body.tour-split .app .et-cols{gap:42px}
+  .tour-num{position:absolute;top:10px;left:10px;z-index:6;width:28px;height:28px;border-radius:50%;background:var(--lime);color:#0a0a0b;font-family:'Archivo';font-weight:900;font-size:14px;display:grid;place-items:center;box-shadow:0 6px 16px rgba(0,0,0,.45)}
 </style>
 </head>
 <body>
@@ -908,25 +916,32 @@
   function activePanel(sel){return q('.et-panel:not([hidden]) '+sel);}
   function tabs(){return document.querySelectorAll('.app .et-tab');}
   var pasos=[
-    {t:"Conoce tu espacio de trabajo",
-     d:"El Constructor tiene <b>tres cajas</b>: a la izquierda la <b>caja de módulos</b>, al centro tu <b>caja de trabajo</b> y a la derecha la <b>caja azul de referencias oficiales</b>. Míralas iluminarse: cada una cumple una función distinta.",
-     on:function(){var s=q('.app-side');var c=activePanel('.et-card');var r=activePanel('.et-refs');
-       if(s){s.classList.add('tour-seq','q1');}if(c){c.classList.add('tour-seq','q2');}if(r){r.classList.add('tour-seq','q3');}},
-     off:function(){document.querySelectorAll('.tour-seq').forEach(function(e){e.classList.remove('tour-seq','q1','q2','q3');});}},
-    {t:"Caja de módulos",
-     d:"Aquí eliges <b>qué necesitas elaborar</b>: Diagnóstico, Programa analítico, Planeación o Evaluación. Observa cómo al elegir un módulo <b>cambia toda la caja central</b>. Puedes entrar a cualquiera, en el orden que tu práctica necesite.",
+    {t:"Tu espacio de trabajo",
+     d:"Mira tu herramienta dividida en sus <b>tres cajas</b>: <b>1</b> la caja de módulos, <b>2</b> la caja central de trabajo y <b>3</b> la caja de referencias oficiales. Cada una ilumina su contorno al nombrarla. Enseguida la armamos de nuevo y la recorremos juntas, paso a paso.",
+     on:function(){body.classList.add('tour-split');
+       var s=q('.app-side'),c=activePanel('.et-card'),r=activePanel('.et-refs');
+       [[s,'q1','1'],[c,'q2','2'],[r,'q3','3']].forEach(function(x){
+         if(!x[0])return;
+         x[0].classList.add('tour-seq',x[1]);
+         var n=document.createElement('span');n.className='tour-num';n.textContent=x[2];x[0].appendChild(n);
+       });},
+     off:function(){body.classList.remove('tour-split');
+       document.querySelectorAll('.tour-num').forEach(function(e){e.remove();});
+       document.querySelectorAll('.tour-seq').forEach(function(e){e.classList.remove('tour-seq','q1','q2','q3');});}},
+    {t:"Caja 1 · Módulos",
+     d:"En esta caja eliges <b>qué necesitas elaborar</b>: Diagnóstico, Programa analítico, Planeación o Evaluación. Observa cómo al elegir un módulo <b>cambia toda la caja central</b>. Entra al que necesites, en el orden que convenga a tu práctica.",
      on:function(){var s=q('.app-side');if(s)s.classList.add('tour-hi');
        var i=0;cyc=setInterval(function(){i=(i+1)%4;var t=tabs()[i];if(t)t.click();},1900);},
      off:function(){var s=q('.app-side');if(s)s.classList.remove('tour-hi');
        if(cyc){clearInterval(cyc);cyc=null;}var t=tabs()[savedTab];if(t)t.click();}},
-    {t:"Caja central: tu módulo de trabajo",
-     d:"Te explica <b>qué preparar antes de entrar</b>, cómo se realiza y <b>qué obtendrás al terminar</b>. Con el <b>botón blanco</b> abrirás la Gema en otra pestaña. Recuerda la nota roja: guarda tu resultado, este portal no lo almacena.",
+    {t:"Caja 2 · Tu módulo de trabajo",
+     d:"Esta caja te acompaña antes de abrir la Gema: indica <b>qué preparar antes de entrar</b>, cómo realizarla y <b>qué obtendrás al terminar</b>. El <b>botón blanco</b> abre la Gema en otra pestaña; la nota roja te recuerda guardar tu resultado, porque este portal no lo almacena.",
      on:function(){var c=activePanel('.et-card');if(c)c.classList.add('tour-hi');
        var b=activePanel('.et-open');if(b)b.classList.add('tour-pulse');},
      off:function(){var c=activePanel('.et-card');if(c)c.classList.remove('tour-hi');
        var b=activePanel('.et-open');if(b)b.classList.remove('tour-pulse');}},
-    {t:"Caja de referencias oficiales",
-     d:"Documentos de la <b>SEP y la Secretaría de Educación Jalisco</b> seleccionados para este módulo. Cada tarjeta se abre en una pestaña nueva: <b>léelos y copia lo que te sirva</b> para compartirlo con la Gema y enriquecer tu propuesta.",
+    {t:"Caja 3 · Referencias oficiales",
+     d:"Documentos de la <b>SEP y la Secretaría de Educación Jalisco</b> seleccionados para este módulo. Cada tarjeta se abre en una pestaña nueva: <b>léelos y copia lo que te sirva</b>; podrás compartirlo con la Gema para enriquecer tu propuesta.",
      on:function(){var r=activePanel('.et-refs');if(r){r.classList.add('tour-hi','tour-rows');}},
      off:function(){var r=activePanel('.et-refs');if(r){r.classList.remove('tour-hi','tour-rows');}}},
     {t:"Así trabajarás con la Gema",
