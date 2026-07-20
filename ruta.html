@@ -532,6 +532,45 @@
   .f1side b.s2{animation:f3b 6s infinite}
   @keyframes f3a{0%,32%{border-color:var(--lime);background:rgba(245,37,79,.12)}46%,100%{border-color:#26262a;background:#17171b}}
   @keyframes f3b{0%,42%{border-color:#26262a;background:#17171b}56%,92%{border-color:var(--lime);background:rgba(245,37,79,.12)}100%{border-color:#26262a;background:#17171b}}
+  /* tour guiado sobre la interfaz real */
+  .tour-backdrop{position:fixed;inset:0;z-index:80;background:rgba(4,4,6,.74);backdrop-filter:blur(2px);display:none}
+  body.tour-on .tour-backdrop{display:block}
+  .tour-card{position:fixed;left:50%;transform:translateX(-50%);bottom:24px;z-index:86;width:min(700px,94vw);background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:20px 24px;display:none;box-shadow:0 20px 60px rgba(0,0,0,.55)}
+  body.tour-on .tour-card{display:block}
+  .tour-step{color:var(--lime);font-family:'Archivo';font-weight:800;font-size:12px;letter-spacing:2px;text-transform:uppercase}
+  .tour-card h3{font-family:'Archivo';font-weight:900;font-size:20px;margin-top:6px;letter-spacing:-.3px}
+  .tour-card p{color:var(--muted);font-size:15px;line-height:1.6;margin-top:8px;min-height:76px}
+  .tour-card p b{color:var(--txt);font-weight:600}
+  #tourDesc.typing::after{content:"▍";color:var(--lime);animation:hiwBlink 1s steps(1) infinite}
+  .tour-ctr{display:flex;justify-content:space-between;align-items:center;margin-top:12px;gap:10px}
+  .tour-ctr button{background:none;border:1px solid var(--line);color:var(--muted);font-size:13.5px;font-weight:600;padding:8px 14px;border-radius:10px;cursor:pointer;font-family:inherit}
+  .tour-ctr button:hover:not(:disabled){color:var(--txt);border-color:#3a3a40}
+  .tour-ctr button:disabled{opacity:.4;cursor:default}
+  #tourNext{background:#ececee;color:#0a0a0b;border:0;font-weight:800}
+  .tour-dots{display:flex;gap:5px}
+  .tour-dots i{width:6px;height:6px;border-radius:50%;background:#2c2c33;cursor:pointer}
+  .tour-dots i.on{background:var(--lime)}
+  .tour-x{position:absolute;top:10px;right:12px;width:28px;height:28px;border-radius:50%;background:rgba(0,0,0,.35);border:1px solid var(--line);color:#fff;font-size:16px;cursor:pointer;display:grid;place-items:center}
+  .tour-hi{position:relative;z-index:82 !important;box-shadow:0 0 0 3px var(--lime),0 0 36px rgba(245,37,79,.55) !important;border-radius:18px}
+  .tour-seq{position:relative}
+  .tour-seq.q1{z-index:82;animation:tourGlow 4.8s infinite}
+  .tour-seq.q2{z-index:82;animation:tourGlow 4.8s 1.6s infinite}
+  .tour-seq.q3{z-index:82;animation:tourGlow 4.8s 3.2s infinite}
+  @keyframes tourGlow{0%,30%,100%{box-shadow:none}8%,22%{box-shadow:0 0 0 3px var(--lime),0 0 32px rgba(245,37,79,.5)}}
+  .tour-pulse{animation:tourPulse 1.5s infinite}
+  @keyframes tourPulse{0%,100%{transform:scale(1);box-shadow:none}50%{transform:scale(1.05);box-shadow:0 0 22px rgba(255,255,255,.35)}}
+  .tour-rows .ref{animation:refGlow 3.6s infinite}
+  .tour-rows .ref:nth-of-type(2){animation-delay:.35s}
+  .tour-rows .ref:nth-of-type(3){animation-delay:.7s}
+  .tour-rows .ref:nth-of-type(4){animation-delay:1.05s}
+  .tour-rows .ref:nth-of-type(5){animation-delay:1.4s}
+  .tour-rows .ref:nth-of-type(6){animation-delay:1.75s}
+  .tour-rows .ref:nth-of-type(7){animation-delay:2.1s}
+  .tour-rows .ref:nth-of-type(8){animation-delay:2.45s}
+  @keyframes refGlow{0%,34%,100%{border-color:var(--line);background:var(--panel-2)}10%,24%{border-color:#8ab4f8;background:rgba(66,133,244,.22)}}
+  .tour-gem{position:fixed;left:50%;top:36%;transform:translate(-50%,-50%);z-index:84;width:min(600px,92vw);display:none}
+  body.tour-gem-on .tour-gem{display:block}
+  .tour-gem .vwin{margin:0;aspect-ratio:16/9;cursor:default}
 </style>
 </head>
 <body>
@@ -727,70 +766,20 @@
     </div>
   </div>
 
-  <!-- RECORRIDO COMO FUNCIONA -->
-  <div class="hiw-overlay" id="hiwOverlay">
-    <div class="hiw" role="dialog" aria-modal="true" aria-labelledby="hiwTitle">
-      <button type="button" class="hiw-x" id="hiwClose" aria-label="Cerrar">×</button>
-      <div class="hiw-grid">
-        <div class="hiw-stage" id="hiwStage">
-          <div class="hiw-scene s1app"><div class="vwin" aria-hidden="true"><div class="vbar"><i></i><i></i><i></i></div><div class="wbody">
-            <div class="f1side"><b class="a"></b><b></b><b></b><b></b></div>
-            <div class="f1card"><div class="in"><span class="k"></span><span class="t"></span><span class="l"></span><span class="btn" style="animation:none"></span></div></div>
-            <div class="f1refs"><i></i><i></i><i></i><i></i></div>
-            <span class="hcur hh1"></span>
-          </div></div></div>
-          <div class="hiw-scene" hidden><div class="vwin" aria-hidden="true"><div class="vbar"><i></i><i></i><i></i></div><div class="wbody">
-            <div class="f1side"><b class="a"></b><b></b><b></b><b></b></div>
-            <div class="f1card"><div class="in"><span class="k"></span><span class="t"></span><span class="l"></span><span class="btn"></span></div></div>
-            <div class="f1refs"><i></i><i></i><i></i><i></i></div>
-            <span class="hcur f1c"></span>
-          </div></div></div>
-          <div class="hiw-scene" hidden><div class="vwin" aria-hidden="true"><div class="vbar"><i></i><i></i><i></i></div><div class="wbody">
-            <div class="g2"><span class="g2av">A</span><span class="g2name">Asistente de Diagnóstico</span><span class="whola">Hola, ¿qué quieres hacer?</span><span class="g2bar"><span class="plus">＋</span><span class="wtypeg">Hola, soy docente de 4° de primaria…</span><span class="g2think">Pensar ▾</span><span class="g2send">↑</span></span></div>
-          </div></div></div>
-          <div class="hiw-scene" hidden><div class="vwin" aria-hidden="true"><div class="vbar"><i></i><i></i><i></i></div><div class="wbody">
-            <div class="h4list"><span class="h4r sel"><em>SEP</em><i></i></span><span class="h4r"><em>SEJ</em><i></i></span><span class="h4r"><em>SEJ</em><i></i></span></div>
-            <div class="h4doc"><i></i><i></i><i class="w"></i><i></i><i class="w"></i><span class="cp">Copiar</span></div>
-            <span class="hcur h4c"></span>
-          </div></div></div>
-          <div class="hiw-scene" hidden><div class="vwin" aria-hidden="true"><div class="vbar"><i></i><i></i><i></i></div><div class="wbody">
-            <div class="h5">
-              <span class="h5chip">📄 referencia-sep.pdf</span>
-              <span class="h5bub">Anexo la orientación oficial para mi diagnóstico</span>
-              <span class="h5bar"><span>＋</span><span>Escribe aquí…</span></span>
-            </div>
-          </div></div></div>
-          <div class="hiw-scene" hidden><div class="vwin" aria-hidden="true"><div class="vbar"><i></i><i></i><i></i></div><div class="wbody">
-            <div class="h6">
-              <span class="h6think"><i></i><i></i><i></i></span>
-              <span class="h6r r1"></span><span class="h6r r2"></span><span class="h6r r3"></span>
-              <span class="h6u">Considera que 5 estudiantes requieren apoyo en lectura</span>
-              <span class="h6r r4"></span>
-            </div>
-          </div></div></div>
-          <div class="hiw-scene" hidden><div class="vwin" aria-hidden="true"><div class="vbar light"><i></i><i></i><i></i></div><div class="wbody">
-            <div class="h7"><div class="h7bar"><span class="h7ic"></span><i></i></div>
-              <div class="h7doc"><span class="wl"></span><span class="wl short"></span><span class="wl edit"></span><span class="wl"></span><span class="wl short"></span><span class="h7dl">⬇ Descargar</span></div>
-            </div>
-          </div></div></div>
-          <div class="hiw-scene" hidden><div class="vwin" aria-hidden="true"><div class="vbar"><i></i><i></i><i></i></div><div class="wbody">
-            <div class="f1side"><b class="s1"></b><b class="s2"></b><b></b><b></b></div>
-            <div class="f3card"><div class="in"><span class="k"></span><span class="t"></span><span class="l"></span><span class="l"></span><span class="btn2"></span></div></div>
-            <span class="h8paste">Ctrl+V · tu diagnóstico</span>
-            <span class="wback">↩</span>
-          </div></div></div>
-        </div>
-        <div class="hiw-side">
-          <div class="hiw-step" id="hiwStep">Paso 1 de 8</div>
-          <h3 id="hiwTitle"></h3>
-          <p id="hiwDesc"></p>
-          <div class="hiw-ctr">
-            <button type="button" id="hiwPrev">‹ Anterior</button>
-            <div class="hiw-dots" id="hiwDots"></div>
-            <button type="button" id="hiwNext">Siguiente ›</button>
-          </div>
-        </div>
-      </div>
+  <!-- TOUR GUIADO -->
+  <div class="tour-backdrop" id="tourBackdrop"></div>
+  <div class="tour-gem" aria-hidden="true"><div class="vwin"><div class="vbar"><i></i><i></i><i></i></div><div class="wbody">
+    <div class="g2"><span class="g2av">A</span><span class="g2name">Asistente de Diagnóstico</span><span class="whola">Hola, ¿qué quieres hacer?</span><span class="g2bar"><span class="plus">＋</span><span class="wtypeg">Hola, soy docente de 4° de primaria…</span><span class="g2think">Pensar ▾</span><span class="g2send">↑</span></span></div>
+  </div></div></div>
+  <div class="tour-card" role="dialog" aria-modal="true" aria-labelledby="tourTitle">
+    <button type="button" class="tour-x" id="tourClose" aria-label="Cerrar">×</button>
+    <div class="tour-step" id="tourStep">Paso 1 de 6</div>
+    <h3 id="tourTitle"></h3>
+    <p id="tourDesc"></p>
+    <div class="tour-ctr">
+      <button type="button" id="tourPrev">‹ Anterior</button>
+      <div class="tour-dots" id="tourDots"></div>
+      <button type="button" id="tourNext">Siguiente ›</button>
     </div>
   </div>
 
@@ -908,24 +897,50 @@
 </script>
 <script>
 (function(){
-  var pasos=[
-    {t:"Elige tu módulo",d:"En el panel lateral del Constructor selecciona <b>qué necesitas elaborar</b>: diagnóstico, programa analítico, planeación o evaluación. Al elegirlo, su tarjeta aparece al centro con todo lo que necesitas saber antes de entrar."},
-    {t:"Abre la herramienta",d:"Dentro de la tarjeta, pulsa <b>Abrir herramienta</b>. Verás primero un aviso importante: la Gema ofrece sugerencias, <b>la decisión pedagógica siempre es tuya</b>. Después se abrirá en otra pestaña."},
-    {t:"Preséntate a la Gema",d:"En Gemini verás el nombre de la herramienta. Escribe quién eres y cómo es tu grupo: <b>“Hola, soy docente de 4° de primaria…”</b>. Nivel, grado, contexto y necesidades: mientras más contexto, mejor propuesta. <b>No incluyas nombres de estudiantes.</b>"},
-    {t:"Consulta una referencia oficial",d:"Junto a cada módulo está el <b>panel azul de referencias</b> de la SEP y la SEJ. Abre el documento que necesites, léelo y <b>copia</b> los fragmentos que quieras trabajar."},
-    {t:"Anexa la referencia a tu Gema",d:"Vuelve a la conversación y <b>pega el fragmento o adjunta el documento</b>. Así la propuesta de la Gema se alinea con las orientaciones oficiales y con tu contexto."},
-    {t:"Trabaja con la Gema",d:"La Gema <b>piensa, escribe y te hace preguntas</b>. Tú respondes, corriges y pides cambios — es una conversación de ida y vuelta hasta que la propuesta refleje de verdad a tu grupo."},
-    {t:"Descarga y ajusta en Google Docs",d:"Cuando el resultado te convenza, <b>descárgalo o ábrelo en Google Docs</b>. Ahí haces los ajustes finales con tu criterio profesional: tú construyes la versión que usarás en tu práctica."},
-    {t:"Copia y abre el siguiente módulo",d:"Guarda tu producto y vuelve al Constructor. <b>Pégalo como insumo en el siguiente módulo</b>: el diagnóstico alimenta al programa, el programa a la planeación y así hasta la evaluación."}
-  ];
-  var ov=document.getElementById('hiwOverlay'); if(!ov) return;
-  var open=document.getElementById('hiwOpen'), stage=document.getElementById('hiwStage');
-  var scenes=stage.querySelectorAll('.hiw-scene');
-  var tt=document.getElementById('hiwTitle'), dd=document.getElementById('hiwDesc'), st=document.getElementById('hiwStep');
-  var prev=document.getElementById('hiwPrev'), next=document.getElementById('hiwNext'), dots=document.getElementById('hiwDots');
-  var idx=0, lastFocus=null, tmr=null;
+  var open=document.getElementById('hiwOpen'); if(!open) return;
+  var body=document.body;
+  var card=document.querySelector('.tour-card'), backdrop=document.getElementById('tourBackdrop');
+  var tt=document.getElementById('tourTitle'), dd=document.getElementById('tourDesc'), st=document.getElementById('tourStep');
+  var prev=document.getElementById('tourPrev'), next=document.getElementById('tourNext'), dots=document.getElementById('tourDots');
   var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  pasos.forEach(function(_,i){var d=document.createElement('i');d.addEventListener('click',function(){idx=i;render();});dots.appendChild(d);});
+  var idx=0, tmr=null, cyc=null, savedTab=0, lastFocus=null;
+  function q(sel){return document.querySelector(sel);}
+  function activePanel(sel){return q('.et-panel:not([hidden]) '+sel);}
+  function tabs(){return document.querySelectorAll('.app .et-tab');}
+  var pasos=[
+    {t:"Conoce tu espacio de trabajo",
+     d:"El Constructor tiene <b>tres cajas</b>: a la izquierda la <b>caja de módulos</b>, al centro tu <b>caja de trabajo</b> y a la derecha la <b>caja azul de referencias oficiales</b>. Míralas iluminarse: cada una cumple una función distinta.",
+     on:function(){var s=q('.app-side');var c=activePanel('.et-card');var r=activePanel('.et-refs');
+       if(s){s.classList.add('tour-seq','q1');}if(c){c.classList.add('tour-seq','q2');}if(r){r.classList.add('tour-seq','q3');}},
+     off:function(){document.querySelectorAll('.tour-seq').forEach(function(e){e.classList.remove('tour-seq','q1','q2','q3');});}},
+    {t:"Caja de módulos",
+     d:"Aquí eliges <b>qué necesitas elaborar</b>: Diagnóstico, Programa analítico, Planeación o Evaluación. Observa cómo al elegir un módulo <b>cambia toda la caja central</b>. Puedes entrar a cualquiera, en el orden que tu práctica necesite.",
+     on:function(){var s=q('.app-side');if(s)s.classList.add('tour-hi');
+       var i=0;cyc=setInterval(function(){i=(i+1)%4;var t=tabs()[i];if(t)t.click();},1900);},
+     off:function(){var s=q('.app-side');if(s)s.classList.remove('tour-hi');
+       if(cyc){clearInterval(cyc);cyc=null;}var t=tabs()[savedTab];if(t)t.click();}},
+    {t:"Caja central: tu módulo de trabajo",
+     d:"Te explica <b>qué preparar antes de entrar</b>, cómo se realiza y <b>qué obtendrás al terminar</b>. Con el <b>botón blanco</b> abrirás la Gema en otra pestaña. Recuerda la nota roja: guarda tu resultado, este portal no lo almacena.",
+     on:function(){var c=activePanel('.et-card');if(c)c.classList.add('tour-hi');
+       var b=activePanel('.et-open');if(b)b.classList.add('tour-pulse');},
+     off:function(){var c=activePanel('.et-card');if(c)c.classList.remove('tour-hi');
+       var b=activePanel('.et-open');if(b)b.classList.remove('tour-pulse');}},
+    {t:"Caja de referencias oficiales",
+     d:"Documentos de la <b>SEP y la Secretaría de Educación Jalisco</b> seleccionados para este módulo. Cada tarjeta se abre en una pestaña nueva: <b>léelos y copia lo que te sirva</b> para compartirlo con la Gema y enriquecer tu propuesta.",
+     on:function(){var r=activePanel('.et-refs');if(r){r.classList.add('tour-hi','tour-rows');}},
+     off:function(){var r=activePanel('.et-refs');if(r){r.classList.remove('tour-hi','tour-rows');}}},
+    {t:"Así trabajarás con la Gema",
+     d:"Al pulsar el botón, tu <b>asistente te recibirá en Gemini</b>. Preséntate, comparte el contexto de tu grupo y tu indicación; conversa, ajusta la propuesta y <b>guárdala en un documento de tu elección</b>.",
+     on:function(){body.classList.add('tour-gem-on');},
+     off:function(){body.classList.remove('tour-gem-on');}},
+    {t:"Continúa el recorrido",
+     d:"Cuando tengas tu producto guardado, este enlace te lleva al <b>siguiente módulo</b>: ábrelo y comparte con la nueva Gema la información que guardaste. <b>Cada resultado es insumo del siguiente</b>, del diagnóstico al aula.",
+     on:function(){var n=activePanel('.et-next');if(n)n.classList.add('tour-hi');
+       var g=activePanel('.et-go');if(g)g.classList.add('tour-pulse');},
+     off:function(){var n=activePanel('.et-next');if(n)n.classList.remove('tour-hi');
+       var g=activePanel('.et-go');if(g)g.classList.remove('tour-pulse');}}
+  ];
+  pasos.forEach(function(_,i){var d=document.createElement('i');d.addEventListener('click',function(){go(i);});dots.appendChild(d);});
   function setDesc(html){
     if(tmr){clearInterval(tmr);tmr=null;}
     dd.innerHTML='';
@@ -935,28 +950,27 @@
       if(p.indexOf('<b>')===0)segs.push({t:p.replace(/<\/?b>/g,''),b:true});
       else segs.push({t:p,b:false});
     });
-    if(reduce){
-      segs.forEach(function(s){
-        if(s.b){var b=document.createElement('b');b.textContent=s.t;dd.appendChild(b);}
-        else dd.appendChild(document.createTextNode(s.t));
-      });
-      return;
-    }
+    if(reduce){segs.forEach(function(s){if(s.b){var b=document.createElement('b');b.textContent=s.t;dd.appendChild(b);}else dd.appendChild(document.createTextNode(s.t));});return;}
     dd.classList.add('typing');
-    var si=0, ci=0, node=null;
+    var si=0,ci=0,node=null;
     tmr=setInterval(function(){
       if(si>=segs.length){clearInterval(tmr);tmr=null;dd.classList.remove('typing');return;}
       var s=segs[si];
-      if(!node){
-        if(s.b){node=document.createElement('b');dd.appendChild(node);}
-        else{node=document.createTextNode('');dd.appendChild(node);}
-      }
+      if(!node){if(s.b){node=document.createElement('b');dd.appendChild(node);}else{node=document.createTextNode('');dd.appendChild(node);}}
       node.textContent+=s.t.charAt(ci++);
       if(ci>=s.t.length){si++;ci=0;node=null;}
     },22);
   }
-  function render(){
-    scenes.forEach(function(s,i){s.hidden=(i!==idx);});
+  function scrollTarget(i){
+    var sel=[ '.app', '.app-side', null, null, null, null][i];
+    var el= i===2?activePanel('.et-card') : i===3?activePanel('.et-refs') : i===5?activePanel('.et-next') : q(sel||'.app');
+    if(el)el.scrollIntoView({behavior:reduce?'auto':'smooth',block:i===0?'center':'nearest'});
+  }
+  function go(n){
+    pasos[idx].off();
+    idx=n;
+    pasos[idx].on();
+    scrollTarget(idx);
     st.textContent='Paso '+(idx+1)+' de '+pasos.length;
     tt.textContent=pasos[idx].t;
     setDesc(pasos[idx].d);
@@ -964,18 +978,36 @@
     next.textContent=idx===pasos.length-1?'Terminar':'Siguiente ›';
     Array.prototype.forEach.call(dots.children,function(d,i){d.classList.toggle('on',i===idx);});
   }
-  function show(e){if(e)e.preventDefault();idx=0;render();lastFocus=document.activeElement;ov.classList.add('open');next.focus();}
-  function close(){ov.classList.remove('open');if(tmr){clearInterval(tmr);tmr=null;dd.classList.remove('typing');}if(lastFocus)lastFocus.focus();}
-  if(open)open.addEventListener('click',show);
-  prev.addEventListener('click',function(){if(idx>0){idx--;render();}});
-  next.addEventListener('click',function(){if(idx<pasos.length-1){idx++;render();}else{close();}});
-  document.getElementById('hiwClose').addEventListener('click',close);
-  ov.addEventListener('click',function(e){if(e.target===ov)close();});
+  function start(e){
+    if(e)e.preventDefault();
+    lastFocus=document.activeElement;
+    savedTab=0;
+    tabs().forEach(function(t,i){if(t.classList.contains('on'))savedTab=i;});
+    body.classList.add('tour-on');
+    idx=0;pasos[0].on();
+    st.textContent='Paso 1 de '+pasos.length;tt.textContent=pasos[0].t;setDesc(pasos[0].d);
+    prev.disabled=true;next.textContent='Siguiente ›';
+    Array.prototype.forEach.call(dots.children,function(d,i){d.classList.toggle('on',i===0);});
+    scrollTarget(0);
+    next.focus();
+  }
+  function end(){
+    pasos[idx].off();
+    if(cyc){clearInterval(cyc);cyc=null;}
+    if(tmr){clearInterval(tmr);tmr=null;dd.classList.remove('typing');}
+    body.classList.remove('tour-on','tour-gem-on');
+    if(lastFocus)lastFocus.focus();
+  }
+  open.addEventListener('click',start);
+  prev.addEventListener('click',function(){if(idx>0)go(idx-1);});
+  next.addEventListener('click',function(){if(idx<pasos.length-1)go(idx+1);else end();});
+  document.getElementById('tourClose').addEventListener('click',end);
+  backdrop.addEventListener('click',end);
   document.addEventListener('keydown',function(e){
-    if(!ov.classList.contains('open'))return;
-    if(e.key==='Escape')close();
-    if(e.key==='ArrowRight'&&idx<pasos.length-1){idx++;render();}
-    if(e.key==='ArrowLeft'&&idx>0){idx--;render();}
+    if(!body.classList.contains('tour-on'))return;
+    if(e.key==='Escape')end();
+    if(e.key==='ArrowRight'&&idx<pasos.length-1)go(idx+1);
+    if(e.key==='ArrowLeft'&&idx>0)go(idx-1);
   });
 })();
 </script>
