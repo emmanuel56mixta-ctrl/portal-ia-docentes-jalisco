@@ -535,7 +535,7 @@
   /* tour guiado sobre la interfaz real */
   .tour-backdrop{position:fixed;inset:0;z-index:80;background:rgba(4,4,6,.74);backdrop-filter:blur(2px);display:none}
   body.tour-on .tour-backdrop{display:block}
-  .tour-card{position:fixed;left:50%;transform:translateX(-50%);bottom:24px;z-index:86;width:min(700px,94vw);background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:20px 24px;display:none;box-shadow:0 20px 60px rgba(0,0,0,.55)}
+  .tour-card{position:fixed;right:22px;top:50%;transform:translateY(-50%);z-index:86;width:min(370px,92vw);background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:20px 22px;display:none;box-shadow:0 20px 60px rgba(0,0,0,.55)}
   body.tour-on .tour-card{display:block}
   .tour-step{color:var(--lime);font-family:'Archivo';font-weight:800;font-size:12px;letter-spacing:2px;text-transform:uppercase}
   .tour-card h3{font-family:'Archivo';font-weight:900;font-size:20px;margin-top:6px;letter-spacing:-.3px}
@@ -572,7 +572,11 @@
   body.tour-gem-on .tour-gem{display:block}
   .tour-gem .vwin{margin:0;aspect-ratio:16/9;cursor:default}
   /* tour: escala y division en cajas */
-  body.tour-on .app{position:relative;z-index:81;transform:scale(.92);transform-origin:top center;transition:transform .55s cubic-bezier(.22,1.12,.32,1);overflow:visible}
+  body.tour-on .app{position:relative;z-index:81;transform:translateX(clamp(-220px,-9vw,-40px)) scale(.9);transform-origin:top center;transition:transform .55s cubic-bezier(.22,1.12,.32,1);overflow:visible}
+  @media(max-width:1024px){
+    .tour-card{right:50%;top:auto;bottom:18px;transform:translate(50%,0);width:min(700px,94vw)}
+    body.tour-on .app{transform:scale(.95)}
+  }
   .app-side{transition:transform .6s cubic-bezier(.22,1.12,.32,1),border-radius .6s,background .6s}
   .app .et-cols{transition:gap .6s cubic-bezier(.22,1.12,.32,1)}
   body.tour-split .app{column-gap:26px}
