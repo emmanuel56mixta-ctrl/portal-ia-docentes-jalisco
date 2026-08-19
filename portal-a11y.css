@@ -15,6 +15,15 @@ html,body{max-width:100%;overflow-x:clip}
   outline:3px solid #ff8a00!important;outline-offset:3px!important
 }
 [aria-disabled="true"]{cursor:not-allowed!important;opacity:.62}
+.page-route{
+  display:flex;align-items:center;flex-wrap:wrap;gap:8px;
+  margin:4px 0 18px;color:var(--muted);font-size:14.5px
+}
+.page-route a{color:var(--muted);text-decoration:none}
+.page-route a:hover{color:var(--txt)}
+.page-route .sep{color:var(--dim);opacity:.7}
+.page-route [aria-current="page"]{color:var(--txt);font-weight:700}
+.nav .right[href]:hover{color:var(--txt)}
 .ft-brand{flex-wrap:wrap}
 .ft-brand .ft-logo-divider{
   width:1px;height:42px;flex:0 0 auto;
