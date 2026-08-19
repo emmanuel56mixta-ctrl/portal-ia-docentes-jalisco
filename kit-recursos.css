@@ -92,6 +92,38 @@
 .tool-dialog-open:hover{background:#ff9d2e}
 body.dialog-open{overflow:hidden}
 
+.gem-safety-backdrop[hidden]{display:none}
+.gem-safety-backdrop{
+  position:fixed;inset:0;z-index:240;display:grid;place-items:center;padding:20px;
+  background:rgba(4,4,6,.82);backdrop-filter:blur(8px);
+  opacity:0;transition:opacity .2s ease
+}
+.gem-safety-backdrop.open{opacity:1}
+.gem-safety-card{
+  width:min(440px,100%);max-height:calc(100vh - 32px);overflow:auto;
+  padding:26px;background:#141416;border:1px solid #2d2d32;border-radius:18px;
+  box-shadow:0 30px 90px rgba(0,0,0,.68);
+  transform:translateY(14px) scale(.98);transition:transform .22s ease
+}
+.gem-safety-backdrop.open .gem-safety-card{transform:none}
+.gem-safety-icon{
+  width:56px;height:56px;display:grid;place-items:center;margin-bottom:14px;
+  border:1px solid #2d2d32;border-radius:14px;background:#1b1b1e
+}
+.gem-safety-card h2{color:#f4f4f5;font:800 20px/1.2 'Archivo',sans-serif;letter-spacing:-.2px}
+.gem-safety-text{margin-top:12px;color:#a9a9b0;font-size:15px;font-weight:400;line-height:1.65}
+.gem-safety-text strong{color:#f4f4f5;font-weight:700}
+.gem-safety-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+.gem-safety-open,.gem-safety-cancel{
+  min-height:44px;display:inline-flex;align-items:center;justify-content:center;
+  padding:10px 18px;border-radius:12px;font:800 14.5px/1 'Inter',sans-serif;cursor:pointer
+}
+.gem-safety-open{border:1px solid #ececee;background:#ececee;color:#0a0a0b}
+.gem-safety-open:hover{border-color:#fff;background:#fff}
+.gem-safety-cancel{border:1px solid #303036;background:transparent;color:#a9a9b0}
+.gem-safety-cancel:hover{border-color:#45454c;color:#f4f4f5}
+body.gem-safety-open{overflow:hidden}
+
 .hero-kit h1{
   margin-top:10px;font-size:58px;line-height:.96;letter-spacing:-1.8px
 }
@@ -119,5 +151,5 @@ body.dialog-open{overflow:hidden}
   .hero-kit .hero-sub{font-size:15px}
 }
 @media(prefers-reduced-motion:reduce){
-  .tool-dialog-backdrop,.tool-dialog,.tool-dialog-visual img{transition:none}
+  .tool-dialog-backdrop,.tool-dialog,.tool-dialog-visual img,.gem-safety-backdrop,.gem-safety-card{transition:none}
 }
