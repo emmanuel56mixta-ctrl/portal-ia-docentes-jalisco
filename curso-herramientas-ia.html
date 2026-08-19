@@ -36,7 +36,7 @@
   .taught b{color:var(--muted);font-weight:600}
   @media(max-width:860px){.hero h1{font-size:29px}.hero{padding:26px 20px}.hero-txt{padding:18px 20px}}
   /* layout */
-  .grid{display:grid;grid-template-columns:1fr 300px;gap:44px;margin-top:44px}
+  .grid{display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:36px;margin-top:44px}
   @media(max-width:860px){.grid{grid-template-columns:1fr}}
   h2{font-family:'Archivo';font-weight:800;font-size:22px;letter-spacing:-.2px}
   /* lo que aprenderas */
@@ -46,22 +46,27 @@
   .li::before{content:"✓";position:absolute;left:0;top:0;width:17px;height:17px;border-radius:50%;border:1.5px solid var(--lime);color:var(--lime);font-size:10px;font-weight:800;display:grid;place-items:center}
   /* temario */
   .syll{margin-top:54px}
-  .lessons{margin-top:16px;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--panel)}
-  .lesson{display:flex;align-items:center;gap:14px;padding:12px 14px;border-bottom:1px solid var(--line);transition:.15s background}
-  .lesson:last-child{border-bottom:0}
-  .lesson:hover{background:var(--panel-2)}
-  .lthumb{flex:0 0 86px;height:50px;border-radius:9px}
+  .syll-head{display:flex;align-items:center;justify-content:space-between;gap:16px}
+  .playlist{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:var(--panel-2);color:var(--txt);font-size:13.5px;font-weight:700;padding:9px 14px;border-radius:11px;transition:.15s}
+  .playlist:hover{border-color:var(--lime);color:var(--lime)}
+  .lessons{display:grid;gap:16px;margin-top:18px}
+  .lesson{display:grid;grid-template-columns:220px minmax(0,1fr) auto;align-items:center;gap:20px;padding:18px;border:1px solid var(--line);border-radius:var(--radius);background:var(--panel);transition:.18s background,.18s border-color,.18s transform}
+  .lesson:hover{background:var(--panel-2);border-color:#3a3a40;transform:translateY(-2px)}
+  .lthumb{display:block;width:220px;height:auto;aspect-ratio:16/9;object-fit:cover;border-radius:12px;background:#0d0d11;border:1px solid rgba(255,255,255,.08)}
   .lgrow{flex:1;min-width:0}
   .lnum{color:var(--lime);font-size:12.5px;font-weight:700;letter-spacing:1px;text-transform:uppercase}
-  .ltitle{font-size:15px;font-weight:600;margin-top:2px}
-  .play{flex:0 0 30px;width:30px;height:30px;border-radius:50%;border:1.5px solid var(--line);display:grid;place-items:center;color:var(--muted)}
-  .play::after{content:"";border-left:8px solid currentColor;border-top:5px solid transparent;border-bottom:5px solid transparent;margin-left:2px}
-  .t1{background:linear-gradient(135deg,#12303a,#0a1216)}
-  .t2{background:linear-gradient(135deg,#3a1626,#160a10)}
-  .t3{background:linear-gradient(135deg,#16283a,#0a0f16)}
-  .t4{background:linear-gradient(135deg,#2a163a,#100a16)}
-  .t5{background:linear-gradient(135deg,#3a2a16,#16100a)}
-  .t6{background:linear-gradient(135deg,#163a22,#0a160e)}
+  .ltitle{font-size:17px;font-weight:700;line-height:1.35;margin-top:3px}
+  .ldesc{color:var(--muted);font-size:14px;line-height:1.58;margin-top:8px}
+  .play{display:inline-flex;align-items:center;gap:8px;white-space:nowrap;border:1.5px solid var(--line);border-radius:11px;padding:9px 12px;color:var(--muted);font-size:13px;font-weight:700}
+  .play::before{content:"";border-left:8px solid currentColor;border-top:5px solid transparent;border-bottom:5px solid transparent}
+  .lesson:hover .play{color:var(--lime);border-color:var(--lime)}
+  @media(max-width:620px){
+    .syll-head{align-items:flex-start;flex-direction:column}
+    .lesson{grid-template-columns:minmax(0,1fr) auto;gap:14px;padding:14px}
+    .lthumb{grid-column:1/-1;width:100%}
+    .lgrow{grid-column:1}
+    .play{grid-column:2;grid-row:2;align-self:end}
+  }
   /* descripcion */
   .descsec{margin-top:54px}
   .descsec p{color:var(--muted);font-size:15px;margin-top:14px;max-width:640px;line-height:1.65}
@@ -122,30 +127,32 @@
       <section>
         <h2>Lo que aprenderás</h2>
         <div class="learn">
-          <div class="li">Escribe indicaciones (prompts) claras y efectivas</div>
-          <div class="li">Genera planeaciones y materiales con Gemini</div>
-          <div class="li">Usa las Gemas del catálogo y adáptalas a tu grupo</div>
-          <div class="li">Convierte tus documentos en resúmenes y pódcast con NotebookLM</div>
-          <div class="li">Crea rúbricas e instrumentos de evaluación con IA</div>
-          <div class="li">Integra la IA de forma responsable y segura en tu aula</div>
+          <div class="li">Entra a Gemini con tu cuenta educativa de Jalisco</div>
+          <div class="li">Crea y configura una Gema personalizada</div>
+          <div class="li">Organiza documentos y notas en Cuadernos</div>
+          <div class="li">Vincula tus cuadernos de NotebookLM dentro de Gemini</div>
+          <div class="li">Genera materiales a partir de tus propios recursos</div>
+          <div class="li">Recorre los cuatro módulos del Constructor pedagógico</div>
         </div>
       </section>
 
       <section class="syll" id="temario">
-        <h2>Temario</h2>
+        <div class="syll-head">
+          <h2>Temario</h2>
+          <a class="playlist" href="https://www.youtube.com/playlist?list=PLVMXibbCZXC0" target="_blank" rel="noopener">Ver todos los videos ↗</a>
+        </div>
         <div class="lessons">
-          <a class="lesson" href="#"><div class="lthumb t1"></div><div class="lgrow"><div class="lnum">Lección 1</div><div class="ltitle">Conoce Gemini: tu primera conversación</div></div><span class="play"></span></a>
-          <a class="lesson" href="#"><div class="lthumb t2"></div><div class="lgrow"><div class="lnum">Lección 2</div><div class="ltitle">Prompts que funcionan: contexto, rol y formato</div></div><span class="play"></span></a>
-          <a class="lesson" href="#"><div class="lthumb t3"></div><div class="lgrow"><div class="lnum">Lección 3</div><div class="ltitle">Las Gemas: copia, configura y úsalas con tu grupo</div></div><span class="play"></span></a>
-          <a class="lesson" href="#"><div class="lthumb t4"></div><div class="lgrow"><div class="lnum">Lección 4</div><div class="ltitle">NotebookLM: tus documentos convertidos en conocimiento</div></div><span class="play"></span></a>
-          <a class="lesson" href="#"><div class="lthumb t5"></div><div class="lgrow"><div class="lnum">Lección 5</div><div class="ltitle">Materiales y evaluación: rúbricas, exámenes y adaptaciones</div></div><span class="play"></span></a>
-          <a class="lesson" href="#"><div class="lthumb t6"></div><div class="lgrow"><div class="lnum">Lección 6</div><div class="ltitle">Uso responsable: datos, criterio docente y buenas prácticas</div></div><span class="play"></span></a>
+          <a class="lesson" href="https://youtu.be/-z757TK2jrc" target="_blank" rel="noopener"><img class="lthumb" src="https://i.ytimg.com/vi/-z757TK2jrc/mqdefault.jpg" alt="" loading="lazy"><div class="lgrow"><div class="lnum">Capítulo 1</div><div class="ltitle">Primeros pasos: entra a Gemini con tu cuenta @jalisco.edu.mx</div><p class="ldesc">En este primer capítulo, te enseñamos a iniciar sesión en Gemini con tu cuenta @jalisco.edu.mx. Descubre cómo ingresar a un entorno seguro con todas las funciones de Inteligencia Artificial optimizadas para la comunidad educativa de Jalisco.</p></div><span class="play">Ver video</span></a>
+          <a class="lesson" href="https://youtu.be/dR49TthfNjE" target="_blank" rel="noopener"><img class="lthumb" src="https://i.ytimg.com/vi/dR49TthfNjE/mqdefault.jpg" alt="" loading="lazy"><div class="lgrow"><div class="lnum">Capítulo 2</div><div class="ltitle">Crea tu propia Gema</div><p class="ldesc">En este capítulo, te enseñamos a crear y configurar tu propia Gema en Gemini con tu cuenta @jalisco.edu.mx. Diseña asistentes virtuales personalizados para redactar planificaciones, generar rúbricas y estructurar contenidos educativos en segundos.</p></div><span class="play">Ver video</span></a>
+          <a class="lesson" href="https://youtu.be/z4-uhPega4c" target="_blank" rel="noopener"><img class="lthumb" src="https://i.ytimg.com/vi/z4-uhPega4c/mqdefault.jpg" alt="" loading="lazy"><div class="lgrow"><div class="lnum">Capítulo 3</div><div class="ltitle">Crea tu cuaderno (Cuadernos dentro de Gemini)</div><p class="ldesc">En este capítulo, te mostramos cómo usar la función de Cuadernos en Gemini con tu cuenta @jalisco.edu.mx. Reúne tus documentos y notas en un solo lugar para que la Inteligencia Artificial analice tus materiales y te ayude a crear secuencias didácticas y recursos pedagógicos de forma eficiente.</p></div><span class="play">Ver video</span></a>
+          <a class="lesson" href="https://youtu.be/P5OBwe7Tctc" target="_blank" rel="noopener"><img class="lthumb" src="https://i.ytimg.com/vi/P5OBwe7Tctc/mqdefault.jpg" alt="" loading="lazy"><div class="lgrow"><div class="lnum">Capítulo 4</div><div class="ltitle">Usa tu cuaderno dentro de Gemini</div><p class="ldesc">En este capítulo, te enseñamos a vincular tus cuadernos de NotebookLM dentro de Gemini con tu cuenta @jalisco.edu.mx. Aprovecha la información de tus proyectos para generar materiales educativos, responder preguntas sobre tus documentos y agilizar tu planificación sin salir de la plataforma.</p></div><span class="play">Ver video</span></a>
+          <a class="lesson" href="https://youtu.be/pKE09WGQAOc" target="_blank" rel="noopener"><img class="lthumb" src="https://i.ytimg.com/vi/pKE09WGQAOc/mqdefault.jpg" alt="" loading="lazy"><div class="lgrow"><div class="lnum">Capítulo 5</div><div class="ltitle">Cómo usar el “Constructor pedagógico”</div><p class="ldesc">En este capítulo final, exploramos el Constructor pedagógico, una plataforma que reúne cuatro Gemas especializadas para acompañarte en el Diagnóstico inicial, Programa analítico, Planeación didáctica y Evaluación. Aprende a articular cada fase de forma continua o acceder al módulo que necesites, aprovechando referencias oficiales para respaldar tu práctica docente.</p></div><span class="play">Ver video</span></a>
         </div>
       </section>
 
       <section class="descsec">
         <h2>Descripción</h2>
-        <p>Este trayecto autogestivo te lleva de cero a dominar las herramientas de IA incluidas en tu cuenta @jaliscoedu.mx. En seis lecciones breves aprenderás a conversar con Gemini, aprovechar las Gemas del catálogo, transformar tus documentos con NotebookLM y producir materiales y evaluaciones listos para el aula — siempre con tu criterio docente al centro. Avanza a tu propio ritmo: cada lección es una sola idea, en pocos minutos.</p>
+        <p>Este trayecto autogestivo reúne cinco capítulos para comenzar con Gemini desde tu cuenta @jalisco.edu.mx, crear una Gema personalizada, trabajar con Cuadernos y NotebookLM, y aprovechar el Constructor pedagógico. Avanza a tu propio ritmo y abre cada video directamente en YouTube.</p>
       </section>
     </div>
 
@@ -154,25 +161,24 @@
         <h3>Detalles del trayecto</h3>
         <div class="chips">
           <span class="chip">◑ Autogestivo</span>
-          <span class="chip">▤ 6 lecciones</span>
-          <span class="chip">◷ 30 minutos</span>
+          <span class="chip">▤ 5 videos</span>
+          <span class="chip">◷ A tu ritmo</span>
           <span class="chip hl">✦ Sin costo con tu cuenta</span>
         </div>
       </div>
       <div class="blk">
         <h3>Habilidades que obtendrás</h3>
         <div class="chips">
-          <span class="chip">Escritura de prompts</span>
-          <span class="chip">Planeación con IA</span>
-          <span class="chip">Evaluación con IA</span>
-          <span class="chip">Uso responsable</span>
+          <span class="chip">Acceso a Gemini</span>
+          <span class="chip">Creación de Gemas</span>
+          <span class="chip">Trabajo con Cuadernos</span>
+          <span class="chip">Constructor pedagógico</span>
         </div>
       </div>
       <div class="blk">
         <h3>Modelos que usarás</h3>
         <div class="chips">
           <span class="chip">Gemini</span>
-          <span class="chip">Gemini Pro</span>
           <span class="chip">NotebookLM</span>
         </div>
       </div>
@@ -180,9 +186,8 @@
         <h3>Herramientas que aprenderás</h3>
         <div class="chips">
           <span class="chip">Gemas</span>
-          <span class="chip">Docs</span>
-          <span class="chip">Slides</span>
-          <span class="chip">Google Vids</span>
+          <span class="chip">Cuadernos</span>
+          <span class="chip">Constructor pedagógico</span>
         </div>
       </div>
     </aside>
