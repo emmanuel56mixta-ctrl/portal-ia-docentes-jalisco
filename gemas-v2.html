@@ -257,6 +257,7 @@
   .ft-legal a:hover{color:var(--txt)}
   .ft{align-items:flex-start}
 </style>
+<link rel="stylesheet" href="kit-recursos.css">
 </head>
 <body>
 <a class="skip-link" href="#contenido-principal">Saltar al contenido principal</a>
@@ -294,21 +295,24 @@
   <div class="resource-hub" aria-label="Recursos pedagógicos disponibles">
     <h2 class="sr-only">Familias de recursos pedagógicos</h2>
     <section class="resource-family" id="proyectos-integradores">
-      <header class="family-cover">
-        <img class="family-photo projects" src="recursos-proyectos-integradores.jpg" alt="Docente acompañando a estudiantes en un proyecto colaborativo">
-        <div class="family-cover-copy">
+      <header class="project-showcase">
+        <div class="project-visual">
+          <img class="family-photo projects" src="recursos-proyectos-integradores.jpg" alt="Docente acompañando a estudiantes en un proyecto colaborativo">
+          <div class="project-photo-title"><span>Proyectos</span><strong>Integradores</strong></div>
+        </div>
+        <div class="project-intro">
+          <span class="family-count">5 Gemas</span>
           <div class="family-kicker">Proyectos integradores</div>
           <h3>Diseña proyectos vinculados con el contexto</h3>
           <p>Elige la Gema que corresponde al nivel y tipo de grupo. Cada asistente te acompaña paso a paso en la construcción del proyecto.</p>
         </div>
-        <span class="family-count">5 Gemas</span>
       </header>
       <div class="project-links">
-        <a class="project-link" href="https://gemini.google.com/gem/18mg4z0F6SRGniw_Rl79hkkY4c5HGYyog?usp=sharing" target="_blank" rel="noopener" title="Se abre en Gemini, en pestaña nueva"><span class="project-num">01</span><span class="project-link-copy"><small>Nivel educativo</small><strong>Preescolar</strong></span><span class="link-arrow" aria-hidden="true">↗</span></a>
-        <a class="project-link" href="https://gemini.google.com/gem/1xUKJFlrMPVMtcCWupKPywUqc26yZ1dDK?usp=sharing" target="_blank" rel="noopener" title="Se abre en Gemini, en pestaña nueva"><span class="project-num">02</span><span class="project-link-copy"><small>Nivel educativo</small><strong>Primaria</strong></span><span class="link-arrow" aria-hidden="true">↗</span></a>
-        <a class="project-link" href="https://gemini.google.com/gem/1O-g6zSsI1478noU5OXZZABaQC3Vy5m03?usp=sharing" target="_blank" rel="noopener" title="Se abre en Gemini, en pestaña nueva"><span class="project-num">03</span><span class="project-link-copy"><small>Nivel educativo</small><strong>Secundaria</strong></span><span class="link-arrow" aria-hidden="true">↗</span></a>
-        <a class="project-link" href="https://gemini.google.com/gem/1tfEaIaaOEj__-E-_JG2RJLPiTjdvoQZn?usp=sharing" target="_blank" rel="noopener" title="Se abre en Gemini, en pestaña nueva"><span class="project-num">04</span><span class="project-link-copy"><small>Modalidad</small><strong>Primaria multigrado</strong></span><span class="link-arrow" aria-hidden="true">↗</span></a>
-        <a class="project-link" href="https://gemini.google.com/gem/17E0Ht6Bgtrf_GKXq2lccYKufLYwmXHh_?usp=sharing" target="_blank" rel="noopener" title="Se abre en Gemini, en pestaña nueva"><span class="project-num">05</span><span class="project-link-copy"><small>Modalidad</small><strong>Secundaria multigrado</strong></span><span class="link-arrow" aria-hidden="true">↗</span></a>
+        <a class="project-link tool-trigger" data-tool="project-preescolar" href="https://gemini.google.com/gem/18mg4z0F6SRGniw_Rl79hkkY4c5HGYyog?usp=sharing" target="_blank" rel="noopener"><span class="project-link-copy"><strong>Preescolar</strong></span><span class="link-arrow" aria-hidden="true">›</span></a>
+        <a class="project-link tool-trigger" data-tool="project-primaria" href="https://gemini.google.com/gem/1xUKJFlrMPVMtcCWupKPywUqc26yZ1dDK?usp=sharing" target="_blank" rel="noopener"><span class="project-link-copy"><strong>Primaria</strong></span><span class="link-arrow" aria-hidden="true">›</span></a>
+        <a class="project-link tool-trigger" data-tool="project-secundaria" href="https://gemini.google.com/gem/1O-g6zSsI1478noU5OXZZABaQC3Vy5m03?usp=sharing" target="_blank" rel="noopener"><span class="project-link-copy"><strong>Secundaria</strong></span><span class="link-arrow" aria-hidden="true">›</span></a>
+        <a class="project-link tool-trigger" data-tool="project-primaria-multi" href="https://gemini.google.com/gem/1tfEaIaaOEj__-E-_JG2RJLPiTjdvoQZn?usp=sharing" target="_blank" rel="noopener"><span class="project-link-copy"><strong>Primaria multigrado</strong></span><span class="link-arrow" aria-hidden="true">›</span></a>
+        <a class="project-link tool-trigger" data-tool="project-secundaria-multi" href="https://gemini.google.com/gem/17E0Ht6Bgtrf_GKXq2lccYKufLYwmXHh_?usp=sharing" target="_blank" rel="noopener"><span class="project-link-copy"><strong>Secundaria multigrado</strong></span><span class="link-arrow" aria-hidden="true">›</span></a>
       </div>
     </section>
 
@@ -319,7 +323,7 @@
           <div class="family-cover-copy"><div class="family-kicker">Programa LEO</div><h3>Fortalece la lectura, la escritura y la oralidad</h3></div>
         </header>
         <div class="family-actions">
-          <a class="family-action primary" href="https://gemini.google.com/gem/13qO6ZZIVsvEAeBxPtwvI-hA5ql6xw1iO?usp=sharing" target="_blank" rel="noopener" title="Se abre en Gemini, en pestaña nueva"><span>Abrir Gema Programa LEO</span><span class="link-arrow" aria-hidden="true">↗</span></a>
+          <a class="family-action primary tool-trigger" data-tool="programa-leo" href="https://gemini.google.com/gem/13qO6ZZIVsvEAeBxPtwvI-hA5ql6xw1iO?usp=sharing" target="_blank" rel="noopener"><span>Abrir Gema Programa LEO</span><span class="link-arrow" aria-hidden="true">›</span></a>
         </div>
       </section>
 
@@ -329,11 +333,31 @@
           <div class="family-cover-copy"><div class="family-kicker">Matemáticas</div><h3>Diseña experiencias para pensar, argumentar y resolver</h3></div>
         </header>
         <div class="family-actions two">
-          <a class="family-action" href="promate-aula-geogebra.html"><span>Abrir PROMATE</span><span class="link-arrow" aria-hidden="true">→</span></a>
-          <a class="family-action" href="trazo-laboratorio.html"><span>Abrir Trazo</span><span class="link-arrow" aria-hidden="true">→</span></a>
+          <a class="family-action tool-trigger" data-tool="promate" href="promate-aula-geogebra.html"><span>Abrir PROMATE</span><span class="link-arrow" aria-hidden="true">›</span></a>
+          <a class="family-action tool-trigger" data-tool="trazo" href="trazo-laboratorio.html"><span>Abrir Trazo</span><span class="link-arrow" aria-hidden="true">›</span></a>
         </div>
       </section>
     </div>
+  </div>
+
+  <div class="tool-dialog-backdrop" id="toolDialog" hidden>
+    <section class="tool-dialog" role="dialog" aria-modal="true" aria-labelledby="toolDialogTitle" aria-describedby="toolDialogDescription">
+      <button class="tool-dialog-close" id="toolDialogClose" type="button" aria-label="Cerrar información">×</button>
+      <div class="tool-dialog-visual">
+        <img id="toolDialogImage" src="" alt="">
+        <span class="tool-dialog-type" id="toolDialogType"></span>
+      </div>
+      <div class="tool-dialog-body">
+        <div class="tool-dialog-kicker" id="toolDialogKicker"></div>
+        <h2 id="toolDialogTitle"></h2>
+        <p id="toolDialogDescription"></p>
+        <div class="tool-dialog-note">La herramienta se abrirá después de tu confirmación. Revisa y adapta sus propuestas de acuerdo con tu grupo y contexto.</div>
+        <div class="tool-dialog-actions">
+          <button class="tool-dialog-cancel" id="toolDialogCancel" type="button">Cancelar</button>
+          <a class="tool-dialog-open" id="toolDialogOpen" href="#">Abrir herramienta&nbsp; ›</a>
+        </div>
+      </div>
+    </section>
   </div>
 
 
@@ -393,6 +417,7 @@
 
 </div>
 
+<script src="resource-dialog.js"></script>
 <script>
 (function(){
   // spark del cluster

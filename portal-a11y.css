@@ -49,6 +49,8 @@ html,body{max-width:100%;overflow-x:clip}
   .suggestion-card:hover .suggestion-thumb,
   .suggestion-card:focus-within .suggestion-thumb,
   .family-cover:hover .family-photo,
+  .project-visual:hover .family-photo,
+  .project-visual:focus-within .family-photo,
   .preview:hover>img,
   .preview:focus-within>img{transform:scale(1.045)}
 }
