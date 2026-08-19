@@ -17,21 +17,23 @@
 .project-intro p{max-width:600px;margin-top:12px;color:var(--muted);font-size:15px;line-height:1.62}
 .project-intro .family-count{position:absolute;right:22px;top:20px}
 
-.project-links{grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}
+.project-links{display:flex;flex-wrap:wrap;align-items:center;gap:9px}
 .project-link,.project-link:nth-child(n+4){
-  grid-column:auto;min-height:54px;justify-content:space-between;
+  grid-column:auto;flex:0 1 auto;min-width:132px;min-height:42px;justify-content:space-between;
   background:#ececee;border-color:#ececee;border-radius:999px;
-  color:#0a0a0b;padding:12px 17px
+  color:#0a0a0b;padding:8px 14px
 }
 .project-link:hover,.project-link:focus-visible{
   background:#fff;border-color:#fff;transform:translateY(-2px);
   box-shadow:0 8px 22px rgba(0,0,0,.22)
 }
-.project-link-copy strong{color:#0a0a0b;font-size:13.5px}
+.project-link-copy strong{color:#0a0a0b;font-size:12.5px;font-weight:700}
 .project-link .link-arrow{color:#0a0a0b}
+.family-actions,.family-actions.two{display:flex;flex-wrap:wrap;align-items:center;gap:9px}
 .family-action,.family-action.primary{
-  min-height:52px;background:#ececee;border-color:#ececee;color:#0a0a0b;
-  border-radius:999px;padding:12px 17px
+  flex:0 1 auto;min-width:150px;min-height:42px;background:#ececee;
+  border-color:#ececee;color:#0a0a0b;border-radius:999px;
+  padding:8px 14px;font-size:12.5px;font-weight:700
 }
 .family-action:hover,.family-action:focus-visible,
 .family-action.primary:hover,.family-action.primary:focus-visible{
@@ -90,23 +92,31 @@
 .tool-dialog-open:hover{background:#ff9d2e}
 body.dialog-open{overflow:hidden}
 
-@media(max-width:1100px){
-  .project-links{grid-template-columns:repeat(3,minmax(0,1fr))}
+.hero-kit h1{
+  margin-top:10px;font-size:58px;line-height:.96;letter-spacing:-1.8px
+}
+.hero-kit .hero-sub{
+  max-width:760px;margin:14px auto 0;color:var(--muted);
+  font-size:17px;line-height:1.55
 }
 @media(max-width:800px){
   .project-showcase{grid-template-columns:1fr}
   .project-visual{min-height:280px}
   .project-intro{padding:26px}
   .project-intro h3{font-size:27px}
+  .hero-kit h1{font-size:44px}
 }
 @media(max-width:560px){
-  .project-links{grid-template-columns:1fr}
+  .project-link,.project-link:nth-child(n+4){min-width:0}
+  .family-action,.family-action.primary{min-width:0}
   .project-visual{min-height:250px}
   .project-intro{padding:22px}
   .project-intro .family-count{position:static;align-self:flex-start;margin-bottom:14px;order:-1}
   .tool-dialog-visual{height:185px}
   .tool-dialog-body{padding:22px}
   .tool-dialog-actions{grid-template-columns:1fr}
+  .hero-kit h1{font-size:36px}
+  .hero-kit .hero-sub{font-size:15px}
 }
 @media(prefers-reduced-motion:reduce){
   .tool-dialog-backdrop,.tool-dialog,.tool-dialog-visual img{transition:none}
