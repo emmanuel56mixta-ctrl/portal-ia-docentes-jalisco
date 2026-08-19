@@ -232,21 +232,6 @@
   .mcard.hi{background:linear-gradient(160deg,rgba(245,37,79,.95),rgba(120,160,25,.5));color:#0a0a0b;border-color:transparent}
   .mcard.hi svg{color:#0a0a0b}
 
-  /* presets carousel */
-  .presets{margin-top:72px}
-  .presets .phead{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:18px}
-  .presets .phead .pt{font-family:'Archivo';font-weight:800;font-size:22px;letter-spacing:-.3px}
-  .presets .phead p{color:var(--muted);font-size:15px;max-width:420px;margin-top:4px}
-  .pcar{position:relative}
-  .pview{overflow:hidden}
-  .ptrack{display:flex;gap:16px;transition:transform .4s ease}
-  .pcard{flex:0 0 220px;border-radius:14px;overflow:hidden;border:1px solid var(--line)}
-  .pcard .pimg{height:150px;display:flex;align-items:flex-end;padding:12px;font-weight:700;font-size:15px;color:#fff;text-shadow:0 1px 6px rgba(0,0,0,.5)}
-  .pcard .pcap{background:var(--panel);padding:10px 12px;font-size:14px;color:var(--muted)}
-  .pnav{position:absolute;top:75px;transform:translateY(-50%);z-index:4;width:36px;height:36px;border-radius:50%;background:rgba(20,20,22,.92);border:1px solid var(--line);color:#fff;font-size:19px;display:grid;place-items:center;cursor:pointer}
-  .pnav[disabled]{opacity:.3;cursor:default}
-  .pnav.prev{left:-6px}.pnav.next{right:-6px}
-
   footer{margin:56px 0 40px;color:var(--dim);font-size:13.5px;border-top:1px solid var(--line);padding-top:22px;text-align:center}
 
   @media(max-width:820px){
@@ -261,15 +246,16 @@
   .ax-label{display:flex;align-items:center;gap:10px;margin-bottom:6px}
   .ax-label .tagname{color:var(--lime);font-family:'Archivo';font-weight:800;font-size:12px;letter-spacing:2px;text-transform:uppercase}
   .axis h3{font-family:'Archivo';font-weight:900;font-size:26px;letter-spacing:-.5px}
-  .subgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:18px}
-  .sg{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:18px;transition:.2s;display:flex;flex-direction:column}
-  .sg:hover{border-color:#3a3a40;transform:translateY(-2px)}
-  .sg .sgi{width:38px;height:38px;border-radius:11px;background:var(--panel-2);border:1px solid var(--line);display:grid;place-items:center;font-size:21px;margin-bottom:12px}
-  .sg h4{font-size:14.5px;font-weight:700}
-  .sg p{color:var(--dim);font-size:14.5px;margin-top:6px;line-height:1.5;flex:1}
-  .sg .open{margin-top:14px;display:inline-flex;align-items:center;gap:6px;color:var(--lime);font-size:14.5px;font-weight:700}
-  .sg .open svg{width:13px;height:13px}
-  @media(max-width:820px){.subgrid{grid-template-columns:1fr}}
+  .resource-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:18px}
+  .resource-grid.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .resource-grid.one{grid-template-columns:minmax(0,520px)}
+  .resource-btn{min-height:72px;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:18px;display:flex;align-items:center;justify-content:space-between;gap:16px;color:var(--txt);font-weight:750;transition:.2s}
+  .resource-btn:hover{border-color:var(--lime);transform:translateY(-2px);background:var(--panel-2)}
+  .resource-btn .arrow{color:var(--lime);font-size:18px;line-height:1}
+  .resource-btn.featured{background:var(--lime);border-color:var(--lime);color:#0a0a0b}
+  .resource-btn.featured:hover{background:#d6fb49;border-color:#d6fb49}
+  .resource-btn.featured .arrow{color:#0a0a0b}
+  @media(max-width:820px){.resource-grid,.resource-grid.two,.resource-grid.one{grid-template-columns:1fr}}
 
   @media (prefers-reduced-motion:reduce){*,*::before,*::after{transition-duration:.01ms !important;animation-duration:.01ms !important;transition-delay:0s !important}html{scroll-behavior:auto}}
   .ft{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;text-align:left}
@@ -367,30 +353,30 @@
   <div class="axis">
     <div class="ax-label"><span class="tagname">Proyectos integradores</span></div>
     <h3>Diseña proyectos vinculados con el contexto</h3>
-    <div class="subgrid">
-        <div class="sg"><div class="sgi">🧩</div><h4>Diseño y secuencia del proyecto</h4><p>Organiza el propósito, las fases, las actividades, los tiempos y los recursos necesarios para desarrollar un proyecto.</p><a class="open" href="#">Explorar recurso <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></a></div>
-        <div class="sg"><div class="sgi">🎯</div><h4>Producto y evaluación</h4><p>Define las evidencias, el producto final y los instrumentos que permitirán valorar los aprendizajes.</p><a class="open" href="#">Explorar recurso <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></a></div>
-        <div class="sg"><div class="sgi">🔗</div><h4>Integración curricular</h4><p>Relaciona campos formativos, contenidos y PDA a partir de una situación o necesidad del contexto.</p><a class="open" href="#">Explorar recurso <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></a></div>
+    <div class="resource-grid">
+      <a class="resource-btn" href="https://apprendedigital.jalisco.gob.mx/proyectosintegradores/proyectosintegradores-preescolar/" target="_blank" rel="noopener" title="Se abre en pestaña nueva"><span>Preescolar</span><span class="arrow" aria-hidden="true">↗</span></a>
+      <a class="resource-btn" href="https://apprendedigital.jalisco.gob.mx/proyectosintegradores/proyectosintegradores-primaria/" target="_blank" rel="noopener" title="Se abre en pestaña nueva"><span>Primaria menor</span><span class="arrow" aria-hidden="true">↗</span></a>
+      <a class="resource-btn" href="https://apprendedigital.jalisco.gob.mx/proyectosintegradores/proyectosintegradores-primaria/" target="_blank" rel="noopener" title="Se abre en pestaña nueva"><span>Primaria mayor</span><span class="arrow" aria-hidden="true">↗</span></a>
+      <a class="resource-btn" href="https://apprendedigital.jalisco.gob.mx/proyectosintegradores/proyectosintegradores-secundaria/" target="_blank" rel="noopener" title="Se abre en pestaña nueva"><span>Secundaria 1</span><span class="arrow" aria-hidden="true">↗</span></a>
+      <a class="resource-btn" href="https://apprendedigital.jalisco.gob.mx/proyectosintegradores/proyectosintegradores-secundaria/" target="_blank" rel="noopener" title="Se abre en pestaña nueva"><span>Secundaria 2</span><span class="arrow" aria-hidden="true">↗</span></a>
+      <a class="resource-btn" href="https://apprendedigital.jalisco.gob.mx/proyectosintegradores/proyectosintegradores-secundaria/" target="_blank" rel="noopener" title="Se abre en pestaña nueva"><span>Secundaria 3</span><span class="arrow" aria-hidden="true">↗</span></a>
     </div>
   </div>
 
   <div class="axis">
     <div class="ax-label"><span class="tagname">Programa LEO</span></div>
     <h3>Fortalece la lectura, la escritura y la oralidad</h3>
-    <div class="subgrid">
-        <div class="sg"><div class="sgi">📖</div><h4>Estrategias de lectura</h4><p>Diseña experiencias de lectura de acuerdo con el propósito, el grado y el nivel de comprensión de tus estudiantes.</p><a class="open" href="#">Explorar recurso <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></a></div>
-        <div class="sg"><div class="sgi">✍️</div><h4>Producción de textos</h4><p>Organiza actividades para acompañar los procesos de planificación, escritura, revisión y publicación de textos.</p><a class="open" href="#">Explorar recurso <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></a></div>
-        <div class="sg"><div class="sgi">🗣️</div><h4>Oralidad y comprensión</h4><p>Genera preguntas, conversaciones guiadas y actividades para fortalecer la escucha, la expresión oral y la comprensión.</p><a class="open" href="#">Explorar recurso <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></a></div>
+    <div class="resource-grid one">
+      <a class="resource-btn featured" href="https://gemini.google.com/gem/13qO6ZZIVsvEAeBxPtwvI-hA5ql6xw1iO?usp=sharing" target="_blank" rel="noopener" title="Se abre en Gemini, en pestaña nueva"><span>Abrir Gema Programa LEO</span><span class="arrow" aria-hidden="true">↗</span></a>
     </div>
   </div>
 
   <div class="axis">
     <div class="ax-label"><span class="tagname">Matemáticas</span></div>
     <h3>Diseña experiencias para pensar, argumentar y resolver</h3>
-    <div class="subgrid">
-        <div class="sg"><div class="sgi">🧮</div><h4>Situaciones problemáticas</h4><p>Construye problemas vinculados con contextos cercanos al alumnado y recibe orientaciones para analizar distintas estrategias de resolución.</p><a class="open" href="#">Explorar recurso <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></a></div>
-        <div class="sg"><div class="sgi">🔢</div><h4>Pensamiento numérico</h4><p>Genera actividades graduadas para fortalecer el sentido numérico, el cálculo y la comprensión de las relaciones entre cantidades.</p><a class="open" href="#">Explorar recurso <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></a></div>
-        <div class="sg"><div class="sgi">🎲</div><h4>Juegos y retos matemáticos</h4><p>Diseña dinámicas lúdicas que favorezcan el razonamiento, la colaboración y la búsqueda de soluciones.</p><a class="open" href="#">Explorar recurso <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></a></div>
+    <div class="resource-grid two">
+      <a class="resource-btn" href="promate-aula-geogebra.html"><span>PROMATE</span><span class="arrow" aria-hidden="true">→</span></a>
+      <a class="resource-btn" href="trazo-laboratorio.html"><span>Trazo</span><span class="arrow" aria-hidden="true">→</span></a>
     </div>
   </div>
 
@@ -405,28 +391,6 @@
       <span class="bb-btn">Explorar el banco ▸</span>
     </div>
   </a>
-
-  <!-- PRESETS / EJEMPLOS -->
-  <div class="presets">
-    <div class="phead">
-      <div>
-        <div class="pt">Lo que puedes elaborar con las Gemas</div>
-        <p>Consulta ejemplos de productos y utilízalos como referencia para construir una versión adecuada a las necesidades de tu grupo.</p>
-      </div>
-    </div>
-    <div class="pcar">
-      <button type="button" class="pnav prev" id="pprev" aria-label="Ejemplos anteriores">‹</button>
-      <div class="pview"><div class="ptrack" id="ptrack">
-        <div class="pcard"><div class="pimg" style="background:linear-gradient(160deg,#3a1622,#160810)">Actividad de convivencia</div><div class="pcap">Formación del Carácter</div></div>
-        <div class="pcard"><div class="pimg" style="background:linear-gradient(160deg,#2a163a,#120818)">Proyecto integrador</div><div class="pcap">Proyectos integradores</div></div>
-        <div class="pcard"><div class="pimg" style="background:linear-gradient(160deg,#12343a,#08181a)">Secuencia de lectura</div><div class="pcap">Estrategias de lectura</div></div>
-        <div class="pcard"><div class="pimg" style="background:linear-gradient(160deg,#243a12,#0e1408)">Guía para producción de textos</div><div class="pcap">Producción de textos</div></div>
-        <div class="pcard"><div class="pimg" style="background:linear-gradient(160deg,#3a2416,#140c08)">Situación problemática</div><div class="pcap">Situaciones problemáticas</div></div>
-        <div class="pcard"><div class="pimg" style="background:linear-gradient(160deg,#16283a,#080f16)">Juego matemático</div><div class="pcap">Juegos y retos matemáticos</div></div>
-      </div></div>
-      <button type="button" class="pnav next" id="pnext" aria-label="Ejemplos siguientes">›</button>
-    </div>
-  </div>
 
   <div class="sintesis">Las Gemas no sustituyen la decisión pedagógica: ofrecen un punto de partida para que cada docente construya propuestas pertinentes para su grupo y contexto.</div>
 
@@ -480,15 +444,6 @@
   // copy
   var cf=document.getElementById('copyfield');
   if(cf)cf.addEventListener('click',function(){var t=cf.textContent.trim();if(navigator.clipboard)navigator.clipboard.writeText(t);cf.style.borderColor='var(--lime)';});
-  // presets carousel
-  var track=document.getElementById('ptrack'),prev=document.getElementById('pprev'),next=document.getElementById('pnext'),i=0;
-  function step(){var c=track.querySelector('.pcard');return c?c.offsetWidth+16:236;}
-  function mx(){return Math.max(0,Math.round((track.scrollWidth-track.parentElement.offsetWidth)/step()));}
-  function up(){track.style.transform='translateX('+(-i*step())+'px)';prev.disabled=i<=0;next.disabled=i>=mx();}
-  prev.addEventListener('click',function(){i=Math.max(0,i-1);up();});
-  next.addEventListener('click',function(){i=Math.min(mx(),i+1);up();});
-  window.addEventListener('resize',function(){i=Math.min(i,mx());up();});
-  up();
 })();
 </script>
 
