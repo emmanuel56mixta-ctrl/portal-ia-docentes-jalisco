@@ -15,6 +15,17 @@ html,body{max-width:100%;overflow-x:clip}
   outline:3px solid #ff8a00!important;outline-offset:3px!important
 }
 [aria-disabled="true"]{cursor:not-allowed!important;opacity:.62}
+.ft-brand{flex-wrap:wrap}
+.ft-brand .ft-logo-divider{
+  width:1px;height:42px;flex:0 0 auto;
+  background:currentColor;opacity:.18
+}
+.ft-brand .ft-gob-logo{height:52px;width:auto;flex:0 0 auto}
+.ft-brand .ft-brand-copy{min-width:190px}
+@media(max-width:560px){
+  .ft-brand{align-items:flex-start}
+  .ft-brand .ft-brand-copy{flex:1 0 100%}
+}
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;
     animation-iteration-count:1!important;transition-duration:.01ms!important;transition-delay:0s!important}

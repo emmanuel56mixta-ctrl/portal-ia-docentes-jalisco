@@ -126,8 +126,6 @@
   .thumb.film{
     background:linear-gradient(180deg,#2a2116 0%,#171208 60%,#0c0a06 100%);
   }
-  .thumb .badge-tr{position:absolute;top:12px;right:12px;z-index:4;width:26px;height:26px;border-radius:50%;
-    background:linear-gradient(135deg,var(--lime),#b44800);display:grid;place-items:center;color:#0a0a0b;font-weight:900;font-size:12px}
   .pillset{display:flex;flex-direction:column;gap:10px;z-index:2}
   .pill{
     background:rgba(20,20,22,.72);backdrop-filter:blur(4px);
@@ -136,7 +134,7 @@
     font-weight:600;font-size:15px;min-width:118px;justify-content:center
   }
   .pill .d{width:7px;height:7px;border-radius:50%;background:var(--lime)}
-  .filmtitle{position:relative;z-index:3;text-align:center;color:#fff;text-shadow:0 2px 12px rgba(0,0,0,.6)}
+  .filmtitle{position:relative;z-index:3;transform:translateY(38px);text-align:center;color:#fff;text-shadow:0 2px 12px rgba(0,0,0,.6)}
   .filmtitle .k{font-family:'Archivo';font-weight:800;font-size:13px;letter-spacing:3px;opacity:.7;text-transform:uppercase}
   .filmtitle .b{font-family:'Archivo';font-weight:900;font-size:34px;line-height:.95;letter-spacing:-1px;text-transform:uppercase;margin-top:2px}
   .card .meta{padding:14px 16px 16px}
@@ -390,7 +388,6 @@
         <div class="thumb film">
           <img src="maestra.png" alt="Maestra impartiendo clase con IA" class="thumb-img teacher" onerror="this.style.display='none'">
           <div class="thumb-shade"></div>
-          <div class="badge-tr">◆</div>
           <div class="filmtitle">
             <div class="k">Aula digital</div>
             <div class="b">Paso a paso</div>
@@ -491,9 +488,11 @@
     <div class="ft">
       <div class="ft-brand">
         <img src="logo-sej.svg" alt="Secretaría de Educación Jalisco">
-        <div>
+        <span class="ft-logo-divider" aria-hidden="true"></span>
+        <img class="ft-gob-logo" src="logo-gobierno-jalisco-2024.svg" alt="Gobierno de Jalisco">
+        <div class="ft-brand-copy">
           <b>Secretaría de Educación del Gobierno de Jalisco</b>
-          <span>IA para Docentes · Prototipo de lanzamiento</span>
+          <span>IA para Docentes · Portal de inteligencia artificial para docentes</span>
         </div>
       </div>
       <div class="ft-cols">
@@ -519,7 +518,7 @@
         <a href="https://www.youtube.com/user/educacionjalisco" target="_blank" rel="noopener" aria-label="YouTube de Educación Jalisco"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor"><path d="M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.5 2.5 0 0 0 2.4 7.2 26 26 0 0 0 2 12a26 26 0 0 0 .4 4.8 2.5 2.5 0 0 0 1.8 1.8c1.6.4 7.8.4 7.8.4s6.2 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8A26 26 0 0 0 22 12a26 26 0 0 0-.4-4.8zM10 15.2V8.8l5.2 3.2-5.2 3.2z"/></svg></a>
       </div>
     </div>
-    <div class="ft-legal">Soporte: <a href="mailto:alfadireccion.sej@jalisco.gob.mx">alfadireccion.sej@jalisco.gob.mx</a> · Algunos derechos reservados © 2026 · Secretaría de Educación Jalisco</div>
+    <div class="ft-legal">Soporte: <a href="mailto:alfadireccion.sej@jalisco.gob.mx">alfadireccion.sej@jalisco.gob.mx</a> · Derechos reservados © 2026 · Secretaría de Educación Jalisco</div>
   </div>
 </footer>
 
