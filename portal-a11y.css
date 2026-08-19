@@ -24,6 +24,34 @@ html,body{max-width:100%;overflow-x:clip}
 .page-route .sep{color:var(--dim);opacity:.7}
 .page-route [aria-current="page"]{color:var(--txt);font-weight:700}
 .nav .right[href]:hover{color:var(--txt)}
+/* Acercamiento suave para fotografías de contenido.
+   El carrusel principal usa .slide img y queda fuera de esta regla. */
+.thumb-img,.kit-img,.bb-bg,img.hero-bg,.help-bg,.tart,.lthumb,.suggestion-thumb,
+.family-photo,.preview>img{
+  transition:transform .6s cubic-bezier(.2,.65,.3,1);
+  transform-origin:center
+}
+@media(hover:hover) and (prefers-reduced-motion:no-preference){
+  .card:hover .thumb-img,
+  .card:focus-within .thumb-img,
+  .kit-intro:hover .kit-img,
+  .kit-intro:focus-within .kit-img,
+  .banco-banner:hover .bb-bg,
+  .banco-banner:focus-within .bb-bg,
+  .hero:hover img.hero-bg,
+  .hero:focus-within img.hero-bg,
+  .help:hover .help-bg,
+  .help:focus-within .help-bg,
+  .tcard:hover .tart,
+  .tcard:focus-within .tart,
+  .lesson:hover .lthumb,
+  .lesson:focus-within .lthumb,
+  .suggestion-card:hover .suggestion-thumb,
+  .suggestion-card:focus-within .suggestion-thumb,
+  .family-cover:hover .family-photo,
+  .preview:hover>img,
+  .preview:focus-within>img{transform:scale(1.045)}
+}
 .ft-brand{flex-wrap:wrap}
 .ft-brand .ft-logo-divider{
   width:1px;height:42px;flex:0 0 auto;

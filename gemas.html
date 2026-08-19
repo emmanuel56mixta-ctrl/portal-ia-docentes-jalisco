@@ -179,6 +179,19 @@
   .resource-family:hover{border-color:#38383e}
   .family-head{display:grid;grid-template-columns:76px minmax(0,1fr) auto;align-items:center;gap:18px}
   .family-art{width:76px;height:84px;object-fit:cover;border-radius:12px;border:1px solid rgba(255,255,255,.1);box-shadow:0 10px 26px rgba(0,0,0,.34)}
+  .family-cover{position:relative;isolation:isolate;min-height:280px;display:flex;align-items:flex-end;overflow:hidden;border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:28px}
+  .family-cover::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(7,8,10,.04) 15%,rgba(7,8,10,.38) 52%,rgba(7,8,10,.94) 100%)}
+  .family-photo{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover}
+  .family-photo.projects{object-position:center 48%}
+  .family-photo.leo{object-position:center 48%}
+  .family-photo.math{object-position:center 48%}
+  .family-cover-copy{position:relative;max-width:780px}
+  .family-cover .family-kicker{color:#ff9d2e;text-shadow:0 2px 12px rgba(0,0,0,.7)}
+  .family-cover h3{font-family:'Archivo';font-weight:900;font-size:30px;line-height:1.08;letter-spacing:-.6px;color:#fff;text-shadow:0 3px 18px rgba(0,0,0,.78)}
+  .family-cover p{max-width:720px;color:#e3e3e7;font-size:14.5px;line-height:1.55;margin-top:9px;text-shadow:0 2px 10px rgba(0,0,0,.8)}
+  .family-cover .family-count{position:absolute;top:18px;right:18px;z-index:2;background:rgba(12,12,15,.72);border-color:rgba(255,255,255,.2);color:#fff;backdrop-filter:blur(6px)}
+  .compact .family-cover{min-height:270px;padding:23px}
+  .compact .family-cover h3{font-size:24px}
   .family-kicker{color:var(--lime);font-family:'Archivo';font-weight:800;font-size:11px;letter-spacing:2px;text-transform:uppercase;margin-bottom:5px}
   .family-head h3{font-family:'Archivo';font-weight:900;font-size:24px;line-height:1.12;letter-spacing:-.4px}
   .family-head p{max-width:690px;color:var(--muted);font-size:14.5px;line-height:1.55;margin-top:7px}
@@ -206,12 +219,15 @@
   .family-action.primary:hover{background:#fff;border-color:#fff}
   .family-action.primary .link-arrow{color:#0a0a0b}
   @media(max-width:820px){
+    .family-cover,.compact .family-cover{min-height:250px}
     .family-head,.compact .family-head{grid-template-columns:64px minmax(0,1fr)}
     .family-count{grid-column:2;justify-self:start;align-self:auto}
     .resource-pair{grid-template-columns:1fr}
     .project-links{grid-template-columns:1fr}.project-link,.project-link:nth-child(n+4){grid-column:auto}
   }
   @media(max-width:520px){
+    .family-cover,.compact .family-cover{min-height:265px;padding:18px}
+    .family-cover h3,.compact .family-cover h3{font-size:22px}
     .resource-family,.resource-family.compact{padding:18px}
     .family-head,.compact .family-head{grid-template-columns:54px minmax(0,1fr);gap:13px}
     .family-art,.compact .family-art{width:54px;height:60px}
@@ -278,9 +294,9 @@
   <div class="resource-hub" aria-label="Recursos pedagógicos disponibles">
     <h2 class="sr-only">Familias de recursos pedagógicos</h2>
     <section class="resource-family" id="proyectos-integradores">
-      <header class="family-head">
-        <img class="family-art" src="card-proyectos.png" alt="" aria-hidden="true">
-        <div>
+      <header class="family-cover">
+        <img class="family-photo projects" src="recursos-proyectos-integradores.jpg" alt="Docente acompañando a estudiantes en un proyecto colaborativo">
+        <div class="family-cover-copy">
           <div class="family-kicker">Proyectos integradores</div>
           <h3>Diseña proyectos vinculados con el contexto</h3>
           <p>Elige la Gema que corresponde al nivel y tipo de grupo. Cada asistente te acompaña paso a paso en la construcción del proyecto.</p>
@@ -298,9 +314,9 @@
 
     <div class="resource-pair">
       <section class="resource-family compact">
-        <header class="family-head">
-          <img class="family-art" src="card-leo.png" alt="" aria-hidden="true">
-          <div><div class="family-kicker">Programa LEO</div><h3>Fortalece la lectura, la escritura y la oralidad</h3></div>
+        <header class="family-cover">
+          <img class="family-photo leo" src="recursos-programa-leo.jpg" alt="Grupo de estudiantes leyendo en el aula">
+          <div class="family-cover-copy"><div class="family-kicker">Programa LEO</div><h3>Fortalece la lectura, la escritura y la oralidad</h3></div>
         </header>
         <div class="family-actions">
           <a class="family-action primary" href="https://gemini.google.com/gem/13qO6ZZIVsvEAeBxPtwvI-hA5ql6xw1iO?usp=sharing" target="_blank" rel="noopener" title="Se abre en Gemini, en pestaña nueva"><span>Abrir Gema Programa LEO</span><span class="link-arrow" aria-hidden="true">↗</span></a>
@@ -308,13 +324,13 @@
       </section>
 
       <section class="resource-family compact">
-        <header class="family-head">
-          <img class="family-art" src="card-matematicas.png" alt="" aria-hidden="true">
-          <div><div class="family-kicker">Matemáticas</div><h3>Diseña experiencias para pensar, argumentar y resolver</h3></div>
+        <header class="family-cover">
+          <img class="family-photo math" src="recursos-matematicas.jpg" alt="Docente explicando una actividad matemática con GeoGebra">
+          <div class="family-cover-copy"><div class="family-kicker">Matemáticas</div><h3>Diseña experiencias para pensar, argumentar y resolver</h3></div>
         </header>
         <div class="family-actions two">
-          <a class="family-action" href="promate-aula-geogebra.html"><span>PROMATE</span><span class="link-arrow" aria-hidden="true">→</span></a>
-          <a class="family-action" href="trazo-laboratorio.html"><span>Trazo</span><span class="link-arrow" aria-hidden="true">→</span></a>
+          <a class="family-action" href="promate-aula-geogebra.html"><span>Abrir PROMATE</span><span class="link-arrow" aria-hidden="true">→</span></a>
+          <a class="family-action" href="trazo-laboratorio.html"><span>Abrir Trazo</span><span class="link-arrow" aria-hidden="true">→</span></a>
         </div>
       </section>
     </div>
