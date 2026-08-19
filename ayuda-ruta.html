@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="portal-a11y.css">
 <title>Centro de ayuda · Ruta con las Gemas</title>
 <link rel="icon" href="logo-sej-2024.svg" type="image/svg+xml">
 <meta name="description" content="Resuelve tus dudas sobre las Gemas, tu cuenta @jaliscoedu.mx y la ruta del diagnóstico al aula, con ejemplos y animaciones.">
@@ -38,16 +39,16 @@
   .cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
   .c3{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:20px}
   .c3 .n{width:26px;height:26px;border-radius:50%;background:var(--panel-2);border:1px solid var(--line);display:grid;place-items:center;font-size:14px;color:var(--muted);margin-bottom:12px}
-  .c3 h4{font-size:14.5px;font-weight:700}
+  .c3 h3{font-size:14.5px;font-weight:700}
   .c3 p{color:var(--muted);font-size:14.5px;margin-top:6px;line-height:1.55}
   .c3 p b{color:var(--txt);font-weight:600}
   .cards3 .c3:nth-child(2) .vwin *{animation-delay:.6s}
   .cards3 .c3:nth-child(3) .vwin *{animation-delay:1.2s}
 
   .ej{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
-  .ejc{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:20px}
+  .ejc{min-width:0;background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:20px}
   .ejc .et{display:inline-block;background:var(--panel-2);border:1px solid var(--line);border-radius:14px;padding:3px 11px;font-size:12px;font-weight:700;color:var(--lime);letter-spacing:.5px;text-transform:uppercase}
-  .ejc h4{font-size:15.5px;font-weight:700;margin-top:10px}
+  .ejc h3{font-size:15.5px;font-weight:700;margin-top:10px}
   .ejc .vwin{margin-top:12px}
   .ejc p{color:var(--muted);font-size:14px;margin-top:10px;line-height:1.55}
   .ejc p b{color:var(--txt);font-weight:600}
@@ -71,7 +72,7 @@
   .pb{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:20px;transition:.2s}
   .pb:hover{border-color:#3a3a40;transform:translateY(-2px)}
   .pb .ic{width:38px;height:38px;border-radius:10px;background:var(--panel-2);border:1px solid var(--line);display:grid;place-items:center;color:var(--lime);margin-bottom:12px;font-size:17px}
-  .pb h4{font-size:14.5px;font-weight:700}
+  .pb h3{font-size:14.5px;font-weight:700}
   .pb p{color:var(--muted);font-size:14px;margin-top:6px;line-height:1.55}
   .pb a{display:inline-block;margin-top:10px;color:var(--lime);font-size:14px;font-weight:700}
 
@@ -175,12 +176,15 @@
 </style>
 </head>
 <body>
+<a class="skip-link" href="#contenido-principal">Saltar al contenido principal</a>
 <div class="wrap">
 
   <nav class="nav">
     <span style="display:flex;align-items:center;gap:18px"><a class="back" href="academia-docente-jalisco-v2.html" style="font-family:'Archivo';font-weight:800;color:var(--txt)"><img src="logo-sej.svg" alt="" style="height:24px;width:auto"> IA para Docentes</a><a class="back" href="ruta-v2.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg> Volver a la ruta</a></span>
     <span class="right">Centro de ayuda</span>
   </nav>
+
+  <main id="contenido-principal" tabindex="-1">
 
   <header class="hero">
     <div class="kick">Centro de ayuda</div>
@@ -203,7 +207,7 @@
         <div class="wetapa"><div class="in"><span class="k"></span><span class="t"></span><span class="l"></span><span class="l s"></span><span class="btn"></span></div></div>
         <span class="wcur c2"></span>
       </div></div>
-      <h4>Las Gemas se abren desde la ruta</h4>
+      <h3>Las Gemas se abren desde la ruta</h3>
       <p>En la página <b>Del diagnóstico al aula</b>, cada etapa tiene su Gema. Pulsa <b>Abrir Gema</b> y se abrirá en otra pestaña de tu navegador.</p>
     </div>
     <div class="c3 rev">
@@ -211,7 +215,7 @@
       <div class="vwin" aria-hidden="true"><div class="vbar light"><i></i><i></i><i></i></div><div class="wbody">
         <div class="wlogin"><div class="wg"><span>G</span><span>o</span><span>o</span><span>g</span><span>l</span><span>e</span></div><div class="wtitle">Inicia sesión</div><span class="wfield"><span class="wtype">usuario@jaliscoedu.mx</span></span><span class="wbtn">Siguiente</span></div>
       </div></div>
-      <h4>Siempre con tu cuenta institucional</h4>
+      <h3>Siempre con tu cuenta institucional</h3>
       <p>Las Gemas funcionan con tu cuenta <b>@jaliscoedu.mx</b>. Si entras con otra cuenta de Google, es posible que no tengas acceso.</p>
     </div>
     <div class="c3 rev">
@@ -220,7 +224,7 @@
         <div class="wtabs"><b class="t1"></b><b class="t2"></b><b class="t3"></b><b class="t4"></b></div>
         <span class="wback">↩</span>
       </div></div>
-      <h4>Cada resultado alimenta al siguiente</h4>
+      <h3>Cada resultado alimenta al siguiente</h3>
       <p>Guarda lo que generes en cada etapa: el diagnóstico sirve para el programa, el programa para la planeación y así hasta la evaluación.</p>
     </div>
   </div>
@@ -230,7 +234,7 @@
   <div class="ej">
     <div class="ejc rev">
       <span class="et">Etapa 1 · Diagnóstico</span>
-      <h4>Describe a tu grupo</h4>
+      <h3>Describe a tu grupo</h3>
       <div class="vwin" aria-hidden="true"><div class="vbar"><i></i><i></i><i></i></div><div class="wbody">
         <div class="wia"><span class="whola">Hola, ¿qué quieres hacer?</span><span class="wask"><span class="plus">＋</span><span class="wtypeg">Soy docente de 4° de primaria, 28 estudiantes…</span></span></div>
       </div></div>
@@ -238,7 +242,7 @@
     </div>
     <div class="ejc rev">
       <span class="et">Etapa 2 · Programa analítico</span>
-      <h4>Comparte tu diagnóstico</h4>
+      <h3>Comparte tu diagnóstico</h3>
       <div class="vwin" aria-hidden="true"><div class="vbar"><i></i><i></i><i></i></div><div class="wbody">
         <div class="wia"><span class="whola">Hola, ¿qué quieres hacer?</span><span class="wask"><span class="plus">＋</span><span class="wtypeg">Con este diagnóstico, ayúdame a contextualizar…</span></span></div>
       </div></div>
@@ -246,7 +250,7 @@
     </div>
     <div class="ejc rev">
       <span class="et">Etapa 3 · Planeación</span>
-      <h4>Pide secuencias alineadas a los PDA</h4>
+      <h3>Pide secuencias alineadas a los PDA</h3>
       <div class="vwin" aria-hidden="true"><div class="vbar"><i></i><i></i><i></i></div><div class="wbody">
         <div class="wia"><span class="whola">Hola, ¿qué quieres hacer?</span><span class="wask"><span class="plus">＋</span><span class="wtypeg">Genera una secuencia para el PDA de fracciones…</span></span></div>
       </div></div>
@@ -254,7 +258,7 @@
     </div>
     <div class="ejc rev">
       <span class="et">Etapa 4 · Evaluación</span>
-      <h4>Solicita rúbricas e instrumentos</h4>
+      <h3>Solicita rúbricas e instrumentos</h3>
       <div class="vwin" aria-hidden="true"><div class="vbar"><i></i><i></i><i></i></div><div class="wbody">
         <div class="wia"><span class="whola">Hola, ¿qué quieres hacer?</span><span class="wask"><span class="plus">＋</span><span class="wtypeg">Crea una rúbrica por PDA para esta planeación…</span></span></div>
       </div></div>
@@ -300,18 +304,18 @@
   <div class="prob">
     <div class="pb rev">
       <div class="ic">🔑</div>
-      <h4>No puedo entrar a la Gema</h4>
+      <h3>No puedo entrar a la Gema</h3>
       <p>Verifica que iniciaste sesión con tu cuenta @jaliscoedu.mx y no con tu Gmail personal. Cierra sesión de otras cuentas e inténtalo de nuevo.</p>
       <a href="recuperar-cuenta-v2.html">Recuperar mi cuenta ▸</a>
     </div>
     <div class="pb rev">
       <div class="ic">🧭</div>
-      <h4>La Gema responde muy general</h4>
+      <h3>La Gema responde muy general</h3>
       <p>Suele faltar contexto. Comparte tu diagnóstico o planeación, indica grado, PDA y propósito, y pide ajustes específicos: mientras más contexto, mejor propuesta.</p>
     </div>
     <div class="pb rev">
       <div class="ic">📄</div>
-      <h4>Perdí el resultado de una etapa</h4>
+      <h3>Perdí el resultado de una etapa</h3>
       <p>Abre de nuevo la Gema de esa etapa y vuelve a generarlo: con tu misma información llegarás a un producto equivalente. Esta vez, guárdalo en tu Drive.</p>
     </div>
   </div>
@@ -326,6 +330,8 @@
   </div>
 
   <p class="aviso-uso">Las Gemas son asistentes de apoyo que ofrecen orientaciones y sugerencias para el diagnóstico, el programa analítico, la planeación y la evaluación. <b>Nunca sustituyen el conocimiento, la experiencia ni el criterio profesional del docente.</b> Revisa, adapta y valida cada propuesta de acuerdo con las necesidades, el contexto y los aprendizajes de tu grupo.</p>
+
+  </main>
 
   <footer>Secretaría de Educación del Gobierno de Jalisco · IA para Docentes</footer>
 </div>

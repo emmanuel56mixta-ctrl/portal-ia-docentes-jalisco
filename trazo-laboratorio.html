@@ -3,6 +3,8 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="Trazo: laboratorio matemático interactivo con construcciones GeoGebra, consignas y orientaciones para el aula." />
+<link rel="stylesheet" href="portal-a11y.css" />
 <title>Trazo · Laboratorio interactivo para el aula</title>
 <script src="https://www.geogebra.org/apps/deployggb.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -10,9 +12,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --paper:#EEF1F7;--card:#FFFFFF;--ink:#0F1E38;--ink-soft:#4B5A73;--ink-faint:#8090A8;
+    --paper:#EEF1F7;--card:#FFFFFF;--ink:#0F1E38;--ink-soft:#4B5A73;--ink-faint:#58677D;
     --line:rgba(15,30,56,.08);--line-2:rgba(15,30,56,.16);
-    --accent:#3A34E0;--accent-soft:#ECEBFF;--amber:#C77800;--amber-soft:#FFF1D6;
+    --accent:#3A34E0;--accent-soft:#ECEBFF;--amber:#8A5100;--amber-soft:#FFF1D6;
     --green:#0E7C5A;--green-soft:#E1F5EC;
     --plane:rgba(58,52,224,.10);--radius:14px;
     --shadow:0 1px 0 var(--line-2), 0 18px 40px -28px rgba(15,30,56,.55);
@@ -40,13 +42,15 @@
   .brand p{margin:4px 0 0;font-size:12.5px;color:var(--ink-soft);font-family:"JetBrains Mono",monospace;letter-spacing:.02em}
   .thesis{max-width:430px;font-size:14.5px;line-height:1.5;color:var(--ink-soft)}
   .thesis b{color:var(--ink);font-weight:600}
+  .portal-back{display:inline-flex;align-items:center;gap:7px;margin-top:10px;color:var(--accent);font-family:"JetBrains Mono",monospace;font-size:11px;font-weight:600;text-decoration:none;text-transform:uppercase;letter-spacing:.05em}
+  .portal-back:hover{text-decoration:underline}
 
   /* guía de uso: 3 pasos siempre visibles */
   .howto{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:22px}
   .step{background:var(--card);border:1px solid var(--line-2);border-radius:12px;padding:14px 16px;position:relative}
   .step .n{font-family:"JetBrains Mono",monospace;font-weight:700;font-size:13px;color:#fff;background:var(--accent);
     width:24px;height:24px;border-radius:7px;display:flex;align-items:center;justify-content:center;margin-bottom:9px}
-  .step h4{font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:14.5px;margin:0 0 4px}
+  .step h2{font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:14.5px;margin:0 0 4px}
   .step p{margin:0;font-size:13px;line-height:1.45;color:var(--ink-soft)}
 
   .filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px;align-items:center}
@@ -130,6 +134,7 @@
 </style>
 </head>
 <body>
+<a class="skip-link" href="#contenido-principal">Saltar al contenido principal</a>
 <div class="wrap">
 
   <header class="masthead">
@@ -138,18 +143,21 @@
       <div><h1>Trazo</h1><p>laboratorio de matemáticas · aula</p></div>
     </div>
     <div class="thesis">
-      Parte de una <b>necesidad</b>, un <b>contenido</b> o un <b>PDA</b>. Elige una tarjeta y obtén una construcción de GeoGebra ya montada para explorar con tu grupo.
+      Parte de una <b>necesidad</b>, un <b>contenido</b> o un <b>PDA</b>. Elige una tarjeta y obtén una construcción de GeoGebra ya montada para explorar con tu grupo.<br>
+      <a class="portal-back" href="gemas-v2.html">← Volver a Recursos con IA</a>
     </div>
   </header>
 
+  <main id="contenido-principal" tabindex="-1">
+
   <!-- INSTRUCTIVO SIEMPRE VISIBLE -->
   <div class="howto">
-    <div class="step"><div class="n">1</div><h4>Elige qué trabajar</h4><p>Filtra por grado y eje, y toca la tarjeta del contenido o PDA que necesitas. A la derecha se arma la construcción.</p></div>
-    <div class="step"><div class="n">2</div><h4>Manipula la figura</h4><p>Arrastra los puntos o mueve los deslizadores con el ratón o el dedo. Cada tarjeta te dice exactamente qué tocar.</p></div>
-    <div class="step"><div class="n">3</div><h4>Lanza la consigna</h4><p>Proyéctala y usa la pregunta sugerida para que tus alumnos observen, conjeturen y expliquen lo que ven.</p></div>
+    <div class="step"><div class="n">1</div><h2>Elige qué trabajar</h2><p>Filtra por grado y eje, y toca la tarjeta del contenido o PDA que necesitas. A la derecha se arma la construcción.</p></div>
+    <div class="step"><div class="n">2</div><h2>Manipula la figura</h2><p>Arrastra los puntos o mueve los deslizadores con el ratón o el dedo. Cada tarjeta te dice exactamente qué tocar.</p></div>
+    <div class="step"><div class="n">3</div><h2>Lanza la consigna</h2><p>Proyéctala y usa la pregunta sugerida para que tus alumnos observen, conjeturen y expliquen lo que ven.</p></div>
   </div>
 
-  <div class="filters" id="filters">
+  <div class="filters" id="filters" role="group" aria-label="Filtros del catálogo">
     <span class="flabel">Grado</span>
     <button class="chip" data-group="grado" data-val="all" aria-pressed="true">Todos</button>
     <button class="chip" data-group="grado" data-val="Primaria">Primaria</button>
@@ -162,8 +170,8 @@
   </div>
 
   <div class="lab">
-    <aside>
-      <div class="cat-count" id="count"></div>
+    <aside aria-label="Catálogo de contenidos matemáticos">
+      <div class="cat-count" id="count" role="status" aria-live="polite"></div>
       <div class="catalog" id="catalog"></div>
       <div class="freemode">
         <span class="flabel">Abrir en blanco</span>
@@ -176,7 +184,7 @@
       </div>
     </aside>
 
-    <section class="workspace">
+    <section class="workspace" aria-labelledby="ws-title">
       <div class="ws-head">
         <div class="titleblock">
           <div class="kicker" id="ws-kicker">Herramienta interactiva</div>
@@ -232,6 +240,8 @@
     </div>
     <b>Para adaptar.</b> Los contenidos y PDA son <b>ejemplos editables</b>, no texto oficial verbatim: ajústalos a tu programa analítico. Todo el catálogo vive en el arreglo <code>CONTENIDOS</code> del archivo; agrega tarjetas nuevas sin tocar el resto. Si la vista previa sale en blanco en un visor restringido, abre el archivo en tu navegador o publícalo: GeoGebra carga desde <code>geogebra.org</code>.
   </div>
+
+  </main>
 
   <footer class="legal-footer" style="margin-top:18px;padding:18px 4px 0;border-top:1px solid var(--line-2);font-size:11.5px;line-height:1.65;color:var(--ink-faint);text-align:center;">
     <div><b style="color:var(--ink-soft)">Trazo · Herramienta educativa interactiva</b></div>

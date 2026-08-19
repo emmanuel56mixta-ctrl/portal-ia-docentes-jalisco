@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Lección inicial para activar la cuenta educativa @jaliscoedu.mx y acceder de forma segura a Gemini.">
+<link rel="stylesheet" href="portal-a11y.css">
 <title>Lección 1 · Activa tu cuenta @jaliscoedu.mx</title>
 <link rel="icon" href="logo-sej-2024.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,6 +31,7 @@
   .ll{position:relative;padding:9px 0 9px 16px;color:var(--dim);font-size:15.5px;line-height:1.35;border-left:2px solid var(--line)}
   .ll:hover{color:var(--muted)}
   .ll.active{color:var(--txt);font-weight:600;border-left:2px solid var(--lime)}
+  .ll.future{cursor:default}.ll.future::after{content:"Próximamente";display:block;margin-top:3px;color:var(--dim);font-size:11px;font-weight:700;letter-spacing:.5px;text-transform:uppercase}
 
   /* main column */
   .main{min-width:0;padding-top:22px}
@@ -46,7 +49,7 @@
 
   .body{margin-top:22px;max-width:680px}
   .body p{color:#c4c5cc;font-size:17px;line-height:1.75;margin:0 0 20px}
-  .body h3{font-family:'Archivo';font-weight:800;font-size:20px;margin:36px 0 14px;letter-spacing:-.2px}
+  .body h2,.body h3{font-family:'Archivo';font-weight:800;font-size:20px;margin:36px 0 14px;letter-spacing:-.2px}
   .body b,.body strong{color:var(--lime);font-weight:700}
 
   .panel{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:20px 22px;margin:24px 0;max-width:680px}
@@ -98,6 +101,7 @@
 </style>
 </head>
 <body>
+<a class="skip-link" href="#contenido-principal">Saltar al contenido principal</a>
 <div class="layout">
 
   <!-- RUTA LATERAL -->
@@ -109,25 +113,26 @@
     </a>
     <nav class="rlist">
       <a class="ll active" href="leccion-1.html">Activa tu cuenta @jaliscoedu.mx</a>
-      <a class="ll" href="#">Entra a Gemini por primera vez</a>
-      <a class="ll" href="#">¿Qué es una Gema y cómo funciona?</a>
-      <a class="ll" href="#">Crea tu primera Gema</a>
-      <a class="ll" href="#">Configura tu Gema con tu contexto</a>
-      <a class="ll" href="#">Genera tu primera planeación</a>
-      <a class="ll" href="#">Comparte tu Gema con tu academia</a>
-      <a class="ll" href="#">Buenas prácticas y cuidado de datos</a>
+      <span class="ll future" aria-disabled="true">Entra a Gemini por primera vez</span>
+      <span class="ll future" aria-disabled="true">¿Qué es una Gema y cómo funciona?</span>
+      <span class="ll future" aria-disabled="true">Crea tu primera Gema</span>
+      <span class="ll future" aria-disabled="true">Configura tu Gema con tu contexto</span>
+      <span class="ll future" aria-disabled="true">Genera tu primera planeación</span>
+      <span class="ll future" aria-disabled="true">Comparte tu Gema con tu academia</span>
+      <span class="ll future" aria-disabled="true">Buenas prácticas y cuidado de datos</span>
     </nav>
   </aside>
 
   <!-- CONTENIDO -->
-  <main class="main">
+  <main class="main" id="contenido-principal" tabindex="-1">
     <div class="topbar">
       <a class="iconbtn" href="curso-primeros-pasos.html" title="Volver">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
       </a>
-      <span class="iconbtn" title="Compartir">
+      <button type="button" class="iconbtn" id="shareLesson" aria-label="Compartir esta lección">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007 0l3-3a5 5 0 00-7-7l-1 1"/><path d="M14 11a5 5 0 00-7 0l-3 3a5 5 0 007 7l1-1"/></svg>
-      </span>
+      </button>
+      <span class="sr-only" id="shareStatus" role="status" aria-live="polite"></span>
     </div>
 
     <div class="preview">
@@ -140,10 +145,10 @@
     <div class="body">
       <p>Tu cuenta institucional es la llave que abre todo: Gemini, las Gemas, NotebookLM y Google for Education. Antes de crear tu primera planeación con IA, vamos a asegurarnos de que puedas entrar sin contratiempos.</p>
 
-      <h3>Pensada para empezar sin fricción</h3>
+      <h2>Pensada para empezar sin fricción</h2>
       <p>La mayoría de las herramientas de IA te piden crear una cuenta nueva y recordar otra contraseña. Aquí no: <strong>tu cuenta @jaliscoedu.mx</strong> ya es tu acceso. Con un solo inicio de sesión entras a todo el ecosistema, con los datos protegidos por la Secretaría.</p>
 
-      <h3>Cómo funciona este tutorial</h3>
+      <h2>Cómo funciona este tutorial</h2>
       <p>Empezarás por activar y verificar tu cuenta. Luego entrarás a Gemini por primera vez, conocerás <strong>qué es una Gema</strong>, crearás la tuya, la configurarás con tu grado y campo formativo, y generarás tu primera planeación. Al final aprenderás a compartirla con tu academia.</p>
       <p>Cada lección es breve a propósito: <strong>una sola idea, unos pocos minutos</strong>. No necesitas conocimientos técnicos previos.</p>
 
@@ -153,12 +158,12 @@
           ACCESO INCLUIDO EN TU CUENTA
         </div>
         <div class="ptext">Inicia sesión con tu cuenta @jaliscoedu.mx para activar Gemini y las Gemas.</div>
-        <a class="btn" href="#">Iniciar sesión</a>
+        <a class="btn" href="https://gemini.google.com/" target="_blank" rel="noopener" title="Se abre Gemini en una pestaña nueva">Iniciar sesión en Gemini ↗</a>
       </div>
 
       <p>No necesitas pagar nada ni usar créditos. Todo lo que verás en este tutorial está <strong>incluido en tu cuenta institucional</strong>, así que puedes probarlo en tiempo real en lugar de solo leerlo. Lo que aparece en pantalla es siempre la herramienta actual, no una captura vieja.</p>
 
-      <h3>El único hábito</h3>
+      <h2>El único hábito</h2>
       <p>No te limites a leer los pasos: <strong>entra y haz clic</strong>. Prueba cada opción que se acaba de activar y observa el resultado para confirmarlo. Si algo no sale como esperabas, no te preocupes: para eso está la Mesa de Ayuda.</p>
 
       <div class="callout">
@@ -171,9 +176,9 @@
 
     <div class="nextbar">
       <span class="prevlink">Lección 1 de 8</span>
-      <a class="btn-next" href="#">Siguiente lección
+      <span class="btn-next" aria-disabled="true">Siguiente lección · Próximamente
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
-      </a>
+      </span>
     </div>
   </main>
 
@@ -214,5 +219,16 @@
     <div class="ft-legal">Soporte: <a href="mailto:alfadireccion.sej@jalisco.gob.mx">alfadireccion.sej@jalisco.gob.mx</a> · Algunos derechos reservados © 2026 · Secretaría de Educación Jalisco</div>
   </div>
 </footer>
+<script>
+(function(){
+  var button=document.getElementById('shareLesson'),status=document.getElementById('shareStatus');
+  if(!button)return;
+  button.addEventListener('click',function(){
+    var data={title:document.title,text:'Lección de IA para Docentes',url:location.href};
+    if(navigator.share){navigator.share(data).catch(function(){});return;}
+    if(navigator.clipboard){navigator.clipboard.writeText(location.href).then(function(){status.textContent='Enlace copiado al portapapeles.';});}
+  });
+})();
+</script>
 </body>
 </html>

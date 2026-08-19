@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Constructor pedagógico para acompañar el diagnóstico, programa analítico, planeación didáctica y evaluación mediante Gemas especializadas.">
+<link rel="stylesheet" href="portal-a11y.css">
 <title>Constructor pedagógico · Del diagnóstico al aula</title>
 <link rel="icon" href="logo-sej-2024.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -294,7 +296,7 @@
   .flow3 .fs{padding-left:20px;border-left:1px solid var(--line)}
   .flow3 .fs:first-child{border-left:none;padding-left:0}
   .flow3 .n{width:26px;height:26px;border-radius:50%;background:var(--panel-2);border:1px solid var(--line);display:grid;place-items:center;font-size:14px;color:var(--muted);margin-bottom:14px}
-  .flow3 h4{font-size:14px;font-weight:700}
+  .flow3 h3{font-size:14px;font-weight:700}
   .flow3 p{color:var(--muted);font-size:14.5px;margin-top:6px;line-height:1.5}
   .flow3 p b{color:var(--txt);font-weight:600}
   .flow3 .fs:nth-child(2) .vwin *{animation-delay:.6s}
@@ -491,11 +493,12 @@
   @media(max-width:760px){.hiw-grid{grid-template-columns:1fr}.hiw-side p{min-height:0}}
   /* titulo de la herramienta */
   .app-head{padding:24px 28px 18px;border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:6px}
-  .app-head h3{font-family:'Archivo';font-weight:900;font-size:24px;letter-spacing:-.5px}
+  .app-head h2{font-family:'Archivo';font-weight:900;font-size:24px;letter-spacing:-.5px}
   .app-head p{color:var(--muted);font-size:14.5px;max-width:600px;line-height:1.55}
   .app-badge{align-self:flex-start;margin-top:14px;display:inline-flex;align-items:center;gap:7px;font-size:12.5px;color:var(--dim);letter-spacing:.3px}
   .app-badge i{font-style:normal;background:linear-gradient(90deg,#4285f4,#a142f4,#ea4335);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;font-weight:800}
-  @media(max-width:900px){.app-head{padding:18px 16px 14px}.app-head h3{font-size:20px}}
+  @media(max-width:900px){.app-head{padding:18px 16px 14px}.app-head h2{font-size:20px}}
+  @media(max-width:900px){.app{grid-template-columns:minmax(0,1fr)}.app-main{width:100%;min-width:0}}
   /* escenas del panel de pasos v2 */
   .f1side{position:absolute;left:8px;top:10px;bottom:10px;width:26px;border-right:1px solid #222;display:flex;flex-direction:column;gap:6px;align-items:center;padding-top:4px}
   .f1side b{width:12px;height:12px;border-radius:50%;background:#1b1b1e;border:1px solid #2c2c33}
@@ -548,8 +551,8 @@
   .tour-ctr button:disabled{opacity:.4;cursor:default}
   #tourNext{background:#ececee;color:#0a0a0b;border:0;font-weight:800}
   .tour-dots{display:flex;gap:5px}
-  .tour-dots i{width:6px;height:6px;border-radius:50%;background:#2c2c33;cursor:pointer}
-  .tour-dots i.on{background:var(--lime)}
+  .tour-dots button{width:10px;height:10px;padding:0;border:0;border-radius:50%;background:#2c2c33;cursor:pointer}
+  .tour-dots button.on{background:var(--lime)}
   .tour-x{position:absolute;top:10px;right:12px;width:28px;height:28px;border-radius:50%;background:rgba(0,0,0,.35);border:1px solid var(--line);color:#fff;font-size:16px;cursor:pointer;display:grid;place-items:center}
   .tour-hi{position:relative;z-index:82 !important;box-shadow:0 0 0 3px var(--lime),0 0 36px rgba(255,138,0,.55) !important;border-radius:18px}
   .tour-seq{position:relative}
@@ -586,6 +589,7 @@
 </style>
 </head>
 <body>
+<a class="skip-link" href="#contenido-principal">Saltar al contenido principal</a>
 <div class="wrap">
 
   <div class="nav">
@@ -597,6 +601,7 @@
   </div>
 
   <!-- HERO -->
+  <main id="contenido-principal" tabindex="-1">
   <header class="hero">
     <video class="hero-bg" src="grok-video-3ab718b7-b540-4c1e-b2c2-bebd28cd699a.mp4" poster="ruta-banner.jpg" autoplay muted loop playsinline aria-hidden="true" onerror="this.outerHTML='&lt;img class=&quot;hero-bg&quot; src=&quot;ruta-banner.jpg&quot; alt=&quot;&quot; aria-hidden=&quot;true&quot;&gt;'"></video>
     <div class="hero-txt">
@@ -628,7 +633,7 @@
             <div class="f1refs"><i></i><i></i><i></i><i></i></div>
             <span class="hcur f1c"></span>
           </div></div>
-          <h4>Abre la Gema</h4>
+          <h3>Abre la Gema</h3>
           <p>Selecciona el módulo que necesitas y pulsa <b>Abrir herramienta</b>: la Gema se mostrará en una nueva pestaña.</p>
         </div>
         <div class="fs">
@@ -636,7 +641,7 @@
           <div class="vwin" aria-hidden="true"><div class="vbar"><i></i><i></i><i></i></div><div class="wbody">
             <div class="g2"><span class="g2av">A</span><span class="g2name">Asistente de Diagnóstico</span><span class="whola">Hola, ¿qué quieres hacer?</span><span class="g2bar"><span class="plus">＋</span><span class="wtypeg">Elabora el diagnóstico de mi grupo…</span><span class="g2think">Pensar ▾</span><span class="g2send">↑</span></span></div>
           </div></div>
-          <h4>Genera y guarda tu resultado</h4>
+          <h3>Genera y guarda tu resultado</h3>
           <p>Proporciona la información solicitada, revisa la propuesta y <b>guárdala en un documento de tu elección</b>.</p>
         </div>
         <div class="fs">
@@ -646,7 +651,7 @@
             <div class="f3card"><div class="in"><span class="k"></span><span class="t"></span><span class="l"></span><span class="l"></span><span class="btn2"></span></div></div>
             <span class="wback">↩</span>
           </div></div>
-          <h4>Regresa cuando desees continuar</h4>
+          <h3>Regresa cuando desees continuar</h3>
           <p>Vuelve a este portal, abre el siguiente módulo y <b>comparte con la nueva Gema la información que guardaste</b>.</p>
         </div>
       </div>
@@ -656,22 +661,22 @@
       <aside class="app-side">
         <div class="app-logo"><img src="logo-sej-2024.svg" alt="Secretaría de Educación Jalisco"></div>
         <div class="et-tabs" role="tablist" aria-label="Módulos del Constructor pedagógico">
-        <button type="button" class="et-tab on" role="tab" aria-selected="true" aria-controls="etp1" data-et="1">
+        <button type="button" class="et-tab on" id="et-tab-1" role="tab" aria-selected="true" aria-controls="etp1" tabindex="0" data-et="1">
           <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 20v-7"/><path d="M12 20V5"/><path d="M19 20v-4"/></svg></span>
           <b>1</b><span class="lbl">Diagnóstico</span>
           <span class="cur">Estás aquí</span>
         </button>
-        <button type="button" class="et-tab" role="tab" aria-selected="false" aria-controls="etp2" data-et="2">
+        <button type="button" class="et-tab" id="et-tab-2" role="tab" aria-selected="false" aria-controls="etp2" tabindex="-1" data-et="2">
           <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="4" width="12" height="17" rx="2"/><path d="M9 4.5h6"/><path d="M9 10h6M9 14h6M9 18h4"/></svg></span>
           <b>2</b><span class="lbl">Programa</span>
           <span class="cur">Estás aquí</span>
         </button>
-        <button type="button" class="et-tab" role="tab" aria-selected="false" aria-controls="etp3" data-et="3">
+        <button type="button" class="et-tab" id="et-tab-3" role="tab" aria-selected="false" aria-controls="etp3" tabindex="-1" data-et="3">
           <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="6" width="16" height="14" rx="2"/><path d="M4 11h16M8 3v5M16 3v5"/></svg></span>
           <b>3</b><span class="lbl">Planeación</span>
           <span class="cur">Estás aquí</span>
         </button>
-        <button type="button" class="et-tab" role="tab" aria-selected="false" aria-controls="etp4" data-et="4">
+        <button type="button" class="et-tab" id="et-tab-4" role="tab" aria-selected="false" aria-controls="etp4" tabindex="-1" data-et="4">
           <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19l5-6 4 3 7-9"/><circle cx="4" cy="19" r="1"/><circle cx="20" cy="7" r="1"/></svg></span>
           <b>4</b><span class="lbl">Evaluación</span>
           <span class="cur">Estás aquí</span>
@@ -681,14 +686,14 @@
       </aside>
       <div class="app-main">
         <div class="app-head">
-          <h3>Constructor pedagógico</h3>
+          <h2>Constructor pedagógico</h2>
           <p>Herramienta digital con inteligencia artificial que organiza tu trabajo docente en cuatro módulos relacionados. Este portal no almacena tus datos ni los resultados generados: tú decides dónde guardarlos y cuándo continuar el recorrido.</p>
           <span class="app-badge"><i>✦</i> Impulsado por Google Gemini</span>
         </div>
         <div class="app-top"><span class="app-title">¿Qué necesitas elaborar?</span><a class="app-how" id="hiwOpen" href="#ruta-int"><span class="q">?</span> ¿Cómo funciona?</a></div>
         <div class="app-body">
 
-    <div class="et-panel" id="etp1" role="tabpanel">
+    <div class="et-panel" id="etp1" role="tabpanel" aria-labelledby="et-tab-1">
       <div class="et-cols"><div class="et-card">
         <div class="et-num">Módulo de diagnóstico</div>
         <h3>Diagnóstico inicial</h3>
@@ -710,7 +715,7 @@
         <button type="button" class="et-go" data-goto="2">Ir al módulo de Programa analítico</button>
       </div>
     </div>
-    <div class="et-panel" id="etp2" role="tabpanel" hidden>
+    <div class="et-panel" id="etp2" role="tabpanel" aria-labelledby="et-tab-2" hidden>
       <div class="et-cols"><div class="et-card">
         <div class="et-num">Módulo de programa analítico</div>
         <h3>Programa analítico</h3>
@@ -732,7 +737,7 @@
         <button type="button" class="et-go" data-goto="3">Ir al módulo de Planeación didáctica</button>
       </div>
     </div>
-    <div class="et-panel" id="etp3" role="tabpanel" hidden>
+    <div class="et-panel" id="etp3" role="tabpanel" aria-labelledby="et-tab-3" hidden>
       <div class="et-cols"><div class="et-card">
         <div class="et-num">Módulo de planeación</div>
         <h3>Planeación didáctica</h3>
@@ -754,7 +759,7 @@
         <button type="button" class="et-go" data-goto="4">Ir al módulo de Evaluación</button>
       </div>
     </div>
-    <div class="et-panel" id="etp4" role="tabpanel" hidden>
+    <div class="et-panel" id="etp4" role="tabpanel" aria-labelledby="et-tab-4" hidden>
       <div class="et-cols"><div class="et-card">
         <div class="et-num">Módulo de evaluación</div>
         <h3>Evaluación y retroalimentación</h3>
@@ -783,7 +788,7 @@
   <div class="tour-gem" aria-hidden="true"><div class="vwin"><div class="vbar"><i></i><i></i><i></i></div><div class="wbody">
     <div class="g2"><span class="g2av">A</span><span class="g2name">Asistente de Diagnóstico</span><span class="whola">Hola, ¿qué quieres hacer?</span><span class="g2bar"><span class="plus">＋</span><span class="wtypeg">Hola, soy docente de 4° de primaria…</span><span class="g2think">Pensar ▾</span><span class="g2send">↑</span></span></div>
   </div></div></div>
-  <div class="tour-card" role="dialog" aria-modal="true" aria-labelledby="tourTitle">
+  <div class="tour-card" role="dialog" aria-modal="true" aria-labelledby="tourTitle" aria-hidden="true">
     <button type="button" class="tour-x" id="tourClose" aria-label="Cerrar">×</button>
     <div class="tour-step" id="tourStep">Paso 1 de 6</div>
     <h3 id="tourTitle"></h3>
@@ -796,7 +801,7 @@
   </div>
 
   <!-- MODAL ABRIR GEMA -->
-  <div class="gmodal-overlay" id="gOverlay">
+  <div class="gmodal-overlay" id="gOverlay" aria-hidden="true">
     <div class="gmodal" role="dialog" aria-modal="true" aria-labelledby="gmTitle">
       <div id="gmStep1">
         <h3 id="gmTitle">Abrirás la Gema en otra pestaña</h3>
@@ -815,12 +820,14 @@
         <h3>Antes de usar esta Gema</h3>
         <p class="gm-txt">Las Gemas son asistentes de apoyo que ofrecen orientaciones y sugerencias para el diagnóstico, el programa analítico, la planeación y la evaluación. <b>Nunca sustituyen el conocimiento, la experiencia ni el criterio profesional del docente.</b> Revisa, adapta y valida cada propuesta de acuerdo con las necesidades, el contexto y los aprendizajes de tu grupo.</p>
         <div class="gm-actions">
-          <a class="gm-open" id="gmOpen" href="#" target="_blank" rel="noopener">Acceder a la Gema ↗</a>
+          <a class="gm-open" id="gmOpen" href="https://gemini.google.com/" target="_blank" rel="noopener">Acceder a la Gema ↗</a>
           <button type="button" class="gm-cancel" id="gmCancel2">Cancelar</button>
         </div>
       </div>
     </div>
   </div>
+
+  </main>
 
 <footer>
   <div class="wrap">
@@ -865,21 +872,34 @@
 (function(){
   var tabs=Array.prototype.slice.call(document.querySelectorAll('.et-tab'));
   if(!tabs.length)return;
-  function show(n){
+  function show(n,moveFocus){
     tabs.forEach(function(t){
       var on=t.dataset.et==String(n);
       t.classList.toggle('on',on);
       t.setAttribute('aria-selected',on?'true':'false');
+      t.setAttribute('tabindex',on?'0':'-1');
+      if(on&&moveFocus)t.focus();
     });
     for(var i=1;i<=4;i++){
       var p=document.getElementById('etp'+i);
       if(p)p.hidden=(i!==n);
     }
   }
-  tabs.forEach(function(t){t.addEventListener('click',function(){show(+t.dataset.et);});});
+  tabs.forEach(function(t,index){
+    t.addEventListener('click',function(){show(+t.dataset.et,false);});
+    t.addEventListener('keydown',function(e){
+      var next=index;
+      if(e.key==='ArrowDown'||e.key==='ArrowRight')next=(index+1)%tabs.length;
+      else if(e.key==='ArrowUp'||e.key==='ArrowLeft')next=(index-1+tabs.length)%tabs.length;
+      else if(e.key==='Home')next=0;
+      else if(e.key==='End')next=tabs.length-1;
+      else return;
+      e.preventDefault();show(+tabs[next].dataset.et,true);
+    });
+  });
   Array.prototype.forEach.call(document.querySelectorAll('.et-go'),function(b){
     b.addEventListener('click',function(){
-      show(+b.dataset.goto);
+      show(+b.dataset.goto,false);
       document.getElementById('ruta-int').scrollIntoView({behavior:'smooth',block:'start'});
     });
   });
@@ -889,13 +909,14 @@
   var step1=document.getElementById('gmStep1'), step2=document.getElementById('gmStep2');
   var lastFocus=null;
   function showStep(n){step1.hidden=(n!==1);step2.hidden=(n!==2);}
-  function close(){overlay.classList.remove('open');showStep(1);if(lastFocus)lastFocus.focus();}
+  function close(){overlay.classList.remove('open');overlay.setAttribute('aria-hidden','true');showStep(1);if(lastFocus)lastFocus.focus();}
   Array.prototype.forEach.call(document.querySelectorAll('.et-open'),function(b){
     b.addEventListener('click',function(){
       lastFocus=b;
-      gmOpen.href=b.dataset.gema||'#';
+      gmOpen.href=b.dataset.gema||'https://gemini.google.com/';
       showStep(1);
       overlay.classList.add('open');
+      overlay.setAttribute('aria-hidden','false');
       gmCancel.focus();
     });
   });
@@ -904,7 +925,17 @@
   gmCancel2.addEventListener('click',close);
   gmOpen.addEventListener('click',close);
   overlay.addEventListener('click',function(e){if(e.target===overlay)close();});
-  document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
+  document.addEventListener('keydown',function(e){
+    if(!overlay.classList.contains('open'))return;
+    if(e.key==='Escape'){close();return;}
+    if(e.key==='Tab'){
+      var focusable=Array.prototype.slice.call(overlay.querySelectorAll('a[href],button:not([disabled])')).filter(function(el){return !el.closest('[hidden]');});
+      if(!focusable.length)return;
+      var first=focusable[0],last=focusable[focusable.length-1];
+      if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}
+      else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}
+    }
+  });
 })();
 </script>
 <script>
@@ -959,7 +990,7 @@
      off:function(){var n=activePanel('.et-next');if(n)n.classList.remove('tour-hi');
        var g=activePanel('.et-go');if(g)g.classList.remove('tour-pulse');}}
   ];
-  pasos.forEach(function(_,i){var d=document.createElement('i');d.addEventListener('click',function(){go(i);});dots.appendChild(d);});
+  pasos.forEach(function(_,i){var d=document.createElement('button');d.type='button';d.setAttribute('aria-label','Ir al paso '+(i+1));d.addEventListener('click',function(){go(i);});dots.appendChild(d);});
   function setDesc(html){
     if(tmr){clearInterval(tmr);tmr=null;}
     dd.innerHTML='';
@@ -995,7 +1026,7 @@
     setDesc(pasos[idx].d);
     prev.disabled=idx===0;
     next.textContent=idx===pasos.length-1?'Terminar':'Siguiente ›';
-    Array.prototype.forEach.call(dots.children,function(d,i){d.classList.toggle('on',i===idx);});
+    Array.prototype.forEach.call(dots.children,function(d,i){d.classList.toggle('on',i===idx);if(i===idx)d.setAttribute('aria-current','step');else d.removeAttribute('aria-current');});
   }
   function start(e){
     if(e)e.preventDefault();
@@ -1003,10 +1034,11 @@
     savedTab=0;
     tabs().forEach(function(t,i){if(t.classList.contains('on'))savedTab=i;});
     body.classList.add('tour-on');
+    card.setAttribute('aria-hidden','false');
     idx=0;pasos[0].on();
     st.textContent='Paso 1 de '+pasos.length;tt.textContent=pasos[0].t;setDesc(pasos[0].d);
     prev.disabled=true;next.textContent='Siguiente ›';
-    Array.prototype.forEach.call(dots.children,function(d,i){d.classList.toggle('on',i===0);});
+    Array.prototype.forEach.call(dots.children,function(d,i){d.classList.toggle('on',i===0);if(i===0)d.setAttribute('aria-current','step');else d.removeAttribute('aria-current');});
     scrollTarget(0);
     next.focus();
   }
@@ -1015,6 +1047,7 @@
     if(cyc){clearInterval(cyc);cyc=null;}
     if(tmr){clearInterval(tmr);tmr=null;dd.classList.remove('typing');}
     body.classList.remove('tour-on','tour-gem-on');
+    card.setAttribute('aria-hidden','true');
     if(lastFocus)lastFocus.focus();
   }
   open.addEventListener('click',start);
@@ -1024,7 +1057,14 @@
   backdrop.addEventListener('click',end);
   document.addEventListener('keydown',function(e){
     if(!body.classList.contains('tour-on'))return;
-    if(e.key==='Escape')end();
+    if(e.key==='Escape'){end();return;}
+    if(e.key==='Tab'){
+      var focusable=Array.prototype.slice.call(card.querySelectorAll('button:not([disabled]),a[href]'));
+      if(!focusable.length)return;
+      var first=focusable[0],last=focusable[focusable.length-1];
+      if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}
+      else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}
+    }
     if(e.key==='ArrowRight'&&idx<pasos.length-1)go(idx+1);
     if(e.key==='ArrowLeft'&&idx>0)go(idx-1);
   });

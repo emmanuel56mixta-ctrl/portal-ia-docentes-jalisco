@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="portal-a11y.css">
 <meta name="description" content="Banco de Gemas especializadas para docentes de educación básica de Jalisco: valores, proyectos, LEO y matemáticas.">
 <link rel="icon" href="logo-sej.svg" type="image/svg+xml">
 <title>Banco de Gemas especializadas · IA para Docentes</title>
@@ -164,7 +165,7 @@
   .st3{padding-left:20px;border-left:1px solid var(--line)}
   .st3:first-child{border-left:none;padding-left:0}
   .st3 .n{width:26px;height:26px;border-radius:50%;background:var(--panel-2);border:1px solid var(--line);display:grid;place-items:center;font-size:14px;color:var(--muted);margin-bottom:14px}
-  .st3 h4{font-size:14px;font-weight:700}
+  .st3 h3{font-size:14px;font-weight:700}
   .st3 p{color:var(--muted);font-size:14.5px;margin-top:6px;line-height:1.5}
   .st3 p b{color:var(--txt);font-weight:600}
   .copyfield{margin-top:14px;display:flex;align-items:center;justify-content:space-between;gap:8px;
@@ -178,6 +179,7 @@
 </style>
 </head>
 <body>
+<a class="skip-link" href="#contenido-principal">Saltar al contenido principal</a>
 <div class="wrap">
 
   <nav class="nav">
@@ -185,6 +187,8 @@
     <a class="crumb" href="gemas-v2.html">← Volver a recursos</a>
   </nav>
   <nav class="crumb" aria-label="Ruta de navegación"><a href="academia-docente-jalisco-v2.html">IA para Docentes</a> / <a href="gemas-v2.html">Recursos</a> / <span aria-current="page">Banco de Gemas</span></nav>
+
+  <main id="contenido-principal" tabindex="-1">
 
   <header class="head">
     <video class="head-vid" src="grok-video-422d11fa-6435-4a67-9297-396d9efb962f.mp4" autoplay muted loop playsinline aria-hidden="true"></video>
@@ -206,7 +210,7 @@
           <div class="wgrid"><span class="mini g1"><b></b><i></i></span><span class="mini g3 m-sel"><b></b><i></i></span><span class="mini g2"><b></b><i></i></span><span class="mini g4"><b></b><i></i></span></div>
           <span class="wcur"></span>
         </div></div>
-        <h4>Selecciona la Gema</h4>
+        <h3>Selecciona la Gema</h3>
         <p>Identifica la herramienta que responde a la <b>necesidad pedagógica</b> que deseas atender.</p>
       </div>
       <div class="st3">
@@ -214,9 +218,9 @@
                 <div class="vwin light" aria-hidden="true"><div class="vbar light"><i></i><i></i><i></i></div><div class="wbody">
           <div class="wlogin"><div class="wg"><span>G</span><span>o</span><span>o</span><span>g</span><span>l</span><span>e</span></div><div class="wtitle">Inicia sesión</div><span class="wfield"><span class="wtype">usuario@jaliscoedu.mx</span></span><span class="wbtn">Siguiente</span></div>
         </div></div>
-        <h4>Accede con tu cuenta institucional</h4>
+        <h3>Accede con tu cuenta institucional</h3>
         <p>Abre la Gema en Gemini e inicia sesión con tu cuenta <b>@jaliscoedu.mx</b>.</p>
-        <a class="s3btn" href="#">Abrir Gemini
+        <a class="s3btn" href="https://gemini.google.com/" target="_blank" rel="noopener">Abrir Gemini
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg>
         </a>
       </div>
@@ -226,7 +230,7 @@
           <span class="wgem">✦</span>
           <div class="wchat"><span class="wb">Primaria · 4° grado</span><span class="wb d2">Campo: Lenguajes · PDA…</span><span class="wprompt"><span class="plus">＋</span><i></i><i></i><i></i></span></div>
         </div></div>
-        <h4>Proporciona el contexto de tu grupo</h4>
+        <h3>Proporciona el contexto de tu grupo</h3>
         <p>Indica el nivel, grado, campo formativo, <b>PDA</b>, propósito y características generales de tus estudiantes.</p>
       </div>
       <div class="st3">
@@ -235,7 +239,7 @@
           <div class="wtool"><i></i><i></i><i></i><i></i></div>
           <div class="wdoc"><span class="wl"></span><span class="wl short"></span><span class="wl edit"></span><span class="wl short"></span><span class="wok">✓</span></div>
         </div></div>
-        <h4>Revisa y adapta la propuesta</h4>
+        <h3>Revisa y adapta la propuesta</h3>
         <p>Valora las sugerencias, realiza los ajustes necesarios y construye la <b>versión que utilizarás</b> en tu práctica.</p>
       </div>
     </div>
@@ -250,7 +254,7 @@
 
   <div class="bg-chips" role="group" aria-label="Filtrar por eje">
     <button type="button" class="bg-chip on" data-eje="todos">Todos</button>
-      <button type="button" class="bg-chip" data-eje="Proyectos integradores"><span class="bg-dot" style="background:#a142f4"></span> Proyectos integradores</button>
+      <button type="button" class="bg-chip" data-eje="Proyectos integradores"><span class="bg-dot" style="background:#c07dff"></span> Proyectos integradores</button>
       <button type="button" class="bg-chip" data-eje="Programa LEO"><span class="bg-dot" style="background:#18b7a4"></span> Programa LEO</button>
       <button type="button" class="bg-chip" data-eje="Matemáticas"><span class="bg-dot" style="background:#f98a1e"></span> Matemáticas</button>
   </div>
@@ -261,92 +265,92 @@
       <a class="hg-card" data-eje="Proyectos integradores" data-search="arquitecto de proyectos comunitarios abp comunitario, nem, 11 momentos, planeacion, comunidad proyectos integradores interdisciplinario" href="https://gemini.google.com/gem/1B4omUvgUNRrrMF0Uxq3b8ZB4p56edcah?usp=sharing" target="_blank" rel="noopener" title="Se abre en Gemini, en pestaña nueva">
         <div class="hg-thumb" style="background:linear-gradient(150deg,#2a163a,#120818)"><span>Arquitecto de Proyectos Comunitarios</span></div>
         <div class="hg-body">
-          <div class="hg-chips"><span class="hg-tag" style="color:#a142f4;border-color:#a142f455">Abp comunitario</span><span class="hg-campo">Interdisciplinario</span></div>
-          <div class="hg-stats"><span class="hg-eje" style="color:#a142f4">● Proyectos integradores</span></div>
+          <div class="hg-chips"><span class="hg-tag" style="color:#c07dff;border-color:#c07dff55">Abp comunitario</span><span class="hg-campo">Interdisciplinario</span></div>
+          <div class="hg-stats"><span class="hg-eje" style="color:#c07dff">● Proyectos integradores</span></div>
         </div>
       </a>
       <a class="hg-card" data-eje="Proyectos integradores" data-search="lector de la realidad comunitaria diagnostico comunitario, problematicas, pregunta generadora, contexto proyectos integradores interdisciplinario" href="https://gemini.google.com/gem/1C4ME_Fv5dMZKVZ0NbT-q3fI91xC7UjjR?usp=sharing" target="_blank" rel="noopener" title="Se abre en Gemini, en pestaña nueva">
         <div class="hg-thumb" style="background:linear-gradient(150deg,#32184a,#150a20)"><span>Lector de la Realidad Comunitaria</span></div>
         <div class="hg-body">
-          <div class="hg-chips"><span class="hg-tag" style="color:#a142f4;border-color:#a142f455">Diagnóstico comunitario</span><span class="hg-campo">Interdisciplinario</span></div>
-          <div class="hg-stats"><span class="hg-eje" style="color:#a142f4">● Proyectos integradores</span></div>
+          <div class="hg-chips"><span class="hg-tag" style="color:#c07dff;border-color:#c07dff55">Diagnóstico comunitario</span><span class="hg-campo">Interdisciplinario</span></div>
+          <div class="hg-stats"><span class="hg-eje" style="color:#c07dff">● Proyectos integradores</span></div>
         </div>
       </a>
       <a class="hg-card" data-eje="Proyectos integradores" data-search="proyectos steam por indagacion steam, indagacion, ciencia, experimentos, saberes proyectos integradores interdisciplinario" href="https://gemini.google.com/gem/1kW7P0tK0Exu01b9YL3McVgwtqGQWslyd?usp=sharing" target="_blank" rel="noopener" title="Se abre en Gemini, en pestaña nueva">
         <div class="hg-thumb" style="background:linear-gradient(150deg,#241040,#0e0618)"><span>Proyectos STEAM por Indagación</span></div>
         <div class="hg-body">
-          <div class="hg-chips"><span class="hg-tag" style="color:#a142f4;border-color:#a142f455">Steam</span><span class="hg-campo">Interdisciplinario</span></div>
-          <div class="hg-stats"><span class="hg-eje" style="color:#a142f4">● Proyectos integradores</span></div>
+          <div class="hg-chips"><span class="hg-tag" style="color:#c07dff;border-color:#c07dff55">Steam</span><span class="hg-campo">Interdisciplinario</span></div>
+          <div class="hg-stats"><span class="hg-eje" style="color:#c07dff">● Proyectos integradores</span></div>
         </div>
       </a>
       <a class="hg-card" data-eje="Proyectos integradores" data-search="aprendizaje servicio solidario aprendizaje servicio, solidaridad, comunidad, reflexion proyectos integradores interdisciplinario" href="https://gemini.google.com/gem/1i4NWjTffc9vvz6u6yn-6_1NXwOY9yRGD?usp=sharing" target="_blank" rel="noopener" title="Se abre en Gemini, en pestaña nueva">
         <div class="hg-thumb" style="background:linear-gradient(150deg,#2a163a,#120818)"><span>Aprendizaje Servicio Solidario</span></div>
         <div class="hg-body">
-          <div class="hg-chips"><span class="hg-tag" style="color:#a142f4;border-color:#a142f455">Aprendizaje servicio</span><span class="hg-campo">Interdisciplinario</span></div>
-          <div class="hg-stats"><span class="hg-eje" style="color:#a142f4">● Proyectos integradores</span></div>
+          <div class="hg-chips"><span class="hg-tag" style="color:#c07dff;border-color:#c07dff55">Aprendizaje servicio</span><span class="hg-campo">Interdisciplinario</span></div>
+          <div class="hg-stats"><span class="hg-eje" style="color:#c07dff">● Proyectos integradores</span></div>
         </div>
       </a>
       <a class="hg-card" data-eje="Proyectos integradores" data-search="aprendizaje basado en problemas abp, escenarios, etica naturaleza y sociedades, argumentacion proyectos integradores interdisciplinario" href="https://gemini.google.com/gem/1W9771Lq8ZCPJk32bungR8Pg1iruT-Bzf?usp=sharing" target="_blank" rel="noopener" title="Se abre en Gemini, en pestaña nueva">
         <div class="hg-thumb" style="background:linear-gradient(150deg,#32184a,#150a20)"><span>Aprendizaje Basado en Problemas</span></div>
         <div class="hg-body">
-          <div class="hg-chips"><span class="hg-tag" style="color:#a142f4;border-color:#a142f455">Abp</span><span class="hg-campo">Interdisciplinario</span></div>
-          <div class="hg-stats"><span class="hg-eje" style="color:#a142f4">● Proyectos integradores</span></div>
+          <div class="hg-chips"><span class="hg-tag" style="color:#c07dff;border-color:#c07dff55">Abp</span><span class="hg-campo">Interdisciplinario</span></div>
+          <div class="hg-stats"><span class="hg-eje" style="color:#c07dff">● Proyectos integradores</span></div>
         </div>
       </a>
       <a class="hg-card" data-eje="Proyectos integradores" data-search="vinculador curricular de proyectos campos formativos, pda, contenidos, programa sintetico proyectos integradores interdisciplinario" href="https://gemini.google.com/gem/1RYIoOg6iC1lKKcOCxIQ_qPQRgFakfmhq?usp=sharing" target="_blank" rel="noopener" title="Se abre en Gemini, en pestaña nueva">
         <div class="hg-thumb" style="background:linear-gradient(150deg,#241040,#0e0618)"><span>Vinculador Curricular de Proyectos</span></div>
         <div class="hg-body">
-          <div class="hg-chips"><span class="hg-tag" style="color:#a142f4;border-color:#a142f455">Campos formativos</span><span class="hg-campo">Interdisciplinario</span></div>
-          <div class="hg-stats"><span class="hg-eje" style="color:#a142f4">● Proyectos integradores</span></div>
+          <div class="hg-chips"><span class="hg-tag" style="color:#c07dff;border-color:#c07dff55">Campos formativos</span><span class="hg-campo">Interdisciplinario</span></div>
+          <div class="hg-stats"><span class="hg-eje" style="color:#c07dff">● Proyectos integradores</span></div>
         </div>
       </a>
       <a class="hg-card" data-eje="Proyectos integradores" data-search="asistente de programa analitico programa analitico, codiseno, contextualizacion, cte proyectos integradores interdisciplinario" href="https://gemini.google.com/gem/1SoJdjNUJZZ7yo0V-1NdUEq47r9otOraK?usp=sharing" target="_blank" rel="noopener" title="Se abre en Gemini, en pestaña nueva">
         <div class="hg-thumb" style="background:linear-gradient(150deg,#2a163a,#120818)"><span>Asistente de Programa Analítico</span></div>
         <div class="hg-body">
-          <div class="hg-chips"><span class="hg-tag" style="color:#a142f4;border-color:#a142f455">Programa analítico</span><span class="hg-campo">Interdisciplinario</span></div>
-          <div class="hg-stats"><span class="hg-eje" style="color:#a142f4">● Proyectos integradores</span></div>
+          <div class="hg-chips"><span class="hg-tag" style="color:#c07dff;border-color:#c07dff55">Programa analítico</span><span class="hg-campo">Interdisciplinario</span></div>
+          <div class="hg-stats"><span class="hg-eje" style="color:#c07dff">● Proyectos integradores</span></div>
         </div>
       </a>
       <a class="hg-card" data-eje="Proyectos integradores" data-search="huerto escolar integrador huerto escolar, proyecto integrador, sustentabilidad, campos formativos proyectos integradores interdisciplinario" href="https://gemini.google.com/gem/1m2NCSXGHrL8bVnIwtwGzfuBHHk0zpBQL?usp=sharing" target="_blank" rel="noopener" title="Se abre en Gemini, en pestaña nueva">
         <div class="hg-thumb" style="background:linear-gradient(150deg,#32184a,#150a20)"><span>Huerto Escolar Integrador</span></div>
         <div class="hg-body">
-          <div class="hg-chips"><span class="hg-tag" style="color:#a142f4;border-color:#a142f455">Huerto escolar</span><span class="hg-campo">Interdisciplinario</span></div>
-          <div class="hg-stats"><span class="hg-eje" style="color:#a142f4">● Proyectos integradores</span></div>
+          <div class="hg-chips"><span class="hg-tag" style="color:#c07dff;border-color:#c07dff55">Huerto escolar</span><span class="hg-campo">Interdisciplinario</span></div>
+          <div class="hg-stats"><span class="hg-eje" style="color:#c07dff">● Proyectos integradores</span></div>
         </div>
       </a>
       <a class="hg-card" data-eje="Proyectos integradores" data-search="proyectos de vida saludable vida saludable, alimentacion, habitos, cooperativa escolar proyectos integradores interdisciplinario" href="https://gemini.google.com/gem/1ewLtKjk_OflR6lDK-fWBHvw5Hbjtrn-a?usp=sharing" target="_blank" rel="noopener" title="Se abre en Gemini, en pestaña nueva">
         <div class="hg-thumb" style="background:linear-gradient(150deg,#241040,#0e0618)"><span>Proyectos de Vida Saludable</span></div>
         <div class="hg-body">
-          <div class="hg-chips"><span class="hg-tag" style="color:#a142f4;border-color:#a142f455">Vida saludable</span><span class="hg-campo">Interdisciplinario</span></div>
-          <div class="hg-stats"><span class="hg-eje" style="color:#a142f4">● Proyectos integradores</span></div>
+          <div class="hg-chips"><span class="hg-tag" style="color:#c07dff;border-color:#c07dff55">Vida saludable</span><span class="hg-campo">Interdisciplinario</span></div>
+          <div class="hg-stats"><span class="hg-eje" style="color:#c07dff">● Proyectos integradores</span></div>
         </div>
       </a>
       <a class="hg-card" data-eje="Proyectos integradores" data-search="ferias y muestras de aprendizaje difusion, ferias, exposicion, cierre de proyectos proyectos integradores interdisciplinario" href="https://gemini.google.com/gem/1VrnhqP5PcmfMgdQRrIQgHbubyHX9b6q2?usp=sharing" target="_blank" rel="noopener" title="Se abre en Gemini, en pestaña nueva">
         <div class="hg-thumb" style="background:linear-gradient(150deg,#2a163a,#120818)"><span>Ferias y Muestras de Aprendizaje</span></div>
         <div class="hg-body">
-          <div class="hg-chips"><span class="hg-tag" style="color:#a142f4;border-color:#a142f455">Difusión</span><span class="hg-campo">Interdisciplinario</span></div>
-          <div class="hg-stats"><span class="hg-eje" style="color:#a142f4">● Proyectos integradores</span></div>
+          <div class="hg-chips"><span class="hg-tag" style="color:#c07dff;border-color:#c07dff55">Difusión</span><span class="hg-campo">Interdisciplinario</span></div>
+          <div class="hg-stats"><span class="hg-eje" style="color:#c07dff">● Proyectos integradores</span></div>
         </div>
       </a>
       <a class="hg-card" data-eje="Proyectos integradores" data-search="evaluador formativo de proyectos evaluacion formativa, rubricas, portafolio, autoevaluacion proyectos integradores interdisciplinario" href="https://gemini.google.com/gem/18YueLy7UzgOcxJarmjhoblSdhEBDsXeY?usp=sharing" target="_blank" rel="noopener" title="Se abre en Gemini, en pestaña nueva">
         <div class="hg-thumb" style="background:linear-gradient(150deg,#32184a,#150a20)"><span>Evaluador Formativo de Proyectos</span></div>
         <div class="hg-body">
-          <div class="hg-chips"><span class="hg-tag" style="color:#a142f4;border-color:#a142f455">Evaluación formativa</span><span class="hg-campo">Interdisciplinario</span></div>
-          <div class="hg-stats"><span class="hg-eje" style="color:#a142f4">● Proyectos integradores</span></div>
+          <div class="hg-chips"><span class="hg-tag" style="color:#c07dff;border-color:#c07dff55">Evaluación formativa</span><span class="hg-campo">Interdisciplinario</span></div>
+          <div class="hg-stats"><span class="hg-eje" style="color:#c07dff">● Proyectos integradores</span></div>
         </div>
       </a>
       <a class="hg-card" data-eje="Proyectos integradores" data-search="patrimonio y saberes comunitarios patrimonio, historia oral, saberes locales, comunidad proyectos integradores interdisciplinario" href="https://gemini.google.com/gem/1ez_ouwwBoXPTjL_F5lCvfw7F3JaoEEjf?usp=sharing" target="_blank" rel="noopener" title="Se abre en Gemini, en pestaña nueva">
         <div class="hg-thumb" style="background:linear-gradient(150deg,#241040,#0e0618)"><span>Patrimonio y Saberes Comunitarios</span></div>
         <div class="hg-body">
-          <div class="hg-chips"><span class="hg-tag" style="color:#a142f4;border-color:#a142f455">Patrimonio</span><span class="hg-campo">Interdisciplinario</span></div>
-          <div class="hg-stats"><span class="hg-eje" style="color:#a142f4">● Proyectos integradores</span></div>
+          <div class="hg-chips"><span class="hg-tag" style="color:#c07dff;border-color:#c07dff55">Patrimonio</span><span class="hg-campo">Interdisciplinario</span></div>
+          <div class="hg-stats"><span class="hg-eje" style="color:#c07dff">● Proyectos integradores</span></div>
         </div>
       </a>
       <a class="hg-card" data-eje="Proyectos integradores" data-search="proyectos socioambientales medio ambiente, agua, residuos, accion comunitaria proyectos integradores interdisciplinario" href="https://gemini.google.com/gem/1YPBVkED2KkUKnK6nM9UpSg1XhAAGEpjI?usp=sharing" target="_blank" rel="noopener" title="Se abre en Gemini, en pestaña nueva">
         <div class="hg-thumb" style="background:linear-gradient(150deg,#2a163a,#120818)"><span>Proyectos Socioambientales</span></div>
         <div class="hg-body">
-          <div class="hg-chips"><span class="hg-tag" style="color:#a142f4;border-color:#a142f455">Medio ambiente</span><span class="hg-campo">Interdisciplinario</span></div>
-          <div class="hg-stats"><span class="hg-eje" style="color:#a142f4">● Proyectos integradores</span></div>
+          <div class="hg-chips"><span class="hg-tag" style="color:#c07dff;border-color:#c07dff55">Medio ambiente</span><span class="hg-campo">Interdisciplinario</span></div>
+          <div class="hg-stats"><span class="hg-eje" style="color:#c07dff">● Proyectos integradores</span></div>
         </div>
       </a>
       <a class="hg-card" data-eje="Programa LEO" data-search="entrenador de fluidez lectora fluidez lectora, lectura repetida, teatro de lectores, leo programa leo lenguajes" href="https://gemini.google.com/gem/1tJFXK195whugmxcJjAQSaoCu_1RzGWa5?usp=sharing" target="_blank" rel="noopener" title="Se abre en Gemini, en pestaña nueva">
@@ -527,6 +531,8 @@
   </div>
   <p class="bg-empty" id="bgEmpty" hidden>No encontramos Gemas con esa búsqueda. Intenta con otra palabra o limpia los filtros.</p>
 
+  </main>
+
 <footer>
   <div class="wrap">
     <div class="ft">
@@ -604,13 +610,13 @@
   .gm-cancel{background:none;border:1px solid var(--line);color:var(--muted);font-size:14.5px;padding:10px 18px;border-radius:12px;cursor:pointer;font-family:inherit}
   .gm-cancel:hover{color:var(--txt);border-color:#3a3a40}
 </style>
-<div class="gmodal-overlay" id="gOverlay">
+<div class="gmodal-overlay" id="gOverlay" aria-hidden="true">
   <div class="gmodal" role="dialog" aria-modal="true" aria-labelledby="gmTitle">
     <div class="gm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="34" height="34"><defs><linearGradient id="gmg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ea4335"/><stop offset=".5" stop-color="#4285f4"/><stop offset="1" stop-color="#34a853"/></linearGradient></defs><path d="M12 0C13 7 17 11 24 12 17 13 13 17 12 24 11 17 7 13 0 12 7 11 11 7 12 0Z" fill="url(#gmg)"/></svg></div>
     <h3 id="gmTitle">Antes de usar esta Gema</h3>
     <p class="gm-txt">Las Gemas son asistentes de apoyo que ofrecen orientaciones y sugerencias para el diagnóstico, el programa analítico, la planeación y la evaluación. <b>Nunca sustituyen el conocimiento, la experiencia ni el criterio profesional del docente.</b> Revisa, adapta y valida cada propuesta de acuerdo con las necesidades, el contexto y los aprendizajes de tu grupo.</p>
     <div class="gm-actions">
-      <a class="gm-open" id="gmOpen" href="#" target="_blank" rel="noopener">Acceder a la Gema ↗</a>
+      <a class="gm-open" id="gmOpen" href="https://gemini.google.com/" target="_blank" rel="noopener">Acceder a la Gema ↗</a>
       <button type="button" class="gm-cancel" id="gmCancel">Cancelar</button>
     </div>
   </div>
@@ -618,20 +624,31 @@
 <script>
 (function(){
   var overlay=document.getElementById('gOverlay'),gmOpen=document.getElementById('gmOpen'),gmCancel=document.getElementById('gmCancel'),lastFocus=null;
-  function close(){overlay.classList.remove('open');if(lastFocus)lastFocus.focus();}
-  Array.prototype.forEach.call(document.querySelectorAll('a[href*="gemini.google.com"]'),function(a){
+  function close(){overlay.classList.remove('open');overlay.setAttribute('aria-hidden','true');if(lastFocus)lastFocus.focus();}
+  Array.prototype.forEach.call(document.querySelectorAll('a[href*="gemini.google.com"]:not(#gmOpen)'),function(a){
     a.addEventListener('click',function(e){
       e.preventDefault();
       lastFocus=a;
       gmOpen.href=a.href;
       overlay.classList.add('open');
+      overlay.setAttribute('aria-hidden','false');
       gmCancel.focus();
     });
   });
   gmCancel.addEventListener('click',close);
   gmOpen.addEventListener('click',close);
   overlay.addEventListener('click',function(e){if(e.target===overlay)close();});
-  document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
+  document.addEventListener('keydown',function(e){
+    if(!overlay.classList.contains('open'))return;
+    if(e.key==='Escape'){close();return;}
+    if(e.key==='Tab'){
+      var focusable=Array.prototype.slice.call(overlay.querySelectorAll('a[href],button:not([disabled])'));
+      if(!focusable.length)return;
+      var first=focusable[0],last=focusable[focusable.length-1];
+      if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}
+      else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}
+    }
+  });
 })();
 </script>
 

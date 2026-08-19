@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Portal de inteligencia artificial para docentes de Jalisco: cursos, Constructor pedagógico, Gemas y recursos para la práctica educativa.">
+<link rel="stylesheet" href="portal-a11y.css">
 <title>Academia Docente Digital · Jalisco</title>
 <link rel="icon" href="logo-sej-2024.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -65,11 +67,11 @@
     background:linear-gradient(90deg, rgba(6,10,16,.92) 0%, rgba(6,10,16,.72) 34%, rgba(6,10,16,.15) 62%, rgba(6,10,16,0) 100%);
   }
   .slide .inner{position:relative;z-index:2;padding:36px 36px 34px;max-width:600px}
-  .slide h1{
+  .slide h2{
     font-family:'Archivo';font-weight:900;font-size:38px;line-height:1.02;
     letter-spacing:-.5px;text-transform:uppercase;margin-bottom:14px
   }
-  .slide h1 .g{color:var(--lime)}
+  .slide h2 .g{color:var(--lime)}
   .slide p{color:#d4d9e0;font-size:16.5px;max-width:480px}
 
   /* arrows */
@@ -160,7 +162,7 @@
   .step .num{position:absolute;right:16px;bottom:12px;z-index:3;font-family:'Archivo';font-weight:900;font-size:26px;line-height:1;color:#f7841f}
   .step .n{width:26px;height:26px;border-radius:8px;background:var(--panel-2);border:1px solid var(--line);
     display:grid;place-items:center;font-family:'Archivo';font-weight:800;font-size:15px;color:var(--muted)}
-  .step h4{font-family:'Archivo';font-weight:800;font-size:19px;line-height:1.06;color:#fff;margin:0;letter-spacing:-.3px}
+  .step h3{font-family:'Archivo';font-weight:800;font-size:19px;line-height:1.06;color:#fff;margin:0;letter-spacing:-.3px}
   .step .ul{display:block;width:52px;height:3px;border-radius:2px;margin:12px 0 13px;background:linear-gradient(90deg,#ea4335,#fbbc05,#34a853,#4285f4,#a142f4)}
   .step p{color:#c7ccd6;font-size:14px;line-height:1.5;margin:0}
   .step p b{font-weight:600;background:linear-gradient(90deg,#4b8bf5,#a855f7);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
@@ -236,8 +238,13 @@
     .steps{grid-template-columns:1fr 1fr}
     .conn{display:none}
     .videos{grid-template-columns:1fr}
-    .hero h1{font-size:30px}
+    .hero h2{font-size:30px}
     .program .lead{margin-left:0}
+  }
+  @media(max-width:520px){
+    .slide .inner{padding:24px 34px 42px}
+    .hero h2{font-size:27px}
+    .slide p{font-size:14px;line-height:1.45}
   }
 
   /* banner banco de gemas */
@@ -311,6 +318,7 @@
 </style>
 </head>
 <body>
+<a class="skip-link" href="#contenido-principal">Saltar al contenido principal</a>
 <div class="wrap">
 
   <!-- NAV -->
@@ -319,30 +327,33 @@
     
   </nav>
 
+  <main id="contenido-principal" tabindex="-1">
+  <h1 class="sr-only">IA para Docentes de Jalisco</h1>
+
   <!-- HERO CARRUSEL -->
-  <header class="hero">
+  <header class="hero" aria-roledescription="carrusel" aria-label="Presentación del portal">
     <div class="slides" id="slides">
 
-      <div class="slide s1 active">
+      <div class="slide s1 active" aria-hidden="false">
         <img src="hero-1.png" alt="Docentes de Jalisco trabajando con IA" onerror="this.style.display='none'">
         <div class="inner">
-          <h1>Inteligencia artificial<br><span class="g">al servicio de la educación</span></h1>
+          <h2>Inteligencia artificial<br><span class="g">al servicio de la educación</span></h2>
           <p>Explora recursos y herramientas que te ayudan a crear, organizar y enriquecer experiencias de aprendizaje, siempre con el conocimiento y el criterio docente al centro.</p>
         </div>
       </div>
 
-      <div class="slide s2">
+      <div class="slide s2" aria-hidden="true">
         <img src="hero-2.png" alt="Aula con Google for Education al estilo Jalisco" onerror="this.style.display='none'">
         <div class="inner">
-          <h1>Educación<br><span class="g">Al Estilo Jalisco</span></h1>
+          <h2>Educación<br><span class="g">Al Estilo Jalisco</span></h2>
           <p>Encuentra soluciones impulsadas por inteligencia artificial para planear, generar materiales, adaptar contenidos y responder a las necesidades de tus estudiantes.</p>
         </div>
       </div>
 
-      <div class="slide s3">
+      <div class="slide s3" aria-hidden="true">
         <img src="hero-3.png" alt="Docentes colaborando y compartiendo Gemas" onerror="this.style.display='none'">
         <div class="inner">
-          <h1>Innovar para<br><span class="g">enseñar y aprender mejor</span></h1>
+          <h2>Innovar para<br><span class="g">enseñar y aprender mejor</span></h2>
           <p>Integra la tecnología de manera responsable, creativa y pertinente. Accede a herramientas que facilitan tareas y abren nuevas oportunidades para transformar el aprendizaje.</p>
         </div>
       </div>
@@ -404,25 +415,25 @@
 
     <div class="steps">
       <div class="step">
-        <h4>Diagnóstico<br>inicial</h4>
+        <h3>Diagnóstico<br>inicial</h3>
         <span class="ul"></span>
         <p><b>La Gema</b> analiza tu grupo y contexto para partir de datos reales.</p>
         <span class="num">1</span>
       </div>
       <div class="step">
-        <h4>Programa<br>analítico</h4>
+        <h3>Programa<br>analítico</h3>
         <span class="ul"></span>
         <p><b>La Gema</b> contextualiza el programa a tu comunidad y campos formativos.</p>
         <span class="num">2</span>
       </div>
       <div class="step">
-        <h4>Planeación<br>didáctica</h4>
+        <h3>Planeación<br>didáctica</h3>
         <span class="ul"></span>
         <p><b>La Gema</b> genera secuencias, actividades y materiales alineados a los PDA.</p>
         <span class="num">3</span>
       </div>
       <div class="step">
-        <h4>Evaluación y<br>retroalimentación</h4>
+        <h3>Evaluación y<br>retroalimentación</h3>
         <span class="ul"></span>
         <p><b>La Gema</b> crea rúbricas e instrumentos y retroalimenta por PDA.</p>
         <span class="num">4</span>
@@ -473,6 +484,8 @@
   </section>
 
 
+  </main>
+
 <footer>
   <div class="wrap">
     <div class="ft">
@@ -522,6 +535,7 @@
     var d = document.createElement('button');
     d.type='button';
     d.setAttribute('aria-label','Ir a la diapositiva '+(idx+1));
+    if(idx===0)d.setAttribute('aria-current','true');
     d.className = 'dot' + (idx===0?' active':'');
     d.addEventListener('click', function(){ go(idx); reset(); });
     dotsBox.appendChild(d);
@@ -530,10 +544,14 @@
 
   function go(n){
     slides[i].classList.remove('active');
+    slides[i].setAttribute('aria-hidden','true');
     dots[i].classList.remove('active');
+    dots[i].removeAttribute('aria-current');
     i = (n + slides.length) % slides.length;
     slides[i].classList.add('active');
+    slides[i].setAttribute('aria-hidden','false');
     dots[i].classList.add('active');
+    dots[i].setAttribute('aria-current','true');
   }
   function next(){ go(i+1); }
   function prev(){ go(i-1); }
