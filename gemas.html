@@ -30,21 +30,19 @@
   .orbit{position:absolute;left:50%;top:50%;transform-style:preserve-3d;animation:orbita 60s linear infinite}
   .cluster:hover .orbit,.cluster:hover .unrot{animation-play-state:paused}
   .pos{position:absolute;left:-52px;top:-57px;transform-style:preserve-3d;--r:215px}
-  .p1{transform:rotateY(0.0deg) translateZ(var(--r))}
-  .p2{transform:rotateY(51.43deg) translateZ(var(--r))}
-  .p3{transform:rotateY(102.86deg) translateZ(var(--r))}
-  .p4{transform:rotateY(154.29deg) translateZ(var(--r))}
-  .p5{transform:rotateY(205.71deg) translateZ(var(--r))}
-  .p6{transform:rotateY(257.14deg) translateZ(var(--r))}
-  .p7{transform:rotateY(308.57deg) translateZ(var(--r))}
+  .p1{transform:rotateY(0deg) translateZ(var(--r))}
+  .p2{transform:rotateY(60deg) translateZ(var(--r))}
+  .p3{transform:rotateY(120deg) translateZ(var(--r))}
+  .p4{transform:rotateY(180deg) translateZ(var(--r))}
+  .p5{transform:rotateY(240deg) translateZ(var(--r))}
+  .p6{transform:rotateY(300deg) translateZ(var(--r))}
   .neg{transform-style:preserve-3d}
-  .n1{transform:rotateY(-0.0deg)}
-  .n2{transform:rotateY(-51.43deg)}
-  .n3{transform:rotateY(-102.86deg)}
-  .n4{transform:rotateY(-154.29deg)}
-  .n5{transform:rotateY(-205.71deg)}
-  .n6{transform:rotateY(-257.14deg)}
-  .n7{transform:rotateY(-308.57deg)}
+  .n1{transform:rotateY(0deg)}
+  .n2{transform:rotateY(-60deg)}
+  .n3{transform:rotateY(-120deg)}
+  .n4{transform:rotateY(-180deg)}
+  .n5{transform:rotateY(-240deg)}
+  .n6{transform:rotateY(-300deg)}
   .pos .cardimg{width:104px;height:114px;object-fit:cover;border-radius:14px;border:1px solid rgba(255,255,255,.10);box-shadow:0 14px 34px rgba(0,0,0,.45);display:block}
   .unrot{transform-style:preserve-3d;animation:orbitaRev 60s linear infinite}
   .pos .ic{margin:0}
@@ -293,15 +291,14 @@
 
   <!-- HERO -->
   <div class="hero">
-    <div class="cluster" role="img" aria-label="Cards de los ejes y etapas girando alrededor de la Gema: Diagnóstico inicial, Formación del Carácter, Proyectos integradores, Programa LEO, Matemáticas, Planeación didáctica y Evaluación">
+    <div class="cluster" role="img" aria-label="Cards de los ejes y etapas girando alrededor de la Gema: Diagnóstico inicial, Proyectos integradores, Programa LEO, Matemáticas, Planeación didáctica y Evaluación">
       <div class="orbit" aria-hidden="true">
         <div class="pos p1"><div class="neg n1"><div class="unrot"><img class="cardimg" src="card-diagnostico.png" alt="Diagnóstico inicial" onerror="this.style.display='none'"></div></div></div>
-        <div class="pos p2"><div class="neg n2"><div class="unrot"><img class="cardimg" src="card-caracter.png" alt="Formación del Carácter" onerror="this.style.display='none'"></div></div></div>
-        <div class="pos p3"><div class="neg n3"><div class="unrot"><img class="cardimg" src="card-proyectos.png" alt="Proyectos integradores" onerror="this.style.display='none'"></div></div></div>
-        <div class="pos p4"><div class="neg n4"><div class="unrot"><img class="cardimg" src="card-leo.png" alt="Programa LEO" onerror="this.style.display='none'"></div></div></div>
-        <div class="pos p5"><div class="neg n5"><div class="unrot"><img class="cardimg" src="card-matematicas.png" alt="Matemáticas" onerror="this.style.display='none'"></div></div></div>
-        <div class="pos p6"><div class="neg n6"><div class="unrot"><img class="cardimg" src="card-planeacion.png" alt="Planeación didáctica" onerror="this.style.display='none'"></div></div></div>
-        <div class="pos p7"><div class="neg n7"><div class="unrot"><img class="cardimg" src="card-evaluacion.png" alt="Evaluación" onerror="this.style.display='none'"></div></div></div>
+        <div class="pos p2"><div class="neg n2"><div class="unrot"><img class="cardimg" src="card-proyectos.png" alt="Proyectos integradores" onerror="this.style.display='none'"></div></div></div>
+        <div class="pos p3"><div class="neg n3"><div class="unrot"><img class="cardimg" src="card-leo.png" alt="Programa LEO" onerror="this.style.display='none'"></div></div></div>
+        <div class="pos p4"><div class="neg n4"><div class="unrot"><img class="cardimg" src="card-matematicas.png" alt="Matemáticas" onerror="this.style.display='none'"></div></div></div>
+        <div class="pos p5"><div class="neg n5"><div class="unrot"><img class="cardimg" src="card-planeacion.png" alt="Planeación didáctica" onerror="this.style.display='none'"></div></div></div>
+        <div class="pos p6"><div class="neg n6"><div class="unrot"><img class="cardimg" src="card-evaluacion.png" alt="Evaluación" onerror="this.style.display='none'"></div></div></div>
       </div>
       <div class="ic mid"><img src="gema-central.jpg" alt="Educación Jalisco" style="width:100%;height:100%;object-fit:cover;border-radius:inherit;display:block"></div>
     </div>
