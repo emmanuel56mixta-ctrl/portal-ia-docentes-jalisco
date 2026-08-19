@@ -2,27 +2,27 @@
   var toolsInfo={
     "project-preescolar":{
       eyebrow:"Proyectos integradores",title:"Gema para Preescolar",type:"Gema de Gemini",
-      image:"recursos-proyectos-integradores.jpg",
+      image:"proyecto-preescolar.jpg",
       description:"Te acompaña a diseñar proyectos integradores adecuados a experiencias lúdicas, exploración, lenguaje y contexto de niñas y niños de preescolar."
     },
     "project-primaria":{
       eyebrow:"Proyectos integradores",title:"Gema para Primaria",type:"Gema de Gemini",
-      image:"recursos-proyectos-integradores.jpg",
+      image:"proyecto-primaria.jpg",
       description:"Organiza proyectos vinculados con el contexto de primaria, con propósitos, actividades, productos y evidencias que puedes revisar y adaptar."
     },
     "project-secundaria":{
       eyebrow:"Proyectos integradores",title:"Gema para Secundaria",type:"Gema de Gemini",
-      image:"recursos-proyectos-integradores.jpg",
+      image:"proyecto-secundaria.jpg",
       description:"Apoya la construcción de proyectos para secundaria que articulan contenidos, investigación, colaboración y productos relacionados con el entorno."
     },
     "project-primaria-multi":{
       eyebrow:"Proyectos integradores",title:"Gema para Primaria multigrado",type:"Gema de Gemini",
-      image:"recursos-proyectos-integradores.jpg",
+      image:"proyecto-primaria-multigrado.jpg",
       description:"Propone proyectos comunes para grupos multigrado de primaria, con actividades compartidas y desafíos diferenciados por nivel."
     },
     "project-secundaria-multi":{
       eyebrow:"Proyectos integradores",title:"Gema para Secundaria multigrado",type:"Gema de Gemini",
-      image:"recursos-proyectos-integradores.jpg",
+      image:"proyecto-secundaria-multigrado.jpg",
       description:"Ayuda a planear proyectos para grupos multigrado de secundaria, articulando un propósito común con apoyos y productos diferenciados."
     },
     "programa-leo":{
