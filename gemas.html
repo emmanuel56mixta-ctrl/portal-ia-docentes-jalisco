@@ -58,10 +58,7 @@
   .ic.mid{position:absolute;left:50%;top:50%;margin:0;transform:translate(-50%,-50%) translateZ(0);z-index:auto}
 
   .hero h1{font-family:'Archivo';font-weight:900;font-size:46px;line-height:1.02;letter-spacing:-1.4px;text-transform:uppercase;margin-top:10px}
-  .hero p{color:var(--muted);font-size:17px;max-width:560px;margin:14px auto 0}
   .hkick{color:var(--lime);font-family:'Archivo';font-weight:800;font-size:13px;letter-spacing:4px;text-transform:uppercase;margin-bottom:10px}
-  .hero .hcuenta{font-size:14.5px;color:var(--dim);margin-top:10px}
-  .hero .hcuenta b{color:var(--muted);font-weight:600}
 
   /* mini-videos de los pasos (se animan al pasar el cursor) */
   .vwin{position:relative;width:100%;aspect-ratio:16/10;background:#0d0d11;border:1px solid var(--line);border-radius:10px;margin:12px 0 14px;overflow:hidden;cursor:pointer}
@@ -138,24 +135,6 @@
     .bb-text{position:static;transform:none;max-width:none;padding:150px 24px 26px}
     .banco-banner h2{font-size:21px}
   }
-  /* buscador del banco de recursos */
-  .rbar{margin:28px auto 0;max-width:680px;display:flex;align-items:center;gap:10px;background:#131318;border:1px solid rgba(255,255,255,.08);border-radius:32px;padding:8px 8px 8px 20px;text-align:left;
-    box-shadow:0 0 46px rgba(255,138,0,.13),0 10px 34px rgba(0,0,0,.45);transition:.25s border-color,.25s box-shadow}
-  .rbar:hover{border-color:rgba(255,255,255,.14)}
-  .rbar:focus-within{border-color:rgba(255,138,0,.5);box-shadow:0 0 64px rgba(255,138,0,.24),0 10px 34px rgba(0,0,0,.45)}
-  .rb-ic{flex:0 0 auto;display:grid;place-items:center;color:var(--muted)}
-  .rbar input{flex:1;background:none;border:0;outline:none;color:var(--txt);font-family:inherit;font-size:15.5px;height:44px}
-  .rbar input::placeholder{color:var(--muted)}
-  .rbar input[type="search"]::-webkit-search-cancel-button{-webkit-appearance:none;appearance:none}
-  .rb-clear{flex:0 0 34px;width:34px;height:34px;border-radius:50%;background:none;border:0;color:var(--muted);display:grid;place-items:center;cursor:pointer;transition:.2s}
-  .rb-clear:hover{color:#fff;background:rgba(255,255,255,.08)}
-  .rb-clear[hidden]{display:none}
-  .rb-go{flex:0 0 44px;width:44px;height:44px;border-radius:50%;background:#ff8a00;color:#0a0a0b;display:grid;place-items:center;border:0;cursor:pointer;font-family:inherit;box-shadow:0 4px 18px rgba(255,138,0,.16);transition:.2s transform}
-  .rb-go:hover{transform:scale(1.06)}
-  .rb-chips{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:14px}
-  .rb-chips a{display:inline-flex;align-items:center;gap:6px;background:var(--panel-2);border:1px solid var(--line);border-radius:20px;padding:7px 14px;font-size:14px;font-weight:600;color:var(--muted);transition:.2s}
-  .rb-chips a:hover{border-color:rgba(255,138,0,.5);color:var(--txt)}
-  .rb-note{color:var(--dim);font-size:13.5px;margin-top:12px}
   /* connect panel */
   .connect{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:24px;margin-top:40px;position:relative;overflow:hidden}
   .connect::before{content:"";position:absolute;inset:0;background:radial-gradient(70% 60% at 50% 0%, rgba(255,138,0,.06), transparent 60%);pointer-events:none}
@@ -192,7 +171,7 @@
   }
 
   /* familias de recursos */
-  .resource-hub{margin-top:72px;display:grid;gap:18px}
+  .resource-hub{margin-top:44px;display:grid;gap:18px}
   .resource-family{position:relative;overflow:hidden;scroll-margin-top:24px;background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:24px;transition:.2s border-color,.2s transform}
   .resource-family::before{content:"";position:absolute;left:0;right:0;top:0;height:2px;background:linear-gradient(90deg,var(--lime),transparent 56%);opacity:.8}
   .resource-family:hover{border-color:#38383e}
@@ -287,22 +266,6 @@
     </div>
     <div class="hkick">Kit de herramientas</div>
     <h1>Recursos impulsados por inteligencia artificial para acompañar tu práctica docente</h1>
-    <p>Integra las Gemas a tu trabajo cotidiano y crea planeaciones, rúbricas y materiales adaptados a las necesidades de tu grupo, a partir de tus propias indicaciones y con tu cuenta @jaliscoedu.mx.</p>
-    <form class="rbar" id="rbSearch" role="search">
-      <span class="rb-ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.8-3.8"/></svg></span>
-      <input type="search" placeholder="Busca en el banco de recursos: “fracciones”, “lectura”, “proyecto”…" aria-label="Buscar en el banco de recursos APPrende Digital">
-      <button class="rb-clear" type="button" aria-label="Borrar búsqueda" hidden><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12"/><path d="M18 6L6 18"/></svg></button>
-      <button class="rb-go" type="submit" aria-label="Buscar"><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13"/><path d="M12 5l7 7-7 7"/></svg></button>
-    </form>
-    <div class="rb-chips">
-      <a href="https://apprendedigital.jalisco.gob.mx/blog/tipo_contenido/recursos_didacticos/" target="_blank" rel="noopener" title="Se abre en pestaña nueva">Recursos didácticos ↗</a>
-      <a href="https://apprendedigital.jalisco.gob.mx/blog/tipo_contenido/fichas-didacticas-educacion-basica/" target="_blank" rel="noopener" title="Se abre en pestaña nueva">Fichas de educación básica ↗</a>
-      <a href="#proyectos-integradores">Gemas de Proyectos integradores ↓</a>
-      <a href="https://apprendedigital.jalisco.gob.mx/blog/tipo_contenido/videos_tematicos/" target="_blank" rel="noopener" title="Se abre en pestaña nueva">Videos temáticos ↗</a>
-      <a href="https://apprendedigital.jalisco.gob.mx/todos-los-recursos" target="_blank" rel="noopener" title="Se abre en pestaña nueva">Todos los recursos ↗</a>
-    </div>
-    <p class="rb-note">Resultados del banco oficial APPrende Digital de la SEJ.</p>
-
   </div>
 
 
@@ -415,27 +378,6 @@
   // copy
   var cf=document.getElementById('copyfield');
   if(cf)cf.addEventListener('click',function(){var t=cf.textContent.trim();if(navigator.clipboard)navigator.clipboard.writeText(t);cf.style.borderColor='var(--lime)';});
-})();
-</script>
-
-<script>
-(function(){
-  var form=document.getElementById('rbSearch');
-  if(!form)return;
-  var input=form.querySelector('input');
-  var clearBtn=form.querySelector('.rb-clear');
-  input.addEventListener('input',function(){ clearBtn.hidden = input.value.trim()===''; });
-  clearBtn.addEventListener('click',function(){ input.value=''; clearBtn.hidden=true; input.focus(); });
-  form.addEventListener('submit',function(e){
-    e.preventDefault();
-    var v=input.value.trim();
-    if(!v){input.focus();return;}
-    var url='https://apprendedigital.jalisco.gob.mx/?s='+encodeURIComponent(v);
-    // abrir siempre en pestaña nueva sin abandonar esta pagina
-    var a=document.createElement('a');
-    a.href=url;a.target='_blank';a.rel='noopener';
-    document.body.appendChild(a);a.click();a.remove();
-  });
 })();
 </script>
 
