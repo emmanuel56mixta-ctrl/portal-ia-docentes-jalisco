@@ -24,6 +24,64 @@ html,body{max-width:100%;overflow-x:clip}
 .page-route .sep{color:var(--dim);opacity:.7}
 .page-route [aria-current="page"]{color:var(--txt);font-weight:700}
 .nav .right[href]:hover{color:var(--txt)}
+/* Resplandor móvil y discreto para la acción principal de cada recorrido.
+   Se limita a botones de acceso; navegación, filtros y acciones secundarias quedan fuera. */
+:where(
+  .portal-final-action,
+  a.cta,
+  a.btn,
+  a.start,
+  a.playlist,
+  .lesson[target="_blank"] .play,
+  .tool-dialog-open,
+  .gem-safety-open,
+  .et-open,
+  a.gm-open,
+  a.s3btn,
+  a.b1,
+  .tool-actions .btn:not(.ghost),
+  .freemode .fbtn
+){position:relative;isolation:isolate;overflow:hidden}
+:where(
+  .portal-final-action,
+  a.cta,
+  a.btn,
+  a.start,
+  a.playlist,
+  .lesson[target="_blank"] .play,
+  .tool-dialog-open,
+  .gem-safety-open,
+  .et-open,
+  a.gm-open,
+  a.s3btn,
+  a.b1,
+  .tool-actions .btn:not(.ghost),
+  .freemode .fbtn
+)::after{
+  content:"";position:absolute;z-index:3;top:50%;left:-16%;width:30px;height:30px;
+  border-radius:50%;pointer-events:none;opacity:0;transform:translate(-50%,-50%);
+  background:radial-gradient(circle,rgba(255,255,255,.92) 0 5%,rgba(205,236,255,.5) 16%,rgba(132,198,255,.2) 38%,transparent 70%);
+  filter:drop-shadow(0 0 5px rgba(174,220,255,.32));mix-blend-mode:screen;
+  animation:portal-final-glow 8s ease-in-out infinite;
+  animation-delay:var(--portal-final-glow-delay,0s)
+}
+.lesson:nth-of-type(2) .play{--portal-final-glow-delay:-1.6s}
+.lesson:nth-of-type(3) .play{--portal-final-glow-delay:-3.2s}
+.lesson:nth-of-type(4) .play{--portal-final-glow-delay:-4.8s}
+.lesson:nth-of-type(5) .play{--portal-final-glow-delay:-6.4s}
+.tool-card:nth-child(4n+2) .tool-actions .btn:not(.ghost),
+.freemode .fbtn:nth-child(2){--portal-final-glow-delay:-2s}
+.tool-card:nth-child(4n+3) .tool-actions .btn:not(.ghost),
+.freemode .fbtn:nth-child(3){--portal-final-glow-delay:-4s}
+.tool-card:nth-child(4n+4) .tool-actions .btn:not(.ghost),
+.freemode .fbtn:nth-child(4){--portal-final-glow-delay:-6s}
+@keyframes portal-final-glow{
+  0%,76%{left:-16%;opacity:0}
+  79%{opacity:.16}
+  86%{opacity:.44}
+  94%{left:116%;opacity:0}
+  100%{left:116%;opacity:0}
+}
 /* Acercamiento suave para fotografías de contenido.
    El carrusel principal usa .slide img y queda fuera de esta regla. */
 .thumb-img,.kit-img,.bb-bg,img.hero-bg,.help-bg,.tart,.lthumb,.suggestion-thumb,
@@ -66,6 +124,12 @@ html,body{max-width:100%;overflow-x:clip}
   .ft-brand .ft-brand-copy{flex:1 0 100%}
 }
 @media (prefers-reduced-motion:reduce){
+  :where(
+    .portal-final-action,a.cta,a.btn,a.start,a.playlist,
+    .lesson[target="_blank"] .play,.tool-dialog-open,.gem-safety-open,
+    .et-open,a.gm-open,a.s3btn,a.b1,.tool-actions .btn:not(.ghost),
+    .freemode .fbtn
+  )::after{display:none!important}
   *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;
     animation-iteration-count:1!important;transition-duration:.01ms!important;transition-delay:0s!important}
 }
