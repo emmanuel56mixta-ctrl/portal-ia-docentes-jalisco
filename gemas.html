@@ -253,7 +253,32 @@
   .resource-btn.featured{background:var(--lime);border-color:var(--lime);color:#0a0a0b}
   .resource-btn.featured:hover{background:#d6fb49;border-color:#d6fb49}
   .resource-btn.featured .arrow{color:#0a0a0b}
-  @media(max-width:820px){.resource-grid,.resource-grid.two,.resource-grid.one{grid-template-columns:1fr}}
+  .projects-axis{position:relative;overflow:hidden;scroll-margin-top:24px;margin-top:72px;padding:32px;border:1px solid rgba(200,241,53,.18);border-radius:26px;background:radial-gradient(70% 110% at 100% 0,rgba(200,241,53,.11),transparent 68%),linear-gradient(145deg,#17171a,#101012);box-shadow:0 24px 70px rgba(0,0,0,.28)}
+  .projects-axis::before{content:"";position:absolute;right:-70px;top:-90px;width:260px;height:260px;border-radius:50%;background:rgba(200,241,53,.07);filter:blur(8px);pointer-events:none}
+  .projects-axis>*{position:relative;z-index:1}
+  .projects-axis h3{font-size:30px;max-width:650px}
+  .projects-pill{display:inline-flex;align-items:center;min-height:24px;padding:3px 10px;border-radius:999px;background:rgba(200,241,53,.1);border:1px solid rgba(200,241,53,.22);color:#d7f966;font-size:11px;font-weight:700;letter-spacing:.4px}
+  .axis-intro{max-width:660px;margin-top:10px;color:var(--muted);font-size:15px;line-height:1.6}
+  .projects-grid{grid-template-columns:repeat(6,minmax(0,1fr));gap:14px;margin-top:24px}
+  .project-card{grid-column:span 2;position:relative;overflow:hidden;min-height:112px;padding:18px;background:linear-gradient(145deg,#1d1d21,#141416);border-color:#303036;justify-content:flex-start;align-items:center;--accent:var(--lime);--tint:rgba(200,241,53,.11);--shadow:rgba(200,241,53,.08)}
+  .project-card:nth-child(n+4){grid-column:span 3}
+  .project-card:nth-child(2){--accent:#49d6b3;--tint:rgba(73,214,179,.11);--shadow:rgba(73,214,179,.08)}
+  .project-card:nth-child(3){--accent:#a98cff;--tint:rgba(169,140,255,.11);--shadow:rgba(169,140,255,.08)}
+  .project-card:nth-child(4){--accent:#39bde7;--tint:rgba(57,189,231,.11);--shadow:rgba(57,189,231,.08)}
+  .project-card:nth-child(5){--accent:#f3a33b;--tint:rgba(243,163,59,.11);--shadow:rgba(243,163,59,.08)}
+  .project-card::before{content:"";position:absolute;left:0;top:0;width:100%;height:3px;background:linear-gradient(90deg,var(--accent),transparent 78%);opacity:.8}
+  .project-card:hover{border-color:var(--accent);background:linear-gradient(145deg,#222228,#161619);box-shadow:0 16px 36px var(--shadow)}
+  .project-badge{flex:0 0 48px;height:48px;border-radius:14px;display:grid;place-items:center;background:var(--tint);border:1px solid var(--accent);color:var(--accent);font-family:'Archivo';font-size:13px;font-weight:900;letter-spacing:.2px}
+  .project-copy{min-width:0;display:flex;flex:1;flex-direction:column;gap:4px}
+  .project-copy small{color:var(--dim);font-size:10px;font-weight:800;letter-spacing:1.25px;text-transform:uppercase}
+  .project-copy strong{font-family:'Archivo';font-size:15px;line-height:1.3}
+  .project-card .arrow{flex:0 0 34px;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:#0e0e10;border:1px solid #34343a;color:var(--accent);transition:.2s}
+  .project-card:hover .arrow{transform:translate(2px,-2px);border-color:var(--accent)}
+  @media(max-width:820px){
+    .resource-grid,.resource-grid.two,.resource-grid.one{grid-template-columns:1fr}
+    .projects-axis{padding:24px}.projects-axis h3{font-size:25px}
+    .projects-grid{grid-template-columns:1fr}.project-card,.project-card:nth-child(n+4){grid-column:auto}
+  }
 
   @media (prefers-reduced-motion:reduce){*,*::before,*::after{transition-duration:.01ms !important;animation-duration:.01ms !important;transition-delay:0s !important}html{scroll-behavior:auto}}
   .ft{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;text-align:left}
@@ -347,15 +372,16 @@
     </div>
   </div>
 
-  <div class="axis" id="proyectos-integradores" style="scroll-margin-top:24px">
-    <div class="ax-label"><span class="tagname">Proyectos integradores</span></div>
+  <div class="axis projects-axis" id="proyectos-integradores">
+    <div class="ax-label"><span class="tagname">Proyectos integradores</span><span class="projects-pill">5 Gemas especializadas</span></div>
     <h3>Diseña proyectos vinculados con el contexto</h3>
-    <div class="resource-grid">
-      <a class="resource-btn" href="https://gemini.google.com/gem/1s_x_tItPEHUPajycmf0U-iNxJOYywmpE?usp=sharing" target="_blank" rel="noopener" title="Se abre en Gemini, en pestaña nueva"><span>Segundo de secundaria</span><span class="arrow" aria-hidden="true">↗</span></a>
-      <a class="resource-btn" href="https://gemini.google.com/gem/1xUKJFlrMPVMtcCWupKPywUqc26yZ1dDK?usp=sharing" target="_blank" rel="noopener" title="Se abre en Gemini, en pestaña nueva"><span>Primaria 3.º y 4.º</span><span class="arrow" aria-hidden="true">↗</span></a>
-      <a class="resource-btn" href="https://gemini.google.com/gem/1O-g6zSsI1478noU5OXZZABaQC3Vy5m03?usp=sharing" target="_blank" rel="noopener" title="Se abre en Gemini, en pestaña nueva"><span>Secundaria</span><span class="arrow" aria-hidden="true">↗</span></a>
-      <a class="resource-btn" href="https://gemini.google.com/gem/1tfEaIaaOEj__-E-_JG2RJLPiTjdvoQZn?usp=sharing" target="_blank" rel="noopener" title="Se abre en Gemini, en pestaña nueva"><span>Primaria multigrado</span><span class="arrow" aria-hidden="true">↗</span></a>
-      <a class="resource-btn" href="https://gemini.google.com/gem/17E0Ht6Bgtrf_GKXq2lccYKufLYwmXHh_?usp=sharing" target="_blank" rel="noopener" title="Se abre en Gemini, en pestaña nueva"><span>Secundaria multigrado</span><span class="arrow" aria-hidden="true">↗</span></a>
+    <p class="axis-intro">Elige la Gema que corresponde al nivel y tipo de grupo. Cada asistente te acompañará paso a paso en la construcción de tu proyecto.</p>
+    <div class="resource-grid projects-grid">
+      <a class="resource-btn project-card" href="https://gemini.google.com/gem/1s_x_tItPEHUPajycmf0U-iNxJOYywmpE?usp=sharing" target="_blank" rel="noopener" title="Se abre en Gemini, en pestaña nueva"><span class="project-badge">2.º</span><span class="project-copy"><small>Proyecto integrador</small><strong>Segundo de secundaria</strong></span><span class="arrow" aria-hidden="true">↗</span></a>
+      <a class="resource-btn project-card" href="https://gemini.google.com/gem/1xUKJFlrMPVMtcCWupKPywUqc26yZ1dDK?usp=sharing" target="_blank" rel="noopener" title="Se abre en Gemini, en pestaña nueva"><span class="project-badge">3.º–4.º</span><span class="project-copy"><small>Proyecto integrador</small><strong>Primaria 3.º y 4.º</strong></span><span class="arrow" aria-hidden="true">↗</span></a>
+      <a class="resource-btn project-card" href="https://gemini.google.com/gem/1O-g6zSsI1478noU5OXZZABaQC3Vy5m03?usp=sharing" target="_blank" rel="noopener" title="Se abre en Gemini, en pestaña nueva"><span class="project-badge">SEC</span><span class="project-copy"><small>Proyecto integrador</small><strong>Secundaria</strong></span><span class="arrow" aria-hidden="true">↗</span></a>
+      <a class="resource-btn project-card" href="https://gemini.google.com/gem/1tfEaIaaOEj__-E-_JG2RJLPiTjdvoQZn?usp=sharing" target="_blank" rel="noopener" title="Se abre en Gemini, en pestaña nueva"><span class="project-badge">PM</span><span class="project-copy"><small>Modalidad multigrado</small><strong>Primaria multigrado</strong></span><span class="arrow" aria-hidden="true">↗</span></a>
+      <a class="resource-btn project-card" href="https://gemini.google.com/gem/17E0Ht6Bgtrf_GKXq2lccYKufLYwmXHh_?usp=sharing" target="_blank" rel="noopener" title="Se abre en Gemini, en pestaña nueva"><span class="project-badge">SM</span><span class="project-copy"><small>Modalidad multigrado</small><strong>Secundaria multigrado</strong></span><span class="arrow" aria-hidden="true">↗</span></a>
     </div>
   </div>
 
