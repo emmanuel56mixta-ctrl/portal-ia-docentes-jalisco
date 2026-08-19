@@ -12,11 +12,11 @@
 <style>
   :root{
     --bg:#18181a; --panel:#141416; --panel-2:#1b1b1e; --line:#26262a;
-    --txt:#f4f4f5; --muted:#9a9aa2; --dim:#8a8a94; --lime:#f5254f;
+    --txt:#f4f4f5; --muted:#9a9aa2; --dim:#8a8a94; --lime:#ff8a00;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
-  body{background:radial-gradient(60% 42% at 50% 0%, rgba(245,37,79,.24), transparent 72%) fixed,var(--bg);color:var(--txt);font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.5}
+  body{background:radial-gradient(60% 42% at 50% 0%, rgba(255,138,0,.2), transparent 72%) fixed,var(--bg);color:var(--txt);font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.5}
   .wrap{max-width:min(1320px,94vw);margin:0 auto;padding:0 22px}
   a{color:inherit;text-decoration:none}
   .nav{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
@@ -60,7 +60,7 @@
   summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:14px;padding:16px 20px;font-size:15.5px;font-weight:600}
   summary::-webkit-details-marker{display:none}
   summary .tg{flex:0 0 auto;width:24px;height:24px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;color:var(--muted);font-size:14px;transition:.25s}
-  details[open] summary .tg{transform:rotate(45deg);color:var(--lime);border-color:rgba(245,37,79,.5)}
+  details[open] summary .tg{transform:rotate(45deg);color:var(--lime);border-color:rgba(255,138,0,.5)}
   details[open] summary{color:var(--txt)}
   .ans{padding:0 20px 18px;color:var(--muted);font-size:15px;line-height:1.65;animation:ansIn .35s cubic-bezier(.22,1.12,.32,1)}
   .ans b{color:var(--txt);font-weight:600}
@@ -75,7 +75,7 @@
   .pb p{color:var(--muted);font-size:14px;margin-top:6px;line-height:1.55}
   .pb a{display:inline-block;margin-top:10px;color:var(--lime);font-size:14px;font-weight:700}
 
-  .cta-fin{margin:80px auto 0;max-width:680px;text-align:center;background:var(--panel);border:1px solid rgba(245,37,79,.35);border-radius:22px;padding:34px 30px}
+  .cta-fin{margin:80px auto 0;max-width:680px;text-align:center;background:var(--panel);border:1px solid rgba(255,138,0,.35);border-radius:22px;padding:34px 30px}
   .cta-fin h3{font-family:'Archivo';font-weight:900;font-size:24px;letter-spacing:-.5px}
   .cta-fin p{color:var(--muted);font-size:15.5px;margin-top:10px}
   .cta-fin .btns{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:20px}
