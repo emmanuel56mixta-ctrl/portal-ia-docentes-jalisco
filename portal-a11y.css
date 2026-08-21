@@ -1,0 +1,135 @@
+html,body{max-width:100%;overflow-x:clip}
+.skip-link{
+  position:fixed;left:16px;top:12px;z-index:1000;
+  transform:translateY(-180%);padding:10px 15px;border-radius:9px;
+  background:#111216;color:#fff;font:700 14px/1.2 system-ui,sans-serif;
+  box-shadow:0 6px 24px rgba(0,0,0,.35);transition:transform .16s ease
+}
+.skip-link:focus{transform:translateY(0)}
+.sr-only{
+  position:absolute!important;width:1px!important;height:1px!important;padding:0!important;
+  margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;
+  white-space:nowrap!important;border:0!important
+}
+:where(a,button,input,select,textarea,[tabindex]):focus-visible{
+  outline:3px solid #ff8a00!important;outline-offset:3px!important
+}
+[aria-disabled="true"]{cursor:not-allowed!important;opacity:.62}
+.page-route{
+  display:flex;align-items:center;flex-wrap:wrap;gap:8px;
+  margin:4px 0 18px;color:var(--muted);font-size:14.5px
+}
+.page-route a{color:var(--muted);text-decoration:none}
+.page-route a:hover{color:var(--txt)}
+.page-route .sep{color:var(--dim);opacity:.7}
+.page-route [aria-current="page"]{color:var(--txt);font-weight:700}
+.nav .right[href]:hover{color:var(--txt)}
+/* Resplandor móvil y discreto para la acción principal de cada recorrido.
+   Se limita a botones de acceso; navegación, filtros y acciones secundarias quedan fuera. */
+:where(
+  .portal-final-action,
+  a.cta,
+  a.btn,
+  a.start,
+  a.playlist,
+  .lesson[target="_blank"] .play,
+  .tool-dialog-open,
+  .gem-safety-open,
+  .et-open,
+  a.gm-open,
+  a.s3btn,
+  a.b1,
+  .tool-actions .btn:not(.ghost),
+  .freemode .fbtn
+){position:relative;isolation:isolate;overflow:hidden}
+:where(
+  .portal-final-action,
+  a.cta,
+  a.btn,
+  a.start,
+  a.playlist,
+  .lesson[target="_blank"] .play,
+  .tool-dialog-open,
+  .gem-safety-open,
+  .et-open,
+  a.gm-open,
+  a.s3btn,
+  a.b1,
+  .tool-actions .btn:not(.ghost),
+  .freemode .fbtn
+)::after{
+  content:"";position:absolute;z-index:3;top:50%;left:-16%;width:30px;height:30px;
+  border-radius:50%;pointer-events:none;opacity:0;transform:translate(-50%,-50%);
+  background:radial-gradient(circle,rgba(255,255,255,.92) 0 5%,rgba(205,236,255,.5) 16%,rgba(132,198,255,.2) 38%,transparent 70%);
+  filter:drop-shadow(0 0 5px rgba(174,220,255,.32));mix-blend-mode:screen;
+  animation:portal-final-glow 8s ease-in-out infinite;
+  animation-delay:var(--portal-final-glow-delay,0s)
+}
+.lesson:nth-of-type(2) .play{--portal-final-glow-delay:-1.6s}
+.lesson:nth-of-type(3) .play{--portal-final-glow-delay:-3.2s}
+.lesson:nth-of-type(4) .play{--portal-final-glow-delay:-4.8s}
+.lesson:nth-of-type(5) .play{--portal-final-glow-delay:-6.4s}
+.tool-card:nth-child(4n+2) .tool-actions .btn:not(.ghost),
+.freemode .fbtn:nth-child(2){--portal-final-glow-delay:-2s}
+.tool-card:nth-child(4n+3) .tool-actions .btn:not(.ghost),
+.freemode .fbtn:nth-child(3){--portal-final-glow-delay:-4s}
+.tool-card:nth-child(4n+4) .tool-actions .btn:not(.ghost),
+.freemode .fbtn:nth-child(4){--portal-final-glow-delay:-6s}
+@keyframes portal-final-glow{
+  0%,76%{left:-16%;opacity:0}
+  79%{opacity:.16}
+  86%{opacity:.44}
+  94%{left:116%;opacity:0}
+  100%{left:116%;opacity:0}
+}
+/* Acercamiento suave para fotografías de contenido.
+   El carrusel principal usa .slide img y queda fuera de esta regla. */
+.thumb-img,.kit-img,.bb-bg,img.hero-bg,.help-bg,.tart,.lthumb,.suggestion-thumb,
+.family-photo,.preview>img{
+  transition:transform .6s cubic-bezier(.2,.65,.3,1);
+  transform-origin:center
+}
+@media(hover:hover) and (prefers-reduced-motion:no-preference){
+  .card:hover .thumb-img,
+  .card:focus-within .thumb-img,
+  .kit-intro:hover .kit-img,
+  .kit-intro:focus-within .kit-img,
+  .banco-banner:hover .bb-bg,
+  .banco-banner:focus-within .bb-bg,
+  .hero:hover img.hero-bg,
+  .hero:focus-within img.hero-bg,
+  .help:hover .help-bg,
+  .help:focus-within .help-bg,
+  .tcard:hover .tart,
+  .tcard:focus-within .tart,
+  .lesson:hover .lthumb,
+  .lesson:focus-within .lthumb,
+  .suggestion-card:hover .suggestion-thumb,
+  .suggestion-card:focus-within .suggestion-thumb,
+  .family-cover:hover .family-photo,
+  .project-visual:hover .family-photo,
+  .project-visual:focus-within .family-photo,
+  .preview:hover>img,
+  .preview:focus-within>img{transform:scale(1.045)}
+}
+.ft-brand{flex-wrap:wrap}
+.ft-brand .ft-logo-divider{
+  width:1px;height:42px;flex:0 0 auto;
+  background:currentColor;opacity:.18
+}
+.ft-brand .ft-gob-logo{height:52px;width:auto;flex:0 0 auto}
+.ft-brand .ft-brand-copy{min-width:190px}
+@media(max-width:560px){
+  .ft-brand{align-items:flex-start}
+  .ft-brand .ft-brand-copy{flex:1 0 100%}
+}
+@media (prefers-reduced-motion:reduce){
+  :where(
+    .portal-final-action,a.cta,a.btn,a.start,a.playlist,
+    .lesson[target="_blank"] .play,.tool-dialog-open,.gem-safety-open,
+    .et-open,a.gm-open,a.s3btn,a.b1,.tool-actions .btn:not(.ghost),
+    .freemode .fbtn
+  )::after{display:none!important}
+  *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;
+    animation-iteration-count:1!important;transition-duration:.01ms!important;transition-delay:0s!important}
+}

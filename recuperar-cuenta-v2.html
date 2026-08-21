@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="portal-a11y.css">
 <meta name="description" content="Mesa de Ayuda del portal IA para Docentes: crea o recupera tu cuenta @jaliscoedu.mx y accede a Gemini, Google Workspace, APPrende y Mi Muro.">
 <link rel="icon" href="logo-sej.svg" type="image/svg+xml">
 <meta property="og:title" content="Mesa de Ayuda · Tu cuenta jaliscoedu.mx">
@@ -13,10 +14,10 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  :root{--bg:#18181a;--panel:#141416;--panel-2:#1b1b1e;--line:#26262a;--txt:#f4f4f5;--muted:#9a9aa2;--dim:#8a8a94;--lime:#f5254f;--radius:18px}
+  :root{--bg:#18181a;--panel:#141416;--panel-2:#1b1b1e;--line:#26262a;--txt:#f4f4f5;--muted:#9a9aa2;--dim:#8a8a94;--lime:#ff8a00;--radius:18px}
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
-  body{background:radial-gradient(60% 42% at 50% 0%, rgba(245,37,79,.24), transparent 72%) fixed,var(--bg);color:var(--txt);font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.5}
+  body{background:radial-gradient(60% 42% at 50% 0%, rgba(255,138,0,.2), transparent 72%) fixed,var(--bg);color:var(--txt);font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.5}
   .wrap{max-width:min(1320px,94vw);margin:0 auto;padding:0 22px}
   a{color:inherit;text-decoration:none}
   .nav{display:flex;align-items:center;justify-content:space-between;padding:18px 0 6px}
@@ -38,7 +39,7 @@
   .sec .sub{color:var(--muted);font-size:13.5px;margin-top:6px;max-width:560px}
   /* triaje estilo referencia */
   .tri-head{text-align:center}
-  .tri-ic{width:48px;height:48px;margin:0 auto 14px;border-radius:13px;background:linear-gradient(135deg,#f5254f,#f98a1e);display:grid;place-items:center;font-size:23px}
+  .tri-ic{width:48px;height:48px;margin:0 auto 14px;border-radius:13px;background:linear-gradient(135deg,#ff8a00,#ffb347);display:grid;place-items:center;font-size:23px}
   .tri-head h2{text-transform:uppercase;letter-spacing:-.2px}
   .tri-head .sub{margin-left:auto;margin-right:auto}
                           .tri-label{margin:44px 0 14px;font-family:'Archivo';font-weight:800;font-size:14px;letter-spacing:2.5px;text-transform:uppercase}
@@ -57,10 +58,10 @@
   .vcardv h3{font-size:14.5px;font-weight:700}
   .vcardv p{color:var(--muted);font-size:14.5px;line-height:1.5;flex:1;margin:0}
   .vcardv .vtag{align-self:flex-start;background:var(--panel-2);border:1px solid var(--line);color:var(--muted);font-size:14px;padding:4px 9px;border-radius:16px}
-  .vcardv.destacada{border-color:rgba(245,37,79,.4)}
-  .vcardv .vtag.lime{color:var(--lime);border-color:rgba(245,37,79,.4)}
+  .vcardv.destacada{border-color:rgba(255,138,0,.4)}
+  .vcardv .vtag.lime{color:var(--lime);border-color:rgba(255,138,0,.4)}
   /* seguridad */
-  .safe{margin-top:44px;background:var(--panel);border:1px solid rgba(245,37,79,.4);border-radius:var(--radius);padding:22px 24px;display:flex;gap:16px;align-items:flex-start}
+  .safe{margin-top:44px;background:var(--panel);border:1px solid rgba(255,138,0,.4);border-radius:var(--radius);padding:22px 24px;display:flex;gap:16px;align-items:flex-start}
   .safe .sic{flex:0 0 38px;width:38px;height:38px;border-radius:10px;background:var(--panel-2);border:1px solid var(--line);display:grid;place-items:center;font-size:20px;color:var(--lime)}
   .safe h3{font-family:'Archivo';font-weight:800;font-size:15px}
   .safe p{color:var(--muted);font-size:15px;margin-top:6px;max-width:720px}
@@ -99,6 +100,7 @@
 </style>
 </head>
 <body>
+<a class="skip-link" href="#contenido-principal">Saltar al contenido principal</a>
 <div class="wrap">
 
   <nav class="nav">
@@ -108,6 +110,7 @@
 
   <nav class="crumb" aria-label="Ruta de navegación"><a href="academia-docente-jalisco-v2.html">IA para Docentes</a> / <span aria-current="page">Mesa de ayuda</span></nav>
 
+  <main id="contenido-principal" tabindex="-1">
   <header class="hero">
     <img src="mesa-ayuda-llave.jpg" class="hero-bg" alt="Llave luminosa con el dominio @jaliscoedu.mx frente a una laptop" onerror="this.style.display='none'">
     <div class="hero-inner">
@@ -201,14 +204,18 @@
     </div>
   </section>
 
+  </main>
+
 <footer>
   <div class="wrap">
     <div class="ft">
       <div class="ft-brand">
         <img src="logo-sej.svg" alt="Secretaría de Educación Jalisco">
-        <div>
+        <span class="ft-logo-divider" aria-hidden="true"></span>
+        <img class="ft-gob-logo" src="logo-gobierno-jalisco-2024.svg" alt="Gobierno de Jalisco">
+        <div class="ft-brand-copy">
           <b>Secretaría de Educación del Gobierno de Jalisco</b>
-          <span>IA para Docentes · Prototipo de lanzamiento</span>
+          <span>IA para Docentes · Portal de inteligencia artificial para docentes</span>
         </div>
       </div>
       <div class="ft-cols">
@@ -234,7 +241,7 @@
         <a href="https://www.youtube.com/user/educacionjalisco" target="_blank" rel="noopener" aria-label="YouTube de Educación Jalisco"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor"><path d="M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.5 2.5 0 0 0 2.4 7.2 26 26 0 0 0 2 12a26 26 0 0 0 .4 4.8 2.5 2.5 0 0 0 1.8 1.8c1.6.4 7.8.4 7.8.4s6.2 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8A26 26 0 0 0 22 12a26 26 0 0 0-.4-4.8zM10 15.2V8.8l5.2 3.2-5.2 3.2z"/></svg></a>
       </div>
     </div>
-    <div class="ft-legal">Soporte: <a href="mailto:alfadireccion.sej@jalisco.gob.mx">alfadireccion.sej@jalisco.gob.mx</a> · Algunos derechos reservados © 2026 · Secretaría de Educación Jalisco</div>
+    <div class="ft-legal">Soporte: <a href="mailto:alfadireccion.sej@jalisco.gob.mx">alfadireccion.sej@jalisco.gob.mx</a> · Derechos reservados © 2026 · Secretaría de Educación Jalisco</div>
   </div>
 </footer>
 

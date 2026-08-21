@@ -3,6 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Portal de inteligencia artificial para docentes de Jalisco: cursos, Constructor pedagógico, Gemas y recursos para la práctica educativa.">
+<link rel="stylesheet" href="portal-a11y.css">
+<link rel="stylesheet" href="conoce-mas-ia.css">
 <title>Academia Docente Digital · Jalisco</title>
 <link rel="icon" href="logo-sej-2024.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,14 +20,14 @@
     --txt:#f4f4f5;
     --muted:#9a9aa2;
     --dim:#8a8a94;
-    --lime:#c8f135;
-    --lime-soft:#a9d02e;
+    --lime:#ff8a00;
+    --lime-soft:#ff9d1f;
     --radius:18px;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
   body{
-    background:radial-gradient(60% 42% at 50% 0%, rgba(200,241,53,.17), transparent 72%) fixed,var(--bg);
+    background:radial-gradient(60% 42% at 50% 0%, rgba(255,138,0,.2), transparent 72%) fixed,var(--bg);
     color:var(--txt);
     font-family:'Inter',system-ui,sans-serif;
     -webkit-font-smoothing:antialiased;
@@ -65,11 +68,11 @@
     background:linear-gradient(90deg, rgba(6,10,16,.92) 0%, rgba(6,10,16,.72) 34%, rgba(6,10,16,.15) 62%, rgba(6,10,16,0) 100%);
   }
   .slide .inner{position:relative;z-index:2;padding:36px 36px 34px;max-width:600px}
-  .slide h1{
+  .slide h2{
     font-family:'Archivo';font-weight:900;font-size:38px;line-height:1.02;
     letter-spacing:-.5px;text-transform:uppercase;margin-bottom:14px
   }
-  .slide h1 .g{color:var(--lime)}
+  .slide h2 .g{color:var(--lime)}
   .slide p{color:#d4d9e0;font-size:16.5px;max-width:480px}
 
   /* arrows */
@@ -114,17 +117,16 @@
   .thumb{position:relative;height:190px;display:grid;place-items:center;overflow:hidden}
   .thumb.glow{
     background:
-      radial-gradient(80% 90% at 50% 60%, rgba(200,241,53,.35), transparent 60%),
+      radial-gradient(80% 90% at 50% 60%, rgba(255,138,0,.35), transparent 60%),
       linear-gradient(180deg,#182016,#0e120c);
   }
   .thumb-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1}
+  .thumb-img.teacher{object-position:center 14%}
   .kit-intro .art .kit-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
   .thumb-shade{position:absolute;inset:0;z-index:2;background:linear-gradient(180deg,rgba(8,8,9,.10) 0%,rgba(8,8,9,.35) 45%,rgba(8,8,9,.82) 100%)}
   .thumb.film{
     background:linear-gradient(180deg,#2a2116 0%,#171208 60%,#0c0a06 100%);
   }
-  .thumb .badge-tr{position:absolute;top:12px;right:12px;z-index:4;width:26px;height:26px;border-radius:50%;
-    background:linear-gradient(135deg,var(--lime),#7fae12);display:grid;place-items:center;color:#0a0a0b;font-weight:900;font-size:12px}
   .pillset{display:flex;flex-direction:column;gap:10px;z-index:2}
   .pill{
     background:rgba(20,20,22,.72);backdrop-filter:blur(4px);
@@ -133,7 +135,7 @@
     font-weight:600;font-size:15px;min-width:118px;justify-content:center
   }
   .pill .d{width:7px;height:7px;border-radius:50%;background:var(--lime)}
-  .filmtitle{position:relative;z-index:3;text-align:center;color:#fff;text-shadow:0 2px 12px rgba(0,0,0,.6)}
+  .filmtitle{position:relative;z-index:3;transform:translateY(38px);text-align:center;color:#fff;text-shadow:0 2px 12px rgba(0,0,0,.6)}
   .filmtitle .k{font-family:'Archivo';font-weight:800;font-size:13px;letter-spacing:3px;opacity:.7;text-transform:uppercase}
   .filmtitle .b{font-family:'Archivo';font-weight:900;font-size:34px;line-height:.95;letter-spacing:-1px;text-transform:uppercase;margin-top:2px}
   .card .meta{padding:14px 16px 16px}
@@ -143,7 +145,7 @@
   .gobtn{display:inline-block;background:#ececee;color:#0a0a0b;font-weight:800;font-size:14px;padding:8px 16px;border-radius:20px}
   .tag{display:inline-flex;align-items:center;gap:5px;background:var(--panel-2);border:1px solid var(--line);
     color:var(--muted);font-size:12.5px;padding:3px 8px;border-radius:16px}
-  .tag.lime{color:var(--lime);border-color:rgba(200,241,53,.3)}
+  .tag.lime{color:var(--lime);border-color:rgba(255,138,0,.3)}
 
   /* ---------- program banner ---------- */
   .program{margin-top:52px}
@@ -159,7 +161,7 @@
   .step .num{position:absolute;right:16px;bottom:12px;z-index:3;font-family:'Archivo';font-weight:900;font-size:26px;line-height:1;color:#f7841f}
   .step .n{width:26px;height:26px;border-radius:8px;background:var(--panel-2);border:1px solid var(--line);
     display:grid;place-items:center;font-family:'Archivo';font-weight:800;font-size:15px;color:var(--muted)}
-  .step h4{font-family:'Archivo';font-weight:800;font-size:19px;line-height:1.06;color:#fff;margin:0;letter-spacing:-.3px}
+  .step h3{font-family:'Archivo';font-weight:800;font-size:19px;line-height:1.06;color:#fff;margin:0;letter-spacing:-.3px}
   .step .ul{display:block;width:52px;height:3px;border-radius:2px;margin:12px 0 13px;background:linear-gradient(90deg,#ea4335,#fbbc05,#34a853,#4285f4,#a142f4)}
   .step p{color:#c7ccd6;font-size:14px;line-height:1.5;margin:0}
   .step p b{font-weight:600;background:linear-gradient(90deg,#4b8bf5,#a855f7);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
@@ -168,25 +170,50 @@
   .cta{display:inline-flex;align-items:center;gap:7px;background:#ececee;color:#0a0a0b;font-weight:800;
     font-size:14.5px;padding:8px 16px;border-radius:20px;margin-top:16px}
 
+  /* ---------- acceso a Formación del Carácter ---------- */
+  .character-home{position:relative;isolation:isolate;display:block;margin-top:26px;min-height:300px;border:1px solid rgba(245,37,79,.48);border-radius:min(26px,2.7vw);overflow:hidden;background:#ed0055;box-shadow:0 22px 62px rgba(90,0,30,.22);transition:transform .2s,border-color .2s,box-shadow .2s}
+  .character-home:hover{transform:translateY(-2px);border-color:rgba(255,255,255,.38);box-shadow:0 26px 70px rgba(90,0,30,.32)}
+  .character-home__image{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:0}
+  .character-home::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(54,0,22,.84) 0%,rgba(68,0,29,.7) 34%,rgba(85,0,37,.26) 55%,transparent 72%)}
+  .character-home__content{position:relative;z-index:2;max-width:560px;padding:39px 44px}
+  .character-home__kick{color:#ffd0a0;font-family:'Archivo';font-size:12.5px;font-weight:800;letter-spacing:2.8px;text-transform:uppercase}
+  .character-home h2{font-family:'Archivo';font-size:34px;font-weight:900;line-height:1.04;letter-spacing:-.8px;margin-top:9px;max-width:540px}
+  .character-home p{color:#fff1f6;font-size:15.5px;line-height:1.58;margin-top:13px;max-width:500px}
+  .character-home__button{display:inline-flex;align-items:center;gap:8px;margin-top:18px;padding:9px 17px;border-radius:22px;background:#fff;color:#8a0032;font-size:14px;font-weight:800}
+
+  @media(max-width:900px){
+    .character-home{min-height:330px}
+    .character-home__image{object-position:62% center}
+    .character-home::after{background:linear-gradient(90deg,rgba(54,0,22,.92) 0%,rgba(68,0,29,.78) 45%,rgba(85,0,37,.3) 70%,transparent 90%)}
+  }
+  @media(max-width:650px){
+    .character-home{display:grid;min-height:0;border-radius:22px}
+    .character-home__image{position:relative;grid-row:1;width:100%;height:auto;aspect-ratio:16/7;object-fit:cover;object-position:right center}
+    .character-home::after{display:none}
+    .character-home__content{grid-row:2;max-width:none;padding:22px 20px 24px;background:linear-gradient(145deg,#8f0034,#390015)}
+    .character-home h2{font-size:24px}
+    .character-home p{font-size:14.5px}
+  }
+
   /* ---------- kit / videos ---------- */
   .kit{margin-top:56px}
   .kit-intro{
-    margin-top:20px;border:1px solid rgba(249,90,30,.45);border-radius:min(28px,2.9vw);overflow:hidden;background:var(--panel);
-    box-shadow:0 0 70px rgba(245,45,25,.28),0 0 22px rgba(249,138,30,.18);transition:.25s box-shadow,.25s border-color
+    margin-top:20px;border:1px solid rgba(255,138,0,.45);border-radius:min(28px,2.9vw);overflow:hidden;background:var(--panel);
+    box-shadow:0 0 70px rgba(255,138,0,.28),0 0 22px rgba(255,138,0,.18);transition:.25s box-shadow,.25s border-color
   }
-  .kit-intro:hover{box-shadow:0 0 90px rgba(245,45,25,.4),0 0 30px rgba(249,138,30,.28);border-color:rgba(249,110,30,.65)}
+  .kit-intro:hover{box-shadow:0 0 90px rgba(255,138,0,.4),0 0 30px rgba(255,138,0,.28);border-color:rgba(255,138,0,.65)}
   .kit-intro .art{
     aspect-ratio:2172/724;height:auto;position:relative;display:grid;place-items:center;
-    background:radial-gradient(70% 90% at 50% 55%, rgba(200,241,53,.22), transparent 60%),linear-gradient(180deg,#181a12,#0d0f0a)
+    background:radial-gradient(70% 90% at 50% 55%, rgba(255,138,0,.22), transparent 60%),linear-gradient(180deg,#181a12,#0d0f0a)
   }
   .gemcards{display:flex;gap:14px}
   .gemcard{width:150px;height:96px;border-radius:12px;transform:rotate(-6deg);border:1px solid rgba(255,255,255,.08);
     background:linear-gradient(135deg,#3a2a4d,#241830);box-shadow:0 12px 30px rgba(0,0,0,.4)}
-  .gemcard.b{transform:rotate(6deg) translateX(-14px);background:linear-gradient(135deg,#c8f135,#6f8f13)}
+  .gemcard.b{transform:rotate(6deg) translateX(-14px);background:linear-gradient(135deg,#ff8a00,#b44800)}
   .explore{flex:0 0 auto;background:#ececee;border:0;white-space:nowrap;
     color:#0a0a0b;font-size:14px;font-weight:800;padding:9px 18px;border-radius:20px}
   .cardfan{position:absolute;inset:0;z-index:1;display:flex;align-items:center;justify-content:center;perspective:620px;transform-style:preserve-3d;pointer-events:none}
-  .c3d{position:relative;width:12%;margin:0 -1.2%;aspect-ratio:9/10;object-fit:cover;border-radius:10px;border:1px solid rgba(255,255,255,.14);box-shadow:0 16px 34px rgba(0,0,0,.55);will-change:transform}
+  .c3d{position:relative;width:14%;margin:0 -1.2%;aspect-ratio:9/10;object-fit:cover;border-radius:10px;border:1px solid rgba(255,255,255,.14);box-shadow:0 16px 34px rgba(0,0,0,.55);will-change:transform}
   .kit-intro .cap{padding:14px 16px 16px;display:flex;align-items:center;justify-content:space-between;gap:16px}
   .kit-intro .cap h3{font-size:14px;font-weight:700}
   .kit-intro .cap p{color:var(--dim);font-size:14px;margin-top:3px}
@@ -235,8 +262,13 @@
     .steps{grid-template-columns:1fr 1fr}
     .conn{display:none}
     .videos{grid-template-columns:1fr}
-    .hero h1{font-size:30px}
+    .hero h2{font-size:30px}
     .program .lead{margin-left:0}
+  }
+  @media(max-width:520px){
+    .slide .inner{padding:24px 34px 42px}
+    .hero h2{font-size:27px}
+    .slide p{font-size:14px;line-height:1.45}
   }
 
   /* banner banco de gemas */
@@ -310,6 +342,7 @@
 </style>
 </head>
 <body>
+<a class="skip-link" href="#contenido-principal">Saltar al contenido principal</a>
 <div class="wrap">
 
   <!-- NAV -->
@@ -318,30 +351,33 @@
     
   </nav>
 
+  <main id="contenido-principal" tabindex="-1">
+  <h1 class="sr-only">IA para Docentes de Jalisco</h1>
+
   <!-- HERO CARRUSEL -->
-  <header class="hero">
+  <header class="hero" aria-roledescription="carrusel" aria-label="Presentación del portal">
     <div class="slides" id="slides">
 
-      <div class="slide s1 active">
+      <div class="slide s1 active" aria-hidden="false">
         <img src="hero-1.png" alt="Docentes de Jalisco trabajando con IA" onerror="this.style.display='none'">
         <div class="inner">
-          <h1>Inteligencia artificial<br><span class="g">al servicio de la educación</span></h1>
-          <p>Explora recursos y herramientas que te ayudan a crear, organizar y enriquecer experiencias de aprendizaje, siempre con el conocimiento y el criterio docente al centro.</p>
+          <h2>IA para Docentes<br><span class="g">Lleva la IA a tu salón de clases</span></h2>
+          <p>Aprende, crea y transforma tu práctica docente con inteligencia artificial.</p>
         </div>
       </div>
 
-      <div class="slide s2">
+      <div class="slide s2" aria-hidden="true">
         <img src="hero-2.png" alt="Aula con Google for Education al estilo Jalisco" onerror="this.style.display='none'">
         <div class="inner">
-          <h1>Educación<br><span class="g">Al Estilo Jalisco</span></h1>
+          <h2>Educación<br><span class="g">Al Estilo Jalisco</span></h2>
           <p>Encuentra soluciones impulsadas por inteligencia artificial para planear, generar materiales, adaptar contenidos y responder a las necesidades de tus estudiantes.</p>
         </div>
       </div>
 
-      <div class="slide s3">
+      <div class="slide s3" aria-hidden="true">
         <img src="hero-3.png" alt="Docentes colaborando y compartiendo Gemas" onerror="this.style.display='none'">
         <div class="inner">
-          <h1>Innovar para<br><span class="g">enseñar y aprender mejor</span></h1>
+          <h2>Innovar para<br><span class="g">enseñar y aprender mejor</span></h2>
           <p>Integra la tecnología de manera responsable, creativa y pertinente. Accede a herramientas que facilitan tareas y abren nuevas oportunidades para transformar el aprendizaje.</p>
         </div>
       </div>
@@ -364,7 +400,7 @@
       <!-- card 1 -->
       <a href="recuperar-cuenta.html" class="card" style="display:block">
         <div class="thumb glow">
-          <img src="cuenta-jalisco.png" alt="Cuenta @jaliscoedu.mx" class="thumb-img" onerror="this.style.display='none'">
+          <img src="cuenta-jalisco-naranja.png" alt="Cuenta @jaliscoedu.mx" class="thumb-img" onerror="this.style.display='none'">
         </div>
         <div class="meta">
           <h3>Primeros pasos con tu cuenta @jaliscoedu.mx</h3>
@@ -376,9 +412,8 @@
       <!-- card 2 -->
       <a class="card" href="curso-herramientas-ia.html" style="display:block">
         <div class="thumb film">
-          <img src="maestra.png" alt="Maestra impartiendo clase con IA" class="thumb-img" onerror="this.style.display='none'">
+          <img src="maestra.png" alt="Maestra impartiendo clase con IA" class="thumb-img teacher" onerror="this.style.display='none'">
           <div class="thumb-shade"></div>
-          <div class="badge-tr">◆</div>
           <div class="filmtitle">
             <div class="k">Aula digital</div>
             <div class="b">Paso a paso</div>
@@ -403,25 +438,25 @@
 
     <div class="steps">
       <div class="step">
-        <h4>Diagnóstico<br>inicial</h4>
+        <h3>Diagnóstico<br>inicial</h3>
         <span class="ul"></span>
         <p><b>La Gema</b> analiza tu grupo y contexto para partir de datos reales.</p>
         <span class="num">1</span>
       </div>
       <div class="step">
-        <h4>Programa<br>analítico</h4>
+        <h3>Programa<br>analítico</h3>
         <span class="ul"></span>
         <p><b>La Gema</b> contextualiza el programa a tu comunidad y campos formativos.</p>
         <span class="num">2</span>
       </div>
       <div class="step">
-        <h4>Planeación<br>didáctica</h4>
+        <h3>Planeación<br>didáctica</h3>
         <span class="ul"></span>
         <p><b>La Gema</b> genera secuencias, actividades y materiales alineados a los PDA.</p>
         <span class="num">3</span>
       </div>
       <div class="step">
-        <h4>Evaluación y<br>retroalimentación</h4>
+        <h3>Evaluación y<br>retroalimentación</h3>
         <span class="ul"></span>
         <p><b>La Gema</b> crea rúbricas e instrumentos y retroalimenta por PDA.</p>
         <span class="num">4</span>
@@ -442,13 +477,12 @@
       <div class="art">
         <img src="kit-herramientas-neon.jpg" alt="Portal neón del kit de herramientas" class="kit-img" onerror="this.style.display='none'">
         <div class="cardfan" aria-hidden="true">
-          <img class="c3d" src="hd-diagnostico.jpg" alt="Diagnóstico Inicial" data-z="-175" data-ry="16" data-depth="0.5" data-sx="-3" style="z-index:4;opacity:0.3;transform:translateZ(-175px) rotateY(16deg)" onerror="this.style.display='none'">
-          <img class="c3d" src="hd-planeacion.jpg" alt="Planeación Didáctica" data-z="-90" data-ry="15" data-depth="0.8" data-sx="-2" style="z-index:5;opacity:0.55;transform:translateZ(-90px) rotateY(15deg)" onerror="this.style.display='none'">
-          <img class="c3d" src="hd-leo.jpg" alt="Programa LEO" data-z="-5" data-ry="13" data-depth="1.1" data-sx="-1" style="z-index:6;opacity:0.85;transform:translateZ(-5px) rotateY(13deg)" onerror="this.style.display='none'">
-          <img class="c3d" src="hd-caracter.jpg" alt="Formación del Carácter" data-z="80" data-ry="0" data-depth="1.4" data-sx="0" style="z-index:7;opacity:1;transform:translateZ(80px) rotateY(0deg)" onerror="this.style.display='none'">
-          <img class="c3d" src="hd-proyectos.jpg" alt="Proyectos Integradores" data-z="-5" data-ry="-13" data-depth="1.1" data-sx="1" style="z-index:6;opacity:0.85;transform:translateZ(-5px) rotateY(-13deg)" onerror="this.style.display='none'">
-          <img class="c3d" src="hd-matematicas.jpg" alt="Matemáticas" data-z="-90" data-ry="-15" data-depth="0.8" data-sx="2" style="z-index:5;opacity:0.55;transform:translateZ(-90px) rotateY(-15deg)" onerror="this.style.display='none'">
-          <img class="c3d" src="hd-evaluacion.jpg" alt="Evaluación" data-z="-175" data-ry="-16" data-depth="0.5" data-sx="3" style="z-index:4;opacity:0.3;transform:translateZ(-175px) rotateY(-16deg)" onerror="this.style.display='none'">
+          <img class="c3d" src="hd-diagnostico.jpg" alt="Diagnóstico Inicial" data-z="-150" data-ry="18" data-depth="0.55" data-sx="-2.5" style="z-index:4;opacity:0.38;transform:translateZ(-150px) rotateY(18deg)" onerror="this.style.display='none'">
+          <img class="c3d" src="hd-planeacion.jpg" alt="Planeación Didáctica" data-z="-70" data-ry="14" data-depth="0.85" data-sx="-1.5" style="z-index:5;opacity:0.68;transform:translateZ(-70px) rotateY(14deg)" onerror="this.style.display='none'">
+          <img class="c3d" src="hd-leo.jpg" alt="Programa LEO" data-z="35" data-ry="7" data-depth="1.2" data-sx="-0.5" style="z-index:6;opacity:1;transform:translateZ(35px) rotateY(7deg)" onerror="this.style.display='none'">
+          <img class="c3d" src="hd-proyectos.jpg" alt="Proyectos Integradores" data-z="35" data-ry="-7" data-depth="1.2" data-sx="0.5" style="z-index:6;opacity:1;transform:translateZ(35px) rotateY(-7deg)" onerror="this.style.display='none'">
+          <img class="c3d" src="hd-matematicas.jpg" alt="Matemáticas" data-z="-70" data-ry="-14" data-depth="0.85" data-sx="1.5" style="z-index:5;opacity:0.68;transform:translateZ(-70px) rotateY(-14deg)" onerror="this.style.display='none'">
+          <img class="c3d" src="hd-evaluacion.jpg" alt="Evaluación" data-z="-150" data-ry="-18" data-depth="0.55" data-sx="2.5" style="z-index:4;opacity:0.38;transform:translateZ(-150px) rotateY(-18deg)" onerror="this.style.display='none'">
         </div>
 
       </div>
@@ -458,6 +492,16 @@
           <p>Planeación, evaluación, inclusión, retroalimentación y más. Elige una Gema, cópiala y ponla a trabajar con tu cuenta.</p>
         </div>
         <div class="explore">Explorar ▸</div>
+      </div>
+    </a>
+
+    <a class="character-home" href="formacion-caracter.html" aria-labelledby="character-home-title">
+      <img class="character-home__image" src="formacion-caracter-banner.jpg" alt="Docente acompañando a estudiantes durante una actividad colaborativa" loading="lazy">
+      <div class="character-home__content">
+        <span class="character-home__kick">Espacio especializado</span>
+        <h2 id="character-home-title">Formación del Carácter Al Estilo Jalisco</h2>
+        <p>Explora Gemas para diseñar experiencias que acompañen el desarrollo de virtudes en cada etapa educativa.</p>
+        <span class="character-home__button">Explorar las Gemas <span aria-hidden="true">→</span></span>
       </div>
     </a>
 
@@ -472,15 +516,33 @@
     </a>
   </section>
 
+  <section class="learn-ai-home" aria-labelledby="learn-ai-home-title">
+    <img class="learn-ai-home__image" src="conoce-ia-docente.jpg" alt="Docente reflexionando frente a su computadora portátil" loading="lazy">
+    <div class="learn-ai-home__content">
+      <span class="learn-ai-kicker">Formación para comprender y decidir</span>
+      <h2 id="learn-ai-home-title">Conoce más sobre la IA</h2>
+      <p>Amplía tu mirada sobre sus posibilidades, límites y uso responsable en la educación. Explora una serie audiovisual y recursos institucionales para fortalecer tu criterio docente.</p>
+      <div class="learn-ai-home__tags" aria-label="Temas disponibles"><span class="learn-ai-home__tag">Educación</span><span class="learn-ai-home__tag">Ética</span><span class="learn-ai-home__tag">Ciudadanía digital</span></div>
+      <div class="learn-ai-home__actions">
+        <a class="learn-ai-home__primary portal-final-action" href="conoce-mas-ia-v2.html">Explorar recursos <span aria-hidden="true">→</span></a>
+        <a class="learn-ai-home__secondary portal-final-action" href="https://www.youtube.com/watch?v=ZLsVs2PwXck&amp;list=PL6UhGvZdF4ui7c9SYmo-vipkBrj0uYKyA" target="_blank" rel="noopener">Ver lista de reproducción <span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+  </section>
+
+
+  </main>
 
 <footer>
   <div class="wrap">
     <div class="ft">
       <div class="ft-brand">
         <img src="logo-sej.svg" alt="Secretaría de Educación Jalisco">
-        <div>
+        <span class="ft-logo-divider" aria-hidden="true"></span>
+        <img class="ft-gob-logo" src="logo-gobierno-jalisco-2024.svg" alt="Gobierno de Jalisco">
+        <div class="ft-brand-copy">
           <b>Secretaría de Educación del Gobierno de Jalisco</b>
-          <span>IA para Docentes · Prototipo de lanzamiento</span>
+          <span>IA para Docentes · Portal de inteligencia artificial para docentes</span>
         </div>
       </div>
       <div class="ft-cols">
@@ -491,6 +553,7 @@
           <a href="banco-gemas.html">Banco de Gemas</a>
           <a href="ruta.html">Ruta</a>
           <a href="recuperar-cuenta.html">Mesa de Ayuda</a>
+          <a href="conoce-mas-ia-v2.html">Conoce más sobre la IA</a>
         </nav>
         <nav class="ft-col" aria-label="Enlaces institucionales">
           <b>Institucional</b>
@@ -506,7 +569,7 @@
         <a href="https://www.youtube.com/user/educacionjalisco" target="_blank" rel="noopener" aria-label="YouTube de Educación Jalisco"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor"><path d="M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.5 2.5 0 0 0 2.4 7.2 26 26 0 0 0 2 12a26 26 0 0 0 .4 4.8 2.5 2.5 0 0 0 1.8 1.8c1.6.4 7.8.4 7.8.4s6.2 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8A26 26 0 0 0 22 12a26 26 0 0 0-.4-4.8zM10 15.2V8.8l5.2 3.2-5.2 3.2z"/></svg></a>
       </div>
     </div>
-    <div class="ft-legal">Soporte: <a href="mailto:alfadireccion.sej@jalisco.gob.mx">alfadireccion.sej@jalisco.gob.mx</a> · Algunos derechos reservados © 2026 · Secretaría de Educación Jalisco</div>
+    <div class="ft-legal">Soporte: <a href="mailto:alfadireccion.sej@jalisco.gob.mx">alfadireccion.sej@jalisco.gob.mx</a> · Derechos reservados © 2026 · Secretaría de Educación Jalisco</div>
   </div>
 </footer>
 
@@ -522,6 +585,7 @@
     var d = document.createElement('button');
     d.type='button';
     d.setAttribute('aria-label','Ir a la diapositiva '+(idx+1));
+    if(idx===0)d.setAttribute('aria-current','true');
     d.className = 'dot' + (idx===0?' active':'');
     d.addEventListener('click', function(){ go(idx); reset(); });
     dotsBox.appendChild(d);
@@ -530,10 +594,14 @@
 
   function go(n){
     slides[i].classList.remove('active');
+    slides[i].setAttribute('aria-hidden','true');
     dots[i].classList.remove('active');
+    dots[i].removeAttribute('aria-current');
     i = (n + slides.length) % slides.length;
     slides[i].classList.add('active');
+    slides[i].setAttribute('aria-hidden','false');
     dots[i].classList.add('active');
+    dots[i].setAttribute('aria-current','true');
   }
   function next(){ go(i+1); }
   function prev(){ go(i-1); }

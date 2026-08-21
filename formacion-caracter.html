@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Gemas de Formación del Carácter Al Estilo Jalisco para acompañar el desarrollo progresivo de virtudes en el aula.">
+<link rel="stylesheet" href="portal-a11y.css">
+<title>Formación del Carácter · IA para Docentes Jalisco</title>
+<link rel="icon" href="logo-sej-2024.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#18181a;--panel:#141416;--panel-2:#1b1b1e;--line:#2b2b30;
+    --txt:#f5f5f7;--muted:#a8a8b1;--dim:#85858f;--orange:#ff8a00;
+    --pink:#ef0055;--pink-soft:#ff4b88;--blue:#0877b9;--radius:20px
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{min-height:100vh;background:radial-gradient(65% 34% at 50% 0%,rgba(239,0,85,.12),transparent 75%),var(--bg);color:var(--txt);font-family:'Inter',system-ui,sans-serif;line-height:1.5;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  button{font:inherit}
+  .wrap{width:min(1180px,calc(100% - 44px));margin:0 auto}
+
+  .nav{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:18px 0 10px}
+  .brand{display:flex;align-items:center;gap:10px;font-family:'Archivo';font-size:15px;font-weight:800}
+  .brand img{height:36px;width:auto}
+  .back-link{display:inline-flex;align-items:center;gap:8px;color:var(--muted);font-size:14px;font-weight:700}
+  .back-link:hover{color:var(--txt)}
+
+  .page-route{margin-top:8px}
+  .hero{position:relative;isolation:isolate;min-height:535px;margin-top:14px;border:1px solid rgba(255,255,255,.12);border-radius:28px;overflow:hidden;background:#fff;box-shadow:0 28px 90px rgba(0,0,0,.3)}
+  .hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:0}
+  .hero::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,#fff 0%,#fff 36%,rgba(255,255,255,.98) 45%,rgba(255,255,255,.78) 56%,rgba(255,255,255,.32) 68%,transparent 80%)}
+  .hero-content{position:relative;z-index:2;width:min(570px,55%);margin:46px;padding:18px 0 22px;color:#111217}
+  .program-logo{display:block;width:min(360px,100%);height:auto;margin-bottom:23px}
+  .eyebrow{color:#a3003d;font-family:'Archivo';font-size:12px;font-weight:900;letter-spacing:2.4px;text-transform:uppercase}
+  h1{margin-top:8px;font-family:'Archivo';font-size:43px;font-weight:900;line-height:1.02;letter-spacing:-1.4px}
+  .hero-lead{max-width:490px;margin-top:15px;color:#3b3e46;font-size:16px;line-height:1.62}
+
+  .intro{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(280px,.75fr);gap:18px;margin-top:28px}
+  .intro-copy,.guide{padding:26px 28px;border:1px solid var(--line);border-radius:var(--radius);background:var(--panel)}
+  .section-kicker{color:var(--orange);font-family:'Archivo';font-size:11.5px;font-weight:900;letter-spacing:2px;text-transform:uppercase}
+  .intro h2,.gems-head h2,.framework h2{margin-top:7px;font-family:'Archivo';font-size:27px;font-weight:900;line-height:1.08;letter-spacing:-.5px}
+  .intro-copy p{margin-top:13px;color:#c2c2ca;font-size:15px;line-height:1.68}
+  .dimension-list{display:flex;flex-wrap:wrap;gap:8px;margin-top:17px}
+  .dimension{display:inline-flex;align-items:center;gap:7px;padding:6px 10px;border:1px solid rgba(239,0,85,.25);border-radius:20px;background:rgba(239,0,85,.07);color:#f0c9d8;font-size:12.5px;font-weight:700}
+  .dimension::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--pink-soft)}
+  .guide{background:linear-gradient(145deg,rgba(255,138,0,.1),rgba(20,20,22,.98) 45%)}
+  .guide h2{font-size:20px}
+  .guide ol{display:grid;gap:12px;margin-top:16px;list-style:none;counter-reset:guide}
+  .guide li{position:relative;padding-left:39px;color:#c7c7cf;font-size:14px;line-height:1.5;counter-increment:guide}
+  .guide li::before{content:counter(guide);position:absolute;left:0;top:0;width:26px;height:26px;display:grid;place-items:center;border-radius:9px;background:var(--orange);color:#16100a;font-family:'Archivo';font-size:12px;font-weight:900}
+
+  .gems{margin-top:58px}
+  .gems-head{display:flex;align-items:end;justify-content:space-between;gap:24px}
+  .gems-head p{max-width:490px;color:var(--muted);font-size:14px;line-height:1.58;text-align:right}
+  .gem-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:21px}
+  .gem-card{position:relative;isolation:isolate;min-height:370px;display:flex;flex-direction:column;padding:24px;border:1px solid var(--line);border-radius:22px;overflow:hidden;background:linear-gradient(155deg,rgba(239,0,85,.13),rgba(20,20,22,.98) 39%);transition:transform .2s,border-color .2s,box-shadow .2s}
+  .gem-card::after{content:"";position:absolute;right:-50px;top:-58px;z-index:-1;width:150px;height:150px;border-radius:50%;background:radial-gradient(circle,rgba(239,0,85,.22),transparent 68%)}
+  .gem-card:hover{transform:translateY(-3px);border-color:rgba(239,0,85,.5);box-shadow:0 19px 46px rgba(0,0,0,.24)}
+  .gem-card.pending{background:linear-gradient(155deg,rgba(255,138,0,.11),rgba(20,20,22,.98) 39%)}
+  .gem-card.pending::after{background:radial-gradient(circle,rgba(255,138,0,.2),transparent 68%)}
+  .gem-number{width:43px;height:43px;display:grid;place-items:center;border:1px solid rgba(255,255,255,.12);border-radius:14px;background:rgba(255,255,255,.055);color:var(--pink-soft);font-family:'Archivo';font-size:13px;font-weight:900}
+  .pending .gem-number{color:var(--orange)}
+  .gem-type{margin-top:19px;color:#ffa2c2;font-family:'Archivo';font-size:11px;font-weight:900;letter-spacing:1.6px;text-transform:uppercase}
+  .pending .gem-type{color:#ffc47f}
+  .gem-card h3{margin-top:9px;font-family:'Archivo';font-size:23px;font-weight:900;line-height:1.08;letter-spacing:-.45px}
+  .gem-card p{margin-top:13px;color:#b9b9c2;font-size:14px;line-height:1.62}
+  .gem-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
+  .gem-tags span{padding:4px 8px;border:1px solid var(--line);border-radius:14px;background:var(--panel-2);color:var(--dim);font-size:11.5px}
+  .gem-open,.gem-pending{align-self:flex-start;margin-top:auto;padding:10px 17px;border-radius:22px;font-size:13.5px;font-weight:900}
+  .gem-open{border:0;background:#fff;color:#8a0032;cursor:pointer;transition:background .2s,color .2s}
+  .gem-open:hover{background:var(--pink);color:#fff}
+  .gem-pending{border:1px solid var(--line);background:var(--panel-2);color:var(--dim)}
+
+  .orientation{display:flex;align-items:flex-start;gap:13px;margin-top:19px;padding:20px 22px;border:1px solid rgba(255,138,0,.24);border-radius:17px;background:rgba(255,138,0,.055);color:#bdbdc5;font-size:14px;line-height:1.62}
+  .orientation strong{color:#f0f0f2}
+  .orientation-icon{flex:0 0 auto;color:var(--orange);font-size:18px}
+
+  .framework{margin-top:58px;padding:30px;border:1px solid var(--line);border-radius:24px;background:linear-gradient(145deg,rgba(7,119,185,.09),rgba(20,20,22,.98) 44%)}
+  .framework-lead{max-width:720px;margin-top:12px;color:var(--muted);font-size:14.5px;line-height:1.65}
+  .framework-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:22px}
+  .framework-item{padding:18px;border:1px solid var(--line);border-radius:16px;background:rgba(9,9,11,.36)}
+  .framework-item span{color:#65b6e6;font-family:'Archivo';font-size:11px;font-weight:900;letter-spacing:1.2px;text-transform:uppercase}
+  .framework-item h3{margin-top:7px;font-family:'Archivo';font-size:16px;font-weight:800;line-height:1.2}
+  .framework-item p{margin-top:8px;color:var(--dim);font-size:12.5px;line-height:1.52}
+
+  footer{margin:64px 0 38px;padding-top:24px;border-top:1px solid var(--line);color:var(--dim);font-size:13px}
+  .ft{display:flex;align-items:flex-start;justify-content:space-between;gap:30px;flex-wrap:wrap}
+  .ft-brand{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+  .ft-brand>img{height:42px;width:auto}
+  .ft-brand .ft-gob-logo{height:52px}
+  .ft-logo-divider{width:1px;height:42px;background:currentColor;opacity:.18}
+  .ft-brand-copy{min-width:190px}
+  .ft-brand-copy b{display:block;color:var(--muted);font-size:14px}
+  .ft-brand-copy span{display:block;margin-top:2px}
+  .ft-links{display:flex;gap:18px;flex-wrap:wrap}
+  .ft-links a{color:var(--muted);font-size:14px}
+  .ft-links a:hover{color:var(--txt)}
+  .ft-legal{margin-top:20px;padding-top:16px;border-top:1px solid var(--line);text-align:center}
+  .ft-legal a{color:var(--muted)}
+
+  dialog{width:min(510px,calc(100% - 36px));margin:auto;padding:0;border:1px solid var(--line);border-radius:22px;background:var(--panel);color:var(--txt);box-shadow:0 30px 100px rgba(0,0,0,.56)}
+  dialog::backdrop{background:rgba(4,4,6,.72);backdrop-filter:blur(4px)}
+  .modal{padding:27px}
+  .modal-kicker{color:var(--pink-soft);font-family:'Archivo';font-size:11px;font-weight:900;letter-spacing:1.8px;text-transform:uppercase}
+  .modal h2{margin-top:7px;font-family:'Archivo';font-size:24px;font-weight:900;line-height:1.12}
+  .modal p{margin-top:12px;color:var(--muted);font-size:14px;line-height:1.62}
+  .modal ul{display:grid;gap:9px;margin:16px 0 0;padding-left:20px;color:#cacad1;font-size:13.5px;line-height:1.5}
+  .modal-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:22px}
+  .modal-close,.modal-continue{padding:9px 16px;border-radius:20px;font-size:13.5px;font-weight:800;cursor:pointer}
+  .modal-close{border:1px solid var(--line);background:var(--panel-2);color:var(--txt)}
+  .modal-continue{border:0;background:var(--pink);color:#fff}
+
+  @media(max-width:960px){
+    .hero{min-height:500px}.hero-content{width:min(540px,62%);margin:34px;padding:18px 0 22px}h1{font-size:37px}
+    .gem-grid{grid-template-columns:1fr 1fr}.gem-card.pending{grid-column:1/-1;min-height:300px}
+    .framework-grid{grid-template-columns:1fr 1fr}
+  }
+  @media(max-width:760px){
+    .wrap{width:min(100% - 28px,1180px)}.nav{align-items:flex-start}.brand{font-size:13px}.brand img{height:32px}.back-link{font-size:13px}
+    .hero{display:grid;min-height:0;border-radius:22px}.hero-bg{position:relative;grid-row:1;width:100%;height:auto;aspect-ratio:16/9;object-position:65% center}.hero::after{display:none}
+    .hero-content{grid-row:2;width:auto;margin:0;padding:26px 22px;border:0;border-radius:0;background:#fff;box-shadow:none;backdrop-filter:none}.program-logo{width:min(320px,100%)}h1{font-size:32px}
+    .intro{grid-template-columns:1fr}.gems{margin-top:48px}.gems-head{display:block}.gems-head p{margin-top:10px;text-align:left}.gem-grid{grid-template-columns:1fr}.gem-card,.gem-card.pending{grid-column:auto;min-height:330px}
+    .framework{padding:24px 20px}.framework-grid{grid-template-columns:1fr}.ft-brand-copy{flex:1 0 100%}
+  }
+  @media(max-width:480px){
+    .nav{display:grid}.back-link{justify-self:start}.hero-bg{aspect-ratio:4/3;object-position:71% center}.hero-content{padding:23px 18px}h1{font-size:28px}
+    .intro-copy,.guide{padding:22px 20px}.gem-card{padding:21px}.modal-actions{flex-direction:column-reverse}.modal-close,.modal-continue{text-align:center}
+  }
+  @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#contenido-principal">Saltar al contenido principal</a>
+<div class="wrap">
+  <nav class="nav" aria-label="Navegación principal">
+    <a class="brand" href="academia-docente-jalisco.html"><img src="logo-sej.svg" alt="Secretaría de Educación Jalisco"> IA para Docentes</a>
+    <a class="back-link" href="academia-docente-jalisco.html"><span aria-hidden="true">←</span> Volver al inicio</a>
+  </nav>
+
+  <main id="contenido-principal" tabindex="-1">
+    <nav class="page-route" aria-label="Ruta de navegación">
+      <a href="academia-docente-jalisco.html">Inicio</a><span class="sep" aria-hidden="true">/</span><a href="gemas.html">Kit de herramientas</a><span class="sep" aria-hidden="true">/</span><span aria-current="page">Formación del Carácter</span>
+    </nav>
+
+    <header class="hero">
+      <img class="hero-bg" src="formacion-caracter-interno.jpg" alt="Docente dialogando con estudiantes durante una actividad de formación" fetchpriority="high">
+      <div class="hero-content">
+        <img class="program-logo" src="formacion-caracter-logo.png" alt="Formación del Carácter">
+        <span class="eyebrow">Colección especializada de Gemas</span>
+        <h1>Gemas para vivir las virtudes</h1>
+        <p class="hero-lead">Recursos de inteligencia artificial para diseñar experiencias que favorezcan el juicio, la reflexión y la acción en situaciones reales del aula.</p>
+      </div>
+    </header>
+
+    <section class="intro" aria-labelledby="enfoque-title">
+      <div class="intro-copy">
+        <span class="section-kicker">Enfoque compartido</span>
+        <h2 id="enfoque-title">Formación del Carácter Al Estilo Jalisco</h2>
+        <p>Las Gemas se articulan con un horizonte progresivo de virtudes y consideran el momento educativo, el propósito y las características del grupo. La propuesta orienta la práctica sin convertirla en una secuencia rígida.</p>
+        <div class="dimension-list" aria-label="Cuatro dimensiones de la formación del carácter">
+          <span class="dimension">Intelectual</span><span class="dimension">Ética</span><span class="dimension">Cívica</span><span class="dimension">De desempeño</span>
+        </div>
+      </div>
+      <aside class="guide" aria-labelledby="guide-title">
+        <span class="section-kicker">Antes de comenzar</span>
+        <h2 id="guide-title">Tres claves para obtener mejores resultados</h2>
+        <ol>
+          <li>Define la etapa educativa, la virtud y el propósito de la actividad.</li>
+          <li>Describe el contexto sin incluir datos personales o sensibles.</li>
+          <li>Revisa, adapta y valida cada propuesta antes de llevarla al aula.</li>
+        </ol>
+      </aside>
+    </section>
+
+    <section class="gems" aria-labelledby="gems-title">
+      <div class="gems-head">
+        <div><span class="section-kicker">Elige una herramienta</span><h2 id="gems-title">Gemas de Formación del Carácter</h2></div>
+        <p>Cada Gema atiende una intención concreta. Trabaja una solicitud a la vez y conserva siempre la decisión pedagógica.</p>
+      </div>
+      <div class="gem-grid">
+        <article class="gem-card">
+          <span class="gem-number" aria-hidden="true">01</span>
+          <span class="gem-type">Diálogo y juicio moral</span>
+          <h3>Generador de dilemas morales</h3>
+          <p>Crea situaciones contextualizadas para promover el diálogo socrático, la reflexión, la toma de postura y la autonomía ética.</p>
+          <div class="gem-tags" aria-label="Características"><span>Situaciones reales</span><span>Preguntas guía</span><span>Reflexión</span></div>
+          <button type="button" class="gem-open portal-final-action js-gem-open" data-name="Generador de dilemas morales" data-url="https://gemini.google.com/gem/1RQIkcoeNSN-61wwrokikXbcDFQN6-2Uc?usp=sharing">Abrir Gema <span aria-hidden="true">↗</span></button>
+        </article>
+
+        <article class="gem-card">
+          <span class="gem-number" aria-hidden="true">02</span>
+          <span class="gem-type">Narrativa y reflexión</span>
+          <h3>Cuentos con virtudes personalizados</h3>
+          <p>Construye relatos y preguntas de lectura vinculados con las virtudes pertinentes para la etapa y las características del grupo.</p>
+          <div class="gem-tags" aria-label="Características"><span>Narrativa</span><span>Por etapa</span><span>Preguntas de lectura</span></div>
+          <button type="button" class="gem-open portal-final-action js-gem-open" data-name="Cuentos con virtudes personalizados" data-url="https://gemini.google.com/gem/1npiwHkixlTv6xE8iEV0YBZGR7K3fice1?usp=sharing">Abrir Gema <span aria-hidden="true">↗</span></button>
+        </article>
+
+        <article class="gem-card">
+          <span class="gem-number" aria-hidden="true">03</span>
+          <span class="gem-type">Revisión de congruencia</span>
+          <h3>Alineación de acciones de Formación del Carácter</h3>
+          <p>Analiza planeaciones, PEMC, recursos, comunicados o estrategias para reconocer fortalezas y priorizar oportunidades de ajuste.</p>
+          <div class="gem-tags" aria-label="Características"><span>Fortalezas primero</span><span>Prioridad alta, media o baja</span><span>Acciones y documentos</span></div>
+          <button type="button" class="gem-open portal-final-action js-gem-open" data-name="Alineación de acciones de Formación del Carácter" data-url="https://gemini.google.com/gem/1GBGpSjEFqe1EiEz0ThaFfyO5r1Ob4FDu?usp=sharing">Abrir Gema <span aria-hidden="true">↗</span></button>
+        </article>
+      </div>
+      <p class="orientation"><span class="orientation-icon" aria-hidden="true">✦</span><span><strong>Una propuesta orientadora, no una ruta rígida.</strong> La inteligencia artificial acompaña el análisis y la creación; no sustituye el conocimiento, la experiencia ni el criterio profesional de cada docente.</span></p>
+    </section>
+
+    <section class="framework" aria-labelledby="framework-title">
+      <span class="section-kicker">Base común de la colección</span>
+      <h2 id="framework-title">Referentes que orientan las Gemas</h2>
+      <p class="framework-lead">La configuración de estas herramientas parte de fuentes compartidas para conservar lenguaje, definiciones y progresión coherentes con Formación del Carácter Al Estilo Jalisco.</p>
+      <div class="framework-grid">
+        <article class="framework-item"><span>Marco</span><h3>Propuesta general</h3><p>Propósitos, principios y criterios que dan sentido al enfoque.</p></article>
+        <article class="framework-item"><span>Progresión</span><h3>Horizonte de virtudes</h3><p>Referentes pertinentes para cada etapa del trayecto educativo.</p></article>
+        <article class="framework-item"><span>Lenguaje común</span><h3>Glosario de virtudes</h3><p>Definiciones compartidas para evitar interpretaciones imprecisas.</p></article>
+        <article class="framework-item"><span>Comprensión integral</span><h3>Cuatro dimensiones</h3><p>Articulación intelectual, ética, cívica y de desempeño.</p></article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="ft">
+      <div class="ft-brand">
+        <img src="logo-sej.svg" alt="Secretaría de Educación Jalisco"><span class="ft-logo-divider" aria-hidden="true"></span><img class="ft-gob-logo" src="logo-gobierno-jalisco-2024.svg" alt="Gobierno de Jalisco">
+        <div class="ft-brand-copy"><b>Secretaría de Educación del Gobierno de Jalisco</b><span>IA para Docentes · Formación del Carácter</span></div>
+      </div>
+      <nav class="ft-links" aria-label="Enlaces del portal"><a href="academia-docente-jalisco.html">Inicio</a><a href="gemas.html">Kit de herramientas</a><a href="banco-gemas.html">Banco de Gemas</a><a href="conoce-mas-ia.html">Conoce más sobre la IA</a></nav>
+    </div>
+    <div class="ft-legal">Soporte: <a href="mailto:alfadireccion.sej@jalisco.gob.mx">alfadireccion.sej@jalisco.gob.mx</a> · Derechos reservados © 2026 · Secretaría de Educación Jalisco</div>
+  </footer>
+</div>
+
+<dialog id="gem-dialog" aria-labelledby="gem-dialog-title">
+  <div class="modal">
+    <span class="modal-kicker">Antes de abrir Gemini</span>
+    <h2 id="gem-dialog-title">Abrir Gema</h2>
+    <p>La herramienta se abrirá en una pestaña nueva. Para aprovecharla mejor:</p>
+    <ul><li>Ingresa con tu cuenta institucional <strong>@jaliscoedu.mx</strong>.</li><li>No compartas datos personales o sensibles del alumnado.</li><li>Revisa y adapta el resultado a tu propósito y contexto.</li></ul>
+    <div class="modal-actions"><button type="button" class="modal-close" id="modal-close">Cancelar</button><a class="modal-continue portal-final-action" id="modal-continue" href="#" target="_blank" rel="noopener">Continuar a Gemini <span aria-hidden="true">↗</span></a></div>
+  </div>
+</dialog>
+
+<script>
+(function(){
+  var dialog=document.getElementById('gem-dialog');
+  var title=document.getElementById('gem-dialog-title');
+  var continueLink=document.getElementById('modal-continue');
+  var closeButton=document.getElementById('modal-close');
+  document.querySelectorAll('.js-gem-open').forEach(function(button){
+    button.addEventListener('click',function(){
+      title.textContent=button.dataset.name;
+      continueLink.href=button.dataset.url;
+      dialog.showModal();
+    });
+  });
+  closeButton.addEventListener('click',function(){dialog.close();});
+  continueLink.addEventListener('click',function(){dialog.close();});
+  dialog.addEventListener('click',function(event){
+    var rect=dialog.getBoundingClientRect();
+    if(event.clientX<rect.left||event.clientX>rect.right||event.clientY<rect.top||event.clientY>rect.bottom){dialog.close();}
+  });
+})();
+</script>
+</body>
+</html>
