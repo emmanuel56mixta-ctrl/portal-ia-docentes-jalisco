@@ -1,0 +1,178 @@
+/* Prueba móvil aislada del portal IA para Docentes. Las reglas de escritorio originales permanecen intactas. */
+.mobile-appbar,.mobile-tabbar,.mobile-quick-actions,.mobile-section-nav,.mobile-menu-backdrop{display:none}
+
+@media(max-width:760px){
+  html{scroll-padding-top:74px}
+  body.mobile-demo{padding-bottom:calc(82px + env(safe-area-inset-bottom));overscroll-behavior-y:none;-webkit-tap-highlight-color:rgba(255,138,0,.14)}
+  body.mobile-menu-open{overflow:hidden}
+  body.mobile-demo>.wrap{width:100%;max-width:none;margin:0;padding:0 14px}
+
+  /* Barra superior compacta */
+  .mobile-appbar{position:sticky;top:0;z-index:80;min-height:58px;display:flex;align-items:center;gap:10px;padding:8px max(14px,env(safe-area-inset-left));padding-top:max(8px,env(safe-area-inset-top));border-bottom:1px solid rgba(255,255,255,.09);background:rgba(18,18,20,.91);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
+  .mobile-appbar__brand{min-width:0;display:flex;align-items:center;gap:9px;font-family:'Archivo',system-ui,sans-serif;font-size:13px;font-weight:850;letter-spacing:-.1px}
+  .mobile-appbar__brand img{width:auto;height:30px;display:block}
+  .mobile-appbar__brand span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .mobile-appbar__back{flex:0 0 42px;width:42px;height:42px;display:grid;place-items:center;border:1px solid rgba(255,255,255,.1);border-radius:13px;background:#202024;color:#fff;font-size:30px;line-height:1}
+  .mobile-demo-label{flex:0 0 auto;margin-left:auto;padding:5px 8px;border:1px solid rgba(255,138,0,.34);border-radius:999px;background:rgba(255,138,0,.09);color:#ff9d2e;font-family:'Archivo';font-size:9px;font-weight:900;letter-spacing:1px;text-transform:uppercase}
+
+  /* Navegación inferior con safe area */
+  .mobile-tabbar{position:fixed;left:50%;bottom:max(8px,env(safe-area-inset-bottom));z-index:90;width:min(calc(100% - 20px),460px);min-height:64px;display:grid;grid-template-columns:repeat(3,1fr);gap:3px;padding:6px;border:1px solid rgba(255,255,255,.12);border-radius:22px;background:rgba(20,20,23,.94);box-shadow:0 18px 55px rgba(0,0,0,.5);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);transform:translateX(-50%)}
+  .mobile-tabbar a,.mobile-tabbar button{min-width:0;min-height:52px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;border:0;border-radius:16px;background:transparent;color:#8f8f99;font:inherit;cursor:pointer}
+  .mobile-tabbar a>span,.mobile-tabbar button>span{font-size:19px;line-height:1}
+  .mobile-tabbar strong{max-width:100%;overflow:hidden;text-overflow:ellipsis;color:inherit;font-size:10.5px;font-weight:800;white-space:nowrap}
+  .mobile-tabbar .is-active{background:rgba(255,138,0,.12);color:#ff9d2e}
+
+  /* Menú inferior */
+  .mobile-menu-backdrop[hidden]{display:none!important}
+  .mobile-menu-backdrop{position:fixed;inset:0;z-index:120;display:flex;align-items:flex-end;justify-content:center;padding:0;background:rgba(3,3,5,.68);backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px)}
+  .mobile-menu-sheet{width:min(100%,560px);max-height:min(82dvh,720px);overflow:auto;padding:10px 18px calc(22px + env(safe-area-inset-bottom));border:1px solid rgba(255,255,255,.13);border-bottom:0;border-radius:26px 26px 0 0;background:#171719;box-shadow:0 -24px 70px rgba(0,0,0,.48);animation:mobile-sheet-in .24s ease-out}
+  .mobile-sheet-handle{width:42px;height:4px;margin:2px auto 14px;border-radius:4px;background:#55555d}
+  .mobile-menu-head{display:flex;align-items:center;justify-content:space-between;gap:18px}
+  .mobile-menu-head span{color:#ff9d2e;font-family:'Archivo';font-size:9px;font-weight:900;letter-spacing:1.6px;text-transform:uppercase}
+  .mobile-menu-head h2{margin-top:2px;font-family:'Archivo';font-size:22px;line-height:1.1}
+  .mobile-menu-close{flex:0 0 44px;width:44px;height:44px;border:1px solid #34343a;border-radius:14px;background:#202024;color:#fff;font-size:26px;cursor:pointer}
+  .mobile-menu-links{display:grid;gap:8px;margin-top:18px}
+  .mobile-menu-links a{min-height:54px;display:flex;align-items:center;justify-content:space-between;gap:14px;padding:12px 14px;border:1px solid #2d2d32;border-radius:15px;background:#1d1d20;color:#ececf0;font-size:14px;font-weight:750}
+  .mobile-menu-links b{color:#ff9d2e;font-size:21px}
+  @keyframes mobile-sheet-in{from{transform:translateY(24px);opacity:.35}to{transform:none;opacity:1}}
+
+  /* Acciones táctiles comunes */
+  .mobile-demo :where(.gobtn,.cta,.explore,.character-home__button,.bb-btn,.learn-ai-home__primary,.learn-ai-home__secondary,.project-link,.family-action,.tool-dialog-open,.tool-dialog-cancel,.gem-safety-open,.gem-safety-cancel){min-height:48px;display:flex;align-items:center;justify-content:center}
+  .mobile-demo footer{margin-bottom:16px!important}
+  .mobile-demo footer .ft{gap:18px}
+  .mobile-demo footer .ft-cols{display:none}
+  .mobile-demo footer .ft-brand{width:100%;align-items:flex-start}
+  .mobile-demo footer .ft-social{margin:0 auto}
+
+  /* ---------- Portada ---------- */
+  .home-demo>.wrap>.nav{display:none}
+  .home-demo main{display:flex;flex-direction:column}
+  .home-demo main>.hero{order:1}
+  .home-demo main>.mobile-quick-actions{order:2}
+  .home-demo main>.kit{order:3}
+  .home-demo main>.sec{order:4}
+  .home-demo main>.program{order:5}
+  .home-demo main>.learn-ai-home{order:6}
+  .home-demo .hero,.home-demo .slides{height:318px;min-height:318px}
+  .home-demo .hero{margin-top:12px;border:1px solid rgba(255,255,255,.1);border-radius:22px}
+  .home-demo .slide{align-items:flex-end}
+  .home-demo .slide img{object-position:center}
+  .home-demo .slide::after{background:linear-gradient(0deg,rgba(5,7,11,.96) 0%,rgba(5,7,11,.76) 42%,rgba(5,7,11,.12) 78%,transparent 100%)}
+  .home-demo .slide .inner{max-width:none;padding:18px 18px 50px}
+  .home-demo .slide h2{max-width:330px;margin-bottom:8px;font-size:25px;line-height:1.03;letter-spacing:-.5px}
+  .home-demo .slide p{max-width:330px;display:-webkit-box;overflow:hidden;font-size:13.5px;line-height:1.45;-webkit-box-orient:vertical;-webkit-line-clamp:2}
+  .home-demo .arw.prev,.home-demo .arw.next{display:none}
+  .home-demo .arw.pause{left:12px;bottom:11px;width:36px;height:36px}
+  .home-demo .dots{right:14px;bottom:24px}
+
+  .mobile-quick-actions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:12px}
+  .mobile-quick-actions a{min-width:0;min-height:66px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;padding:8px 5px;border:1px solid #2d2d32;border-radius:17px;background:#1d1d20;color:#dcdce2}
+  .mobile-quick-actions a>span{color:#ff9d2e;font-size:18px;line-height:1}
+  .mobile-quick-actions strong{max-width:100%;overflow:hidden;text-overflow:ellipsis;font-size:11px;white-space:nowrap}
+
+  .home-demo .sec,.home-demo .program,.home-demo .kit,.home-demo .learn-ai-home{margin-top:32px}
+  .home-demo .sec h2,.home-demo .kit>h2{font-size:21px!important}
+  .home-demo .sec .sub,.home-demo .kit>.sub{font-size:13px;line-height:1.5}
+  .home-demo .kit-intro{margin-top:14px;border-radius:20px}
+  .home-demo .kit-intro .art{aspect-ratio:16/9}
+  .home-demo .kit-intro .cap{display:grid;gap:13px;padding:15px}
+  .home-demo .kit-intro .cap p{display:-webkit-box;overflow:hidden;-webkit-box-orient:vertical;-webkit-line-clamp:2}
+  .home-demo .kit-intro .explore{width:100%;border-radius:14px}
+  .home-demo .character-home{margin-top:14px;border-radius:20px}
+  .home-demo .character-home__image{aspect-ratio:16/8}
+  .home-demo .character-home__content{padding:18px 17px 20px}
+  .home-demo .character-home h2{font-size:22px}
+  .home-demo .character-home p{display:-webkit-box;overflow:hidden;font-size:13.5px;-webkit-box-orient:vertical;-webkit-line-clamp:2}
+  .home-demo .character-home__button{width:100%;border-radius:14px}
+  .home-demo .banco-banner{min-height:0;margin-top:14px;border-radius:20px}
+  .home-demo .banco-banner .bb-text{padding:132px 18px 20px}
+  .home-demo .banco-banner h2{font-size:20px;line-height:1.12}
+  .home-demo .banco-banner p{display:-webkit-box;overflow:hidden;font-size:13px;-webkit-box-orient:vertical;-webkit-line-clamp:3}
+  .home-demo .banco-banner .bb-btn{width:100%;border-radius:14px}
+
+  .home-demo .courses{gap:10px;margin-top:14px}
+  .home-demo .courses .card{display:grid!important;grid-template-columns:112px minmax(0,1fr);min-height:142px;border-radius:18px}
+  .home-demo .courses .thumb{height:100%;min-height:142px}
+  .home-demo .courses .meta{min-width:0;padding:14px 13px}
+  .home-demo .courses .meta h3{font-size:13.5px;line-height:1.25}
+  .home-demo .courses .meta .desc{display:-webkit-box;overflow:hidden;font-size:12.5px;line-height:1.4;-webkit-box-orient:vertical;-webkit-line-clamp:2}
+  .home-demo .courses .meta .row{margin-top:9px}
+  .home-demo .courses .gobtn{width:100%;padding:7px 10px;border-radius:12px;font-size:12.5px}
+
+  .home-demo .program .head{display:block}
+  .home-demo .program .kick{font-size:14px}
+  .home-demo .program h2{margin-top:5px;font-size:22px}
+  .home-demo .program .lead{margin:8px 0 0;font-size:13px}
+  .home-demo .steps{display:flex;gap:11px;margin:15px -14px 0;padding:0 14px 8px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}
+  .home-demo .steps::-webkit-scrollbar{display:none}
+  .home-demo .step{flex:0 0 min(82vw,310px);min-height:195px;padding:20px 18px 46px;scroll-snap-align:start}
+  .home-demo .step h3{font-size:18px}
+  .home-demo .step p{font-size:13.5px}
+  .home-demo .conn{display:none}
+  .home-demo .program .cta{width:100%;margin-top:11px;border-radius:14px}
+
+  .home-demo .learn-ai-home{display:grid!important;grid-template-columns:1fr!important;border-radius:20px!important;overflow:hidden}
+  .home-demo .learn-ai-home__image{position:relative!important;width:100%!important;height:auto!important;aspect-ratio:16/9!important;object-fit:cover!important}
+  .home-demo .learn-ai-home__content{padding:19px 17px 21px!important}
+  .home-demo .learn-ai-home__actions{display:grid!important;grid-template-columns:1fr!important;gap:9px!important}
+  .home-demo .learn-ai-home__primary,.home-demo .learn-ai-home__secondary{width:100%;border-radius:14px!important;text-align:center}
+
+  /* ---------- Kit de herramientas ---------- */
+  .kit-demo>.wrap>.nav,.kit-demo>.wrap>.page-route{display:none}
+  .kit-demo .hero-kit{padding:10px 0 2px}
+  .kit-demo .cluster{height:142px;margin-bottom:5px;overflow:hidden}
+  .kit-demo .orbit,.kit-demo .unrot{animation:none!important}
+  .kit-demo .pos{--r:108px;left:-31px;top:-34px}
+  .kit-demo .pos .cardimg{width:62px;height:68px;border-radius:10px}
+  .kit-demo .ic.mid{width:76px;height:76px;border-radius:17px}
+  .kit-demo .hero h1{margin-top:4px;font-size:29px;letter-spacing:-.8px}
+  .kit-demo .hero-sub{max-width:330px;margin:7px auto 0;color:#b7b7c0;font-size:13px;line-height:1.45}
+  .mobile-section-nav{position:sticky;top:58px;z-index:55;display:flex;gap:7px;margin:14px -14px 0;padding:9px 14px;overflow-x:auto;border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.08);background:rgba(24,24,26,.94);scrollbar-width:none;backdrop-filter:blur(15px);-webkit-backdrop-filter:blur(15px)}
+  .mobile-section-nav::-webkit-scrollbar{display:none}
+  .mobile-section-nav a{flex:0 0 auto;min-height:40px;display:flex;align-items:center;padding:8px 13px;border:1px solid #303036;border-radius:999px;background:#1d1d20;color:#b6b6bf;font-size:12px;font-weight:750}
+  .mobile-section-nav a.is-current{border-color:rgba(255,138,0,.5);background:rgba(255,138,0,.12);color:#ff9d2e}
+  .kit-demo .resource-hub{gap:12px;margin-top:16px}
+  .kit-demo .resource-family,.kit-demo .resource-family.compact{padding:14px;border-radius:18px;scroll-margin-top:120px}
+  .kit-demo .project-showcase{display:grid!important;grid-template-columns:1fr!important;gap:0!important}
+  .kit-demo .project-visual{min-height:0!important;aspect-ratio:16/9;border-radius:14px!important}
+  .kit-demo .project-intro{padding:15px 2px 0!important}
+  .kit-demo .project-intro h3{font-size:21px!important;line-height:1.12}
+  .kit-demo .project-intro p{display:-webkit-box;overflow:hidden;font-size:13px!important;-webkit-box-orient:vertical;-webkit-line-clamp:3}
+  .kit-demo .project-links{gap:8px;margin-top:14px}
+  .kit-demo .project-link{min-height:54px;padding:10px 13px;border-radius:13px}
+  .kit-demo .family-cover,.kit-demo .compact .family-cover{min-height:205px;padding:16px;border-radius:14px}
+  .kit-demo .family-cover h3,.kit-demo .compact .family-cover h3{font-size:20px;line-height:1.1}
+  .kit-demo .family-actions{margin-top:11px}
+  .kit-demo .family-action{min-height:52px;border-radius:13px}
+  .kit-demo .banco-banner{min-height:0;margin-top:24px;border-radius:20px}
+  .kit-demo .banco-banner .bb-text{padding:134px 18px 20px}
+  .kit-demo .banco-banner h2{font-size:20px;line-height:1.12}
+  .kit-demo .banco-banner p{display:-webkit-box;overflow:hidden;font-size:13px;-webkit-box-orient:vertical;-webkit-line-clamp:3}
+  .kit-demo .banco-banner .bb-btn{width:100%;border-radius:14px}
+  .kit-demo .sintesis{margin-top:14px;padding:14px 15px;border-radius:15px;font-size:12.5px;line-height:1.5}
+
+  /* Diálogos como panel inferior */
+  .kit-demo .tool-dialog-backdrop:not([hidden]),.kit-demo .gem-safety-backdrop:not([hidden]){align-items:flex-end!important;justify-content:center!important;padding:0!important}
+  .kit-demo .tool-dialog,.kit-demo .gem-safety-card{width:100%!important;max-width:560px!important;max-height:90dvh!important;margin:0!important;overflow:auto!important;border-radius:25px 25px 0 0!important;padding-bottom:calc(16px + env(safe-area-inset-bottom))!important}
+  .kit-demo .tool-dialog-visual{height:148px!important}
+  .kit-demo .tool-dialog-body{padding:18px!important}
+  .kit-demo .tool-dialog-actions,.kit-demo .gem-safety-actions{display:grid!important;grid-template-columns:1fr!important;gap:8px!important}
+  .kit-demo .tool-dialog-open,.kit-demo .tool-dialog-cancel,.kit-demo .gem-safety-open,.kit-demo .gem-safety-cancel{width:100%!important;min-height:50px!important;border-radius:14px!important}
+}
+
+@media(max-width:390px){
+  .mobile-appbar__brand span{max-width:155px}
+  .home-demo .hero,.home-demo .slides{height:300px;min-height:300px}
+  .home-demo .slide h2{font-size:23px}
+  .home-demo .courses .card{grid-template-columns:102px minmax(0,1fr)}
+  .home-demo .courses .thumb{min-height:136px}
+  .kit-demo .pos{--r:100px}
+}
+
+@media(hover:none){
+  .mobile-demo :where(.card,.step,.character-home,.kit-intro,.banco-banner,.resource-family,.project-link,.family-action):hover{transform:none!important}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .mobile-menu-sheet{animation:none}
+}
