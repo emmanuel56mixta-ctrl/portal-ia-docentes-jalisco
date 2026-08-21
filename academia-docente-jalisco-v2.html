@@ -170,6 +170,31 @@
   .cta{display:inline-flex;align-items:center;gap:7px;background:#ececee;color:#0a0a0b;font-weight:800;
     font-size:14.5px;padding:8px 16px;border-radius:20px;margin-top:16px}
 
+  /* ---------- acceso a Formación del Carácter ---------- */
+  .character-home{position:relative;isolation:isolate;display:block;margin-top:26px;min-height:300px;border:1px solid rgba(245,37,79,.48);border-radius:min(26px,2.7vw);overflow:hidden;background:#ed0055;box-shadow:0 22px 62px rgba(90,0,30,.22);transition:transform .2s,border-color .2s,box-shadow .2s}
+  .character-home:hover{transform:translateY(-2px);border-color:rgba(255,255,255,.38);box-shadow:0 26px 70px rgba(90,0,30,.32)}
+  .character-home__image{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:0}
+  .character-home::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(54,0,22,.84) 0%,rgba(68,0,29,.7) 34%,rgba(85,0,37,.26) 55%,transparent 72%)}
+  .character-home__content{position:relative;z-index:2;max-width:560px;padding:39px 44px}
+  .character-home__kick{color:#ffd0a0;font-family:'Archivo';font-size:12.5px;font-weight:800;letter-spacing:2.8px;text-transform:uppercase}
+  .character-home h2{font-family:'Archivo';font-size:34px;font-weight:900;line-height:1.04;letter-spacing:-.8px;margin-top:9px;max-width:540px}
+  .character-home p{color:#fff1f6;font-size:15.5px;line-height:1.58;margin-top:13px;max-width:500px}
+  .character-home__button{display:inline-flex;align-items:center;gap:8px;margin-top:18px;padding:9px 17px;border-radius:22px;background:#fff;color:#8a0032;font-size:14px;font-weight:800}
+
+  @media(max-width:900px){
+    .character-home{min-height:330px}
+    .character-home__image{object-position:62% center}
+    .character-home::after{background:linear-gradient(90deg,rgba(54,0,22,.92) 0%,rgba(68,0,29,.78) 45%,rgba(85,0,37,.3) 70%,transparent 90%)}
+  }
+  @media(max-width:650px){
+    .character-home{display:grid;min-height:0;border-radius:22px}
+    .character-home__image{position:relative;grid-row:1;width:100%;height:auto;aspect-ratio:16/7;object-fit:cover;object-position:right center}
+    .character-home::after{display:none}
+    .character-home__content{grid-row:2;max-width:none;padding:22px 20px 24px;background:linear-gradient(145deg,#8f0034,#390015)}
+    .character-home h2{font-size:24px}
+    .character-home p{font-size:14.5px}
+  }
+
   /* ---------- kit / videos ---------- */
   .kit{margin-top:56px}
   .kit-intro{
@@ -467,6 +492,16 @@
           <p>Planeación, evaluación, inclusión, retroalimentación y más. Elige una Gema, cópiala y ponla a trabajar con tu cuenta.</p>
         </div>
         <div class="explore">Explorar ▸</div>
+      </div>
+    </a>
+
+    <a class="character-home" href="formacion-caracter-v2.html" aria-labelledby="character-home-title">
+      <img class="character-home__image" src="formacion-caracter-banner.jpg" alt="Docente acompañando a estudiantes durante una actividad colaborativa" loading="lazy">
+      <div class="character-home__content">
+        <span class="character-home__kick">Espacio especializado</span>
+        <h2 id="character-home-title">Formación del Carácter Al Estilo Jalisco</h2>
+        <p>Explora Gemas para diseñar experiencias que acompañen el desarrollo de virtudes en cada etapa educativa.</p>
+        <span class="character-home__button">Explorar las Gemas <span aria-hidden="true">→</span></span>
       </div>
     </a>
 
