@@ -360,46 +360,26 @@
   <main id="contenido-principal" tabindex="-1">
   <h1 class="sr-only">IA para Docentes de Jalisco</h1>
 
-  <!-- HERO CARRUSEL -->
-  <header class="hero" aria-roledescription="carrusel" aria-label="Presentación del portal">
+  <!-- BIENVENIDA MÓVIL: una sola idea y una acción principal -->
+  <header class="hero mobile-welcome-hero" aria-labelledby="mobile-welcome-title">
     <div class="slides" id="slides">
 
       <div class="slide s1 active" aria-hidden="false">
         <img src="hero-1.png" alt="Docentes de Jalisco trabajando con IA" onerror="this.style.display='none'">
         <div class="inner">
-          <h2>IA para Docentes<br><span class="g">Lleva la IA a tu salón de clases</span></h2>
-          <p>Aprende, crea y transforma tu práctica docente con inteligencia artificial.</p>
+          <span class="mobile-welcome-kicker">Portal para la comunidad docente</span>
+          <h2 id="mobile-welcome-title">IA para Docentes<br><span class="g">Lleva la IA a tu salón de clases</span></h2>
+          <p>Aprende a usar la inteligencia artificial y encuentra herramientas para planear, crear materiales, evaluar y acompañar a tus estudiantes.</p>
+          <a class="mobile-welcome-cta" href="gemas-mobile-demo.html">Explorar herramientas <span aria-hidden="true">›</span></a>
         </div>
       </div>
-
-      <div class="slide s2" aria-hidden="true">
-        <img src="hero-2.png" alt="Aula con Google for Education al estilo Jalisco" onerror="this.style.display='none'">
-        <div class="inner">
-          <h2>Educación<br><span class="g">Al Estilo Jalisco</span></h2>
-          <p>Encuentra soluciones impulsadas por inteligencia artificial para planear, generar materiales, adaptar contenidos y responder a las necesidades de tus estudiantes.</p>
-        </div>
-      </div>
-
-      <div class="slide s3" aria-hidden="true">
-        <img src="hero-3.png" alt="Docentes colaborando y compartiendo Gemas" onerror="this.style.display='none'">
-        <div class="inner">
-          <h2>Innovar para<br><span class="g">enseñar y aprender mejor</span></h2>
-          <p>Integra la tecnología de manera responsable, creativa y pertinente. Accede a herramientas que facilitan tareas y abren nuevas oportunidades para transformar el aprendizaje.</p>
-        </div>
-      </div>
-
     </div>
-
-    <button type="button" class="arw prev" id="prev" aria-label="Diapositiva anterior">‹</button>
-    <button type="button" class="arw next" id="next" aria-label="Diapositiva siguiente">›</button>
-    <button type="button" class="arw pause" id="pause" aria-label="Pausar carrusel">❚❚</button>
-    <div class="dots" id="dots"></div>
   </header>
 
   <nav class="mobile-quick-actions" aria-label="Accesos rápidos">
-    <a href="gemas-mobile-demo.html"><span aria-hidden="true">✦</span><strong>Herramientas</strong></a>
-    <a href="#primeros-pasos"><span aria-hidden="true">▶</span><strong>Comenzar</strong></a>
-    <a href="#ruta-gemas"><span aria-hidden="true">✓</span><strong>Ruta</strong></a>
+    <a class="mobile-quick-action-primary" href="gemas-mobile-demo.html"><span aria-hidden="true">✦</span><strong>Herramientas de IA</strong><small>Ver todos los recursos</small></a>
+    <a href="#primeros-pasos"><span aria-hidden="true">▶</span><strong>Primeros pasos</strong></a>
+    <a href="#ruta-gemas"><span aria-hidden="true">✓</span><strong>Ruta de Gemas</strong></a>
   </nav>
 
 
@@ -606,51 +586,6 @@
     </nav>
   </section>
 </div>
-
-<script>
-(function(){
-  var slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
-  var dotsBox = document.getElementById('dots');
-  var i = 0, timer;
-
-  slides.forEach(function(_, idx){
-    var d = document.createElement('button');
-    d.type='button';
-    d.setAttribute('aria-label','Ir a la diapositiva '+(idx+1));
-    if(idx===0)d.setAttribute('aria-current','true');
-    d.className = 'dot' + (idx===0?' active':'');
-    d.addEventListener('click', function(){ go(idx); reset(); });
-    dotsBox.appendChild(d);
-  });
-  var dots = Array.prototype.slice.call(dotsBox.children);
-
-  function go(n){
-    slides[i].classList.remove('active');
-    slides[i].setAttribute('aria-hidden','true');
-    dots[i].classList.remove('active');
-    dots[i].removeAttribute('aria-current');
-    i = (n + slides.length) % slides.length;
-    slides[i].classList.add('active');
-    slides[i].setAttribute('aria-hidden','false');
-    dots[i].classList.add('active');
-    dots[i].setAttribute('aria-current','true');
-  }
-  function next(){ go(i+1); }
-  function prev(){ go(i-1); }
-  var paused=false, reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  function reset(){ clearInterval(timer); if(!paused && !reduce){ timer = setInterval(next, 5000); } }
-  var pauseBtn=document.getElementById('pause');
-  function paintPause(){ pauseBtn.textContent=paused?'▶':'❚❚'; pauseBtn.setAttribute('aria-label',paused?'Reanudar carrusel':'Pausar carrusel'); }
-  pauseBtn.addEventListener('click',function(){ paused=!paused; paintPause(); reset(); });
-  if(reduce){ paused=true; paintPause(); }
-
-  document.getElementById('next').addEventListener('click', function(){ next(); reset(); });
-  document.getElementById('prev').addEventListener('click', function(){ prev(); reset(); });
-  reset();
-})();
-</script>
-
-
 
 <script>
 (function(){
