@@ -181,11 +181,11 @@
 
 @media(max-width:390px){
   .mobile-appbar__brand span{max-width:155px}
-  .home-demo .hero,.home-demo .slides{height:300px;min-height:300px}
+  .home-demo .hero,.home-demo .slides{height:336px;min-height:336px}
   .home-demo .slide h2{font-size:23px}
   .home-demo .courses .card{grid-template-columns:102px minmax(0,1fr)}
   .home-demo .courses .thumb{min-height:136px}
-  .kit-demo .pos{--r:100px}
+  .kit-demo .pos{--r:82px}
 }
 
 @media(hover:none){
