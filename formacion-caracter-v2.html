@@ -30,16 +30,14 @@
   .back-link:hover{color:var(--txt)}
 
   .page-route{margin-top:8px}
-  .hero{position:relative;isolation:isolate;min-height:535px;margin-top:14px;border:1px solid rgba(255,255,255,.12);border-radius:28px;overflow:hidden;background:#f1f0ef;box-shadow:0 28px 90px rgba(0,0,0,.3)}
+  .hero{position:relative;isolation:isolate;min-height:535px;margin-top:14px;border:1px solid rgba(255,255,255,.12);border-radius:28px;overflow:hidden;background:#fff;box-shadow:0 28px 90px rgba(0,0,0,.3)}
   .hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:0}
-  .hero::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(255,255,255,.98) 0%,rgba(255,255,255,.9) 35%,rgba(255,255,255,.25) 58%,transparent 76%)}
-  .hero-content{position:relative;z-index:2;width:min(570px,55%);margin:46px;padding:30px 32px;border:1px solid rgba(10,49,71,.1);border-radius:22px;background:rgba(255,255,255,.88);color:#111217;box-shadow:0 20px 55px rgba(21,45,60,.12);backdrop-filter:blur(6px)}
+  .hero::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,#fff 0%,#fff 36%,rgba(255,255,255,.98) 45%,rgba(255,255,255,.78) 56%,rgba(255,255,255,.32) 68%,transparent 80%)}
+  .hero-content{position:relative;z-index:2;width:min(570px,55%);margin:46px;padding:18px 0 22px;color:#111217}
   .program-logo{display:block;width:min(360px,100%);height:auto;margin-bottom:23px}
   .eyebrow{color:#a3003d;font-family:'Archivo';font-size:12px;font-weight:900;letter-spacing:2.4px;text-transform:uppercase}
   h1{margin-top:8px;font-family:'Archivo';font-size:43px;font-weight:900;line-height:1.02;letter-spacing:-1.4px}
   .hero-lead{max-width:490px;margin-top:15px;color:#3b3e46;font-size:16px;line-height:1.62}
-  .hero-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:19px}
-  .hero-tag{padding:6px 10px;border:1px solid rgba(12,66,97,.16);border-radius:18px;background:rgba(7,119,185,.07);color:#24465b;font-size:12.5px;font-weight:700}
 
   .intro{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(280px,.75fr);gap:18px;margin-top:28px}
   .intro-copy,.guide{padding:26px 28px;border:1px solid var(--line);border-radius:var(--radius);background:var(--panel)}
@@ -117,7 +115,7 @@
   .modal-continue{border:0;background:var(--pink);color:#fff}
 
   @media(max-width:960px){
-    .hero{min-height:500px}.hero-content{width:min(540px,62%);margin:34px;padding:27px}h1{font-size:37px}
+    .hero{min-height:500px}.hero-content{width:min(540px,62%);margin:34px;padding:18px 0 22px}h1{font-size:37px}
     .gem-grid{grid-template-columns:1fr 1fr}.gem-card.pending{grid-column:1/-1;min-height:300px}
     .framework-grid{grid-template-columns:1fr 1fr}
   }
@@ -155,9 +153,6 @@
         <span class="eyebrow">Colección especializada de Gemas</span>
         <h1>Gemas para vivir las virtudes</h1>
         <p class="hero-lead">Recursos de inteligencia artificial para diseñar experiencias que favorezcan el juicio, la reflexión y la acción en situaciones reales del aula.</p>
-        <div class="hero-tags" aria-label="Principios de la colección">
-          <span class="hero-tag">Pertinencia por etapa</span><span class="hero-tag">Contexto escolar</span><span class="hero-tag">Criterio docente</span>
-        </div>
       </div>
     </header>
 
