@@ -44,9 +44,6 @@
   .section-kicker{color:var(--orange);font-family:'Archivo';font-size:11.5px;font-weight:900;letter-spacing:2px;text-transform:uppercase}
   .intro h2,.gems-head h2,.framework h2{margin-top:7px;font-family:'Archivo';font-size:27px;font-weight:900;line-height:1.08;letter-spacing:-.5px}
   .intro-copy p{margin-top:13px;color:#c2c2ca;font-size:15px;line-height:1.68}
-  .dimension-list{display:flex;flex-wrap:wrap;gap:8px;margin-top:17px}
-  .dimension{display:inline-flex;align-items:center;gap:7px;padding:6px 10px;border:1px solid rgba(239,0,85,.25);border-radius:20px;background:rgba(239,0,85,.07);color:#f0c9d8;font-size:12.5px;font-weight:700}
-  .dimension::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--pink-soft)}
   .guide{background:linear-gradient(145deg,rgba(255,138,0,.1),rgba(20,20,22,.98) 45%)}
   .guide h2{font-size:20px}
   .guide ol{display:grid;gap:12px;margin-top:16px;list-style:none;counter-reset:guide}
@@ -56,28 +53,21 @@
   .gems{margin-top:58px}
   .gems-head{display:flex;align-items:end;justify-content:space-between;gap:24px}
   .gems-head p{max-width:490px;color:var(--muted);font-size:14px;line-height:1.58;text-align:right}
-  .gem-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:21px}
-  .gem-card{position:relative;isolation:isolate;min-height:370px;display:flex;flex-direction:column;padding:24px;border:1px solid var(--line);border-radius:22px;overflow:hidden;background:linear-gradient(155deg,rgba(239,0,85,.13),rgba(20,20,22,.98) 39%);transition:transform .2s,border-color .2s,box-shadow .2s}
-  .gem-card::after{content:"";position:absolute;right:-50px;top:-58px;z-index:-1;width:150px;height:150px;border-radius:50%;background:radial-gradient(circle,rgba(239,0,85,.22),transparent 68%)}
-  .gem-card:hover{transform:translateY(-3px);border-color:rgba(239,0,85,.5);box-shadow:0 19px 46px rgba(0,0,0,.24)}
-  .gem-card.pending{background:linear-gradient(155deg,rgba(255,138,0,.11),rgba(20,20,22,.98) 39%)}
-  .gem-card.pending::after{background:radial-gradient(circle,rgba(255,138,0,.2),transparent 68%)}
-  .gem-number{width:43px;height:43px;display:grid;place-items:center;border:1px solid rgba(255,255,255,.12);border-radius:14px;background:rgba(255,255,255,.055);color:var(--pink-soft);font-family:'Archivo';font-size:13px;font-weight:900}
-  .pending .gem-number{color:var(--orange)}
-  .gem-type{margin-top:19px;color:#ffa2c2;font-family:'Archivo';font-size:11px;font-weight:900;letter-spacing:1.6px;text-transform:uppercase}
-  .pending .gem-type{color:#ffc47f}
-  .gem-card h3{margin-top:9px;font-family:'Archivo';font-size:23px;font-weight:900;line-height:1.08;letter-spacing:-.45px}
-  .gem-card p{margin-top:13px;color:#b9b9c2;font-size:14px;line-height:1.62}
-  .gem-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
-  .gem-tags span{padding:4px 8px;border:1px solid var(--line);border-radius:14px;background:var(--panel-2);color:var(--dim);font-size:11.5px}
-  .gem-open,.gem-pending{align-self:flex-start;margin-top:auto;padding:10px 17px;border-radius:22px;font-size:13.5px;font-weight:900}
+  .gem-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:21px}
+  .gem-card{min-width:0;display:flex;flex-direction:column;gap:13px;transition:transform .2s}
+  .gem-card:hover{transform:translateY(-3px)}
+  .gem-visual{position:relative;isolation:isolate;aspect-ratio:16/10;border:1px solid rgba(255,255,255,.13);border-radius:18px;overflow:hidden;background:#111114;box-shadow:0 16px 38px rgba(0,0,0,.24)}
+  .gem-visual>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .55s cubic-bezier(.2,.65,.3,1)}
+  .gem-visual::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(7,7,9,.06) 12%,rgba(7,7,9,.18) 42%,rgba(7,7,9,.88) 78%,rgba(7,7,9,.98) 100%)}
+  .gem-card:hover .gem-visual>img{transform:scale(1.035)}
+  .gem-number{position:absolute;top:14px;left:14px;z-index:2;width:39px;height:39px;display:grid;place-items:center;border:1px solid rgba(255,255,255,.2);border-radius:12px;background:rgba(14,14,17,.58);color:#fff;font-family:'Archivo';font-size:12px;font-weight:900;backdrop-filter:blur(5px)}
+  .gem-overlay{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;justify-content:flex-end;padding:21px 19px}
+  .gem-type{color:#ffb14a;font-family:'Archivo';font-size:10.5px;font-weight:900;letter-spacing:1.55px;text-transform:uppercase}
+  .gem-card h3{margin-top:7px;color:#fff;font-family:'Archivo';font-size:22px;font-weight:900;line-height:1.03;letter-spacing:-.5px;text-shadow:0 2px 12px rgba(0,0,0,.5)}
+  .gem-open,.gem-pending{align-self:flex-start;padding:10px 17px;border-radius:22px;font-size:13.5px;font-weight:900}
   .gem-open{border:0;background:#fff;color:#8a0032;cursor:pointer;transition:background .2s,color .2s}
   .gem-open:hover{background:var(--pink);color:#fff}
   .gem-pending{border:1px solid var(--line);background:var(--panel-2);color:var(--dim)}
-
-  .orientation{display:flex;align-items:flex-start;gap:13px;margin-top:19px;padding:20px 22px;border:1px solid rgba(255,138,0,.24);border-radius:17px;background:rgba(255,138,0,.055);color:#bdbdc5;font-size:14px;line-height:1.62}
-  .orientation strong{color:#f0f0f2}
-  .orientation-icon{flex:0 0 auto;color:var(--orange);font-size:18px}
 
   .framework{margin-top:58px;padding:30px;border:1px solid var(--line);border-radius:24px;background:linear-gradient(145deg,rgba(7,119,185,.09),rgba(20,20,22,.98) 44%)}
   .framework-lead{max-width:720px;margin-top:12px;color:var(--muted);font-size:14.5px;line-height:1.65}
@@ -116,19 +106,19 @@
 
   @media(max-width:960px){
     .hero{min-height:500px}.hero-content{width:min(540px,62%);margin:34px;padding:18px 0 22px}h1{font-size:37px}
-    .gem-grid{grid-template-columns:1fr 1fr}.gem-card.pending{grid-column:1/-1;min-height:300px}
+    .gem-grid{grid-template-columns:1fr 1fr}.gem-card:last-child{grid-column:1/-1}.gem-card:last-child .gem-visual{aspect-ratio:2.2/1}
     .framework-grid{grid-template-columns:1fr 1fr}
   }
   @media(max-width:760px){
     .wrap{width:min(100% - 28px,1180px)}.nav{align-items:flex-start}.brand{font-size:13px}.brand img{height:32px}.back-link{font-size:13px}
     .hero{display:grid;min-height:0;border-radius:22px}.hero-bg{position:relative;grid-row:1;width:100%;height:auto;aspect-ratio:16/9;object-position:65% center}.hero::after{display:none}
     .hero-content{grid-row:2;width:auto;margin:0;padding:26px 22px;border:0;border-radius:0;background:#fff;box-shadow:none;backdrop-filter:none}.program-logo{width:min(320px,100%)}h1{font-size:32px}
-    .intro{grid-template-columns:1fr}.gems{margin-top:48px}.gems-head{display:block}.gems-head p{margin-top:10px;text-align:left}.gem-grid{grid-template-columns:1fr}.gem-card,.gem-card.pending{grid-column:auto;min-height:330px}
+    .intro{grid-template-columns:1fr}.gems{margin-top:48px}.gems-head{display:block}.gems-head p{margin-top:10px;text-align:left}.gem-grid{grid-template-columns:1fr}.gem-card:last-child{grid-column:auto}.gem-card:last-child .gem-visual{aspect-ratio:16/10}
     .framework{padding:24px 20px}.framework-grid{grid-template-columns:1fr}.ft-brand-copy{flex:1 0 100%}
   }
   @media(max-width:480px){
     .nav{display:grid}.back-link{justify-self:start}.hero-bg{aspect-ratio:4/3;object-position:71% center}.hero-content{padding:23px 18px}h1{font-size:28px}
-    .intro-copy,.guide{padding:22px 20px}.gem-card{padding:21px}.modal-actions{flex-direction:column-reverse}.modal-close,.modal-continue{text-align:center}
+    .intro-copy,.guide{padding:22px 20px}.gem-overlay{padding:18px 16px}.gem-card h3{font-size:20px}.modal-actions{flex-direction:column-reverse}.modal-close,.modal-continue{text-align:center}
   }
   @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
 </style>
@@ -161,9 +151,6 @@
         <span class="section-kicker">Enfoque compartido</span>
         <h2 id="enfoque-title">Formación del Carácter Al Estilo Jalisco</h2>
         <p>Las Gemas se articulan con un horizonte progresivo de virtudes y consideran el momento educativo, el propósito y las características del grupo. La propuesta orienta la práctica sin convertirla en una secuencia rígida.</p>
-        <div class="dimension-list" aria-label="Cuatro dimensiones de la formación del carácter">
-          <span class="dimension">Intelectual</span><span class="dimension">Ética</span><span class="dimension">Cívica</span><span class="dimension">De desempeño</span>
-        </div>
       </div>
       <aside class="guide" aria-labelledby="guide-title">
         <span class="section-kicker">Antes de comenzar</span>
@@ -183,33 +170,32 @@
       </div>
       <div class="gem-grid">
         <article class="gem-card">
-          <span class="gem-number" aria-hidden="true">01</span>
-          <span class="gem-type">Diálogo y juicio moral</span>
-          <h3>Generador de dilemas morales</h3>
-          <p>Crea situaciones contextualizadas para promover el diálogo socrático, la reflexión, la toma de postura y la autonomía ética.</p>
-          <div class="gem-tags" aria-label="Características"><span>Situaciones reales</span><span>Preguntas guía</span><span>Reflexión</span></div>
-          <button type="button" class="gem-open portal-final-action js-gem-open" data-name="Generador de dilemas morales" data-url="https://gemini.google.com/gem/1RQIkcoeNSN-61wwrokikXbcDFQN6-2Uc?usp=sharing">Abrir Gema <span aria-hidden="true">↗</span></button>
+          <div class="gem-visual">
+            <img src="gema-dilemas-morales.jpg" alt="Docente y estudiantes dialogando en torno a una situación del aula" loading="lazy">
+            <span class="gem-number" aria-hidden="true">01</span>
+            <div class="gem-overlay"><span class="gem-type">Diálogo y juicio moral</span><h3>Generador de dilemas morales</h3></div>
+          </div>
+          <button type="button" class="gem-open portal-final-action js-gem-open" data-name="Generador de dilemas morales" data-url="https://gemini.google.com/gem/1RQIkcoeNSN-61wwrokikXbcDFQN6-2Uc?usp=sharing" aria-label="Abrir Gema Generador de dilemas morales">Abrir Gema <span aria-hidden="true">›</span></button>
         </article>
 
         <article class="gem-card">
-          <span class="gem-number" aria-hidden="true">02</span>
-          <span class="gem-type">Narrativa y reflexión</span>
-          <h3>Cuentos con virtudes personalizados</h3>
-          <p>Construye relatos y preguntas de lectura vinculados con las virtudes pertinentes para la etapa y las características del grupo.</p>
-          <div class="gem-tags" aria-label="Características"><span>Narrativa</span><span>Por etapa</span><span>Preguntas de lectura</span></div>
-          <button type="button" class="gem-open portal-final-action js-gem-open" data-name="Cuentos con virtudes personalizados" data-url="https://gemini.google.com/gem/1npiwHkixlTv6xE8iEV0YBZGR7K3fice1?usp=sharing">Abrir Gema <span aria-hidden="true">↗</span></button>
+          <div class="gem-visual">
+            <img src="gema-cuentos-virtudes.jpg" alt="Educadora con mandil leyendo un cuento a niñas y niños de preescolar" loading="lazy">
+            <span class="gem-number" aria-hidden="true">02</span>
+            <div class="gem-overlay"><span class="gem-type">Narrativa y reflexión</span><h3>Cuentos con virtudes personalizados</h3></div>
+          </div>
+          <button type="button" class="gem-open portal-final-action js-gem-open" data-name="Cuentos con virtudes personalizados" data-url="https://gemini.google.com/gem/1npiwHkixlTv6xE8iEV0YBZGR7K3fice1?usp=sharing" aria-label="Abrir Gema Cuentos con virtudes personalizados">Abrir Gema <span aria-hidden="true">›</span></button>
         </article>
 
         <article class="gem-card">
-          <span class="gem-number" aria-hidden="true">03</span>
-          <span class="gem-type">Revisión de congruencia</span>
-          <h3>Alineación de acciones de Formación del Carácter</h3>
-          <p>Analiza planeaciones, PEMC, recursos, comunicados o estrategias para reconocer fortalezas y priorizar oportunidades de ajuste.</p>
-          <div class="gem-tags" aria-label="Características"><span>Fortalezas primero</span><span>Prioridad alta, media o baja</span><span>Acciones y documentos</span></div>
-          <button type="button" class="gem-open portal-final-action js-gem-open" data-name="Alineación de acciones de Formación del Carácter" data-url="https://gemini.google.com/gem/1GBGpSjEFqe1EiEz0ThaFfyO5r1Ob4FDu?usp=sharing">Abrir Gema <span aria-hidden="true">↗</span></button>
+          <div class="gem-visual">
+            <img src="gema-alineacion-caracter.jpg" alt="Docente con camisa azul y estudiantes revisando una propuesta de acciones" loading="lazy">
+            <span class="gem-number" aria-hidden="true">03</span>
+            <div class="gem-overlay"><span class="gem-type">Revisión de congruencia</span><h3>Alineación de acciones de Formación del Carácter</h3></div>
+          </div>
+          <button type="button" class="gem-open portal-final-action js-gem-open" data-name="Alineación de acciones de Formación del Carácter" data-url="https://gemini.google.com/gem/1GBGpSjEFqe1EiEz0ThaFfyO5r1Ob4FDu?usp=sharing" aria-label="Abrir Gema Alineación de acciones de Formación del Carácter">Abrir Gema <span aria-hidden="true">›</span></button>
         </article>
       </div>
-      <p class="orientation"><span class="orientation-icon" aria-hidden="true">✦</span><span><strong>Una propuesta orientadora, no una ruta rígida.</strong> La inteligencia artificial acompaña el análisis y la creación; no sustituye el conocimiento, la experiencia ni el criterio profesional de cada docente.</span></p>
     </section>
 
     <section class="framework" aria-labelledby="framework-title">
