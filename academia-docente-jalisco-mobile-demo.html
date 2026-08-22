@@ -341,13 +341,14 @@
   .ft-legal a:hover{color:var(--txt)}
   .ft{align-items:flex-start}
 </style>
-<link rel="stylesheet" href="mobile-demo.css?v=20260821-2">
+<link rel="stylesheet" href="mobile-demo.css?v=20260821-6">
 </head>
-<body class="mobile-demo home-demo">
+<body class="mobile-demo home-demo mobile-explorer-demo">
 <a class="skip-link" href="#contenido-principal">Saltar al contenido principal</a>
+<div class="mobile-announcement"><span aria-hidden="true">✦</span> IA para Docentes · Herramientas para transformar tu práctica</div>
 <header class="mobile-appbar">
   <div class="mobile-appbar__brand"><img src="logo-sej.svg" alt=""><span>IA para Docentes</span></div>
-  <span class="mobile-demo-label">Prueba móvil</span>
+  <button type="button" class="mobile-appbar-menu mobile-more-open" aria-haspopup="dialog" aria-controls="mobileMenu" aria-label="Abrir menú"><span></span><span></span><span></span></button>
 </header>
 <div class="wrap">
 
@@ -360,168 +361,107 @@
   <main id="contenido-principal" tabindex="-1">
   <h1 class="sr-only">IA para Docentes de Jalisco</h1>
 
-  <!-- BIENVENIDA MÓVIL: una sola idea y una acción principal -->
-  <header class="hero mobile-welcome-hero" aria-labelledby="mobile-welcome-title">
-    <div class="slides" id="slides">
+  <!-- PORTADA MÓVIL ORIENTADA A EXPLORACIÓN -->
+  <section class="mobile-command" aria-label="Buscar herramientas">
+    <label class="mobile-search" for="mobileExploreSearch">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-4-4"></path></svg>
+      <input id="mobileExploreSearch" type="search" inputmode="search" autocomplete="off" placeholder="¿Qué necesitas preparar hoy?">
+      <button type="button" class="mobile-search-clear" aria-label="Limpiar búsqueda" hidden>×</button>
+    </label>
+  </section>
 
-      <div class="slide s1 active" aria-hidden="false">
-        <img src="hero-1.png" alt="Docentes de Jalisco trabajando con IA" onerror="this.style.display='none'">
-        <div class="inner">
-          <span class="mobile-welcome-kicker">Portal para la comunidad docente</span>
-          <h2 id="mobile-welcome-title">IA para Docentes<br><span class="g">Lleva la IA a tu salón de clases</span></h2>
-          <p>Aprende a usar la inteligencia artificial y encuentra herramientas para planear, crear materiales, evaluar y acompañar a tus estudiantes.</p>
-          <a class="mobile-welcome-cta" href="gemas-mobile-demo.html?v=20260821-5">Explorar herramientas <span aria-hidden="true">›</span></a>
-        </div>
-      </div>
-    </div>
-  </header>
+  <a class="mobile-showcase-hero mobile-nav-card" href="gemas-mobile-demo.html?v=20260821-6" data-category="herramientas" data-search="ia docentes herramientas inteligencia artificial">
+    <img src="hero-1.png" alt="Docentes de Jalisco trabajando con inteligencia artificial">
+    <span class="mobile-showcase-shade" aria-hidden="true"></span>
+    <span class="mobile-showcase-copy">
+      <strong>IA para<br>Docentes</strong>
+      <b>Lleva la IA a tu salón de clases</b>
+      <small>Explorar herramientas <span aria-hidden="true">›</span></small>
+    </span>
+  </a>
 
-  <nav class="mobile-quick-actions" aria-label="Accesos rápidos">
-    <a class="mobile-quick-action-primary" href="gemas-mobile-demo.html?v=20260821-5"><span aria-hidden="true">✦</span><strong>Herramientas de IA</strong><small>Ver todos los recursos</small></a>
-    <a href="#primeros-pasos"><span aria-hidden="true">▶</span><strong>Primeros pasos</strong></a>
-    <a href="#ruta-gemas"><span aria-hidden="true">✓</span><strong>Ruta de Gemas</strong></a>
+  <nav class="mobile-filterbar" aria-label="Filtrar herramientas">
+    <button type="button" class="is-active" data-filter="todos" aria-pressed="true">Todos</button>
+    <button type="button" data-filter="primeros" aria-pressed="false">Primeros pasos</button>
+    <button type="button" data-filter="ruta" aria-pressed="false">Ruta</button>
+    <button type="button" data-filter="herramientas" aria-pressed="false">Herramientas</button>
+    <button type="button" data-filter="formacion" aria-pressed="false">Formación</button>
   </nav>
 
+  <section class="mobile-explore" aria-labelledby="mobileExploreTitle">
+    <div class="mobile-explore-head">
+      <div><span>Encuentra tu punto de partida</span><h2 id="mobileExploreTitle">Explora</h2></div>
+      <output id="mobileExploreCount" aria-live="polite">10 accesos</output>
+    </div>
 
-  <!-- CURSOS -->
-  <section class="sec" id="primeros-pasos">
-    <h2>Primeros pasos</h2>
-    <div class="sub">Empieza aquí: activa tu cuenta @jaliscoedu.mx, conoce las herramientas de IA y aprende a usarlas en tu aula, paso a paso y sin conocimientos previos.</div>
-
-    <div class="courses">
-      <!-- card 1 -->
-      <a href="recuperar-cuenta.html" class="card" style="display:block">
-        <div class="thumb glow">
-          <img src="cuenta-jalisco-naranja.png" alt="Cuenta @jaliscoedu.mx" class="thumb-img" onerror="this.style.display='none'">
-        </div>
-        <div class="meta">
-          <h3>Primeros pasos con tu cuenta @jaliscoedu.mx</h3>
-          <div class="desc">La llave que abre Gemini, las Gemas y todo el ecosistema Google for Education.</div>
-          <div class="row"><span class="gobtn">Explorar ▸</span></div>
-        </div>
+    <div class="mobile-bento-grid" id="mobileBentoGrid">
+      <a class="mobile-bento-card mobile-nav-card" href="recuperar-cuenta.html" data-category="primeros" data-search="activar cuenta jaliscoedu recuperar contraseña acceso google">
+        <img src="cuenta-jalisco-naranja.png" alt="">
+        <span class="mobile-card-shade"></span>
+        <span class="mobile-card-title">Activa tu cuenta<br>@jaliscoedu.mx</span>
       </a>
 
-      <!-- card 2 -->
-      <a class="card" href="curso-herramientas-ia.html" style="display:block">
-        <div class="thumb film">
-          <img src="maestra.png" alt="Maestra impartiendo clase con IA" class="thumb-img teacher" onerror="this.style.display='none'">
-          <div class="thumb-shade"></div>
-          <div class="filmtitle">
-            <div class="k">Aula digital</div>
-            <div class="b">Paso a paso</div>
-          </div>
-        </div>
-        <div class="meta">
-          <h3>Aprende a usar las herramientas de IA</h3>
-          <div class="desc">Trayecto autogestivo para dominar Gemini, las Gemas y NotebookLM a tu propio ritmo.</div>
-          <div class="row"><span class="gobtn">Explorar ▸</span></div>
-        </div>
+      <a class="mobile-bento-card mobile-nav-card" href="curso-herramientas-ia.html" data-category="primeros formacion" data-search="curso aprende paso a paso herramientas inteligencia artificial">
+        <img src="maestra.png" alt="">
+        <span class="mobile-card-shade"></span>
+        <span class="mobile-card-title">Aprende<br>paso a paso</span>
+      </a>
+
+      <a class="mobile-bento-card mobile-nav-card" href="https://gemini.google.com/gem/1E997ysThV6qkHsQ-QFZU5elj2GhuqSsL?usp=sharing" data-gem="true" data-category="ruta herramientas" data-search="diagnóstico inicial grupo contexto gema">
+        <img src="hd-diagnostico.jpg" alt="">
+        <span class="mobile-card-shade"></span>
+        <span class="mobile-card-kind">Gema</span>
+        <span class="mobile-card-title">Diagnóstico<br>inicial</span>
+      </a>
+
+      <a class="mobile-bento-card mobile-nav-card mobile-card-program" href="https://gemini.google.com/gem/1CJf1Zh-EW8V9-WQgj1riJ9FWxeKAH_Tr?usp=sharing" data-gem="true" data-category="ruta herramientas" data-search="programa analítico comunidad campos formativos gema">
+        <span class="mobile-card-symbol" aria-hidden="true"><svg viewBox="0 0 64 64"><path d="M10 14c9-2 16 0 22 6v34c-6-6-13-8-22-6z"></path><path d="M54 14c-9-2-16 0-22 6v34c6-6 13-8 22-6z"></path><path d="M32 20v34"></path><path class="leaf" d="M39 12c7-7 13-5 15-4-1 7-5 12-14 12"></path></svg></span>
+        <span class="mobile-card-kind">Gema</span>
+        <span class="mobile-card-title">Programa<br>analítico</span>
+      </a>
+
+      <a class="mobile-bento-card mobile-nav-card" href="https://gemini.google.com/gem/1iCr-u-5XCdeL78-Oy5ogxRCq8VZQwa0L?usp=sharing" data-gem="true" data-category="ruta herramientas" data-search="planeación didáctica actividades materiales pda gema">
+        <img src="hd-planeacion.jpg" alt="">
+        <span class="mobile-card-shade"></span>
+        <span class="mobile-card-kind">Gema</span>
+        <span class="mobile-card-title">Planeación<br>didáctica</span>
+      </a>
+
+      <a class="mobile-bento-card mobile-nav-card" href="https://gemini.google.com/gem/1IjMLbQRkWqpdcYe0fc-8ib-ngWFqb1HZ?usp=sharing" data-gem="true" data-category="ruta herramientas" data-search="evaluación retroalimentación rúbricas instrumentos gema">
+        <img src="hd-evaluacion.jpg" alt="">
+        <span class="mobile-card-shade"></span>
+        <span class="mobile-card-kind">Gema</span>
+        <span class="mobile-card-title">Evaluación y<br>retroalimentación</span>
+      </a>
+
+      <a class="mobile-bento-card mobile-bento-wide mobile-nav-card" href="gemas-mobile-demo.html?v=20260821-6" data-category="herramientas" data-search="kit herramientas gemas recursos planeación evaluación inclusión">
+        <img src="kit-herramientas-neon.jpg" alt="">
+        <span class="mobile-card-shade"></span>
+        <span class="mobile-card-kicker">Todos los recursos</span>
+        <span class="mobile-card-title">Kit de<br>herramientas</span>
+      </a>
+
+      <a class="mobile-bento-card mobile-bento-tall mobile-nav-card" href="formacion-caracter.html" data-category="formacion herramientas" data-search="formación carácter virtudes ética convivencia jalisco">
+        <img src="formacion-caracter-banner.jpg" alt="">
+        <span class="mobile-card-shade"></span>
+        <span class="mobile-card-kicker">Al Estilo Jalisco</span>
+        <span class="mobile-card-title">Formación del<br>Carácter</span>
+      </a>
+
+      <a class="mobile-bento-card mobile-nav-card" href="banco-gemas.html" data-category="herramientas" data-search="banco gemas especializadas docentes recursos">
+        <img src="banco-gemas-banner-hombre.jpg" alt="">
+        <span class="mobile-card-shade"></span>
+        <span class="mobile-card-title">Banco de Gemas<br>especializadas</span>
+      </a>
+
+      <a class="mobile-bento-card mobile-nav-card" href="conoce-mas-ia-v2.html" data-category="formacion" data-search="conoce más inteligencia artificial ética ciudadanía digital">
+        <img src="conoce-ia-docente.jpg" alt="">
+        <span class="mobile-card-shade"></span>
+        <span class="mobile-card-title">Conoce más<br>sobre la IA</span>
       </a>
     </div>
+    <p class="mobile-no-results" id="mobileNoResults" hidden>No encontramos un acceso con esas palabras. Prueba con “planeación”, “evaluación” o “cuenta”.</p>
   </section>
-
-  <!-- PROGRAMA -->
-  <section class="program" id="ruta-gemas">
-    <div class="head">
-      <div class="kick">✦ TU RUTA CON LAS GEMAS ✦</div>
-      <h2>DEL DIAGNÓSTICO AL AULA</h2>
-      <div class="lead">Cuatro pasos, cuatro Gemas que te acompañan en todo el ciclo de planeación bajo la Nueva Escuela Mexicana.</div>
-    </div>
-
-    <div class="steps">
-      <div class="step">
-        <h3>Diagnóstico<br>inicial</h3>
-        <span class="ul"></span>
-        <p><b>La Gema</b> analiza tu grupo y contexto para partir de datos reales.</p>
-        <span class="num">1</span>
-      </div>
-      <div class="step">
-        <h3>Programa<br>analítico</h3>
-        <span class="ul"></span>
-        <p><b>La Gema</b> contextualiza el programa a tu comunidad y campos formativos.</p>
-        <span class="num">2</span>
-      </div>
-      <div class="step">
-        <h3>Planeación<br>didáctica</h3>
-        <span class="ul"></span>
-        <p><b>La Gema</b> genera secuencias, actividades y materiales alineados a los PDA.</p>
-        <span class="num">3</span>
-      </div>
-      <div class="step">
-        <h3>Evaluación y<br>retroalimentación</h3>
-        <span class="ul"></span>
-        <p><b>La Gema</b> crea rúbricas e instrumentos y retroalimenta por PDA.</p>
-        <span class="num">4</span>
-      </div>
-      <span class="conn" style="left:25%"></span>
-      <span class="conn" style="left:50%"></span>
-      <span class="conn" style="left:75%"></span>
-    </div>
-    <a class="cta" href="ruta.html">Explorar la ruta →</a>
-  </section>
-
-  <!-- KIT DE HERRAMIENTAS -->
-  <section class="kit" id="kit-herramientas">
-    <h2 style="font-family:'Archivo';font-weight:800;font-size:22px">Kit de herramientas</h2>
-    <div class="sub">Accede a todos los recursos impulsados por IA para apoyar tu labor docente, planeación, evaluación, inclusión y más</div>
-
-    <a class="kit-intro" href="gemas-mobile-demo.html?v=20260821-5" style="display:block">
-      <div class="art">
-        <img src="kit-herramientas-neon.jpg" alt="Portal neón del kit de herramientas" class="kit-img" onerror="this.style.display='none'">
-        <div class="cardfan" aria-hidden="true">
-          <img class="c3d" src="hd-diagnostico.jpg" alt="Diagnóstico Inicial" data-z="-150" data-ry="18" data-depth="0.55" data-sx="-2.5" style="z-index:4;opacity:0.38;transform:translateZ(-150px) rotateY(18deg)" onerror="this.style.display='none'">
-          <img class="c3d" src="hd-planeacion.jpg" alt="Planeación Didáctica" data-z="-70" data-ry="14" data-depth="0.85" data-sx="-1.5" style="z-index:5;opacity:0.68;transform:translateZ(-70px) rotateY(14deg)" onerror="this.style.display='none'">
-          <img class="c3d" src="hd-leo.jpg" alt="Programa LEO" data-z="35" data-ry="7" data-depth="1.2" data-sx="-0.5" style="z-index:6;opacity:1;transform:translateZ(35px) rotateY(7deg)" onerror="this.style.display='none'">
-          <img class="c3d" src="hd-proyectos.jpg" alt="Proyectos Integradores" data-z="35" data-ry="-7" data-depth="1.2" data-sx="0.5" style="z-index:6;opacity:1;transform:translateZ(35px) rotateY(-7deg)" onerror="this.style.display='none'">
-          <img class="c3d" src="hd-matematicas.jpg" alt="Matemáticas" data-z="-70" data-ry="-14" data-depth="0.85" data-sx="1.5" style="z-index:5;opacity:0.68;transform:translateZ(-70px) rotateY(-14deg)" onerror="this.style.display='none'">
-          <img class="c3d" src="hd-evaluacion.jpg" alt="Evaluación" data-z="-150" data-ry="-18" data-depth="0.55" data-sx="2.5" style="z-index:4;opacity:0.38;transform:translateZ(-150px) rotateY(-18deg)" onerror="this.style.display='none'">
-        </div>
-
-      </div>
-      <div class="cap">
-        <div class="cap-text">
-          <h3>Explora todos los recursos</h3>
-          <p>Planeación, evaluación, inclusión, retroalimentación y más. Elige una Gema, cópiala y ponla a trabajar con tu cuenta.</p>
-        </div>
-        <div class="explore">Explorar ▸</div>
-      </div>
-    </a>
-
-    <a class="character-home" href="formacion-caracter.html" aria-labelledby="character-home-title">
-      <img class="character-home__image" src="formacion-caracter-banner.jpg" alt="Docente acompañando a estudiantes durante una actividad colaborativa" loading="lazy">
-      <div class="character-home__content">
-        <span class="character-home__kick">Espacio especializado</span>
-        <h2 id="character-home-title">Formación del Carácter Al Estilo Jalisco</h2>
-        <p>Explora Gemas para diseñar experiencias que acompañen el desarrollo de virtudes en cada etapa educativa.</p>
-        <span class="character-home__button">Explorar las Gemas <span aria-hidden="true">→</span></span>
-      </div>
-    </a>
-
-    <a class="banco-banner" href="banco-gemas.html">
-      <img src="banco-gemas-banner-hombre.jpg" class="bb-bg" alt="" aria-hidden="true" onerror="this.onerror=null;this.src='banco-banner-ia.png'">
-      <div class="bb-text">
-        <div class="bb-kick">Banco de Gemas especializadas</div>
-        <h2>Gemas para acompañar distintas necesidades del aula</h2>
-        <p>Encuentra asistentes para trabajar valores y convivencia, proyectos integradores, lectura, escritura y matemáticas. Explora por tema y abre cada Gema y te llevará a la plataforma de Gemini para adaptarla a las características de tu grupo y a tu intención pedagógica.</p>
-        <span class="bb-btn">Explorar el banco ▸</span>
-      </div>
-    </a>
-  </section>
-
-  <section class="learn-ai-home" aria-labelledby="learn-ai-home-title">
-    <img class="learn-ai-home__image" src="conoce-ia-docente.jpg" alt="Docente reflexionando frente a su computadora portátil" loading="lazy">
-    <div class="learn-ai-home__content">
-      <span class="learn-ai-kicker">Formación para comprender y decidir</span>
-      <h2 id="learn-ai-home-title">Conoce más sobre la IA</h2>
-      <p>Amplía tu mirada sobre sus posibilidades, límites y uso responsable en la educación. Explora una serie audiovisual y recursos institucionales para fortalecer tu criterio docente.</p>
-      <div class="learn-ai-home__tags" aria-label="Temas disponibles"><span class="learn-ai-home__tag">Educación</span><span class="learn-ai-home__tag">Ética</span><span class="learn-ai-home__tag">Ciudadanía digital</span></div>
-      <div class="learn-ai-home__actions">
-        <a class="learn-ai-home__primary portal-final-action" href="conoce-mas-ia-v2.html">Explorar recursos <span aria-hidden="true">→</span></a>
-        <a class="learn-ai-home__secondary portal-final-action" href="https://www.youtube.com/watch?v=ZLsVs2PwXck&amp;list=PL6UhGvZdF4ui7c9SYmo-vipkBrj0uYKyA" target="_blank" rel="noopener">Ver lista de reproducción <span aria-hidden="true">↗</span></a>
-      </div>
-    </div>
-  </section>
-
 
   </main>
 
@@ -540,8 +480,8 @@
       <div class="ft-cols">
         <nav class="ft-col" aria-label="Secciones del portal">
           <b>Portal</b>
-          <a href="academia-docente-jalisco-mobile-demo.html?v=20260821-5">Inicio</a>
-          <a href="gemas-mobile-demo.html?v=20260821-5">Recursos</a>
+          <a href="academia-docente-jalisco-mobile-demo.html?v=20260821-6">Inicio</a>
+          <a href="gemas-mobile-demo.html?v=20260821-6">Recursos</a>
           <a href="banco-gemas.html">Banco de Gemas</a>
           <a href="ruta.html">Ruta</a>
           <a href="recuperar-cuenta.html">Mesa de Ayuda</a>
@@ -567,10 +507,11 @@
 
 </div>
 
-<nav class="mobile-tabbar" aria-label="Navegación principal móvil">
-  <a class="is-active" href="academia-docente-jalisco-mobile-demo.html?v=20260821-5" aria-current="page"><span aria-hidden="true">⌂</span><strong>Inicio</strong></a>
-  <a href="gemas-mobile-demo.html?v=20260821-5"><span aria-hidden="true">✦</span><strong>Herramientas</strong></a>
-  <button type="button" class="mobile-more-open" aria-haspopup="dialog" aria-controls="mobileMenu"><span aria-hidden="true">•••</span><strong>Más</strong></button>
+<nav class="mobile-tabbar mobile-tabbar-four" aria-label="Navegación principal móvil">
+  <a class="is-active" href="academia-docente-jalisco-mobile-demo.html?v=20260821-6" aria-current="page"><span aria-hidden="true">⌂</span><strong>Inicio</strong></a>
+  <a href="ruta.html"><span aria-hidden="true">⌘</span><strong>Ruta</strong></a>
+  <a class="mobile-tabbar-gems" href="gemas-mobile-demo.html?v=20260821-6"><span aria-hidden="true">✦</span><strong>Gemas</strong></a>
+  <a href="recuperar-cuenta.html"><span aria-hidden="true">?</span><strong>Ayuda</strong></a>
 </nav>
 
 <div class="mobile-menu-backdrop" id="mobileMenu" hidden>
@@ -587,6 +528,89 @@
   </section>
 </div>
 
+<script>
+(function(){
+  'use strict';
+  var cards=Array.prototype.slice.call(document.querySelectorAll('.mobile-nav-card'));
+  var filters=Array.prototype.slice.call(document.querySelectorAll('.mobile-filterbar button'));
+  var search=document.getElementById('mobileExploreSearch');
+  var clear=document.querySelector('.mobile-search-clear');
+  var count=document.getElementById('mobileExploreCount');
+  var empty=document.getElementById('mobileNoResults');
+  var activeFilter='todos';
+  var leaving=false;
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function normalise(value){
+    return (value||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+  }
+  function applyFilters(){
+    var query=normalise(search&&search.value);
+    var visible=0;
+    cards.forEach(function(card){
+      if(card.classList.contains('mobile-showcase-hero'))return;
+      var categories=(card.dataset.category||'').split(/\s+/);
+      var categoryMatch=activeFilter==='todos'||categories.indexOf(activeFilter)>-1;
+      var queryMatch=!query||normalise(card.dataset.search+' '+card.textContent).indexOf(query)>-1;
+      var show=categoryMatch&&queryMatch;
+      card.hidden=!show;
+      if(show)visible++;
+    });
+    if(count)count.textContent=visible+' acceso'+(visible===1?'':'s');
+    if(empty)empty.hidden=visible!==0;
+    if(clear)clear.hidden=!(search&&search.value);
+  }
+  filters.forEach(function(button){
+    button.addEventListener('click',function(){
+      activeFilter=button.dataset.filter||'todos';
+      filters.forEach(function(item){
+        var selected=item===button;
+        item.classList.toggle('is-active',selected);
+        item.setAttribute('aria-pressed',selected?'true':'false');
+      });
+      applyFilters();
+    });
+  });
+  if(search)search.addEventListener('input',applyFilters);
+  if(clear)clear.addEventListener('click',function(){search.value='';search.focus();applyFilters();});
+
+  function navigateWithMotion(event){
+    if(event.defaultPrevented||event.metaKey||event.ctrlKey||event.shiftKey||event.altKey||leaving)return;
+    var card=event.currentTarget;
+    var href=card.href;
+    if(!href)return;
+    if(reduce){return;}
+    event.preventDefault();
+    leaving=true;
+    card.setAttribute('aria-busy','true');
+
+    var rect=card.getBoundingClientRect();
+    var mask=document.createElement('span');
+    mask.className='mobile-transition-mask';
+    var clone=card.cloneNode(true);
+    clone.removeAttribute('href');
+    clone.removeAttribute('id');
+    clone.classList.add('mobile-transition-card');
+    clone.style.left=rect.left+'px';
+    clone.style.top=rect.top+'px';
+    clone.style.width=rect.width+'px';
+    clone.style.height=rect.height+'px';
+    var state=document.createElement('span');
+    state.className='mobile-transition-state';
+    state.innerHTML='<b>'+(card.dataset.gem?'Abriendo Gema':'Abriendo')+'</b><i aria-hidden="true">→</i>';
+    clone.appendChild(state);
+    document.body.appendChild(mask);
+    document.body.appendChild(clone);
+    requestAnimationFrame(function(){
+      mask.classList.add('is-visible');
+      clone.classList.add('is-opening');
+    });
+    window.setTimeout(function(){window.location.assign(href);},430);
+  }
+  cards.forEach(function(card){card.addEventListener('click',navigateWithMotion);});
+  applyFilters();
+})();
+</script>
 <script>
 (function(){
   var art=document.querySelector('.kit-intro .art');
