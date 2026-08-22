@@ -288,3 +288,46 @@
   .mobile-transition-mask,.mobile-transition-card{display:none!important}
   .mobile-bento-card,.mobile-showcase-hero{transition:none!important}
 }
+
+
+/* Ajustes de enfoque visual de la portada móvil */
+@media (max-width: 760px){
+  .mobile-explorer-demo .mobile-showcase-hero{margin-top:13px}
+  .mobile-explorer-demo .mobile-showcase-hero>img{object-position:center center}
+  .mobile-explorer-demo .mobile-bento-wide>img{object-position:center center}
+  .mobile-explorer-demo .mobile-card-character>img{object-position:54% center}
+  .mobile-explorer-demo .mobile-card-bank>img{object-position:42% center}
+  .mobile-explorer-demo .mobile-card-learn>img{object-position:54% center}
+
+  .mobile-kit-cards{
+    position:absolute;
+    z-index:2;
+    top:13px;
+    right:8px;
+    bottom:12px;
+    width:69%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    perspective:760px;
+    pointer-events:none;
+  }
+  .mobile-kit-cards img{
+    position:absolute;
+    width:58px;
+    height:84px;
+    object-fit:cover;
+    border:1px solid rgba(255,255,255,.22);
+    border-radius:8px;
+    box-shadow:0 8px 22px rgba(0,0,0,.52),0 0 18px rgba(236,0,140,.13);
+    transform-origin:center bottom;
+  }
+  .mobile-kit-cards img:nth-child(1){transform:translateX(-98px) translateY(6px) rotateY(17deg) rotateZ(-5deg);opacity:.52}
+  .mobile-kit-cards img:nth-child(2){transform:translateX(-67px) translateY(2px) rotateY(12deg) rotateZ(-3deg);opacity:.72}
+  .mobile-kit-cards img:nth-child(3){transform:translateX(-34px) translateY(-3px) rotateY(6deg) rotateZ(-1deg)}
+  .mobile-kit-cards img:nth-child(4){transform:translateX(1px) translateY(-3px) rotateY(-6deg) rotateZ(1deg)}
+  .mobile-kit-cards img:nth-child(5){transform:translateX(36px) translateY(2px) rotateY(-12deg) rotateZ(3deg);opacity:.76}
+  .mobile-kit-cards img:nth-child(6){transform:translateX(69px) translateY(6px) rotateY(-17deg) rotateZ(5deg);opacity:.56}
+  .mobile-bento-wide .mobile-card-shade{z-index:1;background:linear-gradient(90deg,rgba(8,7,12,.96) 0%,rgba(8,7,12,.78) 26%,rgba(8,7,12,.15) 58%,rgba(8,7,12,.32) 100%)}
+  .mobile-bento-wide .mobile-card-kicker,.mobile-bento-wide .mobile-card-title{z-index:3}
+}
