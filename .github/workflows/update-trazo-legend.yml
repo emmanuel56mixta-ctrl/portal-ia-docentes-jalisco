@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - '.github/workflows/update-trazo-legend.yml'
+      - '.trazo-trigger'
   workflow_dispatch:
 
 permissions:
@@ -43,7 +44,6 @@ jobs:
               if text.count(fragment) != 1:
                   raise SystemExit(f'Fragmento {label} inesperado; no se modifica el archivo.')
 
-          # Retira únicamente el bloque duplicado insertado por el parche anterior.
           text, removed = re.subn(
               r'\s*<div id="trazo-legal"[^>]*>.*?</div>',
               '',
