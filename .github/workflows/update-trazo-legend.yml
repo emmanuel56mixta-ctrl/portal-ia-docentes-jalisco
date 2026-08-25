@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - '.github/workflows/update-trazo-legend.yml'
+      - '.trazo-trigger'
   workflow_dispatch:
 
 permissions:
