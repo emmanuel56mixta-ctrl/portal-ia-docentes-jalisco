@@ -1,17 +1,16 @@
-name: Integrar leyenda inferior de Trazo
+name: Diagnosticar footer de Trazo
 
 on:
   push:
     paths:
       - '.github/workflows/update-trazo-legend.yml'
-      - '.trazo-trigger'
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
-  actualizar-leyenda:
+  diagnostico-footer:
     runs-on: ubuntu-latest
     steps:
       - name: Obtener repositorio
@@ -19,83 +18,28 @@ jobs:
         with:
           ref: main
 
-      - name: Verificar versión de Trazo
-        shell: bash
-        run: |
-          test "$(git hash-object trazo-laboratorio.html)" = "f166a8b4c3491a7281538dd02a01f53179fb17b1"
-
-      - name: Integrar texto en el footer existente
+      - name: Mostrar contexto exacto del footer
         shell: bash
         run: |
           python3 - <<'PY'
           from pathlib import Path
-          import re
-
-          path = Path('trazo-laboratorio.html')
-          raw = path.read_bytes()
-          text = raw.decode('utf-8')
-          eol = '\r\n' if text.count('\r\n') > text.count('\n') / 2 else '\n'
-
-          old_author = '<div>Desarrollo independiente © 2026 Emmanuel Elizondo. Uso educativo gratuito y no comercial.</div>'
-          old_geo = '<div>Made with <a href="https://www.geogebra.org/" target="_blank" rel="noopener noreferrer" style="color:var(--accent);text-decoration:none;font-weight:600;">GeoGebra®</a>. GeoGebra es una marca de GeoGebra GmbH.</div>'
-          old_engine = '<div style="margin-top:5px;max-width:820px;margin-left:auto;margin-right:auto;">Trazo utiliza GeoGebra como motor matemático interactivo. Las construcciones, consignas, organización pedagógica, interfaz y contenidos originales de Trazo son independientes de GeoGebra. No se comercializa esta aplicación ni se cobra por su acceso.</div>'
-
-          for label, fragment in [('autor', old_author), ('GeoGebra', old_geo), ('motor', old_engine)]:
-              if text.count(fragment) != 1:
-                  raise SystemExit(f'Fragmento {label} inesperado; no se modifica el archivo.')
-
-          text, removed = re.subn(
-              r'\s*<div id="trazo-legal"[^>]*>.*?</div>',
-              '',
-              text,
-              count=1,
-              flags=re.I | re.S,
-          )
-          if removed != 1:
-              raise SystemExit('No se encontró exactamente un bloque duplicado trazo-legal.')
-
-          title = '<div style="margin-bottom:5px;"><strong>Trazo · Herramienta educativa interactiva</strong></div>'
-          new_author = '<div>Desarrollo independiente © 2026 Emmanuel Elizondo para la Secretaría de Educación Jalisco. Uso educativo gratuito y no comercial.</div>'
-          new_geo = '<div>Made with <a href="https://www.geogebra.org/" target="_blank" rel="noopener noreferrer" style="color:var(--accent);text-decoration:underline;font-weight:600;"><strong>GeoGebra®</strong></a>. GeoGebra es una marca de GeoGebra GmbH.</div>'
-
-          replacement = title + eol + '    ' + new_author
-          text = text.replace(old_author, replacement, 1)
-          text = text.replace(old_geo, new_geo, 1)
-
-          required = [
+          text = Path('trazo-laboratorio.html').read_text(encoding='utf-8')
+          needles = [
               'Trazo · Herramienta educativa interactiva',
-              'Desarrollo independiente © 2026 Emmanuel Elizondo para la Secretaría de Educación Jalisco. Uso educativo gratuito y no comercial.',
+              'Desarrollo independiente © 2026 Emmanuel Elizondo',
               'Made with <a href="https://www.geogebra.org/"',
-              '<strong>GeoGebra®</strong>',
-              'Trazo utiliza GeoGebra como motor matemático interactivo. Las construcciones, consignas, organización pedagógica, interfaz y contenidos originales de Trazo son independientes de GeoGebra. No se comercializa esta aplicación ni se cobra por su acceso.'
+              'id="trazo-legal"'
           ]
-          for item in required:
-              if text.count(item) != 1:
-                  raise SystemExit(f'Validación falló para: {item[:60]}')
-          if 'id="trazo-legal"' in text:
-              raise SystemExit('Persistió el bloque duplicado.')
-          if old_author in text:
-              raise SystemExit('Persistió la leyenda anterior de autor.')
-
-          path.write_bytes(text.encode('utf-8'))
-          print('Leyenda integrada en el footer existente, sin duplicados.')
+          for needle in needles:
+              print('\n===', needle, '===')
+              print('COUNT:', text.count(needle))
+              start = 0
+              while True:
+                  pos = text.find(needle, start)
+                  if pos < 0:
+                      break
+                  lo = max(0, pos - 320)
+                  hi = min(len(text), pos + len(needle) + 420)
+                  print(repr(text[lo:hi]))
+                  start = pos + 1
           PY
-
-      - name: Validar contenido final
-        shell: bash
-        run: |
-          grep -Fq 'Trazo · Herramienta educativa interactiva' trazo-laboratorio.html
-          grep -Fq 'para la Secretaría de Educación Jalisco. Uso educativo gratuito y no comercial.' trazo-laboratorio.html
-          grep -Fq '<strong>GeoGebra®</strong>' trazo-laboratorio.html
-          test "$(grep -Fo 'Trazo utiliza GeoGebra como motor matemático interactivo.' trazo-laboratorio.html | wc -l | tr -d ' ')" = "1"
-          echo 'Cambio final:'
-          git diff --numstat -- trazo-laboratorio.html
-
-      - name: Guardar en main
-        shell: bash
-        run: |
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add trazo-laboratorio.html
-          git commit -m 'Integra leyenda legal de Trazo en footer existente [skip ci]'
-          git push origin HEAD:main
