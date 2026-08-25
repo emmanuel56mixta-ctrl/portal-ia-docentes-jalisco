@@ -43,9 +43,9 @@ jobs:
               if text.count(fragment) != 1:
                   raise SystemExit(f'Fragmento {label} inesperado; no se modifica el archivo.')
 
-          # Retira únicamente el bloque duplicado que se insertó en el parche anterior.
+          # Retira únicamente el bloque duplicado insertado por el parche anterior.
           text, removed = re.subn(
-              r'\s*<div id="trazo-legal"\b[^>]*>.*?</div>',
+              r'\s*<div id="trazo-legal"[^>]*>.*?</div>',
               '',
               text,
               count=1,
