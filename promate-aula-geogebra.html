@@ -26,6 +26,10 @@ button{color:inherit}
 .logo .pr{color:var(--naranja)}.logo .o{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;background:var(--amarillo);color:var(--rojo);border-radius:50%;font-size:18px;vertical-align:middle}.logo .mate{color:var(--rojo)}
 .brand-extra{font-size:13px;font-weight:900;text-transform:uppercase;letter-spacing:1.5px;color:var(--gris)}
 .marca-row .eyebrow{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:var(--gris);margin-left:auto}
+.portal-route{margin:0 0 12px}
+.portal-route a{display:inline-flex;align-items:center;gap:7px;padding:9px 12px;color:var(--tinta);background:#fff;border:2px solid var(--linea);border-radius:10px;box-shadow:0 2px 0 var(--linea);font-size:14px;font-weight:850;text-decoration:none}
+.portal-route a:hover{border-color:var(--rojo);color:var(--rojo)}
+.portal-route a:focus-visible{outline:3px solid var(--azul);outline-offset:3px}
 
 /* botones */
 .btn{border:none;border-radius:10px;font-size:15px;font-weight:850;padding:12px 18px;cursor:pointer;background:var(--rojo);color:#fff;box-shadow:0 3px 0 var(--rojo-osc);transition:transform .05s,filter .12s}
@@ -131,6 +135,9 @@ body.class-mode .ggb-stage{height:calc(100vh - 220px);min-height:560px}
 </head>
 <body>
 <div class="app">
+  <nav class="portal-route" aria-label="Regreso al portal">
+    <a href="gemas-v2.html?v=20260825-3">← Volver al Kit de herramientas</a>
+  </nav>
   <header class="marca-row">
     <div class="logo"><span class="pr">PR</span><span class="o">=</span><span class="mate">MATE</span></div>
     <span class="brand-extra">Aula</span>
