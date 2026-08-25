@@ -3,15 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="PROMATE Aula: actividades matemáticas interactivas y herramientas GeoGebra para explorar con el grupo.">
-<link rel="stylesheet" href="portal-a11y.css">
 <title>PROMATE Aula · Matemáticas interactivas con GeoGebra</title>
 <script src="https://www.geogebra.org/apps/deployggb.js"></script>
 <style>
 :root{
-  --rojo:#c5331f;--rojo-osc:#8f2518;--naranja:#ff9600;--amarillo:#ffc800;
-  --verde:#3a9d3a;--verde-osc:#2e7d2e;--azul:#1859bd;--tinta:#22303f;
-  --papel:#faf7f2;--linea:#e4ddd2;--gris:#5f6873;--gris-cl:#f1ede6;
+  --rojo:#e8412a;--rojo-osc:#c5331f;--naranja:#ff9600;--amarillo:#ffc800;
+  --verde:#3a9d3a;--verde-osc:#2e7d2e;--azul:#1f6feb;--tinta:#22303f;
+  --papel:#faf7f2;--linea:#e4ddd2;--gris:#6b7480;--gris-cl:#f1ede6;
   --morado:#7a3fce;--sombra:0 5px 0 rgba(34,48,63,.10);
 }
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
@@ -25,10 +23,9 @@ button{color:inherit}
 /* marca */
 .marca-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap;border-bottom:3px solid var(--tinta);padding-bottom:14px;margin-bottom:6px}
 .logo{font-size:26px;font-weight:900;letter-spacing:.5px;white-space:nowrap}
-.logo .pr{color:var(--naranja)}.logo .o{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;background:var(--amarillo);color:#8d2016;border-radius:50%;font-size:18px;vertical-align:middle}.logo .mate{color:var(--rojo)}
+.logo .pr{color:var(--naranja)}.logo .o{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;background:var(--amarillo);color:var(--rojo);border-radius:50%;font-size:18px;vertical-align:middle}.logo .mate{color:var(--rojo)}
 .brand-extra{font-size:13px;font-weight:900;text-transform:uppercase;letter-spacing:1.5px;color:var(--gris)}
 .marca-row .eyebrow{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:var(--gris);margin-left:auto}
-.portal-back{color:var(--tinta);font-size:13px;font-weight:800;text-decoration:none;border:2px solid var(--linea);border-radius:9px;padding:7px 11px;background:#fff}
 
 /* botones */
 .btn{border:none;border-radius:10px;font-size:15px;font-weight:850;padding:12px 18px;cursor:pointer;background:var(--rojo);color:#fff;box-shadow:0 3px 0 var(--rojo-osc);transition:transform .05s,filter .12s}
@@ -41,21 +38,22 @@ button{color:inherit}
 .back{border:0;background:none;color:var(--gris);font-weight:800;cursor:pointer;margin:16px 0 10px}
 
 /* inicio */
-.hero{padding:42px 0 24px;display:grid;grid-template-columns:1.25fr .75fr;gap:28px;align-items:end}
+.hero{padding:42px 0 24px}
 .hero .kicker{font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:1.6px;color:var(--rojo);margin-bottom:10px}
 .hero h1{font-size:clamp(34px,5vw,64px);line-height:.98;letter-spacing:-2.5px;max-width:900px}
 .hero p{font-size:18px;color:var(--gris);max-width:720px;margin-top:18px}
 .hero-note{background:#fff;border:2px solid var(--linea);border-radius:16px;padding:20px;box-shadow:var(--sombra)}
 .hero-note b{display:block;font-size:18px;margin-bottom:6px}.hero-note p{font-size:14px;margin:0}
 .start-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin:18px 0 30px}
-.start-card{width:100%;text-align:left;font:inherit;color:inherit;background:#fff;border:2px solid var(--linea);border-radius:16px;padding:24px;cursor:pointer;box-shadow:0 3px 0 var(--linea);transition:.12s}
+.start-card{background:#fff;border:2px solid var(--linea);border-radius:16px;padding:24px;cursor:pointer;box-shadow:0 3px 0 var(--linea);transition:.12s}
 .start-card:hover{border-color:var(--rojo);transform:translateY(-2px)}
 .start-card .ico{font-size:34px}.start-card h2{font-size:21px;margin:10px 0 6px}.start-card p{font-size:14px;color:var(--gris)}
-.micro{font-size:12px;color:var(--gris);margin-top:16px}
+.micro{font-size:12px;color:var(--gris);margin-top:16px;line-height:1.55}
+.micro strong{color:var(--tinta)}
 
 /* cabeceras seccion */
 .section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:18px;margin:8px 0 18px}
-.section-head h2{font-size:30px;letter-spacing:-.6px}.section-head p{color:var(--gris);max-width:680px;margin-top:5px}
+.section-head h1{font-size:30px;letter-spacing:-.6px}.section-head p{color:var(--gris);max-width:680px;margin-top:5px}
 
 /* filtros */
 .filterbar{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 18px;padding:12px;background:#fff;border:2px solid var(--linea);border-radius:14px}
@@ -64,13 +62,21 @@ button{color:inherit}
 
 /* catálogo */
 .catalog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-.activity-card{width:100%;text-align:left;font:inherit;color:inherit;background:#fff;border:2px solid var(--linea);border-radius:15px;padding:18px;cursor:pointer;box-shadow:0 3px 0 var(--linea);display:flex;flex-direction:column;min-height:218px;transition:.12s}
+.activity-card{background:#fff;border:2px solid var(--linea);border-radius:15px;padding:18px;cursor:pointer;box-shadow:0 3px 0 var(--linea);display:flex;flex-direction:column;min-height:240px;transition:.12s}
 .activity-card:hover{border-color:var(--naranja);transform:translateY(-2px)}
 .card-top{display:flex;align-items:center;justify-content:space-between;gap:10px}.num-badge{width:34px;height:34px;border-radius:10px;background:var(--gris-cl);display:flex;align-items:center;justify-content:center;font-weight:900;color:var(--rojo)}
 .area-tag{font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.45px;padding:4px 9px;border-radius:999px}
-.a-arit{background:#e7f6e7;color:var(--verde-osc)}.a-comb{background:#e6effd;color:var(--azul)}.a-geom{background:#fff0e0;color:#8f4700}.a-logi{background:#f1e9fb;color:var(--morado)}
-.activity-card h3{font-size:18px;margin:14px 0 7px}.activity-card p{font-size:14px;color:var(--gris);flex:1}
-.card-foot{display:flex;align-items:center;justify-content:space-between;margin-top:14px;padding-top:11px;border-top:1px solid var(--linea);font-size:12px;font-weight:800}.ready{color:var(--verde-osc)}
+.a-arit{background:#e7f6e7;color:var(--verde-osc)}
+.a-frac{background:#fce7f3;color:#9d174d}
+.a-comb{background:#e6effd;color:var(--azul)}
+.a-geom{background:#fff0e0;color:#b75c00}
+.a-logi{background:#f1e9fb;color:var(--morado)}
+.a-prob{background:#e0f2fe;color:#0369a1}
+.a-datos{background:#fef3c7;color:#92400e}
+.activity-card h3{font-size:17px;margin:12px 0 5px;line-height:1.25}
+.activity-card .grados{font-size:12px;font-weight:800;color:var(--rojo);margin-bottom:4px}
+.activity-card p{font-size:13px;color:var(--gris);flex:1}
+.card-foot{display:flex;align-items:center;justify-content:space-between;margin-top:12px;padding-top:10px;border-top:1px solid var(--linea);font-size:12px;font-weight:800}.ready{color:var(--verde-osc)}
 
 /* workspace */
 .workspace-top{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:10px 0 12px}
@@ -85,10 +91,12 @@ button{color:inherit}
 .ggb-stage{width:100%;height:620px;position:relative;background:#fff;overflow:hidden}
 #ggb-element{width:100%;height:100%}
 .loading{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:9px;background:#fff;color:var(--gris);z-index:2}.loading .spin{width:30px;height:30px;border:4px solid var(--linea);border-top-color:var(--rojo);border-radius:50%;animation:spin .8s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}
-.offline-note{padding:10px 14px;font-size:12px;color:var(--gris);border-top:1px solid var(--linea);background:var(--papel)}
+.offline-note{padding:10px 14px;font-size:12px;color:var(--gris);border-top:1px solid var(--linea);background:var(--papel);line-height:1.45}
 .teacher-panel{background:#fff;border:2px solid var(--linea);border-radius:16px;padding:18px;box-shadow:0 4px 0 var(--linea);position:sticky;top:14px}
 .teacher-panel .k{font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:1.4px;color:var(--rojo)}
-.teacher-panel h2{font-size:22px;margin:3px 0 4px}.teacher-panel .intro{font-size:13px;color:var(--gris);margin-bottom:14px}
+.teacher-panel h2{font-size:20px;margin:3px 0 2px}.teacher-panel .grados-line{font-size:12px;font-weight:800;color:var(--rojo);margin-bottom:2px}
+.teacher-panel .aprendizaje{font-size:12px;color:var(--gris);margin-bottom:12px;line-height:1.4;font-style:italic}
+.teacher-panel .intro{font-size:13px;color:var(--gris);margin-bottom:14px}
 .guide-block{padding:13px 0;border-top:1px solid var(--linea)}.guide-block:first-of-type{border-top:0}.guide-block h3{font-size:12px;text-transform:uppercase;letter-spacing:1.1px;margin-bottom:7px}.guide-block ol,.guide-block ul{padding-left:20px;font-size:14px}.guide-block li{margin:5px 0}
 .question-box{background:var(--gris-cl);border-radius:10px;padding:13px;font-weight:750;font-size:15px;min-height:82px;display:flex;align-items:center}
 .question-controls{display:flex;gap:7px;margin-top:8px}.question-controls .btn{flex:1}
@@ -122,16 +130,12 @@ body.class-mode .ggb-stage{height:calc(100vh - 220px);min-height:560px}
 </style>
 </head>
 <body>
-<a class="skip-link" href="#contenido-principal">Saltar al contenido principal</a>
 <div class="app">
   <header class="marca-row">
     <div class="logo"><span class="pr">PR</span><span class="o">=</span><span class="mate">MATE</span></div>
     <span class="brand-extra">Aula</span>
     <span class="eyebrow">Matemáticas interactivas · GeoGebra</span>
-    <a class="portal-back" href="gemas-v2.html">← Volver a Recursos</a>
   </header>
-
-  <main id="contenido-principal" tabindex="-1">
 
   <!-- INICIO -->
   <section id="inicio">
@@ -141,34 +145,32 @@ body.class-mode .ggb-stage{height:calc(100vh - 220px);min-height:560px}
         <h1>Explora matemáticas con tu grupo.</h1>
         <p>Actividades listas para proyectar, preguntas para conducir la conversación y GeoGebra integrado para que tus estudiantes prueben, muevan, comparen y expliquen.</p>
       </div>
-      <div class="hero-note">
-        <b>No es otra plataforma que aprender.</b>
-        <p>Elige una actividad, proyecta el reto y usa las preguntas de PROMATE para acompañar sin resolver por el estudiante.</p>
-      </div>
     </div>
 
     <div class="start-grid">
-      <button type="button" class="start-card" onclick="mostrarCatalogo()">
+      <div class="start-card" onclick="mostrarCatalogo()">
         <div class="ico">🎯</div>
         <h2>Usar una actividad con mi grupo</h2>
         <p>Elige un contenido. La herramienta prepara el reto, abre GeoGebra y te muestra preguntas, pistas y criterios para observar.</p>
-      </button>
-      <button type="button" class="start-card" onclick="mostrarHerramientas()">
+      </div>
+      <div class="start-card" onclick="mostrarHerramientas()">
         <div class="ico">🧰</div>
         <h2>Abrir herramientas GeoGebra</h2>
         <p>Acceso directo a Suite, Gráfica, Geometría, 3D, Científica, Classic, CAS, Notas y recursos de la comunidad.</p>
-      </button>
+      </div>
     </div>
-    <p class="micro">PROMATE Aula organiza el uso didáctico. GeoGebra se carga desde sus servicios oficiales y requiere conexión a internet, salvo que tu equipo tenga una versión local de GeoGebra instalada.</p>
+    <p class="micro">
+      <strong>Conectividad:</strong> GeoGebra se carga desde sus servidores oficiales y necesita internet. En escuelas con señal intermitente (común en muchas zonas de Jalisco), prueba la actividad unos minutos antes de la clase. Las actividades con construcciones simples se recuperan más rápido si se pierde la conexión momentáneamente. PROMATE no guarda datos en la nube.
+    </p>
   </section>
 
   <!-- CATÁLOGO -->
-  <section id="catalogo" class="oculto" tabindex="-1">
+  <section id="catalogo" class="oculto">
     <button class="back no-print" onclick="irInicio()">← Inicio</button>
     <div class="section-head">
       <div>
-        <h2>Actividades para trabajar con el grupo</h2>
-        <p>Selecciona una dificultad o contenido. Cada propuesta está preparada para trabajar con exploración, preguntas del docente y socialización de estrategias.</p>
+        <h1>Actividades para trabajar con el grupo</h1>
+        <p>Selecciona por contenido o grado. Cada propuesta está preparada para exploración, preguntas del docente y socialización de estrategias. Incluye alineación aproximada con aprendizajes de primaria alta y secundaria baja.</p>
       </div>
       <button class="btn ghost no-print" onclick="mostrarHerramientas()">🧰 Todas las herramientas</button>
     </div>
@@ -177,7 +179,7 @@ body.class-mode .ggb-stage{height:calc(100vh - 220px);min-height:560px}
   </section>
 
   <!-- ACTIVIDAD -->
-  <section id="actividad" class="oculto" tabindex="-1">
+  <section id="actividad" class="oculto">
     <div class="workspace-top no-print">
       <button class="btn ghost" onclick="mostrarCatalogo()">← Catálogo</button>
       <button class="btn amarillo" id="classBtn" onclick="toggleClassMode()">▣ Modo clase</button>
@@ -199,15 +201,19 @@ body.class-mode .ggb-stage{height:calc(100vh - 220px);min-height:560px}
           <span class="area-tag" id="actAreaTag"></span>
         </div>
         <div class="ggb-stage" id="ggbStage">
-          <div class="loading" id="ggbLoading" role="status" aria-live="polite"><div class="spin"></div><b>Cargando GeoGebra…</b><span>Necesitas conexión a internet.</span></div>
+          <div class="loading" id="ggbLoading"><div class="spin"></div><b>Cargando GeoGebra…</b><span>Necesitas conexión a internet.</span></div>
           <div id="ggb-element"></div>
         </div>
-        <div class="offline-note">Puedes mover objetos, crear construcciones y probar estrategias. El botón “Reiniciar GeoGebra” vuelve a preparar la escena inicial.</div>
+        <div class="offline-note">
+          <strong>Sobre la conexión:</strong> GeoGebra requiere internet para cargar. Si la señal es inestable, reinicia la actividad o prueba con una construcción más simple. Puedes mover objetos y probar estrategias; el botón “Reiniciar” vuelve a la escena inicial.
+        </div>
       </div>
 
       <aside class="teacher-panel">
         <div class="k">Guía del docente</div>
         <h2 id="guideTitle"></h2>
+        <div class="grados-line" id="guideGrados"></div>
+        <div class="aprendizaje" id="guideAprendizaje"></div>
         <p class="intro">No necesitas explicar todo al inicio. Presenta el reto, deja que prueben y usa estas preguntas cuando el grupo las necesite.</p>
 
         <div class="guide-block">
@@ -218,7 +224,7 @@ body.class-mode .ggb-stage{height:calc(100vh - 220px);min-height:560px}
           <h3>Pregunta al grupo</h3>
           <div class="question-box" id="questionBox"></div>
           <div class="question-controls">
-            <button class="btn ghost mini" onclick="prevQuestion()" aria-label="Pregunta anterior">←</button>
+            <button class="btn ghost mini" onclick="prevQuestion()">←</button>
             <button class="btn ghost mini" onclick="nextQuestion()">Otra pregunta →</button>
           </div>
         </div>
@@ -240,11 +246,11 @@ body.class-mode .ggb-stage{height:calc(100vh - 220px);min-height:560px}
   </section>
 
   <!-- HERRAMIENTAS -->
-  <section id="herramientas" class="oculto" tabindex="-1">
+  <section id="herramientas" class="oculto">
     <button class="back no-print" onclick="irInicio()">← Inicio</button>
     <div class="section-head">
       <div>
-        <h2>Todo GeoGebra desde PROMATE</h2>
+        <h1>Todo GeoGebra desde PROMATE</h1>
         <p>Abre la herramienta que necesites dentro de esta página o entra al servicio oficial completo. PROMATE no reemplaza GeoGebra: lo organiza para que resulte más fácil llevarlo al aula.</p>
       </div>
       <button class="btn ghost no-print" onclick="mostrarCatalogo()">🎯 Actividades guiadas</button>
@@ -262,35 +268,49 @@ body.class-mode .ggb-stage{height:calc(100vh - 220px);min-height:560px}
     </div>
   </section>
 
-  </main>
-
   <footer class="footer-note">
     <div>
-      <strong>PROMATE Aula</strong>
-      Herramienta educativa para la exploración matemática.<br>
-      Desarrollo independiente © 2026 Emmanuel Elizondo.
-    </div>
-    <div class="legal">
-      <strong>Uso educativo gratuito</strong>
-      Proyecto no comercial y sin fines de lucro.<br>
-      No se cobra por el acceso o uso de esta aplicación.
+      <strong>Pro=MATE · Herramienta educativa interactiva</strong>
+      Desarrollo independiente © 2026 Emmanuel Elizondo para la Secretaría de Educación Jalisco.<br>
+      Uso educativo gratuito y no comercial.
     </div>
     <div class="legal">
       <strong>Made with GeoGebra®</strong>
-      Esta aplicación utiliza las herramientas oficiales de GeoGebra.
-      GeoGebra® es una marca de GeoGebra GmbH.<br>
+      GeoGebra es una marca de GeoGebra GmbH.<br>
       <a href="https://www.geogebra.org/" target="_blank" rel="noopener noreferrer">Sitio oficial de GeoGebra ↗</a>
+    </div>
+    <div class="legal">
+      Pro=MATE utiliza GeoGebra como motor matemático interactivo. Las construcciones, consignas, organización pedagógica, interfaz y contenidos originales de Pro=MATE son independientes de GeoGebra. No se comercializa esta aplicación ni se cobra por su acceso.
     </div>
   </footer>
 </div>
 
 <script>
-const AREAS={arit:'Aritmética',comb:'Combinatoria',geom:'Geometría',logi:'Lógica y álgebra'};
-const AREA_CLS={arit:'a-arit',comb:'a-comb',geom:'a-geom',logi:'a-logi'};
+const AREAS={
+  arit:'Aritmética',
+  frac:'Fracciones',
+  comb:'Combinatoria',
+  geom:'Geometría',
+  logi:'Lógica y álgebra',
+  prob:'Probabilidad',
+  datos:'Datos'
+};
+const AREA_CLS={
+  arit:'a-arit',
+  frac:'a-frac',
+  comb:'a-comb',
+  geom:'a-geom',
+  logi:'a-logi',
+  prob:'a-prob',
+  datos:'a-datos'
+};
 
 const ACTIVIDADES=[
+  // ——— GEOMETRÍA (existentes mejoradas) ———
   {
     id:'angulos',title:'Suma de ángulos interiores',area:'geom',app:'geometry',tag:'Triángulos',
+    grados:'6° primaria · 1° secundaria',
+    aprendizaje:'Argumenta que la suma de los ángulos interiores de cualquier triángulo es 180°.',
     desc:'Mueve los vértices y comprueba qué permanece aunque cambie la forma del triángulo.',
     reto:'Muevan los vértices del triángulo. ¿Pueden hacer que la suma de sus tres ángulos interiores deje de ser 180°?',
     steps:['Proyecta el triángulo y pide una predicción antes de moverlo.','Invita a distintos estudiantes a modificar un vértice y observar las medidas.','Pide al grupo explicar qué cambia y qué permanece.'],
@@ -301,6 +321,8 @@ const ACTIVIDADES=[
   },
   {
     id:'desigualdad',title:'Desigualdad triangular',area:'geom',app:'geometry',tag:'Triángulos',
+    grados:'6° primaria · 1° secundaria',
+    aprendizaje:'Identifica la condición necesaria para que tres longitudes formen un triángulo.',
     desc:'Experimenta con tres longitudes y descubre cuándo sí es posible cerrar un triángulo.',
     reto:'Con tres segmentos, ¿siempre se puede construir un triángulo? Encuentren una regla que permita decidirlo sin dibujar.',
     steps:['Pide ejemplos de tres medidas que “sí deberían funcionar”.','Construyan segmentos y traten de cerrar el triángulo.','Prueben un caso extremo y comparen la suma de dos lados con el tercero.'],
@@ -311,6 +333,8 @@ const ACTIVIDADES=[
   },
   {
     id:'clasificacion',title:'Clasificación de triángulos',area:'geom',app:'geometry',tag:'Triángulos',
+    grados:'5° y 6° primaria',
+    aprendizaje:'Clasifica triángulos según lados y según ángulos, reconociendo posibles solapamientos.',
     desc:'Compara lados y ángulos para construir distintas familias de triángulos.',
     reto:'Transformen el mismo triángulo hasta conseguir, sin empezar de cero, uno isósceles, uno rectángulo y uno obtuso.',
     steps:['Deja que un estudiante mueva C mientras el grupo describe el triángulo.','Pide condiciones concretas: “haz dos lados iguales”, “forma un ángulo recto”.','Anoten qué propiedades usan para clasificar.'],
@@ -321,6 +345,8 @@ const ACTIVIDADES=[
   },
   {
     id:'alturas',title:'Alturas de un triángulo',area:'geom',app:'geometry',tag:'Construcción',
+    grados:'1° y 2° secundaria',
+    aprendizaje:'Construye las alturas de un triángulo y relaciona la posición del ortocentro con el tipo de triángulo.',
     desc:'Construye alturas y observa cómo cambia su punto de concurrencia.',
     reto:'Construyan las tres alturas. ¿Su punto de encuentro siempre queda dentro del triángulo?',
     steps:['Recuerda que una altura es perpendicular al lado opuesto o a su prolongación.','Construyan una altura y luego repitan desde los otros vértices.','Muevan un vértice para producir triángulos agudos, rectos y obtusos.'],
@@ -331,6 +357,8 @@ const ACTIVIDADES=[
   },
   {
     id:'perimetro',title:'Perímetro dinámico',area:'geom',app:'geometry',tag:'Perímetro',
+    grados:'4° a 6° primaria',
+    aprendizaje:'Explica cómo cambia el perímetro al modificar las dimensiones de un rectángulo.',
     desc:'Modifica base y altura de un rectángulo y relaciona los cambios con su contorno.',
     reto:'Sin usar una fórmula memorizada, expliquen cómo cambia el perímetro cuando aumentamos solo la base o solo la altura.',
     steps:['Mueve los deslizadores a y b y observa el rectángulo.','Pide al grupo anticipar el nuevo perímetro antes de cambiar un valor.','Comparen dos rectángulos distintos que tengan el mismo perímetro.'],
@@ -341,6 +369,8 @@ const ACTIVIDADES=[
   },
   {
     id:'area',title:'Área dinámica',area:'geom',app:'geometry',tag:'Área',
+    grados:'4° a 6° primaria',
+    aprendizaje:'Relaciona el área de un rectángulo con sus dimensiones y distingue área de perímetro.',
     desc:'Explora cómo cambia la superficie cubierta al modificar dimensiones.',
     reto:'¿Podemos cambiar mucho la forma de un rectángulo y conservar exactamente la misma área?',
     steps:['Observa el rectángulo y modifica a y b.','Pide encontrar dos pares de valores con la misma área.','Comparen qué ocurre con el perímetro en esos casos.'],
@@ -350,7 +380,23 @@ const ACTIVIDADES=[
     preset:['a=6','b=4','A=(0,0)','B=(a,0)','C=(a,b)','D=(0,b)','R=Polygon(A,B,C,D)','areaR=Area(R)','p=Perimeter(R)']
   },
   {
+    id:'solidos',title:'Sólidos y espacio 3D',area:'geom',app:'3d',tag:'3D',
+    grados:'6° primaria · 1° secundaria',
+    aprendizaje:'Distingue entre el objeto tridimensional y sus representaciones según el punto de vista.',
+    desc:'Construye, gira y analiza objetos tridimensionales desde distintas perspectivas.',
+    reto:'Construyan un sólido y gírenlo. ¿Qué propiedades permanecen aunque la imagen en pantalla parezca cambiar?',
+    steps:['Crea puntos, segmentos o un sólido sencillo con las herramientas 3D.','Gira la vista sin modificar el objeto.','Compara caras, aristas y vértices desde distintas posiciones.'],
+    questions:['¿Cambió el objeto o solo nuestro punto de vista?','¿Qué elementos quedan ocultos desde esta posición?','¿Cómo comprobarías que dos aristas tienen la misma longitud?','¿Qué vista ayuda más para contar caras?'],
+    observe:'Distingue objeto y representación, usa vocabulario espacial y conserva propiedades al cambiar el punto de vista.',
+    close:'Pide dibujar en papel una vista del sólido y comprobarla girando el modelo.',
+    preset:[]
+  },
+
+  // ——— ARITMÉTICA (existentes) ———
+  {
     id:'patrones',title:'Patrones y secuencias',area:'arit',app:'graphing',tag:'Secuencias',
+    grados:'5° y 6° primaria · 1° secundaria',
+    aprendizaje:'Identifica la regla de una secuencia aritmética y predice términos lejanos.',
     desc:'Usa parámetros para visualizar cómo una regla genera una secuencia completa.',
     reto:'Cambien los valores a y d. ¿Cómo pueden predecir el término que ocupará una posición sin construir todos los anteriores?',
     steps:['Observa los puntos de la secuencia preparada.','Cambia el valor inicial a y la diferencia d.','Pide describir la regla primero con palabras y después con una expresión.'],
@@ -361,6 +407,8 @@ const ACTIVIDADES=[
   },
   {
     id:'proporcion',title:'Proporcionalidad y variación',area:'arit',app:'graphing',tag:'Proporcionalidad',
+    grados:'6° primaria · 1° secundaria',
+    aprendizaje:'Reconoce la proporcionalidad directa a partir de la razón constante y de la gráfica que pasa por el origen.',
     desc:'Manipula la constante de proporcionalidad y observa la relación entre tabla y gráfica.',
     reto:'Muevan k. ¿Qué característica de la gráfica permite reconocer que dos cantidades son directamente proporcionales?',
     steps:['Observa la gráfica y modifica k.','Elige varios valores de x y calcula su correspondiente y.','Compara la razón y/x en distintos puntos.'],
@@ -371,6 +419,8 @@ const ACTIVIDADES=[
   },
   {
     id:'promedio',title:'Promedio como equilibrio',area:'arit',app:'graphing',tag:'Promedios',
+    grados:'5° y 6° primaria',
+    aprendizaje:'Interpreta la media aritmética como un valor de equilibrio relacionado con la suma total.',
     desc:'Trabaja con una lista de datos para interpretar la media, no solo calcularla.',
     reto:'La lista tiene media m. Cambien un dato: ¿pueden modificar otro para que el promedio vuelva a ser exactamente el mismo?',
     steps:['Lean la lista y anticipen aproximadamente dónde debería quedar la media.','Calculen m y comparen con la predicción.','Cambien mentalmente un dato y compensen otro para conservar la suma total.'],
@@ -379,18 +429,12 @@ const ACTIVIDADES=[
     close:'Inventen cinco datos con promedio 10 sin que ninguno sea 10.',
     preset:['L={6,8,8,10,12}','m=Mean(L)']
   },
-  {
-    id:'conteo',title:'Conteo ordenado y posibilidades',area:'comb',app:'suite',tag:'Conteo',
-    desc:'Organiza casos y usa representaciones para evitar repeticiones u omisiones.',
-    reto:'Hay 4 opciones para una primera elección y 3 para una segunda. ¿Cómo demostrarían que ya encontraron todas las combinaciones sin repetir ninguna?',
-    steps:['Antes de calcular, pide una forma de organizar los casos.','Construyan una tabla, lista o diagrama usando las herramientas disponibles.','Comparen con el principio multiplicativo.'],
-    questions:['¿Cómo te aseguras de no repetir un caso?','¿Qué conviene fijar primero?','¿Cuántas opciones aparecen por cada elección inicial?','¿Qué patrón observas en el total?'],
-    observe:'Enumera de manera sistemática, reconoce estructura multiplicativa y justifica que su lista es completa.',
-    close:'Cambia a 5 y 4 opciones. Pide predecir el total antes de enumerar.',
-    preset:[]
-  },
+
+  // ——— LÓGICA / ÁLGEBRA ———
   {
     id:'balanzas',title:'Equivalencias y balanzas',area:'logi',app:'graphing',tag:'Igualdad',
+    grados:'6° primaria · 1° secundaria',
+    aprendizaje:'Interpreta la igualdad como equivalencia y conecta la solución algebraica con la intersección gráfica.',
     desc:'Representa dos expresiones y encuentra el valor donde ambas quedan equilibradas.',
     reto:'Una expresión vale 2x + 3 y la otra siempre vale 11. ¿En qué valor de x quedan exactamente equilibradas y cómo se ve en la gráfica?',
     steps:['Observa las dos gráficas antes de calcular.','Localiza visualmente el punto donde tienen el mismo valor.','Después comprueba el resultado con operaciones equivalentes.'],
@@ -401,6 +445,8 @@ const ACTIVIDADES=[
   },
   {
     id:'funciones',title:'Funciones: pendiente e intercepto',area:'logi',app:'graphing',tag:'Funciones',
+    grados:'1° y 2° secundaria',
+    aprendizaje:'Distingue el efecto de la pendiente y del intercepto en una función lineal.',
     desc:'Modifica parámetros y observa qué cambia en una función lineal.',
     reto:'Muevan a y b en f(x)=a·x+b. ¿Cuál controla la inclinación y cuál mueve la recta sin cambiar su inclinación?',
     steps:['Cambia solo a mientras b permanece fijo.','Después cambia solo b.','Pide al grupo formular una regla sobre el efecto de cada parámetro.'],
@@ -410,13 +456,105 @@ const ACTIVIDADES=[
     preset:['a=1','b=0','f(x)=a*x+b']
   },
   {
-    id:'solidos',title:'Sólidos y espacio 3D',area:'geom',app:'3d',tag:'3D',
-    desc:'Construye, gira y analiza objetos tridimensionales desde distintas perspectivas.',
-    reto:'Construyan un sólido y gírenlo. ¿Qué propiedades permanecen aunque la imagen en pantalla parezca cambiar?',
-    steps:['Crea puntos, segmentos o un sólido sencillo con las herramientas 3D.','Gira la vista sin modificar el objeto.','Compara caras, aristas y vértices desde distintas posiciones.'],
-    questions:['¿Cambió el objeto o solo nuestro punto de vista?','¿Qué elementos quedan ocultos desde esta posición?','¿Cómo comprobarías que dos aristas tienen la misma longitud?','¿Qué vista ayuda más para contar caras?'],
-    observe:'Distingue objeto y representación, usa vocabulario espacial y conserva propiedades al cambiar el punto de vista.',
-    close:'Pide dibujar en papel una vista del sólido y comprobarla girando el modelo.',
+    id:'conteo',title:'Conteo ordenado y posibilidades',area:'comb',app:'suite',tag:'Conteo',
+    grados:'5° y 6° primaria · 1° secundaria',
+    aprendizaje:'Organiza casos de forma sistemática y usa el principio multiplicativo.',
+    desc:'Organiza casos y usa representaciones para evitar repeticiones u omisiones.',
+    reto:'Hay 4 opciones para una primera elección y 3 para una segunda. ¿Cómo demostrarían que ya encontraron todas las combinaciones sin repetir ninguna?',
+    steps:['Antes de calcular, pide una forma de organizar los casos.','Construyan una tabla, lista o diagrama usando las herramientas disponibles.','Comparen con el principio multiplicativo.'],
+    questions:['¿Cómo te aseguras de no repetir un caso?','¿Qué conviene fijar primero?','¿Cuántas opciones aparecen por cada elección inicial?','¿Qué patrón observas en el total?'],
+    observe:'Enumera de manera sistemática, reconoce estructura multiplicativa y justifica que su lista es completa.',
+    close:'Cambia a 5 y 4 opciones. Pide predecir el total antes de enumerar.',
+    preset:[]
+  },
+
+  // ——— NUEVAS: FRACCIONES ———
+  {
+    id:'frac-equiv',title:'Fracciones equivalentes',area:'frac',app:'geometry',tag:'Equivalencia',
+    grados:'4° a 6° primaria',
+    aprendizaje:'Genera fracciones equivalentes y explica por qué representan la misma cantidad usando modelos de área.',
+    desc:'Usa modelos de área para descubrir cuándo dos fracciones son iguales aunque se escriban distinto.',
+    reto:'¿Pueden encontrar distintas fracciones que cubran exactamente la misma parte del entero? Prueben con 1/2, 2/4, 3/6…',
+    steps:['Proyecta un rectángulo unitario y pide sombrear 1/2.','Invita a dividir el mismo rectángulo en más partes iguales y sombrear el equivalente.','Comparen las fracciones escritas y las áreas cubiertas.'],
+    questions:['¿Por qué 2/4 y 1/2 cubren lo mismo?','¿Qué tienen en común el numerador y el denominador cuando la fracción es equivalente?','¿Cómo podrías generar otra fracción equivalente a 3/5?','¿Sirve la misma idea si el entero es un círculo en lugar de un rectángulo?'],
+    observe:'Reconoce que multiplicar (o dividir) numerador y denominador por el mismo número conserva la cantidad, y lo justifica con el modelo visual.',
+    close:'Cada equipo elige una fracción y genera tres equivalentes. Otro equipo verifica si realmente representan lo mismo.',
+    preset:['A=(0,0)','B=(8,0)','C=(8,4)','D=(0,4)','R=Polygon(A,B,C,D)']
+  },
+  {
+    id:'frac-comp',title:'Comparar fracciones',area:'frac',app:'geometry',tag:'Comparación',
+    grados:'4° a 6° primaria',
+    aprendizaje:'Compara fracciones con distinto denominador usando modelos o el sentido de la cantidad.',
+    desc:'Decide cuál de dos fracciones es mayor sin calcular el valor decimal, apoyándose en representaciones.',
+    reto:'Sin usar decimales ni la calculadora, ¿cómo pueden decidir cuál es mayor: 3/4 o 5/6? ¿Y 2/5 o 3/7?',
+    steps:['Pide una predicción razonada antes de representar.','Construyan o dibujen modelos de área o rectas numéricas para ambas fracciones.','Comparen las partes sombreadas o la posición en la recta.'],
+    questions:['¿Qué estrategia usaron para comparar?','¿Es más fácil cuando los denominadores son iguales?','¿Qué pasa si los numeradores son iguales?','¿Cómo explicarían a un compañero por qué una es mayor sin decir “porque se ve más grande”?'],
+    observe:'Utiliza al menos una estrategia válida (mismo denominador, mismo numerador, modelo visual o punto de referencia) y justifica la comparación.',
+    close:'Inventen un par de fracciones “engañoso” (parece que una es mayor pero no lo es) y pídanle a otro equipo que lo resuelva.',
+    preset:['A=(0,0)','B=(6,0)','C=(6,3)','D=(0,3)','R=Polygon(A,B,C,D)']
+  },
+  {
+    id:'frac-suma',title:'Sumar fracciones con sentido',area:'frac',app:'geometry',tag:'Operaciones',
+    grados:'5° y 6° primaria',
+    aprendizaje:'Suma fracciones con el mismo denominador interpretando el resultado como una sola cantidad.',
+    desc:'Une partes de un mismo entero y expresa el total con una sola fracción.',
+    reto:'Tienen 2/5 de un entero y les dan 1/5 más. ¿Cuánto tienen en total? ¿Cómo lo escriben con una sola fracción y cómo lo muestran?',
+    steps:['Representen 2/5 en un modelo de área.','Agreguen 1/5 en el mismo modelo.','Pidan expresar el total tanto en palabras como con una fracción.'],
+    questions:['¿Por qué el denominador no cambió?','¿Qué representa el numerador del resultado?','¿Qué pasaría si sumáramos 3/5 + 4/5?','¿Cómo lo explicarían si el entero fuera una pizza o un camino?'],
+    observe:'Comprende que al sumar fracciones con el mismo denominador se suman las partes (numeradores) y el tamaño de cada parte (denominador) se mantiene.',
+    close:'Propón una situación real (recorrido, receta, tiempo) y pide que escriban la suma y la representen.',
+    preset:['A=(0,0)','B=(10,0)','C=(10,2)','D=(0,2)','R=Polygon(A,B,C,D)']
+  },
+
+  // ——— NUEVAS: PROBABILIDAD ———
+  {
+    id:'prob-exp',title:'Probabilidad experimental',area:'prob',app:'suite',tag:'Experimental',
+    grados:'6° primaria · 1° secundaria',
+    aprendizaje:'Compara la frecuencia relativa obtenida en muchos ensayos con la probabilidad teórica esperada.',
+    desc:'Realiza repeticiones (o simula) y observa cómo la frecuencia relativa se acerca a lo esperado.',
+    reto:'Si lanzamos una moneda muchas veces, ¿la proporción de águilas se acerca a 1/2? ¿Qué pasa si solo lanzamos 10 veces? ¿Y si lanzamos 100?',
+    steps:['Pide una predicción: “¿Cuántas águilas esperan en 40 lanzamientos?”.','Realicen o simulen una serie de lanzamientos y registren resultados.','Calculen la frecuencia relativa y compárenla con 0.5.'],
+    questions:['¿Por qué en pocos lanzamientos el resultado puede alejarse de 1/2?','¿Qué significa que la frecuencia relativa “se acerque”?','¿La probabilidad teórica garantiza el resultado de un solo lanzamiento?','¿Cómo cambiaría el experimento con un dado de 6 caras?'],
+    observe:'Distingue probabilidad teórica de frecuencia experimental y reconoce que con más ensayos la frecuencia relativa tiende a estabilizarse.',
+    close:'Cada equipo reporta su frecuencia relativa y el grupo observa la variación entre equipos. ¿Qué conclusión sacan?',
+    preset:[]
+  },
+  {
+    id:'prob-espacio',title:'Espacio muestral y casos',area:'prob',app:'suite',tag:'Espacio muestral',
+    grados:'6° primaria · 1° secundaria',
+    aprendizaje:'Identifica el espacio muestral de un experimento aleatorio simple y calcula probabilidades de eventos equiprobables.',
+    desc:'Organiza todos los resultados posibles de un experimento y calcula la probabilidad de un evento.',
+    reto:'Al lanzar un dado, ¿cuál es la probabilidad de obtener un número mayor que 4? ¿Y de obtener un número par? Justifiquen listando todos los casos.',
+    steps:['Antes de calcular, pidan listar todos los resultados posibles.','Identifiquen el evento de interés y cuenten los casos favorables.','Escriban la probabilidad como fracción y como porcentaje aproximado.'],
+    questions:['¿Por qué es importante listar todos los casos?','¿Qué pasa si dos resultados no tienen la misma probabilidad?','¿Cómo cambia el espacio muestral si lanzamos dos monedas?','¿La probabilidad de “mayor que 4” es la misma que la de “menor que 3”?'],
+    observe:'Construye el espacio muestral completo, identifica casos favorables y expresa la probabilidad como cociente.',
+    close:'Inventen un experimento sencillo (ruleta, bolsas con fichas) y pidan a otro equipo calcular una probabilidad a partir del espacio muestral.',
+    preset:[]
+  },
+
+  // ——— NUEVAS: DATOS ———
+  {
+    id:'datos-medidas',title:'Más allá del promedio',area:'datos',app:'graphing',tag:'Medidas',
+    grados:'6° primaria · 1° secundaria',
+    aprendizaje:'Calcula e interpreta media, mediana y moda, y reconoce qué medida es más adecuada según el contexto.',
+    desc:'Trabaja con un conjunto de datos y compara qué información aporta cada medida de tendencia central.',
+    reto:'La lista tiene media, mediana y moda. Cambien un dato extremo: ¿cuál de las tres medidas se mueve más y cuál casi no cambia?',
+    steps:['Observen la lista de datos y anticipen aproximadamente dónde quedan las tres medidas.','Calculen media, mediana y moda.','Modifiquen un valor extremo y vuelvan a calcular.'],
+    questions:['¿En qué se parece y en qué se diferencia la mediana de la media?','¿Cuándo la moda resulta más útil que las otras dos?','¿Qué medida se ve más afectada por un dato muy grande o muy pequeño?','¿Pueden inventar un conjunto donde media, mediana y moda sean números distintos?'],
+    observe:'Calcula correctamente las tres medidas, interpreta su significado y elige la más representativa según la situación.',
+    close:'Presenten un conjunto de datos realista (calificaciones, estaturas, tiempos) y argumenten qué medida usarían para resumirlo y por qué.',
+    preset:['L={4,5,5,6,7,8,12}','media=Mean(L)','mediana=Median(L)','moda=Mode(L)']
+  },
+  {
+    id:'datos-barras',title:'Interpretar gráficas de barras',area:'datos',app:'graphing',tag:'Gráficas',
+    grados:'4° a 6° primaria',
+    aprendizaje:'Lee e interpreta información presentada en una gráfica de barras y responde preguntas a partir de ella.',
+    desc:'Explora cómo una gráfica de barras comunica cantidades y permite comparar categorías.',
+    reto:'Miren la gráfica. ¿Qué categoría tiene más? ¿Cuánto más tiene que la más baja? ¿Qué conclusión pueden sacar sin ver la tabla de datos?',
+    steps:['Observen los ejes y las categorías antes de contestar.','Pidan responder preguntas de comparación y de total aproximado.','Cambien mentalmente una barra y pregunten cómo cambia la lectura.'],
+    questions:['¿Qué representa la altura de cada barra?','¿Cómo saber la diferencia exacta entre dos categorías?','¿La gráfica muestra el total de todos los datos? ¿Cómo lo calcularían?','¿Qué información no se puede saber solo con esta gráfica?'],
+    observe:'Lee correctamente los valores, realiza comparaciones y reconoce tanto la información que da la gráfica como sus límites.',
+    close:'Cada equipo inventa una pregunta que se pueda responder con la gráfica y otra que no se pueda responder. Intercambian.',
     preset:[]
   }
 ];
@@ -442,23 +580,34 @@ let toolApi=null;
 let toolApplet=null;
 
 const $=id=>document.getElementById(id);
-function showOnly(id){['inicio','catalogo','actividad','herramientas'].forEach(s=>$(s).classList.toggle('oculto',s!==id));window.scrollTo(0,0);var section=$(id);if(section&&id!=='inicio')section.focus()}
+function showOnly(id){['inicio','catalogo','actividad','herramientas'].forEach(s=>$(s).classList.toggle('oculto',s!==id));window.scrollTo(0,0)}
 function irInicio(){document.body.classList.remove('class-mode');$('classBtn').textContent='▣ Modo clase';showOnly('inicio')}
 function mostrarCatalogo(){document.body.classList.remove('class-mode');showOnly('catalogo');renderFiltros();renderCatalogo()}
 function mostrarHerramientas(){document.body.classList.remove('class-mode');showOnly('herramientas');renderTools()}
 
 function renderFiltros(){
-  const arr=[['todas','Todas'],['arit','Aritmética'],['comb','Combinatoria'],['geom','Geometría'],['logi','Lógica y álgebra']];
-  $('filtros').innerHTML=arr.map(([k,t])=>`<button class="chip ${filtro===k?'on':''}" aria-pressed="${filtro===k?'true':'false'}" onclick="setFiltro('${k}')">${t}</button>`).join('');
+  const arr=[
+    ['todas','Todas'],
+    ['geom','Geometría'],
+    ['frac','Fracciones'],
+    ['arit','Aritmética'],
+    ['datos','Datos'],
+    ['prob','Probabilidad'],
+    ['logi','Lógica y álgebra'],
+    ['comb','Combinatoria']
+  ];
+  $('filtros').innerHTML=arr.map(([k,t])=>`<button class="chip ${filtro===k?'on':''}" onclick="setFiltro('${k}')">${t}</button>`).join('');
 }
 function setFiltro(k){filtro=k;renderFiltros();renderCatalogo()}
 function renderCatalogo(){
   const list=ACTIVIDADES.filter(a=>filtro==='todas'||a.area===filtro);
-  $('activityGrid').innerHTML=list.map((a,i)=>`<button type="button" class="activity-card" onclick="abrirActividad('${a.id}')">
+  $('activityGrid').innerHTML=list.map((a,i)=>`<article class="activity-card" onclick="abrirActividad('${a.id}')">
     <div class="card-top"><div class="num-badge">${String(i+1).padStart(2,'0')}</div><span class="area-tag ${AREA_CLS[a.area]}">${AREAS[a.area]}</span></div>
-    <h3>${a.title}</h3><p>${a.desc}</p>
+    <h3>${a.title}</h3>
+    <div class="grados">${a.grados}</div>
+    <p>${a.desc}</p>
     <div class="card-foot"><span>${a.tag}</span><span class="ready">● Lista para usar</span></div>
-  </button>`).join('');
+  </article>`).join('');
 }
 
 function abrirActividad(id){
@@ -466,7 +615,9 @@ function abrirActividad(id){
   questionIndex=0;showOnly('actividad');
   $('actTitle').textContent=currentActivity.title;
   $('guideTitle').textContent=currentActivity.title;
-  $('actMeta').textContent=`GeoGebra ${labelApp(currentActivity.app)} · actividad guiada`;
+  $('guideGrados').textContent=currentActivity.grados;
+  $('guideAprendizaje').textContent=currentActivity.aprendizaje;
+  $('actMeta').textContent=`GeoGebra ${labelApp(currentActivity.app)} · ${currentActivity.grados}`;
   $('actAreaTag').textContent=AREAS[currentActivity.area];
   $('actAreaTag').className=`area-tag ${AREA_CLS[currentActivity.area]}`;
   $('retoTexto').textContent=currentActivity.reto;
