@@ -19,6 +19,12 @@ jobs:
         with:
           ref: main
 
+      - name: Verificar archivo original
+        shell: bash
+        run: |
+          test "$(git hash-object trazo-laboratorio.html)" = "8c6cff21c0f9ad20e0bd95242323dbe874fac412"
+          test "$(wc -c < trazo-laboratorio.html | tr -d ' ')" = "1288615"
+
       - name: Insertar leyenda legal en Trazo
         shell: bash
         run: |
@@ -40,36 +46,38 @@ jobs:
           </div>
           '''.strip().replace('\n', eol)
 
-          marker = 'id="trazo-legal"'
-          if marker in text:
-              pattern = r'<div\s+id="trazo-legal"\b[^>]*>.*?</div>'
-              new_text, count = re.subn(pattern, block, text, count=1, flags=re.I | re.S)
-              if count != 1:
-                  raise SystemExit('No se pudo reemplazar de forma segura la leyenda existente.')
-              text = new_text
-          else:
-              footers = list(re.finditer(r'</footer\s*>', text, flags=re.I))
-              if footers:
-                  pos = footers[-1].start()
-                  text = text[:pos] + eol + block + eol + text[pos:]
-              else:
-                  bodies = list(re.finditer(r'</body\s*>', text, flags=re.I))
-                  if not bodies:
-                      raise SystemExit('No se encontró footer ni cierre body; no se modifica el archivo.')
-                  pos = bodies[-1].start()
-                  text = text[:pos] + eol + block + eol + text[pos:]
+          if 'id="trazo-legal"' in text:
+              raise SystemExit('La leyenda ya existe; se detiene para evitar duplicados.')
 
-          updated = text.encode('utf-8')
-          path.write_bytes(updated)
-          print(f'Leyenda de Trazo actualizada de forma puntual. Bytes: {len(original)} -> {len(updated)}')
+          footers = list(re.finditer(r'</footer\s*>', text, flags=re.I))
+          if footers:
+              pos = footers[-1].start()
+          else:
+              bodies = list(re.finditer(r'</body\s*>', text, flags=re.I))
+              if not bodies:
+                  raise SystemExit('No se encontró footer ni cierre body; no se modifica el archivo.')
+              pos = bodies[-1].start()
+
+          updated = text[:pos] + eol + block + eol + text[pos:]
+          updated_bytes = updated.encode('utf-8')
+
+          if len(updated_bytes) != 1289656:
+              raise SystemExit(f'Tamaño inesperado tras el parche: {len(updated_bytes)} bytes.')
+          if updated.count('id="trazo-legal"') != 1:
+              raise SystemExit('La leyenda no quedó insertada exactamente una vez.')
+
+          path.write_bytes(updated_bytes)
+          print(f'Leyenda insertada. Bytes: {len(original)} -> {len(updated_bytes)}')
           PY
 
       - name: Confirmar cambio
         shell: bash
         run: |
           grep -Fq 'Trazo · Herramienta educativa interactiva' trazo-laboratorio.html
+          grep -Fq 'Desarrollo independiente © 2026 Emmanuel Elizondo para la Secretaría de Educación Jalisco.' trazo-laboratorio.html
           grep -Fq 'https://www.geogebra.org/' trazo-laboratorio.html
-          git diff --check
+          grep -Fq 'Trazo utiliza GeoGebra como motor matemático interactivo.' trazo-laboratorio.html
+          echo 'Cambio detectado:'
           git diff --numstat -- trazo-laboratorio.html
 
       - name: Guardar en main
@@ -78,9 +86,5 @@ jobs:
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add trazo-laboratorio.html
-          if git diff --cached --quiet; then
-            echo 'No hay cambios pendientes.'
-          else
-            git commit -m 'Actualiza leyenda legal de Trazo [skip ci]'
-            git push origin HEAD:main
-          fi
+          git commit -m 'Actualiza leyenda legal de Trazo [skip ci]'
+          git push origin HEAD:main
