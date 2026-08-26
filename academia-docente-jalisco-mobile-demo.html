@@ -342,11 +342,11 @@
   .ft-legal a:hover{color:var(--txt)}
   .ft{align-items:flex-start}
 </style>
-<link rel="stylesheet" href="mobile-demo.css?v=20260821-7">
+<link rel="stylesheet" href="mobile-demo.css?v=20260826-8">
 </head>
 <body class="mobile-demo home-demo mobile-explorer-demo">
 <a class="skip-link" href="#contenido-principal">Saltar al contenido principal</a>
-<div class="mobile-announcement"><span aria-hidden="true">✦</span> IA para Docentes · Herramientas para transformar tu práctica</div>
+<div class="mobile-announcement">Herramientas Docente IA | Secretaría de Educación Jalisco</div>
 <header class="mobile-appbar">
   <div class="mobile-appbar__brand"><img src="logo-sej.svg" alt=""><span>IA para Docentes</span></div>
   <button type="button" class="mobile-appbar-menu mobile-more-open" aria-haspopup="dialog" aria-controls="mobileMenu" aria-label="Abrir menú"><span></span><span></span><span></span></button>
@@ -508,13 +508,6 @@
 
 </div>
 
-<nav class="mobile-tabbar mobile-tabbar-four" aria-label="Navegación principal móvil">
-  <a class="is-active" href="academia-docente-jalisco-mobile-demo.html?view=mobile&amp;v=20260826-2" aria-current="page"><span aria-hidden="true">⌂</span><strong>Inicio</strong></a>
-  <a href="ruta-v2.html"><span aria-hidden="true">⌘</span><strong>Ruta</strong></a>
-  <a class="mobile-tabbar-gems" href="gemas-mobile-demo.html?view=mobile&amp;v=20260826-2"><span aria-hidden="true">✦</span><strong>Gemas</strong></a>
-  <a href="recuperar-cuenta-v2.html"><span aria-hidden="true">?</span><strong>Ayuda</strong></a>
-</nav>
-
 <div class="mobile-menu-backdrop" id="mobileMenu" hidden>
   <section class="mobile-menu-sheet" role="dialog" aria-modal="true" aria-labelledby="mobileMenuTitle">
     <div class="mobile-sheet-handle" aria-hidden="true"></div>
@@ -540,6 +533,7 @@
   var empty=document.getElementById('mobileNoResults');
   var activeFilter='todos';
   var leaving=false;
+  var transitionTimer=0;
   var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   function normalise(value){
@@ -575,6 +569,18 @@
   if(search)search.addEventListener('input',applyFilters);
   if(clear)clear.addEventListener('click',function(){search.value='';search.focus();applyFilters();});
 
+  function resetTransition(){
+    leaving=false;
+    if(transitionTimer){
+      window.clearTimeout(transitionTimer);
+      transitionTimer=0;
+    }
+    document.querySelectorAll('.mobile-transition-mask,.mobile-transition-card').forEach(function(element){
+      element.remove();
+    });
+    cards.forEach(function(card){card.removeAttribute('aria-busy');});
+  }
+
   function navigateWithMotion(event){
     if(event.defaultPrevented||event.metaKey||event.ctrlKey||event.shiftKey||event.altKey||leaving)return;
     var card=event.currentTarget;
@@ -588,6 +594,11 @@
     var rect=card.getBoundingClientRect();
     var mask=document.createElement('span');
     mask.className='mobile-transition-mask';
+    mask.setAttribute('aria-hidden','true');
+    mask.addEventListener('click',function(maskEvent){
+      maskEvent.preventDefault();
+      maskEvent.stopPropagation();
+    });
     var clone=card.cloneNode(true);
     clone.removeAttribute('href');
     clone.removeAttribute('id');
@@ -606,9 +617,14 @@
       mask.classList.add('is-visible');
       clone.classList.add('is-opening');
     });
-    window.setTimeout(function(){window.location.assign(href);},430);
+    transitionTimer=window.setTimeout(function(){
+      transitionTimer=0;
+      window.location.assign(href);
+    },430);
   }
   cards.forEach(function(card){card.addEventListener('click',navigateWithMotion);});
+  window.addEventListener('pagehide',resetTransition);
+  window.addEventListener('pageshow',resetTransition);
   applyFilters();
 })();
 </script>
