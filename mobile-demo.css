@@ -200,7 +200,7 @@
 /* ---------- Portada móvil tipo mosaico ---------- */
 .mobile-announcement{display:none}
 @media(max-width:760px){
-  .mobile-explorer-demo{padding-bottom:env(safe-area-inset-bottom);background:radial-gradient(120% 50% at 50% 0%,rgba(239,0,85,.12),transparent 56%),#111113}
+  body.mobile-demo.mobile-explorer-demo{padding-bottom:env(safe-area-inset-bottom);background:radial-gradient(120% 50% at 50% 0%,rgba(239,0,85,.12),transparent 56%),#111113}
   .mobile-explorer-demo>.wrap{padding:0 14px 24px}
   .mobile-explorer-demo .mobile-announcement{min-height:34px;display:flex;align-items:center;justify-content:center;gap:7px;padding:7px 14px;background:linear-gradient(100deg,#ff8a00 0%,#ef0055 72%,#d00077 100%);color:#fff;font-family:'Archivo';font-size:10.5px;font-weight:800;letter-spacing:.1px;text-align:center}
   .mobile-explorer-demo .mobile-announcement span{font-size:13px}
