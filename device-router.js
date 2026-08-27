@@ -13,15 +13,14 @@
     if (forcedView === 'mobile') return true;
     if (forcedView === 'desktop') return false;
 
-    var userAgent = navigator.userAgent || '';
-    var userAgentDataMobile = navigator.userAgentData && navigator.userAgentData.mobile;
-    var mobileUserAgent = /Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini|Mobile/i.test(userAgent);
-    var iPad = /iPad/i.test(userAgent) || (/Macintosh/i.test(userAgent) && navigator.maxTouchPoints > 1);
-    var coarsePointer = window.matchMedia && window.matchMedia('(pointer: coarse)').matches;
-    var compactViewport = window.matchMedia && window.matchMedia('(max-width: 900px)').matches;
-    var compactTouchDevice = compactViewport && (coarsePointer || navigator.maxTouchPoints > 0);
-
-    return Boolean(userAgentDataMobile || mobileUserAgent || iPad || compactTouchDevice);
+    /*
+      La experiencia se decide por el espacio disponible, no por marca,
+      sistema operativo ni user-agent. Así un iPhone, Samsung, Xiaomi,
+      Motorola o cualquier otro equipo con el mismo ancho recibe el mismo layout.
+    */
+    return window.matchMedia
+      ? window.matchMedia('(max-width: 760px)').matches
+      : (window.innerWidth || document.documentElement.clientWidth || 1024) <= 760;
   }
 
   var target = isMobileExperience() ? mobileTarget : desktopTarget;
