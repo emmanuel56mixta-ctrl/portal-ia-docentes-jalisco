@@ -123,22 +123,6 @@
   @keyframes wedit{0%,28%{background:#e3e5e9;width:100%}42%,76%{background:var(--lime);width:80%}90%,100%{background:#e3e5e9;width:100%}}
   .wok{position:absolute;right:10px;bottom:8px;width:15px;height:15px;border-radius:50%;background:var(--lime);color:#0a0a0b;font-size:9px;font-weight:900;display:grid;place-items:center;opacity:0;animation:wok 5s infinite}
   @keyframes wok{0%,55%{opacity:0;transform:scale(.4)}66%,88%{opacity:1;transform:scale(1)}100%{opacity:0}}
-  /* banner banco */
-  .banco-banner{position:relative;display:block;margin-top:80px;border-radius:min(26px,2.7vw);overflow:hidden;border:1px solid var(--line);aspect-ratio:2172/724;transition:.2s border-color,.2s transform}
-  .banco-banner:hover{border-color:#3a3a40;transform:translateY(-2px)}
-  .bb-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:left center;z-index:0}
-  .banco-banner::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(270deg,rgba(8,8,10,.94) 0%,rgba(8,8,10,.82) 34%,rgba(10,10,12,.45) 60%,rgba(10,10,12,.12) 82%,rgba(8,8,10,0) 100%),linear-gradient(0deg,rgba(8,8,10,.35) 0%,transparent 40%)}
-  .bb-text{position:absolute;z-index:2;right:44px;top:50%;transform:translateY(-50%);max-width:470px;text-align:left}
-  .bb-kick{color:var(--lime);font-family:'Archivo';font-weight:800;font-size:13px;letter-spacing:3px;text-transform:uppercase}
-  .banco-banner h2{font-family:'Archivo';font-weight:900;font-size:26px;letter-spacing:-.5px;margin-top:8px;color:#fff}
-  .banco-banner p{color:#c9ccd4;font-size:14.5px;margin-top:10px;line-height:1.55}
-  .bb-btn{display:inline-block;margin-top:14px;background:#ececee;color:#0a0a0b;font-weight:800;font-size:14px;padding:9px 18px;border-radius:20px}
-  @media(max-width:860px){
-    .banco-banner{aspect-ratio:auto;min-height:300px}
-    .banco-banner::after{background:linear-gradient(0deg,rgba(8,8,10,.88) 0%,rgba(8,8,10,.6) 55%,rgba(8,8,10,.15) 100%)}
-    .bb-text{position:static;transform:none;max-width:none;padding:150px 24px 26px}
-    .banco-banner h2{font-size:21px}
-  }
   /* connect panel */
   .connect{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:24px;margin-top:40px;position:relative;overflow:hidden}
   .connect::before{content:"";position:absolute;inset:0;background:radial-gradient(70% 60% at 50% 0%, rgba(255,138,0,.06), transparent 60%);pointer-events:none}
@@ -260,24 +244,24 @@
   .ft{align-items:flex-start}
 </style>
 <link rel="stylesheet" href="kit-recursos.css">
-<link rel="stylesheet" href="mobile-demo.css?v=20260821-7">
+<link rel="stylesheet" href="mobile-demo.css?v=20260826-10">
 </head>
 <body class="mobile-demo kit-demo">
 <a class="skip-link" href="#contenido-principal">Saltar al contenido principal</a>
 <header class="mobile-appbar">
-  <a class="mobile-appbar__back" href="academia-docente-jalisco-mobile-demo.html?view=mobile&amp;v=20260826-2" aria-label="Volver a la portada"><span aria-hidden="true">‹</span></a>
+  <a class="mobile-appbar__back" href="academia-docente-jalisco-mobile-demo.html?view=mobile&amp;v=20260826-mobilehome4" aria-label="Volver a la portada"><span aria-hidden="true">‹</span></a>
   <div class="mobile-appbar__brand"><img src="logo-sej.svg" alt=""><span>Kit de herramientas</span></div>
 </header>
 <div class="wrap">
 
   <div class="nav">
-    <a class="back" href="academia-docente-jalisco-mobile-demo.html?view=mobile&amp;v=20260826-2">
+    <a class="back" href="academia-docente-jalisco-mobile-demo.html?view=mobile&amp;v=20260826-mobilehome4">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
       <img src="logo-sej.svg" alt="" style="height:22px;width:auto;display:inline-block;vertical-align:-6px"> IA para Docentes
     </a>
-    <a class="right" href="academia-docente-jalisco-mobile-demo.html?view=mobile&amp;v=20260826-2">← Volver al inicio</a>
+    <a class="right" href="academia-docente-jalisco-mobile-demo.html?view=mobile&amp;v=20260826-mobilehome4">← Volver al inicio</a>
   </div>
-  <nav class="page-route" aria-label="Ruta de navegación"><a href="academia-docente-jalisco-mobile-demo.html?view=mobile&amp;v=20260826-2">Inicio</a><span class="sep" aria-hidden="true">/</span><span aria-current="page">Kit de herramientas</span></nav>
+  <nav class="page-route" aria-label="Ruta de navegación"><a href="academia-docente-jalisco-mobile-demo.html?view=mobile&amp;v=20260826-mobilehome4">Inicio</a><span class="sep" aria-hidden="true">/</span><span aria-current="page">Kit de herramientas</span></nav>
 
   <!-- HERO -->
   <main id="contenido-principal" tabindex="-1">
@@ -387,18 +371,6 @@
       </div>
     </section>
   </div>
-
-
-  <!-- BANNER BANCO DE GEMAS -->
-  <a class="banco-banner" href="banco-gemas-v2.html">
-    <img src="banco-gemas-banner-hombre.jpg" class="bb-bg" alt="" aria-hidden="true" onerror="this.onerror=null;this.src='banco-banner-ia.png'">
-    <div class="bb-text">
-      <div class="bb-kick">Banco de Gemas especializadas</div>
-      <h2>Gemas para acompañar distintas necesidades del aula</h2>
-      <p>Encuentra asistentes para trabajar valores y convivencia, proyectos integradores, lectura, escritura y matemáticas. Explora por tema y abre cada Gema y te llevará a la plataforma de Gemini para adaptarla a las características de tu grupo y a tu intención pedagógica.</p>
-      <span class="bb-btn">Explorar el banco ▸</span>
-    </div>
-  </a>
 
   <div class="sintesis">Las Gemas no sustituyen la decisión pedagógica: ofrecen un punto de partida para que cada docente construya propuestas pertinentes para su grupo y contexto.</div>
 
