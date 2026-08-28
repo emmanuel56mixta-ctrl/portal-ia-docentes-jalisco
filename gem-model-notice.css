@@ -226,7 +226,7 @@
   background: rgba(255, 255, 255, .06);
 }
 
-body.gem-model-notice-open {
+body.gem-model-notice-active {
   overflow: hidden;
 }
 

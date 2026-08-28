@@ -4,7 +4,7 @@
   var currentScript = document.currentScript;
   var style = document.createElement('link');
   style.rel = 'stylesheet';
-  style.href = new URL('gem-model-notice.css?v=20260828-modelnotice1', currentScript && currentScript.src ? currentScript.src : window.location.href).href;
+  style.href = new URL('gem-model-notice.css?v=20260828-modelnotice2', currentScript && currentScript.src ? currentScript.src : window.location.href).href;
   document.head.appendChild(style);
 
   var lastTrigger = null;
@@ -66,7 +66,7 @@
       openLink.removeAttribute('rel');
     }
     notice.hidden = false;
-    document.body.classList.add('gem-model-notice-open');
+    document.body.classList.add('gem-model-notice-active');
     window.requestAnimationFrame(function () {
       notice.classList.add('is-open');
       closeButton.focus();
@@ -75,7 +75,7 @@
 
   function closeNotice(returnFocus) {
     notice.classList.remove('is-open');
-    document.body.classList.remove('gem-model-notice-open');
+    document.body.classList.remove('gem-model-notice-active');
     closeTimer = window.setTimeout(function () {
       notice.hidden = true;
       closeTimer = 0;
