@@ -1,0 +1,276 @@
+/* Cabeceras internas móviles — 28 ago 2026.
+   En móvil las imágenes y videos panorámicos dejan de funcionar como fondo
+   reconocible. La identidad visual se conserva mediante gradients controlados
+   y una capa de contraste estable para todos los anchos de pantalla. */
+
+@media (max-width:760px){
+
+  /* Variables base: fallback oscuro y legible para cualquier página interna. */
+  body:not(.home-demo) :is(header.hero,header.head,header.learn-hero){
+    --mobile-hero-bg:
+      radial-gradient(circle at 82% 14%,rgba(255,174,73,.24),transparent 34%),
+      radial-gradient(circle at 8% 92%,rgba(239,0,85,.20),transparent 38%),
+      linear-gradient(135deg,#24120d 0%,#4a1d16 46%,#28132f 100%);
+    --mobile-hero-accent:#ffd08a;
+    --mobile-hero-text:#fff;
+    --mobile-hero-muted:rgba(255,255,255,.86);
+    --mobile-hero-soft:rgba(255,255,255,.72);
+    position:relative!important;
+    isolation:isolate!important;
+    width:100%!important;
+    min-height:clamp(250px,68vw,345px)!important;
+    height:auto!important;
+    margin-top:clamp(12px,3.8vw,20px)!important;
+    padding:clamp(13px,3.8vw,19px)!important;
+    overflow:hidden!important;
+    display:flex!important;
+    flex-direction:column!important;
+    align-items:flex-start!important;
+    justify-content:flex-end!important;
+    text-align:left!important;
+    border:1px solid rgba(255,255,255,.16)!important;
+    border-radius:clamp(19px,5.2vw,25px)!important;
+    background:var(--mobile-hero-bg)!important;
+    box-shadow:0 18px 44px rgba(0,0,0,.28)!important;
+  }
+
+  /* El medio original no se recorta: se retira de la composición móvil. */
+  body:not(.home-demo) header.hero > :is(.hero-bg,.hero-vid),
+  body:not(.home-demo) header.head > .head-vid,
+  body:not(.home-demo) header.learn-hero > :is(.learn-hero__image,.learn-hero__video){
+    display:none!important;
+    visibility:hidden!important;
+    opacity:0!important;
+    pointer-events:none!important;
+  }
+
+  /* Luz decorativa abstracta, sin depender del encuadre de una fotografía. */
+  body:not(.home-demo) :is(header.hero,header.head,header.learn-hero)::before{
+    content:""!important;
+    position:absolute!important;
+    z-index:0!important;
+    inset:auto -18% -42% auto!important;
+    width:clamp(190px,66vw,330px)!important;
+    aspect-ratio:1!important;
+    border-radius:50%!important;
+    background:
+      radial-gradient(circle at 38% 34%,rgba(255,255,255,.26),rgba(255,255,255,.06) 27%,transparent 64%),
+      conic-gradient(from 210deg,rgba(255,255,255,.02),rgba(255,255,255,.12),rgba(255,255,255,.02))!important;
+    filter:blur(1px)!important;
+    opacity:.74!important;
+    pointer-events:none!important;
+  }
+
+  /* Scrim permanente: el contraste no depende del color exacto del gradient. */
+  body:not(.home-demo) :is(header.hero,header.head,header.learn-hero)::after{
+    content:""!important;
+    display:block!important;
+    position:absolute!important;
+    z-index:1!important;
+    inset:0!important;
+    background:
+      linear-gradient(180deg,rgba(3,5,9,.02) 0%,rgba(3,5,9,.10) 45%,rgba(3,5,9,.30) 100%),
+      linear-gradient(90deg,rgba(3,5,9,.18),transparent 72%)!important;
+    pointer-events:none!important;
+  }
+
+  /* Panel de lectura común. Mantiene el texto dentro del área segura. */
+  body:not(.home-demo) header.hero > :is(.hero-txt,.hero-inner,.hero-content,.inner),
+  body:not(.home-demo) header.head > .head-txt,
+  body:not(.home-demo) header.learn-hero > .learn-hero__content{
+    position:relative!important;
+    z-index:2!important;
+    grid-row:auto!important;
+    align-self:stretch!important;
+    width:100%!important;
+    max-width:680px!important;
+    min-width:0!important;
+    margin:0!important;
+    padding:clamp(20px,5.6vw,30px)!important;
+    color:var(--mobile-hero-text)!important;
+    text-align:left!important;
+    border:1px solid rgba(255,255,255,.13)!important;
+    border-radius:clamp(16px,4.4vw,21px)!important;
+    background:linear-gradient(135deg,rgba(5,7,12,.42),rgba(5,7,12,.16))!important;
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.05)!important;
+    backdrop-filter:blur(10px)!important;
+    -webkit-backdrop-filter:blur(10px)!important;
+    transform:none!important;
+  }
+
+  /* Jerarquía y contraste tipográfico. */
+  body:not(.home-demo) :is(header.hero,header.head,header.learn-hero) :is(h1,h2){
+    max-width:100%!important;
+    margin-top:clamp(7px,2.2vw,12px)!important;
+    color:var(--mobile-hero-text)!important;
+    font-size:clamp(1.72rem,8.2vw,2.45rem)!important;
+    line-height:1.02!important;
+    letter-spacing:-.035em!important;
+    text-shadow:0 2px 18px rgba(0,0,0,.36)!important;
+  }
+
+  body:not(.home-demo) :is(header.hero,header.head,header.learn-hero)
+  :is(.lead,.sub,.hero-lead,.learn-hero__content>p){
+    max-width:58ch!important;
+    margin-top:clamp(10px,3vw,16px)!important;
+    color:var(--mobile-hero-muted)!important;
+    font-size:clamp(.91rem,3.8vw,1.02rem)!important;
+    line-height:1.58!important;
+    text-shadow:0 1px 10px rgba(0,0,0,.22)!important;
+  }
+
+  body:not(.home-demo) :is(header.hero,header.head,header.learn-hero)
+  :is(.kick,.hkick,.eyebrow,.learn-ai-kicker){
+    color:var(--mobile-hero-accent)!important;
+    font-size:clamp(.67rem,2.8vw,.79rem)!important;
+    line-height:1.25!important;
+    letter-spacing:clamp(1.5px,.7vw,3px)!important;
+    text-shadow:0 1px 10px rgba(0,0,0,.28)!important;
+  }
+
+  /* Chips y metadatos legibles sobre cualquier gradient. */
+  body:not(.home-demo) :is(header.hero,header.learn-hero)
+  :is(.hchip,.learn-hero__facts span){
+    color:rgba(255,255,255,.92)!important;
+    border-color:rgba(255,255,255,.20)!important;
+    background:rgba(4,6,10,.30)!important;
+    box-shadow:none!important;
+    backdrop-filter:blur(8px)!important;
+    -webkit-backdrop-filter:blur(8px)!important;
+  }
+
+  body:not(.home-demo) header.hero :is(.taught,.by){
+    color:var(--mobile-hero-soft)!important;
+  }
+  body:not(.home-demo) header.hero :is(.taught,.by) b{
+    color:#fff!important;
+  }
+
+  /* Acciones: fondo claro y texto oscuro para contraste consistente. */
+  body:not(.home-demo) :is(header.hero,header.learn-hero)
+  :is(.cta,.start,.btn,.learn-open){
+    min-height:48px!important;
+    color:#15100b!important;
+    border:1px solid rgba(255,255,255,.76)!important;
+    background:#fff!important;
+    box-shadow:0 9px 24px rgba(0,0,0,.22)!important;
+  }
+
+  /* Formación del Carácter: azul institucional, magenta y acento cálido. */
+  body:not(.home-demo) header.hero:has(> .hero-content){
+    --mobile-hero-bg:
+      radial-gradient(circle at 82% 12%,rgba(255,181,74,.30),transparent 35%),
+      radial-gradient(circle at 14% 88%,rgba(0,174,220,.24),transparent 42%),
+      linear-gradient(135deg,#06324f 0%,#65204e 54%,#8a400d 100%);
+    --mobile-hero-accent:#ffe092;
+    min-height:clamp(320px,92vw,430px)!important;
+  }
+  body:not(.home-demo) header.hero > .hero-content .program-logo{
+    display:block!important;
+    width:min(280px,88%)!important;
+    height:auto!important;
+    margin:0 0 16px!important;
+    padding:10px 13px!important;
+    border-radius:14px!important;
+    background:rgba(255,255,255,.94)!important;
+    box-shadow:0 8px 22px rgba(0,0,0,.18)!important;
+  }
+  body:not(.home-demo) header.hero > .hero-content .hero-lead{
+    color:var(--mobile-hero-muted)!important;
+  }
+
+  /* Constructor pedagógico: tonos oliva, naranja y dorado. */
+  body:not(.home-demo) header.hero:has(> .hero-bg[poster*="ruta-banner"]),
+  body:not(.home-demo) header.hero:has(> img.hero-bg[src*="ruta-banner"]){
+    --mobile-hero-bg:
+      radial-gradient(circle at 78% 18%,rgba(255,190,72,.33),transparent 38%),
+      radial-gradient(circle at 15% 92%,rgba(126,173,74,.22),transparent 42%),
+      linear-gradient(135deg,#15251b 0%,#4d3a14 50%,#8c430d 100%);
+    --mobile-hero-accent:#ffe39a;
+    align-items:center!important;
+    justify-content:center!important;
+    text-align:center!important;
+  }
+  body:not(.home-demo) header.hero:has(> .hero-bg[poster*="ruta-banner"]) > .hero-txt,
+  body:not(.home-demo) header.hero:has(> img.hero-bg[src*="ruta-banner"]) > .hero-txt{
+    max-width:600px!important;
+    text-align:center!important;
+  }
+
+  /* Mesa de ayuda: azul profundo con acento naranja. */
+  body:not(.home-demo) header.hero:has(> .hero-bg[src*="mesa-ayuda"]){
+    --mobile-hero-bg:
+      radial-gradient(circle at 82% 14%,rgba(255,157,46,.30),transparent 36%),
+      radial-gradient(circle at 10% 90%,rgba(28,171,222,.25),transparent 42%),
+      linear-gradient(135deg,#071827 0%,#0a3b5d 54%,#73330d 100%);
+    --mobile-hero-accent:#ffd28a;
+  }
+
+  /* Primeros pasos: naranja educativo con profundidad magenta. */
+  body:not(.home-demo) header.hero:has(> .hero-bg[src*="curso-hero"]){
+    --mobile-hero-bg:
+      radial-gradient(circle at 84% 14%,rgba(255,220,116,.28),transparent 36%),
+      radial-gradient(circle at 12% 90%,rgba(239,0,85,.23),transparent 42%),
+      linear-gradient(135deg,#45140b 0%,#8a3d0d 48%,#4b123c 100%);
+    --mobile-hero-accent:#ffe29b;
+  }
+
+  /* Aula digital: índigo, magenta y naranja. */
+  body:not(.home-demo) header.hero:has(> .hero-vid){
+    --mobile-hero-bg:
+      radial-gradient(circle at 84% 12%,rgba(255,172,66,.30),transparent 35%),
+      radial-gradient(circle at 10% 92%,rgba(121,92,255,.26),transparent 42%),
+      linear-gradient(135deg,#17152f 0%,#53184e 50%,#8b3d0b 100%);
+    --mobile-hero-accent:#ffd48d;
+  }
+
+  /* Banco de Gemas: morado, magenta y naranja. */
+  body:not(.home-demo) header.head{
+    --mobile-hero-bg:
+      radial-gradient(circle at 82% 14%,rgba(255,182,72,.31),transparent 35%),
+      radial-gradient(circle at 8% 92%,rgba(167,96,255,.24),transparent 43%),
+      linear-gradient(135deg,#21113a 0%,#6b174a 52%,#963b0b 100%);
+    --mobile-hero-accent:#ffd58e;
+    min-height:clamp(290px,82vw,390px)!important;
+  }
+
+  /* Conoce más sobre IA: azul petróleo y naranja. */
+  body:not(.home-demo) header.learn-hero{
+    --mobile-hero-bg:
+      radial-gradient(circle at 84% 12%,rgba(255,167,58,.27),transparent 34%),
+      radial-gradient(circle at 10% 90%,rgba(61,218,226,.24),transparent 42%),
+      linear-gradient(135deg,#061a29 0%,#0a4550 53%,#74350d 100%);
+    --mobile-hero-accent:#9af2f5;
+    min-height:clamp(340px,96vw,440px)!important;
+  }
+  body:not(.home-demo) header.learn-hero .learn-hero__facts{
+    display:flex!important;
+    flex-wrap:wrap!important;
+    gap:8px!important;
+    margin-top:18px!important;
+  }
+}
+
+/* Pantallas muy angostas: una sola zona de lectura, sin saturación. */
+@media (max-width:360px){
+  body:not(.home-demo) :is(header.hero,header.head,header.learn-hero){
+    padding:10px!important;
+    border-radius:18px!important;
+  }
+  body:not(.home-demo) header.hero > :is(.hero-txt,.hero-inner,.hero-content,.inner),
+  body:not(.home-demo) header.head > .head-txt,
+  body:not(.home-demo) header.learn-hero > .learn-hero__content{
+    padding:18px!important;
+    border-radius:15px!important;
+  }
+  body:not(.home-demo) :is(header.hero,header.head,header.learn-hero) :is(h1,h2){
+    font-size:clamp(1.58rem,8.8vw,1.95rem)!important;
+  }
+}
+
+/* El sistema no depende de animaciones para comunicar la sección. */
+@media (max-width:760px) and (prefers-reduced-motion:reduce){
+  body:not(.home-demo) :is(header.hero,header.head,header.learn-hero)::before{
+    display:none!important;
+  }
+}
