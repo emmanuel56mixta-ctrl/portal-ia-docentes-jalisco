@@ -34,7 +34,7 @@
       '    <div class="gem-model-option is-recommended"><span class="gem-model-option-mark" aria-hidden="true">✓</span><span class="gem-model-option-copy"><strong>Pro</strong><span>Opción recomendada · Razonamiento avanzado</span></span></div>',
       '    <div class="gem-model-option is-alternative"><span class="gem-model-option-mark" aria-hidden="true">2</span><span class="gem-model-option-copy"><strong>Pensar</strong><span>Alternativa si Pro no aparece en tu cuenta</span></span></div>',
       '  </div>',
-      '  <p class="gem-model-notice-tip"><strong>Evita utilizar Flash</strong> en estos procesos guiados, ya que puede omitir pasos importantes.</p>',
+      '  <p class="gem-model-notice-tip"><strong>Evita utilizar Flash</strong> en estos procesos guiados, ya que puede omitir pasos importantes. Accede con tu cuenta <strong>@jaliscoedu.mx</strong> y no ingreses datos personales del alumnado.</p>',
       '  <div class="gem-model-notice-actions">',
       '    <a class="gem-model-notice-open" data-gem-notice-skip href="https://gemini.google.com/" rel="noopener">Entendido, abrir la Gema&nbsp; ↗</a>',
       '    <button class="gem-model-notice-cancel" type="button">Cancelar</button>',
@@ -51,15 +51,15 @@
   var cancelButton = notice.querySelector('.gem-model-notice-cancel');
   var closeButton = notice.querySelector('.gem-model-notice-close');
 
-  function openNotice(trigger) {
+  function openNotice(trigger, href, target) {
     if (closeTimer) {
       window.clearTimeout(closeTimer);
       closeTimer = 0;
     }
     lastTrigger = trigger;
-    openLink.href = trigger.href;
-    if (trigger.target) {
-      openLink.target = trigger.target;
+    openLink.href = href;
+    if (target) {
+      openLink.target = target;
       openLink.rel = 'noopener';
     } else {
       openLink.removeAttribute('target');
@@ -84,12 +84,15 @@
   }
 
   document.addEventListener('click', function (event) {
-    var trigger = event.target.closest && event.target.closest('a[href]');
-    if (!trigger || !isGemLink(trigger.href)) return;
+    var trigger = event.target.closest && event.target.closest('a[href], button[data-gema], button[data-url]');
+    if (!trigger) return;
+    var isLink = trigger.tagName === 'A';
+    var href = isLink ? trigger.href : (trigger.getAttribute('data-gema') || trigger.getAttribute('data-url') || '');
+    if (!isGemLink(href)) return;
     if (trigger.matches('.tool-trigger, .tool-dialog-open, .gem-safety-open, [data-gem-notice-skip]')) return;
     event.preventDefault();
     event.stopImmediatePropagation();
-    openNotice(trigger);
+    openNotice(trigger, href, isLink ? trigger.target : '_blank');
   }, true);
 
   closeButton.addEventListener('click', function () { closeNotice(); });
