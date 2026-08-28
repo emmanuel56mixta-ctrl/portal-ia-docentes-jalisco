@@ -1,0 +1,296 @@
+.gem-model-notice-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 10050;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(5, 6, 10, .78);
+  -webkit-backdrop-filter: blur(9px);
+  backdrop-filter: blur(9px);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .2s ease, visibility .2s ease;
+}
+
+.gem-model-notice-backdrop[hidden] {
+  display: none;
+}
+
+.gem-model-notice-backdrop.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.gem-model-notice-card {
+  position: relative;
+  width: min(100%, 620px);
+  max-height: min(760px, calc(100dvh - 48px));
+  overflow: auto;
+  color: #f8f8fa;
+  background:
+    radial-gradient(circle at 92% 4%, rgba(255, 138, 0, .17), transparent 32%),
+    linear-gradient(155deg, #202126 0%, #15161a 72%);
+  border: 1px solid rgba(255, 255, 255, .13);
+  border-radius: 26px;
+  box-shadow: 0 30px 90px rgba(0, 0, 0, .52);
+  padding: 30px;
+  transform: translateY(14px) scale(.98);
+  transition: transform .24s ease;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.gem-model-notice-backdrop.is-open .gem-model-notice-card {
+  transform: translateY(0) scale(1);
+}
+
+.gem-model-notice-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(255, 255, 255, .13);
+  border-radius: 50%;
+  color: #f8f8fa;
+  background: rgba(255, 255, 255, .07);
+  font: 400 27px/1 system-ui, sans-serif;
+  cursor: pointer;
+}
+
+.gem-model-notice-close:hover,
+.gem-model-notice-close:focus-visible {
+  background: rgba(255, 255, 255, .14);
+}
+
+.gem-model-notice-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 32px;
+  padding: 6px 11px;
+  margin: 0 52px 15px 0;
+  border-radius: 999px;
+  color: #111216;
+  background: #ff9d1f;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: .1em;
+}
+
+.gem-model-notice-badge::before {
+  content: '!';
+  display: grid;
+  place-items: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  color: #ff9d1f;
+  background: #111216;
+  font-size: 12px;
+  letter-spacing: 0;
+}
+
+.gem-model-notice-title {
+  margin: 0;
+  color: #fff;
+  font-family: 'Archivo', 'Inter', system-ui, sans-serif;
+  font-size: clamp(25px, 4vw, 34px);
+  font-weight: 850;
+  line-height: 1.08;
+  letter-spacing: -.035em;
+}
+
+.gem-model-notice-lead {
+  margin: 13px 0 0;
+  color: #c8c9d0;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.gem-model-options {
+  display: grid;
+  gap: 10px;
+  margin: 22px 0 16px;
+}
+
+.gem-model-option {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 12px;
+  align-items: center;
+  padding: 14px 15px;
+  border: 1px solid rgba(255, 255, 255, .11);
+  border-radius: 15px;
+  color: #ebebef;
+  background: rgba(255, 255, 255, .055);
+}
+
+.gem-model-option.is-recommended {
+  border-color: rgba(255, 157, 31, .62);
+  background: rgba(255, 138, 0, .11);
+}
+
+.gem-model-option-mark {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 9px;
+  color: #121317;
+  background: #ff9d1f;
+  font-size: 15px;
+  font-weight: 900;
+}
+
+.gem-model-option.is-alternative .gem-model-option-mark {
+  color: #e7e7ec;
+  background: rgba(255, 255, 255, .14);
+}
+
+.gem-model-option-copy {
+  min-width: 0;
+}
+
+.gem-model-option-copy strong,
+.gem-model-option-copy span {
+  display: block;
+}
+
+.gem-model-option-copy strong {
+  color: #fff;
+  font-size: 16px;
+  line-height: 1.25;
+}
+
+.gem-model-option-copy span {
+  margin-top: 3px;
+  color: #aaaab4;
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+.gem-model-notice-tip {
+  margin: 0;
+  padding: 12px 14px;
+  border-radius: 13px;
+  color: #d7d7dd;
+  background: rgba(255, 255, 255, .055);
+  font-size: 13.5px;
+  line-height: 1.5;
+}
+
+.gem-model-notice-tip strong {
+  color: #fff;
+}
+
+.gem-model-notice-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.gem-model-notice-open,
+.gem-model-notice-cancel {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 50px;
+  border-radius: 14px;
+  padding: 12px 18px;
+  font: 800 14px/1.2 'Inter', system-ui, sans-serif;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.gem-model-notice-open {
+  flex: 1 1 280px;
+  color: #141519 !important;
+  border: 1px solid #ff9d1f;
+  background: linear-gradient(135deg, #ffb13b, #ff8700);
+  box-shadow: 0 10px 28px rgba(255, 138, 0, .2);
+}
+
+.gem-model-notice-open:hover,
+.gem-model-notice-open:focus-visible {
+  filter: brightness(1.08);
+}
+
+.gem-model-notice-cancel {
+  flex: 0 1 auto;
+  color: #eeeef2;
+  border: 1px solid rgba(255, 255, 255, .14);
+  background: rgba(255, 255, 255, .06);
+}
+
+body.gem-model-notice-open {
+  overflow: hidden;
+}
+
+.gem-safety-card.gem-model-safety-card {
+  width: min(560px, 100%);
+}
+
+.gem-model-safety-card .gem-safety-open {
+  border-color: #ff9d1f;
+  color: #141519;
+  background: linear-gradient(135deg, #ffb13b, #ff8700);
+}
+
+.gem-model-safety-card .gem-safety-open:hover,
+.gem-model-safety-card .gem-safety-open:focus-visible {
+  border-color: #ffb13b;
+  background: linear-gradient(135deg, #ffc15e, #ff981f);
+}
+
+@media (max-width: 640px) {
+  .gem-model-notice-backdrop {
+    align-items: end;
+    padding: 12px;
+  }
+
+  .gem-model-notice-card {
+    width: 100%;
+    max-height: min(88dvh, 760px);
+    padding: 24px 20px max(20px, env(safe-area-inset-bottom));
+    border-radius: 24px 24px 18px 18px;
+    transform: translateY(34px);
+  }
+
+  .gem-model-notice-title {
+    padding-right: 18px;
+    font-size: 27px;
+  }
+
+  .gem-model-notice-lead {
+    font-size: 15px;
+    line-height: 1.52;
+  }
+
+  .gem-model-options {
+    margin-top: 18px;
+  }
+
+  .gem-model-notice-actions {
+    display: grid;
+  }
+
+  .gem-model-notice-open,
+  .gem-model-notice-cancel {
+    width: 100%;
+  }
+
+  .gem-model-safety-card .gem-model-option {
+    padding: 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gem-model-notice-backdrop,
+  .gem-model-notice-card {
+    transition: none;
+  }
+}

@@ -362,14 +362,19 @@
   </div>
 
   <div class="gem-safety-backdrop" id="gemSafetyDialog" hidden>
-    <section class="gem-safety-card" role="dialog" aria-modal="true" aria-labelledby="gemSafetyTitle" aria-describedby="gemSafetyText">
+    <section class="gem-safety-card gem-model-safety-card" role="dialog" aria-modal="true" aria-labelledby="gemSafetyTitle" aria-describedby="gemSafetyText">
       <div class="gem-safety-icon" aria-hidden="true">
         <svg viewBox="0 0 24 24" width="34" height="34"><defs><linearGradient id="gemSafetyGradientV2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ea4335"/><stop offset=".5" stop-color="#4285f4"/><stop offset="1" stop-color="#34a853"/></linearGradient></defs><path d="M12 0C13 7 17 11 24 12 17 13 13 17 12 24 11 17 7 13 0 12 7 11 11 7 12 0Z" fill="url(#gemSafetyGradientV2)"/></svg>
       </div>
-      <h2 id="gemSafetyTitle">Antes de usar esta Gema</h2>
-      <p class="gem-safety-text" id="gemSafetyText">Las Gemas son asistentes de apoyo que ofrecen orientaciones y sugerencias para el diagnóstico, el programa analítico, la planeación y la evaluación. <strong>Nunca sustituyen el conocimiento, la experiencia ni el criterio profesional del docente.</strong> Revisa, adapta y valida cada propuesta de acuerdo con las necesidades, el contexto y los aprendizajes de tu grupo.</p>
+      <h2 id="gemSafetyTitle">IMPORTANTE: selecciona el modelo antes de comenzar</h2>
+      <p class="gem-safety-text" id="gemSafetyText">Para que la Gema siga correctamente todos los pasos y genere respuestas más completas, al abrir Gemini elige el modelo de razonamiento más avanzado disponible.</p>
+      <div class="gem-model-options" aria-label="Modelos recomendados">
+        <div class="gem-model-option is-recommended"><span class="gem-model-option-mark" aria-hidden="true">✓</span><span class="gem-model-option-copy"><strong>Pro</strong><span>Opción recomendada · Razonamiento avanzado</span></span></div>
+        <div class="gem-model-option is-alternative"><span class="gem-model-option-mark" aria-hidden="true">2</span><span class="gem-model-option-copy"><strong>Pensar</strong><span>Alternativa si Pro no aparece en tu cuenta</span></span></div>
+      </div>
+      <p class="gem-model-notice-tip"><strong>Evita utilizar Flash</strong> en estos procesos guiados, ya que puede omitir pasos importantes. Revisa y adapta siempre las propuestas con tu criterio profesional.</p>
       <div class="gem-safety-actions">
-        <a class="gem-safety-open" id="gemSafetyOpen" href="https://gemini.google.com/" target="_blank" rel="noopener">Acceder a la Gema ↗</a>
+        <a class="gem-safety-open" id="gemSafetyOpen" href="https://gemini.google.com/" target="_blank" rel="noopener">Entendido, abrir la Gema ↗</a>
         <button class="gem-safety-cancel" id="gemSafetyCancel" type="button">Cancelar</button>
       </div>
     </section>
@@ -447,5 +452,6 @@
 })();
 </script>
 
+<script src="gem-model-notice.js?v=20260828-modelnotice1"></script>
 </body>
 </html>
