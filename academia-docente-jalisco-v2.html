@@ -149,11 +149,12 @@
   .tag.lime{color:var(--lime);border-color:rgba(255,138,0,.3)}
 
   /* ---------- program banner ---------- */
-  .program{margin-top:52px}
-  .program .head{max-width:850px}
-  .program .kick{font-family:'Archivo';font-weight:900;font-size:14px;color:var(--lime);letter-spacing:2px;text-transform:uppercase}
-  .program h2{font-family:'Archivo';font-weight:900;font-size:36px;letter-spacing:-.8px;margin-top:8px}
-  .program .lead{color:var(--muted);font-size:16px;max-width:760px;margin-top:12px;line-height:1.65}
+  .program{position:relative;isolation:isolate;display:flex;align-items:center;justify-content:flex-end;min-height:390px;margin-top:52px;padding:42px 46px;border:1px solid rgba(255,138,0,.42);border-radius:26px;overflow:hidden;background:#e8dfd6 url('constructor-pedagogico-inicio.png') center/cover no-repeat;box-shadow:0 22px 64px rgba(0,0,0,.24)}
+  .program::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(7,9,13,0) 22%,rgba(7,9,13,.12) 42%,rgba(7,9,13,.84) 65%,rgba(7,9,13,.97) 100%)}
+  .program .head{width:min(48%,590px);margin-left:auto}
+  .program .kick{font-family:'Archivo';font-weight:900;font-size:14px;color:#ffad45;letter-spacing:2px;text-transform:uppercase;text-shadow:0 2px 12px rgba(0,0,0,.45)}
+  .program h2{font-family:'Archivo';font-weight:900;font-size:38px;line-height:1.05;letter-spacing:-.8px;margin-top:10px;color:#fff;text-shadow:0 2px 16px rgba(0,0,0,.45)}
+  .program .lead{color:#eef0f4;font-size:16.5px;max-width:570px;margin-top:15px;line-height:1.68;text-shadow:0 1px 8px rgba(0,0,0,.55)}
   .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:20px;position:relative}
   .step{position:relative;overflow:hidden;border:none;border-radius:20px;padding:24px 22px 52px;min-height:230px;display:flex;flex-direction:column;background:radial-gradient(60% 45% at 7% 5%,rgba(234,67,53,.22),transparent 60%),radial-gradient(55% 45% at 96% 5%,rgba(66,133,244,.22),transparent 60%),radial-gradient(55% 50% at 6% 97%,rgba(52,168,83,.20),transparent 60%),#0a0a0b}
   .step::before{content:"";position:absolute;inset:0;border-radius:20px;padding:1.5px;background:conic-gradient(from 210deg,#ea4335,#fbbc05,#34a853,#4285f4,#a142f4,#ea4335);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
@@ -169,7 +170,7 @@
   .step .art{margin-top:auto;height:52px;border-radius:10px;background:linear-gradient(135deg,#2a0f18,#140a0d);
     border:1px solid var(--line);display:grid;place-items:center;font-size:22px}
   .cta{display:inline-flex;align-items:center;gap:7px;background:#ececee;color:#0a0a0b;font-weight:800;
-    font-size:15px;padding:11px 20px;border-radius:22px;margin-top:20px}
+    font-size:15.5px;padding:12px 21px;border-radius:22px;margin-top:22px;box-shadow:0 8px 24px rgba(0,0,0,.24)}
 
   /* ---------- acceso a Formación del Carácter ---------- */
   .character-home{position:relative;isolation:isolate;display:block;margin-top:26px;min-height:300px;border:1px solid rgba(245,37,79,.48);border-radius:min(26px,2.7vw);overflow:hidden;background:#ed0055;box-shadow:0 22px 62px rgba(90,0,30,.22);transition:transform .2s,border-color .2s,box-shadow .2s}
@@ -264,12 +265,20 @@
     .conn{display:none}
     .videos{grid-template-columns:1fr}
     .hero h2{font-size:30px}
+    .program{min-height:430px;padding:34px 28px;background-position:38% center}
+    .program::after{background:linear-gradient(90deg,rgba(7,9,13,.08) 0%,rgba(7,9,13,.38) 34%,rgba(7,9,13,.9) 62%,rgba(7,9,13,.98) 100%)}
+    .program .head{width:min(62%,520px)}
     .program .lead{margin-left:0}
   }
   @media(max-width:520px){
     .slide .inner{padding:24px 34px 42px}
     .hero h2{font-size:27px}
     .slide p{font-size:14px;line-height:1.45}
+    .program{min-height:500px;padding:28px 22px;align-items:flex-end;background-position:32% center}
+    .program::after{background:linear-gradient(180deg,rgba(7,9,13,.06) 0%,rgba(7,9,13,.22) 26%,rgba(7,9,13,.9) 58%,rgba(7,9,13,.98) 100%)}
+    .program .head{width:100%;margin-top:auto}
+    .program h2{font-size:29px}
+    .program .lead{font-size:15px;line-height:1.58}
   }
 
   /* banner banco de gemas */
