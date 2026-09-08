@@ -46,14 +46,14 @@
   .nav .brand-logo{height:36px;width:auto;display:block}
   .nav .spark{width:26px;height:26px;background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><defs><linearGradient id='gm' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='%23ea4335'/><stop offset='.5' stop-color='%234285f4'/><stop offset='1' stop-color='%2334a853'/></linearGradient></defs><path d='M12 0C13 7 17 11 24 12 17 13 13 17 12 24 11 17 7 13 0 12 7 11 11 7 12 0Z' fill='url(%23gm)'/></svg>") no-repeat center/contain}
 
-  /* ---------- hero carousel ---------- */
+  /* ---------- hero principal ---------- */
   .hero{
     position:relative;margin-top:12px;border-radius:22px;overflow:hidden;
     min-height:360px;
   }
   .slides{position:relative;width:100%;height:360px}
   .slide{
-    position:absolute;inset:0;opacity:0;transition:opacity .8s ease;
+    position:absolute;inset:0;opacity:1;
     display:flex;align-items:flex-end;
   }
   .slide.active{opacity:1;z-index:1}
@@ -150,10 +150,10 @@
 
   /* ---------- program banner ---------- */
   .program{margin-top:52px}
-  .program .head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
-  .program .kick{font-family:'Archivo';font-weight:900;font-size:20px;color:var(--lime);letter-spacing:.3px;display:flex;align-items:center;gap:8px}
-  .program h2{font-family:'Archivo';font-weight:900;font-size:26px;letter-spacing:-.3px}
-  .program .lead{color:var(--muted);font-size:15px;max-width:340px;margin-left:auto}
+  .program .head{max-width:850px}
+  .program .kick{font-family:'Archivo';font-weight:900;font-size:14px;color:var(--lime);letter-spacing:2px;text-transform:uppercase}
+  .program h2{font-family:'Archivo';font-weight:900;font-size:36px;letter-spacing:-.8px;margin-top:8px}
+  .program .lead{color:var(--muted);font-size:16px;max-width:760px;margin-top:12px;line-height:1.65}
   .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:20px;position:relative}
   .step{position:relative;overflow:hidden;border:none;border-radius:20px;padding:24px 22px 52px;min-height:230px;display:flex;flex-direction:column;background:radial-gradient(60% 45% at 7% 5%,rgba(234,67,53,.22),transparent 60%),radial-gradient(55% 45% at 96% 5%,rgba(66,133,244,.22),transparent 60%),radial-gradient(55% 50% at 6% 97%,rgba(52,168,83,.20),transparent 60%),#0a0a0b}
   .step::before{content:"";position:absolute;inset:0;border-radius:20px;padding:1.5px;background:conic-gradient(from 210deg,#ea4335,#fbbc05,#34a853,#4285f4,#a142f4,#ea4335);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
@@ -169,7 +169,7 @@
   .step .art{margin-top:auto;height:52px;border-radius:10px;background:linear-gradient(135deg,#2a0f18,#140a0d);
     border:1px solid var(--line);display:grid;place-items:center;font-size:22px}
   .cta{display:inline-flex;align-items:center;gap:7px;background:#ececee;color:#0a0a0b;font-weight:800;
-    font-size:14.5px;padding:8px 16px;border-radius:20px;margin-top:16px}
+    font-size:15px;padding:11px 20px;border-radius:22px;margin-top:20px}
 
   /* ---------- acceso a Formación del Carácter ---------- */
   .character-home{position:relative;isolation:isolate;display:block;margin-top:26px;min-height:300px;border:1px solid rgba(245,37,79,.48);border-radius:min(26px,2.7vw);overflow:hidden;background:#ed0055;box-shadow:0 22px 62px rgba(90,0,30,.22);transition:transform .2s,border-color .2s,box-shadow .2s}
@@ -355,40 +355,17 @@
   <main id="contenido-principal" tabindex="-1">
   <h1 class="sr-only">IA para Docentes de Jalisco</h1>
 
-  <!-- HERO CARRUSEL -->
-  <header class="hero" aria-roledescription="carrusel" aria-label="Presentación del portal">
+  <!-- HERO PRINCIPAL -->
+  <header class="hero" aria-label="Presentación del portal">
     <div class="slides" id="slides">
-
-      <div class="slide s1 active" aria-hidden="false">
-        <img src="hero-1-docentes.jpg" alt="Docentes de Jalisco trabajando con IA" onerror="this.style.display='none'">
-        <div class="inner">
-          <h2>IA para Docentes<br><span class="g">Lleva la IA a tu salón de clases</span></h2>
-          <p>Aprende, crea y transforma tu práctica docente con inteligencia artificial.</p>
-        </div>
-      </div>
-
-      <div class="slide s2" aria-hidden="true">
+      <div class="slide s2 active" aria-hidden="false">
         <img src="hero-2.png" alt="Aula con Google for Education al estilo Jalisco" onerror="this.style.display='none'">
         <div class="inner">
           <h2>Educación<br><span class="g">Al Estilo Jalisco</span></h2>
           <p>Encuentra soluciones impulsadas por inteligencia artificial para planear, generar materiales, adaptar contenidos y responder a las necesidades de tus estudiantes.</p>
         </div>
       </div>
-
-      <div class="slide s3" aria-hidden="true">
-        <img src="hero-3.png" alt="Docentes colaborando y compartiendo Gemas" onerror="this.style.display='none'">
-        <div class="inner">
-          <h2>Innovar para<br><span class="g">enseñar y aprender mejor</span></h2>
-          <p>Integra la tecnología de manera responsable, creativa y pertinente. Accede a herramientas que facilitan tareas y abren nuevas oportunidades para transformar el aprendizaje.</p>
-        </div>
-      </div>
-
     </div>
-
-    <button type="button" class="arw prev" id="prev" aria-label="Diapositiva anterior">‹</button>
-    <button type="button" class="arw next" id="next" aria-label="Diapositiva siguiente">›</button>
-    <button type="button" class="arw pause" id="pause" aria-label="Pausar carrusel">❚❚</button>
-    <div class="dots" id="dots"></div>
   </header>
 
 
@@ -432,41 +409,11 @@
   <!-- PROGRAMA -->
   <section class="program">
     <div class="head">
-      <div class="kick">✦ TU RUTA CON LAS GEMAS ✦</div>
-      <h2>DEL DIAGNÓSTICO AL AULA</h2>
-      <div class="lead">Cuatro pasos, cuatro Gemas que te acompañan en todo el ciclo de planeación bajo la Nueva Escuela Mexicana.</div>
+      <div class="kick">✦ DEL DIAGNÓSTICO A LA ACCIÓN ✦</div>
+      <h2>CONSTRUCTOR PEDAGÓGICO</h2>
+      <div class="lead">Convierte las necesidades de tu grupo en una planeación contextualizada y alineada con la Nueva Escuela Mexicana. Entra al Constructor Pedagógico y crea, paso a paso, una propuesta lista para llevar al aula.</div>
     </div>
-
-    <div class="steps">
-      <div class="step">
-        <h3>Diagnóstico<br>inicial</h3>
-        <span class="ul"></span>
-        <p><b>La Gema</b> analiza tu grupo y contexto para partir de datos reales.</p>
-        <span class="num">1</span>
-      </div>
-      <div class="step">
-        <h3>Programa<br>analítico</h3>
-        <span class="ul"></span>
-        <p><b>La Gema</b> contextualiza el programa a tu comunidad y campos formativos.</p>
-        <span class="num">2</span>
-      </div>
-      <div class="step">
-        <h3>Planeación<br>didáctica</h3>
-        <span class="ul"></span>
-        <p><b>La Gema</b> genera secuencias, actividades y materiales alineados a los PDA.</p>
-        <span class="num">3</span>
-      </div>
-      <div class="step">
-        <h3>Evaluación y<br>retroalimentación</h3>
-        <span class="ul"></span>
-        <p><b>La Gema</b> crea rúbricas e instrumentos y retroalimenta por PDA.</p>
-        <span class="num">4</span>
-      </div>
-      <span class="conn" style="left:25%"></span>
-      <span class="conn" style="left:50%"></span>
-      <span class="conn" style="left:75%"></span>
-    </div>
-    <a class="cta" href="ruta-v2.html">Explorar la ruta →</a>
+    <a class="cta" href="ruta-v2.html">Entrar al Constructor Pedagógico</a>
   </section>
 
   <!-- KIT DE HERRAMIENTAS -->
@@ -575,51 +522,6 @@
 </footer>
 
 </div>
-
-<script>
-(function(){
-  var slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
-  var dotsBox = document.getElementById('dots');
-  var i = 0, timer;
-
-  slides.forEach(function(_, idx){
-    var d = document.createElement('button');
-    d.type='button';
-    d.setAttribute('aria-label','Ir a la diapositiva '+(idx+1));
-    if(idx===0)d.setAttribute('aria-current','true');
-    d.className = 'dot' + (idx===0?' active':'');
-    d.addEventListener('click', function(){ go(idx); reset(); });
-    dotsBox.appendChild(d);
-  });
-  var dots = Array.prototype.slice.call(dotsBox.children);
-
-  function go(n){
-    slides[i].classList.remove('active');
-    slides[i].setAttribute('aria-hidden','true');
-    dots[i].classList.remove('active');
-    dots[i].removeAttribute('aria-current');
-    i = (n + slides.length) % slides.length;
-    slides[i].classList.add('active');
-    slides[i].setAttribute('aria-hidden','false');
-    dots[i].classList.add('active');
-    dots[i].setAttribute('aria-current','true');
-  }
-  function next(){ go(i+1); }
-  function prev(){ go(i-1); }
-  var paused=false, reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  function reset(){ clearInterval(timer); if(!paused && !reduce){ timer = setInterval(next, 5000); } }
-  var pauseBtn=document.getElementById('pause');
-  function paintPause(){ pauseBtn.textContent=paused?'▶':'❚❚'; pauseBtn.setAttribute('aria-label',paused?'Reanudar carrusel':'Pausar carrusel'); }
-  pauseBtn.addEventListener('click',function(){ paused=!paused; paintPause(); reset(); });
-  if(reduce){ paused=true; paintPause(); }
-
-  document.getElementById('next').addEventListener('click', function(){ next(); reset(); });
-  document.getElementById('prev').addEventListener('click', function(){ prev(); reset(); });
-  reset();
-})();
-</script>
-
-
 
 <script>
 (function(){
