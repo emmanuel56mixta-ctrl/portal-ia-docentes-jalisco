@@ -499,6 +499,32 @@
   .app-badge i{font-style:normal;background:linear-gradient(90deg,#4285f4,#a142f4,#ea4335);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;font-weight:800}
   @media(max-width:900px){.app-head{padding:18px 16px 14px}.app-head h2{font-size:20px}}
   @media(max-width:900px){.app{grid-template-columns:minmax(0,1fr)}.app-main{width:100%;min-width:0}}
+  /* experiencia guiada */
+  .builder-progress{margin-top:16px;width:100%}
+  .builder-progress-copy{display:flex;justify-content:space-between;gap:14px;color:var(--muted);font-size:13px}
+  .builder-progress-copy b{color:var(--txt)}
+  .builder-progress-track{height:6px;margin-top:8px;border-radius:99px;background:#242932;overflow:hidden}
+  .builder-progress-fill{display:block;width:25%;height:100%;border-radius:inherit;background:linear-gradient(90deg,var(--lime),#ffb347);transition:width .35s ease}
+  .guide-grid{display:grid;grid-template-columns:1.12fr .9fr 1fr;gap:0;margin-top:20px;border-top:1px solid var(--line)}
+  .guide-box{min-width:0;padding:20px;border-left:1px solid var(--line)}
+  .guide-box:first-child{border-left:0;padding-left:0}
+  .guide-box:last-child{padding-right:0}
+  .guide-box .et-lbl{display:flex;align-items:center;gap:9px;margin-top:0;color:#d9dde5;font-size:12.5px}
+  .guide-box .et-lbl::before{content:attr(data-guide-number);display:grid;place-items:center;width:25px;height:25px;flex:0 0 25px;border:1px solid #3d4654;border-radius:50%;color:var(--lime);font-size:12px;letter-spacing:0}
+  .guide-box.important{background:linear-gradient(145deg,rgba(255,138,0,.1),rgba(255,138,0,.025));border:1px solid rgba(255,138,0,.36);border-radius:14px;padding:18px;margin:12px 0 12px 14px}
+  .guide-box.important .et-lbl{color:var(--lime)}
+  .guide-box.important .et-lbl::before{content:"!";border-color:var(--lime);background:rgba(255,138,0,.12);font-weight:900}
+  .guided-action{margin-top:18px;padding:18px;border:1px solid rgba(66,133,244,.3);border-radius:15px;background:rgba(66,133,244,.07)}
+  .guided-action .et-open{display:block;width:100%;margin-top:0;text-align:center;border-radius:12px}
+  .guided-action .et-note{text-align:center;margin-top:9px}
+  .refs-toggle{display:flex;align-items:center;justify-content:space-between;width:100%;padding:0;border:0;background:none;color:var(--txt);font-family:inherit;font-size:14px;font-weight:800;cursor:pointer;text-align:left}
+  .refs-toggle span{font-size:18px;color:#8ab4f8;transition:transform .2s}
+  .refs-toggle[aria-expanded="true"] span{transform:rotate(180deg)}
+  .refs-body[hidden]{display:none}
+  .refs-body{margin-top:12px}
+  .et-next{padding:20px;border:1px dashed #3b424d;border-radius:16px;background:rgba(255,255,255,.015)}
+  .et-next::before{content:"¿Ya revisaste y guardaste tu resultado?";display:block;margin-bottom:6px;color:var(--txt);font-family:'Archivo';font-size:17px;font-weight:800}
+  @media(max-width:1050px){.guide-grid{grid-template-columns:1fr}.guide-box{border-left:0;border-top:1px solid var(--line);padding:18px 0}.guide-box:first-child{border-top:0}.guide-box.important{margin:10px 0 0;padding:16px}}
   /* escenas del panel de pasos v2 */
   .f1side{position:absolute;left:8px;top:10px;bottom:10px;width:26px;border-right:1px solid #222;display:flex;flex-direction:column;gap:6px;align-items:center;padding-top:4px}
   .f1side b{width:12px;height:12px;border-radius:50%;background:#1b1b1e;border:1px solid #2c2c33}
@@ -643,10 +669,14 @@
       <div class="app-main">
         <div class="app-head">
           <h2>Constructor pedagógico</h2>
-          <p>Herramienta digital con inteligencia artificial que organiza tu trabajo docente en cuatro módulos relacionados. Este portal no almacena tus datos ni los resultados generados: tú decides dónde guardarlos y cuándo continuar el recorrido.</p>
+          <p>Avanza una etapa a la vez. Al terminar cada módulo, guarda tu resultado: lo necesitarás para continuar con el siguiente.</p>
           <span class="app-badge"><i>✦</i> Impulsado por Google Gemini</span>
+          <div class="builder-progress" aria-label="Progreso: etapa 1 de 4">
+            <div class="builder-progress-copy"><span id="builderProgressText"><b>Etapa 1 de 4</b> · Diagnóstico</span><span>Tu avance se muestra aquí</span></div>
+            <div class="builder-progress-track"><span class="builder-progress-fill" id="builderProgressFill"></span></div>
+          </div>
         </div>
-        <div class="app-top"><span class="app-title">¿Qué necesitas elaborar?</span><a class="app-how" id="hiwOpen" href="#ruta-int"><span class="q">?</span> ¿Cómo funciona?</a></div>
+        <div class="app-top"><span class="app-title" id="builderCurrentTitle">Comienza con tu diagnóstico</span><a class="app-how" id="hiwOpen" href="#ruta-int"><span class="q">?</span> Ver guía de 1 minuto</a></div>
         <div class="app-body">
 
     <div class="et-panel" id="etp1" role="tabpanel" aria-labelledby="et-tab-1">
@@ -842,6 +872,7 @@
       var p=document.getElementById('etp'+i);
       if(p)p.hidden=(i!==n);
     }
+    if(window.updateBuilderProgress)window.updateBuilderProgress(n);
   }
   tabs.forEach(function(t,index){
     t.addEventListener('click',function(){show(+t.dataset.et,false);});
@@ -894,6 +925,64 @@
       else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}
     }
   });
+})();
+</script>
+<script>
+(function(){
+  var names=['Diagnóstico','Programa analítico','Planeación','Evaluación'];
+  var titles=['Comienza con tu diagnóstico','Continúa con tu Programa analítico','Diseña tu planeación didáctica','Cierra con la evaluación'];
+  var actions=['Comenzar mi diagnóstico','Abrir mi Programa analítico','Diseñar mi planeación','Crear mi evaluación'];
+  window.updateBuilderProgress=function(n){
+    var text=document.getElementById('builderProgressText');
+    var fill=document.getElementById('builderProgressFill');
+    var title=document.getElementById('builderCurrentTitle');
+    var progress=document.querySelector('.builder-progress');
+    if(text)text.innerHTML='<b>Etapa '+n+' de 4</b> · '+names[n-1];
+    if(fill)fill.style.width=(n*25)+'%';
+    if(title)title.textContent=titles[n-1];
+    if(progress)progress.setAttribute('aria-label','Progreso: etapa '+n+' de 4');
+  };
+
+  Array.prototype.forEach.call(document.querySelectorAll('.et-panel'),function(panel,panelIndex){
+    var card=panel.querySelector('.et-card');
+    if(!card)return;
+    var labels=Array.prototype.slice.call(card.querySelectorAll(':scope > .et-lbl'));
+    var open=card.querySelector(':scope > .et-open');
+    var note=card.querySelector(':scope > .et-note');
+    if(labels.length===3&&open){
+      labels[0].textContent='Antes de comenzar';labels[0].dataset.guideNumber='1';
+      labels[1].textContent='Abre la herramienta';labels[1].dataset.guideNumber='2';
+      labels[2].textContent='IMPORTANTE';labels[2].dataset.guideNumber='!';
+      var grid=document.createElement('div');grid.className='guide-grid';
+      labels.forEach(function(label,index){
+        var box=document.createElement('section');box.className='guide-box'+(index===2?' important':'');
+        var stop=labels[index+1]||open;
+        var node=label;
+        while(node&&node!==stop){var next=node.nextElementSibling;box.appendChild(node);node=next;}
+        if(index===2&&!box.querySelector('.et-guarda')){
+          var reminder=document.createElement('p');reminder.className='et-guarda';
+          reminder.textContent='Copia o guarda el resultado en un documento. Este portal no almacena la información generada.';
+          box.appendChild(reminder);
+        }
+        grid.appendChild(box);
+      });
+      card.insertBefore(grid,open);
+      var action=document.createElement('div');action.className='guided-action';
+      action.appendChild(open);if(note)action.appendChild(note);card.appendChild(action);
+      open.textContent=actions[panelIndex]+' ↗';
+    }
+
+    var refs=panel.querySelector('.et-refs');
+    if(refs){
+      var body=document.createElement('div');body.className='refs-body';body.hidden=true;
+      while(refs.firstChild)body.appendChild(refs.firstChild);
+      var toggle=document.createElement('button');toggle.type='button';toggle.className='refs-toggle';toggle.setAttribute('aria-expanded','false');
+      toggle.innerHTML='Consultar referencias oficiales <span aria-hidden="true">⌄</span>';
+      toggle.addEventListener('click',function(){var expanded=toggle.getAttribute('aria-expanded')==='true';toggle.setAttribute('aria-expanded',expanded?'false':'true');body.hidden=expanded;});
+      refs.appendChild(toggle);refs.appendChild(body);
+    }
+  });
+  window.updateBuilderProgress(1);
 })();
 </script>
 <script>
