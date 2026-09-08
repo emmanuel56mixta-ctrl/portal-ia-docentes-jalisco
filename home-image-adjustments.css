@@ -1,13 +1,13 @@
 /* Ajustes finos de encuadre en portada — 8 sep 2026 */
 
-/* Conoce más sobre la IA: baja ligeramente el sujeto dentro del banner sin cambiar el tamaño del bloque. */
+/* Conoce más sobre la IA: baja más al sujeto dentro del banner para recuperar el rostro completo y los ojos, sin cambiar el tamaño del bloque. */
 .learn-ai-home__image{
-  object-position:center 42%!important;
+  object-position:center 28%!important;
 }
 
 /* En la portada móvil se conserva el ajuste equivalente en la tarjeta. */
 @media(max-width:760px){
   .mobile-explorer-demo .mobile-card-learn>img{
-    object-position:54% 42%!important;
+    object-position:54% 30%!important;
   }
 }
