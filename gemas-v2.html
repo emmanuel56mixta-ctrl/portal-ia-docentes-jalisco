@@ -32,26 +32,26 @@
   .cluster{position:relative;height:190px;margin-bottom:14px;perspective:900px;transform-style:preserve-3d}
   .orbit{position:absolute;left:50%;top:50%;transform-style:preserve-3d;animation:orbita 60s linear infinite}
   .cluster:hover .orbit,.cluster:hover .unrot{animation-play-state:paused}
-  .pos{position:absolute;left:-52px;top:-57px;transform-style:preserve-3d;--r:215px}
+  .pos{position:absolute;width:112px;height:112px;left:-56px;top:-56px;transform-style:preserve-3d;--r:215px}
   .p1{transform:rotateY(0deg) translateZ(var(--r))}
   .p2{transform:rotateY(60deg) translateZ(var(--r))}
   .p3{transform:rotateY(120deg) translateZ(var(--r))}
   .p4{transform:rotateY(180deg) translateZ(var(--r))}
   .p5{transform:rotateY(240deg) translateZ(var(--r))}
   .p6{transform:rotateY(300deg) translateZ(var(--r))}
-  .neg{transform-style:preserve-3d}
+  .neg{width:100%;height:100%;transform-style:preserve-3d}
   .n1{transform:rotateY(0deg)}
   .n2{transform:rotateY(-60deg)}
   .n3{transform:rotateY(-120deg)}
   .n4{transform:rotateY(-180deg)}
   .n5{transform:rotateY(-240deg)}
   .n6{transform:rotateY(-300deg)}
-  .pos .cardimg{width:104px;height:114px;object-fit:cover;border-radius:14px;border:1px solid rgba(255,255,255,.10);box-shadow:0 14px 34px rgba(0,0,0,.45);display:block}
-  .unrot{transform-style:preserve-3d;animation:orbitaRev 60s linear infinite}
+  .pos .cardimg{width:100%;height:100%;aspect-ratio:1;object-fit:contain;border-radius:20px;border:1px solid rgba(255,255,255,.10);box-shadow:0 14px 34px rgba(0,0,0,.45);display:block;background:var(--panel)}
+  .unrot{width:100%;height:100%;transform-style:preserve-3d;animation:orbitaRev 60s linear infinite}
   .pos .ic{margin:0}
   @keyframes orbita{from{transform:rotateY(0deg)}to{transform:rotateY(360deg)}}
   @keyframes orbitaRev{from{transform:rotateY(0deg)}to{transform:rotateY(-360deg)}}
-  @media(max-width:600px){.pos{--r:135px}.pos .cardimg{width:80px;height:88px}.pos{left:-40px;top:-44px}}
+  @media(max-width:600px){.pos{--r:135px;width:80px;height:80px;left:-40px;top:-40px}.pos .cardimg{border-radius:16px}}
   @media (prefers-reduced-motion:reduce){.orbit,.unrot{animation:none}}
   .ic{width:72px;height:72px;border-radius:18px;margin:0 -12px;display:grid;place-items:center;font-size:26px;
     border:1px solid var(--line);background:var(--panel);box-shadow:0 14px 34px rgba(0,0,0,.45)}
