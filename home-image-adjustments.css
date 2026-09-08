@@ -11,3 +11,29 @@
     object-position:54% 30%!important;
   }
 }
+
+/* Constructor pedagógico: la fotografía crece ligeramente al pasar el cursor,
+   mientras texto, botón y gradiente permanecen completamente estables. */
+.program{
+  background:#e8dfd6!important;
+}
+.program::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-2;
+  background:url('constructor-pedagogico-inicio.png') center/cover no-repeat;
+  transform:scale(1.001);
+  transform-origin:center;
+  transition:transform .72s cubic-bezier(.2,.65,.3,1);
+  pointer-events:none;
+}
+@media(hover:hover) and (prefers-reduced-motion:no-preference){
+  .program:hover::before,
+  .program:focus-within::before{
+    transform:scale(1.04);
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  .program::before{transition:none}
+}
