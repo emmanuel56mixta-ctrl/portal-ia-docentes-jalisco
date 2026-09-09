@@ -8,10 +8,9 @@
 .ihb-trigger:focus-visible .ihb::before,.ihb-trigger.ihb:focus-visible::before{left:0;top:0;width:100%;height:100%;border-radius:inherit}
 .ihb-trigger:focus-visible .ihb-label{transform:translateX(18px);opacity:0}
 .ihb-trigger:focus-visible .ihb-hover{transform:translateX(0);opacity:1}
-@media(hover:hover){
-  .ihb-trigger:not(:disabled):hover .ihb::before,.ihb-trigger.ihb:not(:disabled):hover::before{left:0;top:0;width:100%;height:100%;border-radius:inherit}
-  .ihb-trigger:not(:disabled):hover .ihb-label{transform:translateX(18px);opacity:0}
-  .ihb-trigger:not(:disabled):hover .ihb-hover{transform:translateX(0);opacity:1}
-}
+.ihb-trigger:not(:disabled):is(:hover,:active,.ihb-active) .ihb::before,
+.ihb-trigger.ihb:not(:disabled):is(:hover,:active,.ihb-active)::before{left:0;top:0;width:100%;height:100%;border-radius:inherit}
+.ihb-trigger:not(:disabled):is(:hover,:active,.ihb-active) .ihb-label{transform:translateX(18px);opacity:0}
+.ihb-trigger:not(:disabled):is(:hover,:active,.ihb-active) .ihb-hover{transform:translateX(0);opacity:1}
 .ihb:disabled::before{display:none}
 @media(prefers-reduced-motion:reduce){.ihb::before,.ihb-label,.ihb-hover{transition:none!important}}

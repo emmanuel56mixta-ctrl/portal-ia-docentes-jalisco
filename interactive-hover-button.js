@@ -7,7 +7,14 @@
     if (!text || text.length > 100) return;
     const owner = el.closest('a,button');
     if (!owner) return;
-    el.classList.add('ihb'); owner.classList.add('ihb-trigger');
+    el.classList.add('ihb');
+    if (!owner.classList.contains('ihb-trigger')) {
+      owner.classList.add('ihb-trigger');
+      owner.addEventListener('pointerenter', () => { if (!owner.disabled) owner.classList.add('ihb-active'); });
+      owner.addEventListener('pointerleave', () => owner.classList.remove('ihb-active'));
+      owner.addEventListener('pointercancel', () => owner.classList.remove('ihb-active'));
+      owner.addEventListener('blur', () => owner.classList.remove('ihb-active'));
+    }
     const label = document.createElement('span'); label.className = 'ihb-label';
     while (el.firstChild) label.appendChild(el.firstChild);
     const hover = document.createElement('span'); hover.className = 'ihb-hover'; hover.setAttribute('aria-hidden', 'true');
