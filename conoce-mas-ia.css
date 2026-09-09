@@ -15,7 +15,7 @@
   background:#101012;box-shadow:0 24px 70px rgba(0,0,0,.28)
 }
 .learn-ai-home__image{
-  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 42%;
   transition:transform .7s cubic-bezier(.2,.65,.3,1)
 }
 .learn-ai-home::after{
@@ -157,7 +157,7 @@
 @media(max-width:900px){
   .learn-ai-home{min-height:500px;align-items:flex-end}
   .learn-ai-home::after{background:linear-gradient(0deg,rgba(8,8,10,.98) 0%,rgba(8,8,10,.78) 56%,rgba(8,8,10,.08) 100%)}
-  .learn-ai-home__image{object-position:65% center}
+  .learn-ai-home__image{object-position:65% 42%}
   .learn-ai-home__content{width:100%;padding:190px 28px 30px}
   .learn-layout{grid-template-columns:1fr}
   .learn-side{position:static;grid-template-columns:1fr 1fr}
