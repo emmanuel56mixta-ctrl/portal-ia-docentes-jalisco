@@ -1,0 +1,51 @@
+/* BorderBeam adaptation for the static portal: only the active module and step. */
+@property --constructor-beam-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+#work.card,
+.route button[aria-current="step"] {
+  position: relative;
+  isolation: isolate;
+}
+/* Keep the normal border as a fallback when masking is unsupported. */
+@supports (mask-composite: exclude) or (-webkit-mask-composite: xor) {
+  #work.card::before,
+  .route button[aria-current="step"]::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    z-index: 2;
+    padding: 2px;
+    border-radius: inherit;
+    pointer-events: none;
+    background: conic-gradient(from var(--constructor-beam-angle),
+      transparent 0deg 225deg,
+      rgba(66,133,244,.15) 245deg,
+      #4285f4 270deg,
+      #a76cff 292deg,
+      #ff8a00 316deg,
+      #ffda8c 337deg,
+      transparent 360deg);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    animation: constructor-border-beam 8s linear infinite;
+  }
+  .route button[aria-current="step"]::before {
+    padding: 1.5px;
+    animation-duration: 6s;
+  }
+}
+@keyframes constructor-border-beam {
+  to { --constructor-beam-angle: 360deg; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #work.card::before,
+  .route button[aria-current="step"]::before {
+    animation: none !important;
+    --constructor-beam-angle: 35deg;
+  }
+}
