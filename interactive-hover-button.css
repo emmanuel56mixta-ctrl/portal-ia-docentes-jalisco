@@ -1,0 +1,17 @@
+/* Same expanding-dot interaction as InteractiveHoverButton, without React. */
+.ihb{position:relative!important;isolation:isolate;overflow:hidden!important;border-radius:999px!important;--ihb-fill:#ff8a00;--ihb-ink:#17100a}
+.ihb::after{display:none!important;animation:none!important}
+.ihb::before{content:"";position:absolute;z-index:0;left:8px;top:calc(50% - 3px);width:6px;height:6px;border-radius:999px;background:var(--ihb-fill);pointer-events:none;transition:width .3s,height .3s,left .3s,top .3s,border-radius .3s}
+.ihb-label{position:relative;z-index:1;display:inline-block;transition:transform .3s,opacity .3s;pointer-events:none}
+.ihb-hover{position:absolute;z-index:1;inset:0;display:flex;align-items:center;justify-content:center;gap:8px;padding:inherit;color:var(--ihb-ink);opacity:0;transform:translateX(-18px);transition:transform .3s,opacity .3s;pointer-events:none;line-height:inherit}
+.ihb-arrow{flex:none;font-size:1.2em}
+.ihb-trigger:focus-visible .ihb::before,.ihb-trigger.ihb:focus-visible::before{left:0;top:0;width:100%;height:100%;border-radius:inherit}
+.ihb-trigger:focus-visible .ihb-label{transform:translateX(18px);opacity:0}
+.ihb-trigger:focus-visible .ihb-hover{transform:translateX(0);opacity:1}
+@media(hover:hover){
+  .ihb-trigger:not(:disabled):hover .ihb::before,.ihb-trigger.ihb:not(:disabled):hover::before{left:0;top:0;width:100%;height:100%;border-radius:inherit}
+  .ihb-trigger:not(:disabled):hover .ihb-label{transform:translateX(18px);opacity:0}
+  .ihb-trigger:not(:disabled):hover .ihb-hover{transform:translateX(0);opacity:1}
+}
+.ihb:disabled::before{display:none}
+@media(prefers-reduced-motion:reduce){.ihb::before,.ihb-label,.ihb-hover{transition:none!important}}
