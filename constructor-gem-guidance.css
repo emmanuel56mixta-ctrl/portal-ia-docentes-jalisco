@@ -12,3 +12,93 @@
 .guidance-prev{border:1px solid #656b75;background:transparent;color:#eee}.guidance-prev:disabled{opacity:.35;cursor:default}
 .guidance-next,.guidance-launch{border:0;background:#ff9b32;color:#17100a}
 @media(max-width:500px){.constructor-guidance{padding:22px}.constructor-guidance h2{font-size:25px}.guidance-panel{min-height:0}.guidance-launch{width:100%;text-align:center}}
+
+/* Jerarquía del recorrido dentro del mismo Constructor pedagógico.
+   Se conservan todos los elementos y funciones; únicamente cambia su ubicación visual. */
+#work.constructor-flow-ready #start{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+}
+#work.constructor-flow-ready .description,
+#work.constructor-flow-ready .prepare,
+#work.constructor-flow-ready .under{
+  width:100%;
+}
+#work.constructor-flow-ready .prepare{
+  margin:2px 0 20px;
+  padding:14px 16px;
+  border-left:3px solid #ff9b32;
+  border-radius:0 10px 10px 0;
+  background:#22262c;
+  color:#e1e4e9;
+}
+#work.constructor-flow-ready .helps{
+  width:100%;
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;
+  margin:0 0 24px;
+  padding:0;
+  border-top:0;
+}
+#work.constructor-flow-ready .helps details{
+  min-width:0;
+  margin:0;
+  padding:0;
+  overflow:hidden;
+  border:1px solid #454a53;
+  border-radius:12px;
+  background:#22262c;
+}
+#work.constructor-flow-ready .helps summary{
+  min-height:50px;
+  display:flex;
+  align-items:center;
+  padding:13px 15px;
+  font-weight:650;
+}
+#work.constructor-flow-ready .helps details[open] summary{
+  border-bottom:1px solid #454a53;
+  color:#fff;
+}
+#work.constructor-flow-ready .helps details>p,
+#work.constructor-flow-ready .helps details>div{
+  margin:0;
+  padding:16px;
+}
+#work.constructor-flow-ready #open{
+  margin-top:0;
+}
+#work.constructor-flow-ready .under{
+  max-width:720px;
+  margin:13px 0 0;
+}
+#work.constructor-flow-ready .return{
+  width:100%;
+  margin-top:28px;
+  padding:22px;
+  border:1px solid #454a53;
+  border-radius:14px;
+  background:linear-gradient(135deg,#24282e,#1e2227);
+}
+#work.constructor-flow-ready .return h3{
+  margin:0 0 7px;
+  font-size:21px;
+}
+#work.constructor-flow-ready .return p{
+  margin-bottom:15px;
+}
+#work.constructor-flow-ready>.foot{
+  margin:26px 0 0;
+  padding:18px 0 0 17px;
+  border-top:1px solid #353940;
+  border-left:3px solid #ff9b32;
+  color:#bdc2ca;
+  line-height:1.55;
+}
+@media(max-width:620px){
+  #work.constructor-flow-ready .helps{grid-template-columns:1fr}
+  #work.constructor-flow-ready .return{padding:19px 17px}
+  #work.constructor-flow-ready .secondary{width:100%}
+}
