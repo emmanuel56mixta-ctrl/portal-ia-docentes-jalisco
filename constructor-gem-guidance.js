@@ -2,6 +2,45 @@
 (() => {
   const trigger = document.getElementById('open');
   if (!trigger) return;
+
+  /*
+    Reorganiza las funciones existentes dentro del mismo instrumento.
+    No elimina contenido ni altera la lógica de los cuatro módulos.
+  */
+  function organizeConstructorFlow() {
+    const work = document.getElementById('work');
+    const start = document.getElementById('start');
+    const helps = start && start.querySelector('.helps');
+    const returnBlock = document.getElementById('return');
+    const foot = document.querySelector('.layout .foot');
+    const review = document.getElementById('review');
+
+    if (!work || !start) return;
+
+    /* Los apoyos opcionales aparecen antes de la acción principal. */
+    if (helps && helps.parentElement === start && trigger.parentElement === start) {
+      start.insertBefore(helps, trigger);
+    }
+
+    /* El punto de regreso queda dentro del recorrido del paso activo. */
+    if (returnBlock && returnBlock.parentElement !== start) {
+      start.appendChild(returnBlock);
+    }
+
+    /* El recordatorio de criterio y privacidad cierra el mismo instrumento. */
+    if (foot && foot.parentElement !== work) {
+      work.appendChild(foot);
+    }
+
+    if (review) {
+      review.textContent = 'Revisar lo que debo guardar →';
+    }
+
+    work.classList.add('constructor-flow-ready');
+  }
+
+  organizeConstructorFlow();
+
   const panels = [
     ['Una Gema es un apoyo, no un reemplazo', 'Las Gemas ofrecen orientaciones y sugerencias para el diagnóstico, el programa analítico, la planeación y la evaluación.', 'Nunca sustituyen tu conocimiento, experiencia ni criterio profesional. Revisa, adapta y valida cada propuesta según las necesidades, el contexto y los aprendizajes de tu grupo.'],
     ['Cuida la información que compartes', 'Accede con tu cuenta institucional @jaliscoedu.mx. Describe el contexto y las necesidades generales de tu grupo.', 'No ingreses nombres ni datos personales del alumnado. Comparte únicamente la información necesaria para trabajar tu propuesta.'],
