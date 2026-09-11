@@ -7,6 +7,56 @@
   style.href = new URL('gem-model-notice.css?v=20260828-modelnotice2', currentScript && currentScript.src ? currentScript.src : window.location.href).href;
   document.head.appendChild(style);
 
+  /* Nombres editoriales de las Gemas de Formación del Carácter.
+     Se conserva cada herramienta, enlace y funcionamiento; solo cambia
+     la jerarquía visible: nombre principal y descripción debajo. */
+  function applyCharacterGemTitles() {
+    var firstGem = document.querySelector('.gem-card img[src*="gema-dilemas-morales"]');
+    if (!firstGem) return;
+
+    var labels = [
+      { title: 'Dilemas que forman', subtitle: 'Generador de dilemas morales' },
+      { title: 'Cuentos con carácter', subtitle: 'Generador de cuentos personalizados' },
+      { title: 'Brújula del carácter', subtitle: 'Alineación de acciones de Formación del Carácter' }
+    ];
+    var cards = document.querySelectorAll('.gem-grid .gem-card');
+    if (cards.length < labels.length) return;
+
+    if (!document.getElementById('characterGemTitleStyles')) {
+      var titleStyles = document.createElement('style');
+      titleStyles.id = 'characterGemTitleStyles';
+      titleStyles.textContent = [
+        '.gem-overlay .character-gem-title{margin:0;color:#fff;font-family:\'Archivo\',sans-serif;font-size:22px;font-weight:900;line-height:1.03;letter-spacing:-.5px;text-shadow:0 2px 12px rgba(0,0,0,.5)}',
+        '.gem-overlay .character-gem-subtitle{display:block;margin-top:8px;color:#f0d9e2;font-family:\'Inter\',system-ui,sans-serif;font-size:13px;font-weight:500;font-style:italic;line-height:1.35;letter-spacing:0;text-transform:none;text-shadow:0 1px 8px rgba(0,0,0,.58)}',
+        '@media(max-width:480px){.gem-overlay .character-gem-title{font-size:20px}.gem-overlay .character-gem-subtitle{font-size:12.5px}}'
+      ].join('');
+      document.head.appendChild(titleStyles);
+    }
+
+    Array.prototype.forEach.call(labels, function (label, index) {
+      var card = cards[index];
+      var overlay = card.querySelector('.gem-overlay');
+      var title = overlay && overlay.querySelector('h3');
+      var subtitle = overlay && overlay.querySelector('.gem-type');
+      var button = card.querySelector('.js-gem-open');
+
+      if (title && subtitle) {
+        title.textContent = label.title;
+        subtitle.textContent = label.subtitle;
+        title.classList.add('character-gem-title');
+        subtitle.classList.add('character-gem-subtitle');
+        overlay.insertBefore(title, subtitle);
+      }
+
+      if (button) {
+        button.dataset.name = label.title;
+        button.setAttribute('aria-label', 'Abrir Gema ' + label.title);
+      }
+    });
+  }
+
+  applyCharacterGemTitles();
+
   var lastTrigger = null;
   var closeTimer = 0;
 
