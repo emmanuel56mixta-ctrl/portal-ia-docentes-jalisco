@@ -57,11 +57,11 @@
 
   applyCharacterGemTitles();
 
-  /* Gema exclusiva de la página Banco de Gemas especializadas.
-     No se agrega al Kit ni a otras páginas del portal. */
+  /* Gema y filtro exclusivos de la página Banco de Gemas especializadas.
+     No se agregan al Kit ni a otras páginas del portal. */
   function addPreschoolAdvisorGem() {
     var grid = document.getElementById('bgGrid');
-    if (!grid || document.querySelector('[data-gem-id="asesor-planes-acompanamiento-sej"]')) return;
+    if (!grid) return;
 
     if (!document.getElementById('preschoolAdvisorGemStyles')) {
       var cardStyles = document.createElement('style');
@@ -70,62 +70,103 @@
         '#bgGrid .hg-card[data-gem-id="asesor-planes-acompanamiento-sej"] .preschool-advisor-thumb{background:radial-gradient(circle at 82% 18%,rgba(255,174,210,.26),transparent 33%),linear-gradient(150deg,#5b1741,#190919)}',
         '#bgGrid .hg-card[data-gem-id="asesor-planes-acompanamiento-sej"] .preschool-advisor-thumb span{font-size:14.5px;line-height:1.14;text-transform:none}',
         '#bgGrid .hg-card[data-gem-id="asesor-planes-acompanamiento-sej"] .hg-desc{margin:0;color:var(--muted);font-size:12.5px;line-height:1.5}',
+        '.bg-chip[data-eje="Preescolar"] .bg-dot{background:#ff7aa8}',
         '@media(max-width:500px){#bgGrid .hg-card[data-gem-id="asesor-planes-acompanamiento-sej"] .preschool-advisor-thumb span{font-size:15px}}'
       ].join('');
       document.head.appendChild(cardStyles);
     }
 
-    var card = document.createElement('a');
-    card.className = 'hg-card';
-    card.setAttribute('data-gem-id', 'asesor-planes-acompanamiento-sej');
-    card.setAttribute('data-eje', 'Preescolar');
-    card.setAttribute('data-search', 'asesor de planes de acompanamiento sej asesor planes acompanamiento para jefas y jefes de sector nivel preescolar supervision preescolar gestion liderazgo directivo seguimiento');
-    card.href = 'https://gemini.google.com/gem/1seXHl-kVHombpVhAPVzmQEMvmtTwOEkP?usp=sharing';
-    card.target = '_blank';
-    card.rel = 'noopener';
-    card.title = 'Se abre en Gemini, en pestaña nueva';
-    card.setAttribute('aria-label', 'Abrir Gema Asesor de planes de acompañamiento SEJ');
-    card.innerHTML = [
-      '<div class="hg-thumb preschool-advisor-thumb"><span>Asesor de planes de acompañamiento SEJ</span></div>',
-      '<div class="hg-body">',
-      '  <p class="hg-desc">Asesor de planes de acompañamiento para Jefas y Jefes de sector de nivel preescolar.</p>',
-      '  <div class="hg-chips"><span class="hg-tag" style="color:#ff7aa8;border-color:#ff7aa855">Preescolar</span><span class="hg-campo">Jefaturas de sector</span></div>',
-      '  <div class="hg-stats"><span class="hg-eje" style="color:#ff7aa8">● Acompañamiento SEJ</span></div>',
-      '</div>'
-    ].join('');
-    grid.insertBefore(card, grid.firstElementChild);
+    var card = document.querySelector('[data-gem-id="asesor-planes-acompanamiento-sej"]');
+    if (!card) {
+      card = document.createElement('a');
+      card.className = 'hg-card';
+      card.setAttribute('data-gem-id', 'asesor-planes-acompanamiento-sej');
+      card.setAttribute('data-eje', 'Preescolar');
+      card.setAttribute('data-search', 'asesor de planes de acompanamiento sej asesor planes acompanamiento para jefas y jefes de sector nivel preescolar supervision preescolar gestion liderazgo directivo seguimiento');
+      card.href = 'https://gemini.google.com/gem/1seXHl-kVHombpVhAPVzmQEMvmtTwOEkP?usp=sharing';
+      card.target = '_blank';
+      card.rel = 'noopener';
+      card.title = 'Se abre en Gemini, en pestaña nueva';
+      card.setAttribute('aria-label', 'Abrir Gema Asesor de planes de acompañamiento SEJ');
+      card.innerHTML = [
+        '<div class="hg-thumb preschool-advisor-thumb"><span>Asesor de planes de acompañamiento SEJ</span></div>',
+        '<div class="hg-body">',
+        '  <p class="hg-desc">Asesor de planes de acompañamiento para Jefas y Jefes de sector de nivel preescolar.</p>',
+        '  <div class="hg-chips"><span class="hg-tag" style="color:#ff7aa8;border-color:#ff7aa855">Preescolar</span><span class="hg-campo">Jefaturas de sector</span></div>',
+        '  <div class="hg-stats"><span class="hg-eje" style="color:#ff7aa8">● Acompañamiento SEJ</span></div>',
+        '</div>'
+      ].join('');
+      grid.insertBefore(card, grid.firstElementChild);
+    }
+
+    var chipGroup = document.querySelector('.bg-chips');
+    var preschoolChip = document.querySelector('.bg-chip[data-eje="Preescolar"]');
+    if (chipGroup && !preschoolChip) {
+      preschoolChip = document.createElement('button');
+      preschoolChip.type = 'button';
+      preschoolChip.className = 'bg-chip';
+      preschoolChip.setAttribute('data-eje', 'Preescolar');
+      preschoolChip.innerHTML = '<span class="bg-dot" aria-hidden="true"></span> Preescolar';
+      chipGroup.appendChild(preschoolChip);
+    }
 
     function normalizeText(text) {
       return (text || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
     }
 
-    function syncCardWithBankFilters() {
+    function syncBankView() {
       var activeChip = document.querySelector('.bg-chip.on');
       var activeAxis = activeChip ? activeChip.getAttribute('data-eje') : 'todos';
       var input = document.getElementById('bgInput');
       var query = normalizeText(input ? input.value.trim() : '');
-      var matchesAxis = activeAxis === 'todos' || activeAxis === 'Preescolar';
       var matchesSearch = !query || card.getAttribute('data-search').indexOf(query) !== -1;
-      var visible = matchesAxis && matchesSearch;
-      card.style.display = visible ? '' : 'none';
-
       var empty = document.getElementById('bgEmpty');
-      if (empty && visible) empty.hidden = true;
+      var clear = document.getElementById('bgClear');
+
+      if (activeAxis === 'Preescolar') {
+        Array.prototype.forEach.call(grid.querySelectorAll('.hg-card'), function (item) {
+          item.style.display = item === card && matchesSearch ? '' : 'none';
+        });
+        if (empty) empty.hidden = matchesSearch;
+      } else {
+        card.style.display = activeAxis === 'todos' && matchesSearch ? '' : 'none';
+        if (empty && activeAxis === 'todos' && matchesSearch) empty.hidden = true;
+      }
+
+      if (clear) clear.hidden = activeAxis === 'todos' && !query;
     }
 
     var searchInput = document.getElementById('bgInput');
-    var chipGroup = document.querySelector('.bg-chips');
     var clearButton = document.getElementById('bgClear');
 
-    if (searchInput) searchInput.addEventListener('input', syncCardWithBankFilters);
-    if (chipGroup) chipGroup.addEventListener('click', function () {
-      window.setTimeout(syncCardWithBankFilters, 0);
-    });
-    if (clearButton) clearButton.addEventListener('click', function () {
-      window.setTimeout(syncCardWithBankFilters, 0);
-    });
+    if (preschoolChip) {
+      preschoolChip.addEventListener('click', function () {
+        Array.prototype.forEach.call(document.querySelectorAll('.bg-chip'), function (chip) {
+          chip.classList.remove('on');
+        });
+        preschoolChip.classList.add('on');
+        syncBankView();
+      });
+    }
 
-    syncCardWithBankFilters();
+    if (chipGroup) {
+      chipGroup.addEventListener('click', function (event) {
+        var clickedChip = event.target.closest && event.target.closest('.bg-chip');
+        if (!clickedChip) return;
+        if (preschoolChip && clickedChip !== preschoolChip) preschoolChip.classList.remove('on');
+        window.setTimeout(syncBankView, 0);
+      });
+    }
+
+    if (searchInput) searchInput.addEventListener('input', syncBankView);
+    if (clearButton) {
+      clearButton.addEventListener('click', function () {
+        if (preschoolChip) preschoolChip.classList.remove('on');
+        window.setTimeout(syncBankView, 0);
+      });
+    }
+
+    syncBankView();
   }
 
   addPreschoolAdvisorGem();
