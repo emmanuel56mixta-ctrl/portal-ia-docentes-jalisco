@@ -4,12 +4,13 @@
   var currentScript = document.currentScript;
   var style = document.createElement('link');
   style.rel = 'stylesheet';
-  style.href = new URL('gem-model-notice.css?v=20260828-modelnotice2', currentScript && currentScript.src ? currentScript.src : window.location.href).href;
+  style.href = new URL(
+    'gem-model-notice.css?v=20260911-criterio-docente',
+    currentScript && currentScript.src ? currentScript.src : window.location.href
+  ).href;
   document.head.appendChild(style);
 
-  /* Nombres editoriales de las Gemas de Formación del Carácter.
-     Se conserva cada herramienta, enlace y funcionamiento; solo cambia
-     la jerarquía visible: nombre principal y descripción debajo. */
+  /* Nombres editoriales de las Gemas de Formación del Carácter. */
   function applyCharacterGemTitles() {
     var firstGem = document.querySelector('.gem-card img[src*="gema-dilemas-morales"]');
     if (!firstGem) return;
@@ -55,10 +56,7 @@
     });
   }
 
-  applyCharacterGemTitles();
-
-  /* Gema y filtro exclusivos de la página Banco de Gemas especializadas.
-     No se agregan al Kit ni a otras páginas del portal. */
+  /* Gema y filtro exclusivos de la página Banco de Gemas especializadas. */
   function addPreschoolAdvisorGem() {
     var grid = document.getElementById('bgGrid');
     if (!grid) return;
@@ -82,7 +80,10 @@
       card.className = 'hg-card';
       card.setAttribute('data-gem-id', 'asesor-planes-acompanamiento-sej');
       card.setAttribute('data-eje', 'Preescolar');
-      card.setAttribute('data-search', 'asesor de planes de acompanamiento sej asesor planes acompanamiento para jefas y jefes de sector nivel preescolar supervision preescolar gestion liderazgo directivo seguimiento');
+      card.setAttribute(
+        'data-search',
+        'asesor de planes de acompanamiento sej asesor planes acompanamiento para jefas y jefes de sector nivel preescolar supervision preescolar gestion liderazgo directivo seguimiento'
+      );
       card.href = 'https://gemini.google.com/gem/1seXHl-kVHombpVhAPVzmQEMvmtTwOEkP?usp=sharing';
       card.target = '_blank';
       card.rel = 'noopener';
@@ -169,7 +170,35 @@
     syncBankView();
   }
 
+  /* Sustituye los avisos internos de selección de modelo por el recordatorio
+     institucional sobre el papel de apoyo de las Gemas. */
+  function simplifyEmbeddedSafetyNotices() {
+    var message = 'Las Gemas son asistentes de apoyo que ofrecen orientaciones y sugerencias. <strong>Nunca sustituyen el conocimiento, la experiencia ni el criterio profesional docente.</strong> Revisa, adapta y valida cada propuesta de acuerdo con las necesidades, el contexto y los aprendizajes de tu grupo.';
+
+    Array.prototype.forEach.call(document.querySelectorAll('.gem-model-options'), function (options) {
+      options.remove();
+    });
+    Array.prototype.forEach.call(document.querySelectorAll('.gem-model-notice-tip'), function (tip) {
+      tip.remove();
+    });
+
+    Array.prototype.forEach.call(
+      document.querySelectorAll('.gem-model-safety-card, .gem-safety-card'),
+      function (safetyCard) {
+        var title = safetyCard.querySelector('#gemSafetyTitle, .gem-safety-title, h2');
+        var text = safetyCard.querySelector('#gemSafetyText, .gem-safety-text');
+        var open = safetyCard.querySelector('.gem-safety-open');
+
+        if (title) title.textContent = 'Antes de usar esta Gema';
+        if (text) text.innerHTML = message;
+        if (open) open.innerHTML = 'Entendido, abrir la Gema <span aria-hidden="true">↗</span>';
+      }
+    );
+  }
+
+  applyCharacterGemTitles();
   addPreschoolAdvisorGem();
+  simplifyEmbeddedSafetyNotices();
 
   var lastTrigger = null;
   var closeTimer = 0;
@@ -191,14 +220,8 @@
     backdrop.innerHTML = [
       '<section class="gem-model-notice-card" role="dialog" aria-modal="true" aria-labelledby="gemModelNoticeTitle" aria-describedby="gemModelNoticeLead">',
       '  <button class="gem-model-notice-close" type="button" aria-label="Cerrar aviso">×</button>',
-      '  <div class="gem-model-notice-badge">IMPORTANTE</div>',
-      '  <h2 class="gem-model-notice-title" id="gemModelNoticeTitle">Selecciona el modelo antes de comenzar</h2>',
-      '  <p class="gem-model-notice-lead" id="gemModelNoticeLead">Para que la Gema siga correctamente todos los pasos y genere respuestas más completas, al abrir Gemini elige el modelo de razonamiento más avanzado disponible.</p>',
-      '  <div class="gem-model-options" aria-label="Modelos recomendados">',
-      '    <div class="gem-model-option is-recommended"><span class="gem-model-option-mark" aria-hidden="true">✓</span><span class="gem-model-option-copy"><strong>Pro</strong><span>Opción recomendada · Razonamiento avanzado</span></span></div>',
-      '    <div class="gem-model-option is-alternative"><span class="gem-model-option-mark" aria-hidden="true">2</span><span class="gem-model-option-copy"><strong>Pensar</strong><span>Alternativa si Pro no aparece en tu cuenta</span></span></div>',
-      '  </div>',
-      '  <p class="gem-model-notice-tip"><strong>Evita utilizar Flash</strong> en estos procesos guiados, ya que puede omitir pasos importantes. Accede con tu cuenta <strong>@jaliscoedu.mx</strong> y no ingreses datos personales del alumnado.</p>',
+      '  <h2 class="gem-model-notice-title" id="gemModelNoticeTitle">Antes de usar esta Gema</h2>',
+      '  <p class="gem-model-notice-lead" id="gemModelNoticeLead">Las Gemas son asistentes de apoyo que ofrecen orientaciones y sugerencias. <strong>Nunca sustituyen el conocimiento, la experiencia ni el criterio profesional docente.</strong> Revisa, adapta y valida cada propuesta de acuerdo con las necesidades, el contexto y los aprendizajes de tu grupo.</p>',
       '  <div class="gem-model-notice-actions">',
       '    <a class="gem-model-notice-open" data-gem-notice-skip href="https://gemini.google.com/" rel="noopener">Entendido, abrir la Gema&nbsp; ↗</a>',
       '    <button class="gem-model-notice-cancel" type="button">Cancelar</button>',
@@ -210,7 +233,7 @@
   }
 
   var notice = createNotice();
-  var card = notice.querySelector('.gem-model-notice-card');
+  var noticeCard = notice.querySelector('.gem-model-notice-card');
   var openLink = notice.querySelector('.gem-model-notice-open');
   var cancelButton = notice.querySelector('.gem-model-notice-cancel');
   var closeButton = notice.querySelector('.gem-model-notice-close');
@@ -247,21 +270,35 @@
     }, 210);
   }
 
-  document.addEventListener('click', function (event) {
-    var trigger = event.target.closest && event.target.closest('a[href], button[data-gema], button[data-url]');
-    if (!trigger) return;
-    var isLink = trigger.tagName === 'A';
-    var href = isLink ? trigger.href : (trigger.getAttribute('data-gema') || trigger.getAttribute('data-url') || '');
-    if (!isGemLink(href)) return;
-    if (trigger.matches('.tool-trigger, .tool-dialog-open, .gem-safety-open, [data-gem-notice-skip]')) return;
-    event.preventDefault();
-    event.stopImmediatePropagation();
-    openNotice(trigger, href, isLink ? trigger.target : '_blank');
-  }, true);
+  document.addEventListener(
+    'click',
+    function (event) {
+      var trigger = event.target.closest && event.target.closest('a[href], button[data-gema], button[data-url]');
+      if (!trigger) return;
+      var isLink = trigger.tagName === 'A';
+      var href = isLink
+        ? trigger.href
+        : trigger.getAttribute('data-gema') || trigger.getAttribute('data-url') || '';
+      if (!isGemLink(href)) return;
+      if (trigger.matches('.tool-trigger, .tool-dialog-open, .gem-safety-open, [data-gem-notice-skip]')) return;
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      openNotice(trigger, href, isLink ? trigger.target : '_blank');
+    },
+    true
+  );
 
-  closeButton.addEventListener('click', function () { closeNotice(); });
-  cancelButton.addEventListener('click', function () { closeNotice(); });
-  openLink.addEventListener('click', function () { window.setTimeout(function () { closeNotice(false); }, 80); });
+  closeButton.addEventListener('click', function () {
+    closeNotice();
+  });
+  cancelButton.addEventListener('click', function () {
+    closeNotice();
+  });
+  openLink.addEventListener('click', function () {
+    window.setTimeout(function () {
+      closeNotice(false);
+    }, 80);
+  });
 
   notice.addEventListener('click', function (event) {
     if (event.target === notice) {
@@ -279,7 +316,9 @@
       return;
     }
     if (event.key !== 'Tab') return;
-    var focusable = Array.prototype.slice.call(card.querySelectorAll('a[href], button:not([disabled])'));
+    var focusable = Array.prototype.slice.call(
+      noticeCard.querySelectorAll('a[href], button:not([disabled])')
+    );
     if (!focusable.length) return;
     var first = focusable[0];
     var last = focusable[focusable.length - 1];
