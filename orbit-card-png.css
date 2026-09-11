@@ -1,0 +1,31 @@
+/* Tarjetas PNG transparentes del carrusel del Kit de herramientas.
+   Se conservan sus proporciones, sin marcos ni fondos cuadrados añadidos. */
+.cluster .pos .cardimg:not([src*="card-matematicas"]){
+  width:112px!important;
+  height:112px!important;
+  display:block!important;
+  object-fit:contain!important;
+  object-position:center!important;
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+  transform:scale(1.18)!important;
+  transform-origin:center!important;
+  filter:drop-shadow(0 12px 18px rgba(0,0,0,.46));
+}
+
+@media(max-width:600px){
+  .cluster .pos .cardimg:not([src*="card-matematicas"]){
+    width:84px!important;
+    height:84px!important;
+    transform:scale(1.18)!important;
+    filter:drop-shadow(0 9px 13px rgba(0,0,0,.48));
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  .cluster .pos .cardimg:not([src*="card-matematicas"]){
+    transition:none!important;
+  }
+}
