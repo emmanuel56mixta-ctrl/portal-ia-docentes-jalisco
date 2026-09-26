@@ -18,12 +18,15 @@
   .mobile-explorer-demo .mobile-card-character>img{object-position:center 42%}
   .mobile-explorer-demo .mobile-card-character .mobile-card-shade{background:linear-gradient(90deg,#360016e8 0%,#44001db8 37%,transparent 85%)}
   .mobile-explorer-demo .mobile-card-character .mobile-card-title{font-size:20px}
-  .mobile-explorer-demo .mobile-card-aula-google{border-color:rgba(255,138,0,.55)}
-  .mobile-explorer-demo .mobile-card-aula-google>img{object-position:right center}
-  .mobile-explorer-demo .mobile-card-aula-google .mobile-card-shade{background:linear-gradient(90deg,#080a0ef2 0%,#080a0ec7 32%,#080a0e33 72%,transparent)}
-  .mobile-explorer-demo .mobile-card-aula-google .mobile-card-kicker{color:#ffba66;max-width:70%}
-  .mobile-explorer-demo .mobile-card-aula-google .mobile-card-title{font:900 23px/1.05 'Archivo',system-ui,sans-serif;max-width:70%}
+  .mobile-explorer-demo .mobile-card-aula-google{grid-row:span 2;border-color:rgba(255,138,0,.55)}
+  .mobile-explorer-demo .mobile-card-aula-google>img{height:58%;object-position:right center}
+  .mobile-explorer-demo .mobile-card-aula-google .mobile-card-shade{background:linear-gradient(180deg,#080a0e1a 0%,#080a0e33 25%,#111114eb 54%,#111114 74%)}
+  .mobile-explorer-demo .mobile-card-aula-google .mobile-card-kicker{color:#ffba66;max-width:90%}
+  .mobile-aula-google-content{position:absolute;left:16px;right:16px;bottom:18px;z-index:3;display:block}
+  .mobile-explorer-demo .mobile-card-aula-google .mobile-card-title{position:static;display:block;font:900 23px/1.05 'Archivo',system-ui,sans-serif;max-width:none}
+  .mobile-card-aula-google .mobile-card-copy{display:block;padding-right:37px;margin-top:10px;color:#e0e1e7;font:400 13px/1.6 'Inter',system-ui,sans-serif;text-shadow:0 1px 8px #0007}
   .mobile-aula-google-open{position:absolute;right:16px;bottom:16px;z-index:3;display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:#ff8a00;color:#17100a;font-size:20px;font-weight:800}
 }
+@media(hover:hover) and (prefers-reduced-motion:no-preference){.mobile-card-aula-google:hover>img,.mobile-card-aula-google:focus-visible>img{transform:scale(1.045)}}
 @media(max-width:650px){.aula-google-home{display:flex;flex-direction:column;min-height:0;border-radius:22px}.aula-google-home__image{position:relative;order:0;width:100%;height:auto;aspect-ratio:16/7;object-fit:cover}.aula-google-home::after{display:none}.aula-google-home__content{order:1;width:100%;padding:24px;background:linear-gradient(135deg,#282019,#141416 80%)}.aula-google-home h2{font-size:29px}.aula-google-home p{font-size:15px}}
 @media(prefers-reduced-motion:reduce){.aula-google-home,.aula-google-home__image{transition:none!important;transform:none!important}}

@@ -16,7 +16,8 @@ h1,h2,h3,h4,.eyebrow,.tab-number{font-family:'Archivo',system-ui,sans-serif}
 .hero{display:block;min-height:420px;border:1px solid rgba(255,138,0,.32);border-radius:26px;background:#141416;box-shadow:0 22px 62px #0004}
 .hero-image{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover;object-position:center 53%;opacity:1}
 .hero::after{display:block;background:linear-gradient(90deg,#080a0efa 0%,#080a0eeb 28%,#080a0eaf 44%,#080a0e26 70%,transparent)}
-.hero-content{max-width:575px;padding:44px}
+.hero-content{max-width:575px;padding:32px 44px}
+.hero-program-logo{display:block;width:300px;max-width:100%;height:auto;margin:-14px 0 10px -14px;object-fit:contain}
 .hero .eyebrow{color:var(--orange-soft);font-size:11.5px;letter-spacing:2px}
 .hero h1{color:#fff;font-size:clamp(36px,3.7vw,46px);font-weight:900;line-height:1.04;letter-spacing:-1px}
 .hero h1 span{color:var(--orange)}
@@ -50,6 +51,20 @@ h1,h2,h3,h4,.eyebrow,.tab-number{font-family:'Archivo',system-ui,sans-serif}
 @media(hover:hover){.photo-step:hover,.access-card:hover,.shortcut:hover{transform:translateY(-2px);border-color:#87613d;box-shadow:0 12px 28px #0003}}
 @keyframes aula-panel-in{from{opacity:.4;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
 @keyframes aula-dialog-in{from{opacity:0;transform:translateY(8px) scale(.99)}to{opacity:1;transform:none}}
+
+/* The same gentle image zoom used throughout Docente IA. */
+.aula-google-page img,.aula-google-page .unit-figure,.aula-google-page .ports-image{transition:transform .6s cubic-bezier(.2,.65,.3,1);transform-origin:center}
+.photo-step-media{overflow:hidden;flex:none}
+.shortcut-visual-button{overflow:hidden}
+@media(hover:hover) and (prefers-reduced-motion:no-preference){
+  .hero:hover .hero-image,.hero:focus-within .hero-image,
+  :where(.institutional-art,.hardware-front,.photo-step,.dialog-photo,.keyboard-overview,.shortcut-enlarged,.component-visual,.class-banner,.activity-card,.device-lead):hover img,
+  .photo-step:focus-within .photo-step-media img,
+  .shortcut-visual-button:hover img,.shortcut-visual-button:focus-visible img{transform:scale(1.045)}
+  /* Scale the equipment and its numbered controls together. */
+  .unit-figure:hover,.unit-figure:focus-within,.ports-image:hover,.ports-image:focus-within{transform:scale(1.035)}
+  .hero-program-logo:hover,.brand img:hover,.ft-brand>img:hover{transform:scale(1.025)}
+}
 
 /* Institutional footer shared visually with the portal home. */
 .portal-footer{margin:60px 0 40px;padding-top:26px;border-top:1px solid var(--line);color:var(--dim);font-size:13.5px}
@@ -86,6 +101,7 @@ h1,h2,h3,h4,.eyebrow,.tab-number{font-family:'Archivo',system-ui,sans-serif}
   .hero-image{position:relative;inset:auto;order:0;z-index:0;display:block;width:100%;height:auto;aspect-ratio:16/8;object-fit:cover;object-position:right center}
   .hero::after{display:none}
   .hero-content{order:1;max-width:none;padding:28px;background:linear-gradient(135deg,#282019,#141416 78%)}
+  .hero-program-logo{width:260px;margin:-12px 0 10px -12px}
   .hero h1{font-size:36px;line-height:1.06}.hero p{font-size:15px;max-width:none}.hero .eyebrow{font-size:10px;letter-spacing:1.3px}
   .tab-wrap{padding:10px 0;margin-top:12px}.tabs{gap:4px;padding:5px;border-radius:15px}
   .tab{flex-direction:column;align-items:flex-start;justify-content:flex-start;min-height:80px;padding:10px 9px;gap:6px}
