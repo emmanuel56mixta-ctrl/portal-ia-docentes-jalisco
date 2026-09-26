@@ -1,6 +1,6 @@
 /* Progressive enhancement: preserves links, listeners and accessible labels. */
 (() => {
-  const selector = '.portal-final-action,a.cta,a.btn,a.start,a.playlist,a.gm-open,a.s3btn,a.b1,.tool-dialog-open,.gem-safety-open,.et-open,.freemode .fbtn,.gobtn,.explore,.bb-btn,.character-home__button,.learn-ai-home__primary,a.primary,button.primary';
+  const selector = '.aula-google-page button.btn,.aula-google-page .cabinet-open-button,.portal-final-action,a.cta,a.btn,a.start,a.playlist,a.gm-open,a.s3btn,a.b1,.tool-dialog-open,.gem-safety-open,.et-open,.freemode .fbtn,.gobtn,.explore,.bb-btn,.character-home__button,.learn-ai-home__primary,a.primary,button.primary';
   function enhance(el) {
     if (el.querySelector(':scope > .ihb-label') || el.closest('nav,footer') || el.querySelector('input,select,textarea')) return;
     const text = el.textContent.trim();

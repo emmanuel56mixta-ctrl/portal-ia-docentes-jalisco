@@ -4,6 +4,7 @@ Portal del **Constructor pedagógico**: herramienta digital con inteligencia art
 
 ## Páginas principales
 - `academia-docente-jalisco-v2.html` — Página principal
+- `aula-google.html` — Guía del Aula Google: gabinete, Chromebook, trabajo sin conexión y accesibilidad
 - `ruta-v2.html` — Constructor pedagógico (módulos de diagnóstico, programa analítico, planeación y evaluación)
 - `banco-gemas-v2.html` — Banco de Gemas especializadas
 - `gemas-v2.html` — Banco de recursos
