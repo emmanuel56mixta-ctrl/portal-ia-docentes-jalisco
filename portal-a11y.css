@@ -138,3 +138,13 @@ html,body{max-width:100%;overflow-x:clip}
   *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;
     animation-iteration-count:1!important;transition-duration:.01ms!important;transition-delay:0s!important}
 }
+
+/* Un logotipo de programa no debe recibir el recorte reservado para fotografías de portada. */
+@media (min-width:761px) and (max-width:900px){
+  .hero img.program-logo{
+    width:min(360px,100%)!important;
+    height:auto!important;
+    object-fit:contain!important;
+    object-position:left center!important;
+  }
+}
