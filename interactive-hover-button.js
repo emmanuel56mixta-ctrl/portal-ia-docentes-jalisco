@@ -35,3 +35,14 @@
     }
   }).observe(document.body, {childList:true, subtree:true});
 })();
+
+/* Accessibility is a separate, idempotent module shared by the portal pages.
+   Resolve beside this script, including when the portal is hosted in a subfolder. */
+(() => {
+  if (document.getElementById('docente-accessibility-script')) return;
+  const current = document.currentScript;
+  const script = document.createElement('script');
+  script.id = 'docente-accessibility-script';
+  script.src = new URL('portal-accessibility.js?v=20260929-1', current && current.src ? current.src : document.baseURI).href;
+  document.head.appendChild(script);
+})();
