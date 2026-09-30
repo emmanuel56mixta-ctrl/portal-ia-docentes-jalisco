@@ -17,7 +17,7 @@
   stylesheet.rel = 'stylesheet';
   stylesheet.href = new URL('aula-google-invitacion.css?v=20260929-2', script.src).href;
   document.head.appendChild(stylesheet);
-  const posterUrl = new URL('assets/aula-google/invitacion-05-octubre.webp', script.src).href;
+  const posterUrl = new URL('assets/aula-google/invitacion-09-octubre.webp', script.src).href;
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
   function start() {
@@ -25,7 +25,7 @@
     dialog.className = 'ag-invite';
     dialog.setAttribute('aria-label', 'Invitación a la capacitación virtual de Aula Google');
     dialog.innerHTML = '<div class="ag-invite__poster">' +
-      '<img class="ag-invite__image" width="1254" height="1254" alt="Secretaría de Educación Jalisco. Aprende a sacarle el máximo provecho al Aula Google de tu escuela. Sesión de presentación para escuelas que ya cuentan con este recurso. Transmisión en vivo el 5 de octubre a las 6 de la tarde, hora de Guadalajara.">' +
+      '<img class="ag-invite__image" width="1254" height="1254" alt="Secretaría de Educación Jalisco. Aprende a sacarle el máximo provecho al Aula Google de tu escuela. Sesión de presentación para escuelas que ya cuentan con este recurso. Transmisión en vivo el 9 de octubre a las 6 de la tarde, hora de Guadalajara.">' +
       '<div class="ag-invite__countdown" role="timer" aria-live="off"></div>' +
       '<a class="ag-invite__register" target="_blank" rel="noopener noreferrer" aria-label="Inscribirse a la capacitación virtual de Aula Google (abre en una pestaña nueva)"><span class="ag-invite__sr">Inscribirse</span></a>' +
       '<p class="ag-invite__sr ag-invite__status" role="status"></p>' +
