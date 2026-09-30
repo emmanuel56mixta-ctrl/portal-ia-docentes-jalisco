@@ -127,7 +127,12 @@ document.querySelectorAll('[data-part]').forEach(button=>button.addEventListener
  document.getElementById('component-visual').hidden=!d.visual;
  componentDialog.classList.toggle('has-product',!!d.visual);
  const source=document.getElementById('component-source');source.hidden=!d.source;
- if(d.source){source.textContent=d.source[0];source.href=d.source[1];}else{source.removeAttribute('href');source.textContent='';}
+ if(d.source){
+  source.textContent=d.source[0];source.href=d.source[1];
+  source.setAttribute('aria-label',d.source[0].replace(/\s*↗\s*$/,'')+' (se abre en una nueva pestaña)');
+ }else{
+  source.removeAttribute('href');source.removeAttribute('aria-label');source.textContent='';
+ }
  componentDialog.showModal();document.body.style.overflow='hidden';
  componentDialog.scrollTop=0;
  document.getElementById('component-title').focus({preventScroll:true});
