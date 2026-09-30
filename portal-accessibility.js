@@ -160,6 +160,13 @@
           set(link, 'aria-label', text + ': ' + normalize(title));
         }
       });
+      // El nombre se conserva en la lista de enlaces del lector de pantalla.
+      items(root, 'a[target="_blank"]').forEach(link => {
+        const name = normalize(link.getAttribute('aria-label')) || visibleText(link);
+        if (name && !/se abre en una nueva pestaña/i.test(name)) {
+          set(link, 'aria-label', name + ' (se abre en una nueva pestaña)');
+        }
+      });
       // One optional description per topic, outside clipped image containers.
       const cabinet = document.getElementById('cabinet-explorer');
       addDescription(cabinet, 'cabinet', [...document.querySelectorAll('#cabinet-explorer img')]);

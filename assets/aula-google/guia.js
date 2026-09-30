@@ -18,8 +18,30 @@ function activateTab(name,{focus=false,scroll=false,updateHash=true,target=null}
  if(scroll&&el)requestAnimationFrame(()=>el.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth',block:'start'}));
 }
 tabs.forEach((tab,index)=>{
- tab.addEventListener('click',()=>activateTab(tab.dataset.tab,{scroll:true}));
- tab.addEventListener('keydown',event=>{let next;if(event.key==='ArrowRight')next=(index+1)%tabs.length;else if(event.key==='ArrowLeft')next=(index-1+tabs.length)%tabs.length;else if(event.key==='Home')next=0;else if(event.key==='End')next=tabs.length-1;else return;event.preventDefault();activateTab(tabs[next].dataset.tab);tabs[next].focus({preventScroll:true});});
+ // El clic sintetizado por teclado o lector de pantalla también entra al panel.
+ tab.addEventListener('click',event=>activateTab(tab.dataset.tab,{focus:event.detail===0,scroll:true}));
+ tab.addEventListener('keydown',event=>{
+  if(event.key==='Enter'||event.key===' '||event.key==='Spacebar'){
+   event.preventDefault();
+   activateTab(tab.dataset.tab,{focus:true,scroll:true});
+   return;
+  }
+  if(event.key==='Escape'){
+   event.preventDefault();
+   const active=tabs.find(item=>item.getAttribute('aria-selected')==='true');
+   if(active)activateTab(active.dataset.tab,{focus:true,scroll:true});
+   return;
+  }
+  let next;
+  if(event.key==='ArrowRight')next=(index+1)%tabs.length;
+  else if(event.key==='ArrowLeft')next=(index-1+tabs.length)%tabs.length;
+  else if(event.key==='Home')next=0;
+  else if(event.key==='End')next=tabs.length-1;
+  else return;
+  event.preventDefault();
+  activateTab(tabs[next].dataset.tab);
+  tabs[next].focus({preventScroll:true});
+ });
 });
 function readHash(){const hash=location.hash.slice(1);if(panelIds.includes(hash))activateTab(hash,{updateHash:false});else if(sectionTabs[hash])activateTab(sectionTabs[hash],{updateHash:false,scroll:true,target:hash});}
 addEventListener('hashchange',readHash);readHash();
@@ -34,12 +56,14 @@ document.getElementById('dialog-close').addEventListener('click',()=>dialog.clos
 function closeForNavigation(){if(dialog.open){lastTrigger=null;dialog.close();}}
 function tutorial(id,trigger){
  const d=tutorialData[id];if(!d)return;
- showDialog(`<span class="icon-box">${icon(d.icon||'file')}</span><h2 class="dialog-title" id="dialog-title" tabindex="-1">${escapeText(d.title)}</h2><p class="dialog-lead">${escapeText(d.desc)}</p>${d.photo?photo(d.photo,d.photoCaption):''}<ol class="tutorial-steps ${id==='offline'?'offline-steps':''}">${d.steps.map(s=>`<li><div>${s}</div></li>`).join('')}</ol>${d.proof?`<div class="dialog-proof"><strong>Compruébalo en tu equipo</strong>${escapeText(d.proof)}</div>`:''}${d.tip?`<div class="dialog-tip"><strong>Para tu sesión</strong>${escapeText(d.tip)}</div>`:''}<div class="dialog-actions"><button type="button" class="btn" data-close>${id==='offline'?'Entendido':'Volver a la guía'}</button>${d.url?`<a class="text-link" href="${escapeText(d.url)}" target="_blank" rel="noopener noreferrer">${escapeText(d.urlLabel||'Consultar ayuda oficial')} ↗</a>`:''}</div>`,trigger);
+ const helpLabel=id==='chromevox'?'Ayuda oficial del lector de pantalla de Chromebook':
+  d.urlLabel&&!/^(Consultar ayuda oficial|Consultar ayuda de Google)$/i.test(d.urlLabel)?d.urlLabel:'Ayuda oficial sobre '+d.title;
+ showDialog(`<span class="icon-box">${icon(d.icon||'file')}</span><h2 class="dialog-title" id="dialog-title" tabindex="-1">${escapeText(d.title)}</h2><p class="dialog-lead">${escapeText(d.desc)}</p>${d.photo?photo(d.photo,d.photoCaption):''}<ol class="tutorial-steps ${id==='offline'?'offline-steps':''}">${d.steps.map(s=>`<li><div>${s}</div></li>`).join('')}</ol>${d.proof?`<div class="dialog-proof"><strong>Compruébalo en tu equipo</strong>${escapeText(d.proof)}</div>`:''}${d.tip?`<div class="dialog-tip"><strong>Para tu sesión</strong>${escapeText(d.tip)}</div>`:''}<div class="dialog-actions"><button type="button" class="btn" data-close>${id==='offline'?'Entendido':'Volver a la guía'}</button>${d.url?`<a class="text-link" href="${escapeText(d.url)}" target="_blank" rel="noopener noreferrer" aria-label="${escapeText(helpLabel+' (se abre en una nueva pestaña)')}">${escapeText(helpLabel)} <span aria-hidden="true">↗</span></a>`:''}</div>`,trigger);
 }
 const keyboardInfo={search:{title:'Búsqueda o Launcher',text:'Abre las aplicaciones. Busca su símbolo en tu teclado. Con Alt activa o desactiva las mayúsculas fijas; con L bloquea la pantalla.'},windows:{title:'Mostrar ventanas',text:'Muestra las ventanas abiertas. Con Ctrl captura la pantalla; con Ctrl + Mayúsculas abre las opciones de captura.'},brightness:{title:'Brillo',text:'Ajusta la iluminación para que el texto resulte cómodo de leer en el espacio de trabajo.'},volume:{title:'Volumen',text:'Prueba el sonido con el recurso de clase y ajusta un volumen cómodo. Comprueba también la salida de audio.'}};
 function openKeyboard(trigger){
  const controls=[['search','Búsqueda / Launcher'],['windows','Mostrar ventanas'],['brightness','Brillo'],['volume','Volumen']];
- showDialog(`<span class="icon-box">${icon('keyboard')}</span><h2 class="dialog-title" id="dialog-title" tabindex="-1">Reconoce las teclas de uso diario</h2><p class="dialog-lead">Los colores te ayudan a ubicar las teclas en la fotografía y en el esquema. Selecciona una función para conocer su uso.</p>${photo('keyboard','Colores de apoyo para identificar las funciones; las teclas físicas del equipo son negras.')}<figure class="keyboard-overview"><img src="${GUIDE_DATA.keyboardOverview.image}" alt="Búsqueda en azul, Mostrar ventanas en violeta, brillo en amarillo y volumen en verde" width="840" height="320"><figcaption>Busca estos símbolos en tu teclado. La ubicación puede variar por modelo.</figcaption></figure><div class="keyboard-color-controls">${controls.map(([id,label])=>`<button type="button" class="keyboard-color-control key-color-${id} ${id==='search'?'active':''}" data-key="${id}" aria-pressed="${id==='search'}"><span aria-hidden="true"></span>${label}</button>`).join('')}</div><div class="keyboard-detail" aria-live="polite" id="keyboard-detail"><strong>${keyboardInfo.search.title}</strong><p>${keyboardInfo.search.text}</p></div><div class="dialog-proof"><strong>Practica</strong>Busca una aplicación y ajusta brillo y volumen. En la sección de atajos encontrarás la imagen de cada combinación.</div><div class="dialog-actions"><button type="button" class="btn" data-close>Volver a la guía</button><a class="text-link" href="https://support.google.com/chromebook/answer/183101?hl=es-419" target="_blank" rel="noopener noreferrer">Consultar atajos de Google ↗</a></div>`,trigger);
+ showDialog(`<span class="icon-box">${icon('keyboard')}</span><h2 class="dialog-title" id="dialog-title" tabindex="-1">Reconoce las teclas de uso diario</h2><p class="dialog-lead">Los colores te ayudan a ubicar las teclas en la fotografía y en el esquema. Selecciona una función para conocer su uso.</p>${photo('keyboard','Colores de apoyo para identificar las funciones; las teclas físicas del equipo son negras.')}<figure class="keyboard-overview"><img src="${GUIDE_DATA.keyboardOverview.image}" alt="Búsqueda en azul, Mostrar ventanas en violeta, brillo en amarillo y volumen en verde" width="840" height="320"><figcaption>Busca estos símbolos en tu teclado. La ubicación puede variar por modelo.</figcaption></figure><div class="keyboard-color-controls">${controls.map(([id,label])=>`<button type="button" class="keyboard-color-control key-color-${id} ${id==='search'?'active':''}" data-key="${id}" aria-pressed="${id==='search'}"><span aria-hidden="true"></span>${label}</button>`).join('')}</div><div class="keyboard-detail" aria-live="polite" id="keyboard-detail"><strong>${keyboardInfo.search.title}</strong><p>${keyboardInfo.search.text}</p></div><div class="dialog-proof"><strong>Practica</strong>Busca una aplicación y ajusta brillo y volumen. En la sección de atajos encontrarás la imagen de cada combinación.</div><div class="dialog-actions"><button type="button" class="btn" data-close>Volver a la guía</button><a class="text-link" href="https://support.google.com/chromebook/answer/183101?hl=es-419" target="_blank" rel="noopener noreferrer" aria-label="Ayuda oficial de los atajos de Chromebook (se abre en una nueva pestaña)">Ayuda oficial de los atajos de Chromebook <span aria-hidden="true">↗</span></a></div>`,trigger);
 }
 function openShortcut(id,trigger){
  const d=GUIDE_DATA.shortcuts.find(x=>x.id===id);if(!d)return;
