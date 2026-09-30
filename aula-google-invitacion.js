@@ -15,7 +15,7 @@
 
   const stylesheet = document.createElement('link');
   stylesheet.rel = 'stylesheet';
-  stylesheet.href = new URL('aula-google-invitacion.css?v=20260929-1', script.src).href;
+  stylesheet.href = new URL('aula-google-invitacion.css?v=20260929-2', script.src).href;
   document.head.appendChild(stylesheet);
   const posterUrl = new URL('assets/aula-google/invitacion-05-octubre.webp', script.src).href;
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -25,7 +25,7 @@
     dialog.className = 'ag-invite';
     dialog.setAttribute('aria-label', 'Invitación a la capacitación virtual de Aula Google');
     dialog.innerHTML = '<div class="ag-invite__poster">' +
-      '<img class="ag-invite__image" width="1254" height="1254" alt="Secretaría de Educación Jalisco. Aprende a sacarle el máximo provecho al Aula Google de tu escuela. Sesión de presentación para escuelas que ya cuentan con este recurso. Transmisión en vivo el 5 de octubre.">' +
+      '<img class="ag-invite__image" width="1254" height="1254" alt="Secretaría de Educación Jalisco. Aprende a sacarle el máximo provecho al Aula Google de tu escuela. Sesión de presentación para escuelas que ya cuentan con este recurso. Transmisión en vivo el 5 de octubre a las 6 de la tarde, hora de Guadalajara.">' +
       '<div class="ag-invite__countdown" role="timer" aria-live="off"></div>' +
       '<a class="ag-invite__register" target="_blank" rel="noopener noreferrer" aria-label="Inscribirse a la capacitación virtual de Aula Google (abre en una pestaña nueva)"><span class="ag-invite__sr">Inscribirse</span></a>' +
       '<p class="ag-invite__sr ag-invite__status" role="status"></p>' +
@@ -36,19 +36,25 @@
     const close = dialog.querySelector('.ag-invite__close');
     const register = dialog.querySelector('.ag-invite__register');
     register.href = registrationUrl.href;
-    const groups = ['días', 'horas', 'minutos'].map(label => {
+    const groups = ['días', 'horas', 'minutos', 'segundos'].map(label => {
       const group = document.createElement('div');
       group.className = 'ag-invite__group';
       group.setAttribute('aria-hidden', 'true');
+      const cards = document.createElement('div');
+      cards.className = 'ag-invite__cards';
       const digits = [0, 1].map(() => {
         const digit = document.createElement('div');
         digit.className = 'ag-invite__digit';
         const span = document.createElement('span');
         span.textContent = '0';
-        digit.appendChild(span); group.appendChild(digit);
+        digit.appendChild(span); cards.appendChild(digit);
         digit.addEventListener('animationend', () => digit.classList.remove('is-changing'));
         return digit;
       });
+      const caption = document.createElement('span');
+      caption.className = 'ag-invite__unit';
+      caption.textContent = label;
+      group.append(cards, caption);
       countdown.appendChild(group);
       return { label, digits };
     });
@@ -79,9 +85,10 @@
       closeTimer = setTimeout(finishClose, 460);
     }
     function update() {
+      if (closed) return;
       const remaining = Math.max(0, eventTime - Date.now());
-      const totalMinutes = Math.floor(remaining / 60000);
-      const values = [Math.floor(totalMinutes / 1440), Math.floor(totalMinutes / 60) % 24, totalMinutes % 60];
+      const totalSeconds = Math.ceil(remaining / 1000);
+      const values = [Math.floor(totalSeconds / 86400), Math.floor(totalSeconds / 3600) % 24, Math.floor(totalSeconds / 60) % 60, totalSeconds % 60];
       groups.forEach((group, index) => {
         const value = String(values[index]).padStart(2, '0');
         // La campaña próxima está dentro de 99 días; conserva dos casillas.
@@ -92,7 +99,7 @@
           if (dialog.open) digit.classList.add('is-changing');
         });
       });
-      countdown.setAttribute('aria-label', 'Faltan ' + values[0] + ' días, ' + values[1] + ' horas y ' + values[2] + ' minutos para la sesión.');
+      countdown.setAttribute('aria-label', 'Faltan ' + values[0] + ' días, ' + values[1] + ' horas, ' + values[2] + ' minutos y ' + values[3] + ' segundos para la sesión.');
       if (remaining === 0) {
         clearInterval(interval);
         dialog.querySelector('.ag-invite__status').textContent = 'La hora programada de la sesión ha llegado.';
@@ -129,6 +136,7 @@
       close.focus({ preventScroll: true });
     }
     update();
+    if (closed) return;
     interval = setInterval(update, 1000);
     document.addEventListener('visibilitychange', update);
     window.addEventListener('pageshow', update);

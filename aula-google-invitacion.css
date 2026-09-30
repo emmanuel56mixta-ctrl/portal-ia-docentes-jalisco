@@ -7,11 +7,13 @@
 .ag-invite__close{position:absolute;z-index:3;top:12px;right:12px;display:grid;place-items:center;width:44px;height:44px;padding:0;border:1px solid #fff9;border-radius:50%;background:#fff;color:#111;box-shadow:0 3px 18px #0004;cursor:pointer;font:400 30px/1 system-ui}
 .ag-invite__close:hover{background:#f1f1f1}
 .ag-invite__close:focus-visible,.ag-invite__register:focus-visible{outline:3px solid #006bb3;outline-offset:4px}
-.ag-invite__countdown{position:absolute;top:58.7%;left:21.9%;width:56.5%;height:13.05%;display:flex;gap:5.5%;background:#fff;border-radius:8%;font-family:Arial,system-ui,sans-serif}
-.ag-invite__group{position:relative;flex:1;min-width:0;display:flex;gap:2%;border-radius:8%;background:#181a1c;box-shadow:0 3px 9px #0004}
-.ag-invite__group:not(:last-child)::after{content:':';position:absolute;left:102%;top:14%;width:18%;text-align:center;font-size:7.4cqi;font-weight:800;color:#12182a}
+.ag-invite__countdown{position:absolute;top:58.55%;left:21.5%;width:57.4%;height:16.45%;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:3.5%;background:#fff;border-radius:5%;font-family:Arial,system-ui,sans-serif}
+.ag-invite__group{position:relative;min-width:0;display:grid;grid-template-rows:minmax(0,1fr) auto;gap:5%;text-align:center}
+.ag-invite__cards{display:flex;min-width:0;gap:2%;border-radius:8%;background:#181a1c;box-shadow:0 3px 9px #0004}
+.ag-invite__unit{display:block;color:#11182a;font-size:max(8px,1.9cqi);font-weight:500;line-height:1.5;text-transform:uppercase;letter-spacing:.02em}
+.ag-invite__group:not(:last-child)::after{content:':';position:absolute;left:104%;top:23%;width:17%;text-align:center;font-size:5cqi;font-weight:800;color:#12182a}
 .ag-invite__digit{position:relative;flex:1;display:grid;place-items:center;overflow:hidden;border:1px solid #070707;border-radius:8%;background:linear-gradient(#292a2b 0%,#191a1b 49%,#373839 50%,#222425 100%);font-weight:800;line-height:1;color:#fff;font-variant-numeric:tabular-nums}
-.ag-invite__digit span{font-size:12.75cqi;letter-spacing:-.05em;transform:translateX(-.025em)}
+.ag-invite__digit span{font-size:9.6cqi;letter-spacing:-.05em;transform:translateX(-.025em)}
 .ag-invite__digit::after{content:'';position:absolute;top:49.2%;left:0;right:0;height:2px;background:#000a;pointer-events:none}
 .ag-invite__digit.is-changing span{animation:ag-digit 380ms cubic-bezier(.2,.7,.25,1)}
 .ag-invite__register{position:absolute;top:89.3%;left:31.4%;width:37.3%;height:max(7.2%,44px);border-radius:999px;cursor:pointer;transition:box-shadow .2s,background .2s}
