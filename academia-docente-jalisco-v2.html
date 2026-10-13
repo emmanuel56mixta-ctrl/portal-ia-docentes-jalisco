@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Portal de inteligencia artificial para docentes de Jalisco: cursos, Constructor pedagógico, Gemas y recursos para la práctica educativa.">
-<script src="device-router.js?v=20260826-404fix" data-mobile-target="/portal-ia-docentes-jalisco/academia-docente-jalisco-mobile-demo.html?v=20260926-aula-google"></script>
+<script src="device-router.js?v=20260826-404fix" data-mobile-target="academia-docente-jalisco-mobile-demo.html?v=20260926-aula-google"></script>
 <link rel="stylesheet" href="portal-a11y.css">
 <link rel="stylesheet" href="conoce-mas-ia.css">
 <title>Academia Docente Digital · Jalisco</title>
@@ -353,6 +353,9 @@
 <link rel="stylesheet" href="interactive-hover-button.css?v=3">
 <script src="interactive-hover-button.js?v=2" defer></script>
 <link rel="stylesheet" href="aula-google-banner.css?v=20260926-identidad">
+<link rel="stylesheet" href="servicios-digitales-dti.css?v=20261013-4">
+<link rel="stylesheet" href="servicios-dti-promocion.css?v=20261013-3">
+<script src="servicios-dti-promocion.js?v=20261013-3" defer></script>
 </head>
 <body>
 <a class="skip-link" href="#contenido-principal">Saltar al contenido principal</a>
@@ -382,24 +385,22 @@
 
 
   <!-- CURSOS -->
-  <section class="sec">
-    <h2>Primeros pasos</h2>
-    <div class="sub">Empieza aquí: activa tu cuenta @jaliscoedu.mx, conoce las herramientas de IA y aprende a usarlas en tu aula, paso a paso y sin conocimientos previos.</div>
-
-    <div class="courses">
-      <!-- card 1 -->
-      <a href="recuperar-cuenta-v2.html" class="card" style="display:block">
-        <div class="thumb glow">
-          <img src="cuenta-jalisco-naranja.png" alt="Cuenta @jaliscoedu.mx" class="thumb-img" onerror="this.style.display='none'">
+  <section class="sec" id="primeros-pasos" aria-labelledby="primeros-pasos-title">
+    <h2 id="primeros-pasos-title">Primeros pasos</h2>
+    <div class="sub">Resuelve el acceso a tu cuenta @jaliscoedu.mx y aprende a usar las herramientas digitales de la SEJ.</div>
+    <div class="courses dti-home-courses">
+      <a class="card dti-home-card" href="servicios-digitales-dti.html">
+        <div class="thumb dti-home-thumb">
+          <img src="cuenta-jalisco-naranja.png" alt="Cuenta institucional @jaliscoedu.mx" class="thumb-img" loading="lazy">
+          <div class="thumb-shade" aria-hidden="true"></div>
+          <div class="dti-home-title" aria-hidden="true">Tu cuenta<br>institucional</div>
         </div>
         <div class="meta">
-          <h3>Primeros pasos con tu cuenta @jaliscoedu.mx</h3>
-          <div class="desc">La llave que abre Gemini, las Gemas y todo el ecosistema Google for Education.</div>
-          <div class="row"><span class="gobtn">Explorar ▸</span></div>
+          <h3>Tu cuenta y servicios digitales</h3>
+          <div class="desc">Recupera tu correo o contraseña, solicita cuentas para alumnos y consulta las guías de credenciales.</div>
+          <div class="row"><span class="gobtn">Resolver mi cuenta ▸</span></div>
         </div>
       </a>
-
-      <!-- card 2 -->
       <a class="card" href="curso-herramientas-ia-v2.html" style="display:block">
         <div class="thumb film">
           <img src="maestra.png" alt="Maestra impartiendo clase con IA" class="thumb-img teacher" onerror="this.style.display='none'">
@@ -523,7 +524,8 @@
           <a href="aula-google.html">Aula Google</a>
           <a href="banco-gemas-v2.html">Banco de Gemas</a>
           <a href="ruta-v2.html">Ruta</a>
-          <a href="recuperar-cuenta-v2.html">Mesa de Ayuda</a>
+          <a href="servicios-digitales-dti.html">Cuenta y servicios digitales</a>
+
           <a href="conoce-mas-ia-v2.html">Conoce más sobre la IA</a>
         </nav>
         <nav class="ft-col" aria-label="Enlaces institucionales">
@@ -583,7 +585,5 @@
 })();
 </script>
 <script src="gem-model-notice.js?v=20260911-criterio-docente-2"></script>
-<!-- Presentación virtual Aula Google: 5 de octubre, 18:00 Guadalajara. -->
-<script src="aula-google-invitacion.js?v=20260930-09oct" data-event-start="2026-10-09T18:00:00-06:00" data-registration="https://forms.gle/Gmrynp4BuRp2jnzY7" defer></script>
 </body>
 </html>

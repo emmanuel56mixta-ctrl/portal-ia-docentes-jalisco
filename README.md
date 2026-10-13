@@ -9,6 +9,12 @@ Portal del **Constructor pedagógico**: herramienta digital con inteligencia art
 - `banco-gemas-v2.html` — Banco de Gemas especializadas
 - `gemas-v2.html` — Banco de recursos
 - `ayuda-ruta.html` — Centro de ayuda
-- `curso-herramientas-ia-v2.html`, `curso-primeros-pasos-v2.html`, `leccion-1-v2.html`, `recuperar-cuenta-v2.html`
+- `servicios-digitales-dti.html` — Centro de ayuda para cuentas institucionales y guías de Servicios Digitales DTI
+- `curso-herramientas-ia-v2.html`, `curso-primeros-pasos-v2.html`, `leccion-1-v2.html`
+- `recuperar-cuenta.html`, `recuperar-cuenta-v2.html` — Enlaces anteriores que redirigen al centro de ayuda
 
 Secretaría de Educación del Gobierno de Jalisco · Prototipo.
+
+## Actualización para DTI
+
+[Detalle de los cambios y pasos para incorporarlos al portal oficial](docs/ACTUALIZACION_DTI_2026-10-13.md).
