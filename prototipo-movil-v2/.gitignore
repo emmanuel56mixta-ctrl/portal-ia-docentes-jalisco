@@ -1,0 +1,14 @@
+node_modules/
+.tanstack/
+.vercel/
+qa/
+screenshots/
+artifacts/
+attachments/
+.node_modules.lock
+.grok/status
+.grok/skills/
+.grok/references/
+AGENTS.md
+.env
+.env.*
