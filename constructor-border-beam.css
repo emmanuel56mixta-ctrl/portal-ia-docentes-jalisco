@@ -1,18 +1,22 @@
-/* BorderBeam adaptation for the static portal: only the active module and step. */
+/* Bisel original compartido: módulo abierto y paso seleccionado. */
 @property --constructor-beam-angle {
   syntax: '<angle>';
   initial-value: 0deg;
   inherits: false;
 }
 #work.card,
-.route button[aria-current="step"] {
+.work-card,
+.route button[aria-current="step"],
+.steps .step[aria-current="step"] {
   position: relative;
   isolation: isolate;
 }
 /* Keep the normal border as a fallback when masking is unsupported. */
 @supports (mask-composite: exclude) or (-webkit-mask-composite: xor) {
   #work.card::before,
-  .route button[aria-current="step"]::before {
+  .work-card::before,
+  .route button[aria-current="step"]::before,
+  .steps .step[aria-current="step"]::before {
     content: '';
     position: absolute;
     inset: -1px;
@@ -34,7 +38,8 @@
     mask-composite: exclude;
     animation: constructor-border-beam 8s linear infinite;
   }
-  .route button[aria-current="step"]::before {
+  .route button[aria-current="step"]::before,
+  .steps .step[aria-current="step"]::before {
     padding: 1.5px;
     animation-duration: 6s;
   }
@@ -44,7 +49,9 @@
 }
 @media (prefers-reduced-motion: reduce) {
   #work.card::before,
-  .route button[aria-current="step"]::before {
+  .work-card::before,
+  .route button[aria-current="step"]::before,
+  .steps .step[aria-current="step"]::before {
     animation: none !important;
     --constructor-beam-angle: 35deg;
   }
