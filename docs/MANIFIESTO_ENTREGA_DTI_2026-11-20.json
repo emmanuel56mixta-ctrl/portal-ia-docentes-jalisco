@@ -1,0 +1,1378 @@
+{
+  "fecha": "2026-11-20",
+  "repositorio": "emmanuel56mixta-ctrl/portal-ia-docentes-jalisco",
+  "codigo_verificado": "b50d9552d7c80f485cb7e40df19bd59e62155659",
+  "actualizacion_pendiente_incluida": "328a221f92b2d1c606b86d5cc9ca9e326e2b7f10",
+  "nota": "Inventario del código verificado antes de añadir los dos documentos de esta entrega consolidada. No representa la versión instalada en APPrende.",
+  "archivos": [
+    {
+      "ruta": "BITACORA-PROYECTO.md",
+      "sha": "fa87569fff3e59ee8c6659710c822effdc55b8be",
+      "bytes": 8286
+    },
+    {
+      "ruta": "LEEME-CORRECCIONES.md",
+      "sha": "c3dcf28bfcdbf510584229da1f6353c681c451e4",
+      "bytes": 3126
+    },
+    {
+      "ruta": "LEEME.md",
+      "sha": "c1085b1ba3d1af1296c88a8a3848b986e70f4800",
+      "bytes": 5214
+    },
+    {
+      "ruta": "README.md",
+      "sha": "1ba31b22b751e715f49d3b7b4446cdcf933c709f",
+      "bytes": 1271
+    },
+    {
+      "ruta": "academia-docente-jalisco-mobile-demo.html",
+      "sha": "33891350742f1f9da517ad941c9ab3cab455c26d",
+      "bytes": 45151
+    },
+    {
+      "ruta": "academia-docente-jalisco-v2.html",
+      "sha": "c46077d6f2486781cb6e7edf041b848856452ce5",
+      "bytes": 42963
+    },
+    {
+      "ruta": "academia-docente-jalisco.html",
+      "sha": "1b9e444eff54d51a4c87dcd5bd5a36d6066833c1",
+      "bytes": 42807
+    },
+    {
+      "ruta": "assets/aula-google/actividad-acompanamiento.webp",
+      "sha": "2bdf69b27e25eb3cc2d187093032af051e5fa3bc",
+      "bytes": 54444
+    },
+    {
+      "ruta": "assets/aula-google/actividad-colaborativa.webp",
+      "sha": "e713bb3172788fae802c04ac2e3fb269d54bc660",
+      "bytes": 43492
+    },
+    {
+      "ruta": "assets/aula-google/actividad-mapa.webp",
+      "sha": "7dd8aac7b0ec82a3b2a32a0ebfe6c6c04b93cf43",
+      "bytes": 49594
+    },
+    {
+      "ruta": "assets/aula-google/archivo.woff2",
+      "sha": "716d4abd199a236dc4b9e112f63429b9b47ce911",
+      "bytes": 34928
+    },
+    {
+      "ruta": "assets/aula-google/atajo-bloquear.svg",
+      "sha": "5fe8663066aec8553c612cd944bbfef886ef36a0",
+      "bytes": 22152
+    },
+    {
+      "ruta": "assets/aula-google/atajo-busqueda.svg",
+      "sha": "eda1019e7fbf28c1fb04b24291cf02aae2f278cc",
+      "bytes": 22162
+    },
+    {
+      "ruta": "assets/aula-google/atajo-captura.svg",
+      "sha": "7f41e2596fff7f149e6bf960c65bda5450c1d8f2",
+      "bytes": 22162
+    },
+    {
+      "ruta": "assets/aula-google/atajo-mayusculas.svg",
+      "sha": "c53e749aeaa2e9f79a127aef521b4e755965d484",
+      "bytes": 22154
+    },
+    {
+      "ruta": "assets/aula-google/atajo-panel-tactil.svg",
+      "sha": "a9099850ddf2e0b5d69203b70d4bafcae10414f4",
+      "bytes": 790
+    },
+    {
+      "ruta": "assets/aula-google/atajo-todos.svg",
+      "sha": "19d7c06216798232c7f003a1fb30210e9655eaaf",
+      "bytes": 22161
+    },
+    {
+      "ruta": "assets/aula-google/banner-aula-google.mp4",
+      "sha": "a6b3fd1619e7e4fb879cf09d996235e30b182b7e",
+      "bytes": 870187
+    },
+    {
+      "ruta": "assets/aula-google/banner-aula-google.webp",
+      "sha": "678269165dc1fed84d1455536807e7f5f59d9542",
+      "bytes": 141018
+    },
+    {
+      "ruta": "assets/aula-google/banner-video.js",
+      "sha": "e42696fde72684e7c229ce71aef96a793feb33ec",
+      "bytes": 1111
+    },
+    {
+      "ruta": "assets/aula-google/chromebook-componente.webp",
+      "sha": "4c5d41514e9c41996e65ac5fe7338094dbd852cc",
+      "bytes": 190892
+    },
+    {
+      "ruta": "assets/aula-google/chromebook-frontal.webp",
+      "sha": "4bfab853d95d49077f18cad26311e97fbcfe8ed8",
+      "bytes": 107334
+    },
+    {
+      "ruta": "assets/aula-google/conexion-docente.webp",
+      "sha": "e7c41cad5938576575b494386377b07df80033c0",
+      "bytes": 43190
+    },
+    {
+      "ruta": "assets/aula-google/docente-chromebook.webp",
+      "sha": "a13ce7a983a01b22a1cff1e58ed5449aff4f3f62",
+      "bytes": 90534
+    },
+    {
+      "ruta": "assets/aula-google/docente-grupo.webp",
+      "sha": "c2e2c408fd9bdea7865dbae3a3a07348d532aa8a",
+      "bytes": 78744
+    },
+    {
+      "ruta": "assets/aula-google/estudiante-chromebook.webp",
+      "sha": "0acb8c2005cb104a6ed5ce60ca3e37e800b4e899",
+      "bytes": 136328
+    },
+    {
+      "ruta": "assets/aula-google/estudiante-gabinete.webp",
+      "sha": "86e25079b5e28ce705c532f747565f30784e6474",
+      "bytes": 74570
+    },
+    {
+      "ruta": "assets/aula-google/gabinete-abierto.webp",
+      "sha": "b7a7eb7a90b5096bca445e3062596a988c6df3b7",
+      "bytes": 164340
+    },
+    {
+      "ruta": "assets/aula-google/gabinete-cerrado.webp",
+      "sha": "19d986f0b145fa402fe6b26db2fb6b778da1bda1",
+      "bytes": 137770
+    },
+    {
+      "ruta": "assets/aula-google/grupo-chromebooks.webp",
+      "sha": "cc5c3a12eb46ea31139d6cd2f6378b78136797ce",
+      "bytes": 55622
+    },
+    {
+      "ruta": "assets/aula-google/guia-base.css",
+      "sha": "5931fad835bead74533798df5ac8e78c8f8fc191",
+      "bytes": 60448
+    },
+    {
+      "ruta": "assets/aula-google/guia.js",
+      "sha": "4ba25892ee601e21b13fa01b9a45e503146f5b87",
+      "bytes": 73425
+    },
+    {
+      "ruta": "assets/aula-google/hoja-calculo.webp",
+      "sha": "f35dc100e268efdc7b3dc7c555ed7e698236aa8c",
+      "bytes": 102178
+    },
+    {
+      "ruta": "assets/aula-google/inter.woff2",
+      "sha": "d15208de03cd1ad7c5199f0a0ce915fe841e4722",
+      "bytes": 48256
+    },
+    {
+      "ruta": "assets/aula-google/invitacion-05-octubre.webp",
+      "sha": "443550075d76d758c43476a38a546c92dfac57c3",
+      "bytes": 203700
+    },
+    {
+      "ruta": "assets/aula-google/invitacion-09-octubre.webp",
+      "sha": "ff4384d5d9b0345f8908d81db4ea59e97182f20c",
+      "bytes": 190306
+    },
+    {
+      "ruta": "assets/aula-google/logo-aula-jalisco-digital.png",
+      "sha": "882e431ef99553f933f1e944434ff1e7baceb1c9",
+      "bytes": 600871
+    },
+    {
+      "ruta": "assets/aula-google/panel-tactil.webp",
+      "sha": "bc028e8a968b30c45bede4d8404e1ea9fa58c2d3",
+      "bytes": 77198
+    },
+    {
+      "ruta": "assets/aula-google/portal.css",
+      "sha": "0e8dbe8333f66645d1de9c446a329f9a5428c73d",
+      "bytes": 10227
+    },
+    {
+      "ruta": "assets/aula-google/puertos-chromebook.webp",
+      "sha": "5d52c897a591a63bfe3622cd65a68707c4ae6643",
+      "bytes": 8626
+    },
+    {
+      "ruta": "assets/aula-google/teclado-chromebook.webp",
+      "sha": "568d959b60d9c59c10ba294ee2c6545999ee7860",
+      "bytes": 85874
+    },
+    {
+      "ruta": "assets/constructor-niveles/asset-0.svg",
+      "sha": "4b49b7399ffd42a1e03cac40be5fd50c12deda21",
+      "bytes": 17803
+    },
+    {
+      "ruta": "assets/constructor-niveles/asset-1.jpg",
+      "sha": "d4456bfc895b712833ca767470435feac6e9c58e",
+      "bytes": 155434
+    },
+    {
+      "ruta": "assets/constructor-niveles/asset-2.svg",
+      "sha": "4b49b7399ffd42a1e03cac40be5fd50c12deda21",
+      "bytes": 17803
+    },
+    {
+      "ruta": "assets/constructor-niveles/asset-3.svg",
+      "sha": "6c4dfd2cefae5f4aba51b7b5704ebc07613a47e8",
+      "bytes": 30635
+    },
+    {
+      "ruta": "assets/dti/servicios-dti-banner-v3.png",
+      "sha": "ad50c29ccc00abab92db59aa596bc546509dae0c",
+      "bytes": 1751231
+    },
+    {
+      "ruta": "assets/dti/servicios-dti-hero.png",
+      "sha": "48faa8449ca80da856644562fd53c123152dff64",
+      "bytes": 1776395
+    },
+    {
+      "ruta": "aula-digital-banner.css",
+      "sha": "a632914203aeef6e22365391ace1483cc1bd1f06",
+      "bytes": 2546
+    },
+    {
+      "ruta": "aula-google-banner.css",
+      "sha": "903d9625aa85ae322e1d4504e3531096cbc0d996",
+      "bytes": 4486
+    },
+    {
+      "ruta": "aula-google-invitacion.css",
+      "sha": "13248fe08a2a8158a4b4f08466c36e1957ee944b",
+      "bytes": 3615
+    },
+    {
+      "ruta": "aula-google-invitacion.js",
+      "sha": "ca168456d8875272e8627754b5587d386469428f",
+      "bytes": 7422
+    },
+    {
+      "ruta": "aula-google.html",
+      "sha": "e16d620a6a9c15bd3cf2a5473f0ed247d6a0e1c4",
+      "bytes": 53742
+    },
+    {
+      "ruta": "ayuda-ruta.html",
+      "sha": "abc786375c414b218d4c6570c02843994deb7703",
+      "bytes": 25514
+    },
+    {
+      "ruta": "banco-banner-ia.png",
+      "sha": "cbeae2660372a7713336bf7e2d266697708b897b",
+      "bytes": 2992421
+    },
+    {
+      "ruta": "banco-banner.jpg",
+      "sha": "fd2dba7aa25ec90162304c47ac259e16884abb1e",
+      "bytes": 68817
+    },
+    {
+      "ruta": "banco-gemas-banner-hombre.jpg",
+      "sha": "70bff70438d7d832e405666b5737290a8fffe7d7",
+      "bytes": 169930
+    },
+    {
+      "ruta": "banco-gemas-banner.mp4",
+      "sha": "256be23ccfd1a88325aa558b85501fb3062d01c4",
+      "bytes": 309021
+    },
+    {
+      "ruta": "banco-gemas-v2.html",
+      "sha": "64f8b1cdf3d3d03216f530c6a75ec81a0ad3a532",
+      "bytes": 58120
+    },
+    {
+      "ruta": "banco-gemas-video-4s.mp4",
+      "sha": "5616c0b8153ea69913326d7f9070dff9e0754c44",
+      "bytes": 232023
+    },
+    {
+      "ruta": "banco-gemas-video.mp4",
+      "sha": "084118e00054ea6bb0e4d6109419589f5202ff59",
+      "bytes": 557965
+    },
+    {
+      "ruta": "banco-gemas.html",
+      "sha": "b71d394bd6b4948cfbcb0a3c3d59f61f9bf80912",
+      "bytes": 61422
+    },
+    {
+      "ruta": "capacitacion-alfa-digital.jpg",
+      "sha": "d7b2972b3aa40ceb51299f9d099c5e1b72809ea2",
+      "bytes": 139779
+    },
+    {
+      "ruta": "card-caracter.png",
+      "sha": "b8dddfed0fcbe016001cc502285d177235075c91",
+      "bytes": 129971
+    },
+    {
+      "ruta": "card-diagnostico.png",
+      "sha": "e1bd55a87f71c1339a2aceb43c3875d0facea0c4",
+      "bytes": 8607
+    },
+    {
+      "ruta": "card-evaluacion.png",
+      "sha": "37eb5ee3f64a0b3c435803104d12de5f78f5e52f",
+      "bytes": 9972
+    },
+    {
+      "ruta": "card-leo.png",
+      "sha": "5cf95cfdaf97d36b609a0646f6fb28da3dfbf219",
+      "bytes": 9508
+    },
+    {
+      "ruta": "card-matematicas.png",
+      "sha": "2004c15982407346650ccb8cef8d31c75abd88b3",
+      "bytes": 136816
+    },
+    {
+      "ruta": "card-planeacion.png",
+      "sha": "034ff77ba2eabd8e516cf0307ddb2cf8afa1a504",
+      "bytes": 8335
+    },
+    {
+      "ruta": "card-proyectos.png",
+      "sha": "e93cf2fb86fe4298853be76f3235bbf23d29440c",
+      "bytes": 11439
+    },
+    {
+      "ruta": "components/ui/README.md",
+      "sha": "7ac71b6dc3a67ccb764778a1479f8e4ad7503b6d",
+      "bytes": 2290
+    },
+    {
+      "ruta": "components/ui/demo.tsx",
+      "sha": "974c391d75890a9fe61a3baf26632282778150a0",
+      "bytes": 272
+    },
+    {
+      "ruta": "components/ui/interactive-hover-button.tsx",
+      "sha": "9d1be4ab828d18218a89f46c854292b95fc72ff9",
+      "bytes": 1439
+    },
+    {
+      "ruta": "conoce-ia-docente.jpg",
+      "sha": "780c8bc2abdbc1f67e4c61d247f5d399bb246f97",
+      "bytes": 127680
+    },
+    {
+      "ruta": "conoce-mas-ia-v2.html",
+      "sha": "39b1707dfa117a08637085c1978b9cfbfd118516",
+      "bytes": 11520
+    },
+    {
+      "ruta": "conoce-mas-ia.css",
+      "sha": "52a75c6a55d0e24495bda93716d5049c51d407cb",
+      "bytes": 11682
+    },
+    {
+      "ruta": "conoce-mas-ia.mp4",
+      "sha": "f91880f9d9131c22b7f55361593c8efbdf835e60",
+      "bytes": 495564
+    },
+    {
+      "ruta": "constructor-border-beam.css",
+      "sha": "e3f53bd7b88a7f678454070608d2f29d0a232825",
+      "bytes": 1753
+    },
+    {
+      "ruta": "constructor-catalogo.json",
+      "sha": "510c4a02901784478e2ba0c4cb1d5a349216737e",
+      "bytes": 321635
+    },
+    {
+      "ruta": "constructor-gem-guidance.css",
+      "sha": "67295c5c234319326e64b2b2e6c4967202d4d7e7",
+      "bytes": 3938
+    },
+    {
+      "ruta": "constructor-gem-guidance.js",
+      "sha": "5e304b8c1fe996a12e0f2b15ea6dc5f7b55b4bf9",
+      "bytes": 5438
+    },
+    {
+      "ruta": "constructor-gemas-config.js",
+      "sha": "444d23077321491f9d04dc635aeb5d9bc7b8b3a6",
+      "bytes": 2730
+    },
+    {
+      "ruta": "constructor-pedagogico-inicio.png",
+      "sha": "3ab3b76536e01de32245d63ce8e0a7d816eeae40",
+      "bytes": 827618
+    },
+    {
+      "ruta": "constructor-recorrido.css",
+      "sha": "5bed213395c57f59015d601cf0b199489c059348",
+      "bytes": 10712
+    },
+    {
+      "ruta": "constructor-recorrido.js",
+      "sha": "b6cfbe3fcd940820f476dc843e5807f0ff398aca",
+      "bytes": 21674
+    },
+    {
+      "ruta": "constructor-uso.js",
+      "sha": "ab0eda82862649c96df45cd91c6521587df3bc33",
+      "bytes": 3790
+    },
+    {
+      "ruta": "cuenta-jalisco-naranja.png",
+      "sha": "4b399ad4ef5cbbdda8f94a9ae51d861a2ed05587",
+      "bytes": 1811292
+    },
+    {
+      "ruta": "cuenta-jalisco.png",
+      "sha": "5f0c50eddc2400122cae2e693b5e0956209cbb93",
+      "bytes": 1477229
+    },
+    {
+      "ruta": "curso-hero-naranja.png",
+      "sha": "8d207d1716b2313dc2a1aa03c3c1b5ab0adb86b8",
+      "bytes": 1587180
+    },
+    {
+      "ruta": "curso-herramientas-ia-v2.html",
+      "sha": "2fa9a66f0830e9e63e9c280075f11bdddc223b81",
+      "bytes": 23159
+    },
+    {
+      "ruta": "curso-herramientas-ia.html",
+      "sha": "78120fd200902b060a7cd973d646a335231a9b0c",
+      "bytes": 23138
+    },
+    {
+      "ruta": "curso-primeros-pasos-v2.html",
+      "sha": "28cac025f1c85511765cdedce7aaed8f179844c8",
+      "bytes": 19381
+    },
+    {
+      "ruta": "curso-primeros-pasos.html",
+      "sha": "18c1def3f9c13aab014dde9d5e89a533b02e2959",
+      "bytes": 19333
+    },
+    {
+      "ruta": "datos/50_Gemas_Ligas_para_Compartir.xlsx",
+      "sha": "48f1797a02806e69445529f1afa490bc18a66104",
+      "bytes": 13080
+    },
+    {
+      "ruta": "device-router.js",
+      "sha": "389af9866cf190ca0d0c8651ceaf4c1fa381acb2",
+      "bytes": 1474
+    },
+    {
+      "ruta": "docs/ACTUALIZACION_DTI_2026-10-13.md",
+      "sha": "0086a3a8f1a77fdbbf58662c9ef522ec7cc524a6",
+      "bytes": 7006
+    },
+    {
+      "ruta": "docs/GEMAS_CREADAS.md",
+      "sha": "e6c19180c361a84f60103f648259c8a0bc9b6593",
+      "bytes": 4690
+    },
+    {
+      "ruta": "docs/INTEGRACION_CONSTRUCTORES.md",
+      "sha": "2db6c1d444bc3c8d53aea83968b7f0f257a110b0",
+      "bytes": 11898
+    },
+    {
+      "ruta": "docs/informe-PEJ-y-auditoria-UIUX-portal.md",
+      "sha": "ceffc68d2453a4c4fbe69dcba0fc43ae4b183cb5",
+      "bytes": 15237
+    },
+    {
+      "ruta": "evidencias/constructor-escritorio.jpg",
+      "sha": "e94a87b433d6e59aaebed7b2faa2ca4064030322",
+      "bytes": 73865
+    },
+    {
+      "ruta": "evidencias/constructor-movil.jpg",
+      "sha": "4c4297fcf9b93f71e853df54bdfc1517023cb0bc",
+      "bytes": 7770
+    },
+    {
+      "ruta": "evidencias/gema-acceso-publico.jpg",
+      "sha": "bf89b870c13c24691c0393031eac6c512f5d5000",
+      "bytes": 78216
+    },
+    {
+      "ruta": "evidencias/portal-enlaces-verificados.json",
+      "sha": "9772a2a8a1587cbc827673152bb1d0cc84939ce5",
+      "bytes": 4928
+    },
+    {
+      "ruta": "formacion-caracter-banner.jpg",
+      "sha": "6b1589c8212bc57fa1619c583fc1521ea69ff4c4",
+      "bytes": 130482
+    },
+    {
+      "ruta": "formacion-caracter-banner.mp4",
+      "sha": "fa8851cfa83a79bd5659c423e06cb6aad4ea1752",
+      "bytes": 385370
+    },
+    {
+      "ruta": "formacion-caracter-interno.jpg",
+      "sha": "ff6d5fbe27a155f9aeec7165c53d5508b321178c",
+      "bytes": 249586
+    },
+    {
+      "ruta": "formacion-caracter-logo-color.png",
+      "sha": "d0b2c94b99f4ea7edb42b72e000b2bf89d06fcfe",
+      "bytes": 803552
+    },
+    {
+      "ruta": "formacion-caracter-logo.png",
+      "sha": "65fb88394b93e601e60af2a1345ad7c921e5f541",
+      "bytes": 13518
+    },
+    {
+      "ruta": "formacion-caracter-v2.html",
+      "sha": "12e3d2ce35cf710aa154318c5691f55d9375fa92",
+      "bytes": 21675
+    },
+    {
+      "ruta": "formacion-caracter.html",
+      "sha": "a8499120608cca18f317d756eee0ea37e986b06e",
+      "bytes": 21652
+    },
+    {
+      "ruta": "gem-model-notice.css",
+      "sha": "5879614ed13ae0988146e67776a31548e3a8bf84",
+      "bytes": 5965
+    },
+    {
+      "ruta": "gem-model-notice.js",
+      "sha": "813fd2ec8e4051a266491d42c90bd4b84e255834",
+      "bytes": 14499
+    },
+    {
+      "ruta": "gema-alineacion-caracter.jpg",
+      "sha": "180a14834f12c25eb47bc4e0480f0c7efd79b8a9",
+      "bytes": 188395
+    },
+    {
+      "ruta": "gema-central.jpg",
+      "sha": "39581cd084a59ff341657f1be04c01ef331fe10d",
+      "bytes": 16160
+    },
+    {
+      "ruta": "gema-cuentos-virtudes.jpg",
+      "sha": "145f927e8facfe1deecbdf092c3ec4c2f80fcb67",
+      "bytes": 248082
+    },
+    {
+      "ruta": "gema-dilemas-morales.jpg",
+      "sha": "f17a9efecf4fc15723c3eb7738a523213d1520c0",
+      "bytes": 171362
+    },
+    {
+      "ruta": "gemas-creacion.json",
+      "sha": "5bed3f43478c226c7c2d820d951fd3bf0af6ac48",
+      "bytes": 308685
+    },
+    {
+      "ruta": "gemas-creadas.json",
+      "sha": "0716e83bdfafe81231fca3d477f2f1b703bf56e6",
+      "bytes": 12662
+    },
+    {
+      "ruta": "gemas-mobile-demo.html",
+      "sha": "0230a9ec1062d75a82f29840c4d9798ec9ea71fb",
+      "bytes": 36968
+    },
+    {
+      "ruta": "gemas-v2.html",
+      "sha": "0428b2e94a7778a5fcd4d82c91b659a5a02a4892",
+      "bytes": 36681
+    },
+    {
+      "ruta": "gemas.html",
+      "sha": "09baf52fc3ea8adbfbd8aced55948e019ef42ee0",
+      "bytes": 36503
+    },
+    {
+      "ruta": "gemas/especial.atp.md",
+      "sha": "bb20fff34a4fec87cec970694f03fc19e6934b52",
+      "bytes": 9501
+    },
+    {
+      "ruta": "gemas/especial.docente.md",
+      "sha": "5f8596c1bb8b1d0ebd5eaa294778ec7a8cd8c21c",
+      "bytes": 9447
+    },
+    {
+      "ruta": "gemas/especial.gestion.md",
+      "sha": "1c384bccfb3df48b4267750829f6b51e8d39c802",
+      "bytes": 9584
+    },
+    {
+      "ruta": "gemas/fisica.atp.md",
+      "sha": "027f797322929cb35aee8e28f32597bc2837e261",
+      "bytes": 9501
+    },
+    {
+      "ruta": "gemas/fisica.fisica.md",
+      "sha": "f661c610d895cdfb27d90b37f58bab47db647c0e",
+      "bytes": 9413
+    },
+    {
+      "ruta": "gemas/fisica.gestion.md",
+      "sha": "55c3e880c1b632c9aa81cb97515acea69433ffbc",
+      "bytes": 9571
+    },
+    {
+      "ruta": "gemas/indigena.atp.md",
+      "sha": "ec719d235b425d970eece73d4657ce26c8525546",
+      "bytes": 9540
+    },
+    {
+      "ruta": "gemas/indigena.docente.md",
+      "sha": "1e58823bdc2fcfd2741b380abb8419462d8885fb",
+      "bytes": 9526
+    },
+    {
+      "ruta": "gemas/indigena.gestion.md",
+      "sha": "83435ce5ea71e36aae8661d3577cf82daa10d2dd",
+      "bytes": 9579
+    },
+    {
+      "ruta": "gemas/inicial.atp.md",
+      "sha": "e8e0527275aae4acb55e06436914cc3ff6774b72",
+      "bytes": 9447
+    },
+    {
+      "ruta": "gemas/inicial.docente.md",
+      "sha": "532b1dfa06abd562f6975338435f5ae11cd7332e",
+      "bytes": 9392
+    },
+    {
+      "ruta": "gemas/inicial.gestion.md",
+      "sha": "304ac38448b05807d6c5fd581abfa190d2534bb9",
+      "bytes": 9540
+    },
+    {
+      "ruta": "gemas/media-superior.atp.md",
+      "sha": "cd64acaa68c05575a9c58ac25d82999580ba985e",
+      "bytes": 9573
+    },
+    {
+      "ruta": "gemas/media-superior.docente.md",
+      "sha": "69b30034af5bdf01df3f5e35bc16d4e189bdd02e",
+      "bytes": 9478
+    },
+    {
+      "ruta": "gemas/media-superior.gestion.md",
+      "sha": "287a9c23ed8c89919a6c1d88cb2e18a3c10a6497",
+      "bytes": 9647
+    },
+    {
+      "ruta": "gemas/perfiles/direccion.md",
+      "sha": "96f906ba83ce666e5e663829fa8dd084ad2eb953",
+      "bytes": 4877
+    },
+    {
+      "ruta": "gemas/perfiles/jefatura-sector.md",
+      "sha": "c3c93a5f18b0533c1f569b535919122bbb0e6224",
+      "bytes": 5369
+    },
+    {
+      "ruta": "gemas/perfiles/preescolar.md",
+      "sha": "1271f66060b65f4213d528da31fab48322e3b191",
+      "bytes": 4245
+    },
+    {
+      "ruta": "gemas/perfiles/primaria.md",
+      "sha": "c8ff79be7e5c15e928a6a9ec488d09c16e1424d4",
+      "bytes": 3887
+    },
+    {
+      "ruta": "gemas/perfiles/supervision.md",
+      "sha": "bb898c8d4ad69664e5d5c7fff42f06695d880f1f",
+      "bytes": 5062
+    },
+    {
+      "ruta": "gemas/preescolar.atp.md",
+      "sha": "901d8de5c12f7e23bb2e3dcdc8dc8a846c546344",
+      "bytes": 9394
+    },
+    {
+      "ruta": "gemas/preescolar.docente.md",
+      "sha": "8992412ca408cea9543be19e09cb9fcd165c89bf",
+      "bytes": 6637
+    },
+    {
+      "ruta": "gemas/preescolar.gestion.md",
+      "sha": "94d3bc3a7a692010f67177014d455f285d9293ab",
+      "bytes": 385
+    },
+    {
+      "ruta": "gemas/primaria.atp.md",
+      "sha": "2097434e117d10090d893a45c9ae862f93d21ad8",
+      "bytes": 9454
+    },
+    {
+      "ruta": "gemas/primaria.docente.md",
+      "sha": "2ccde677b6663c71299a7ef0ac6cebd2cb185f85",
+      "bytes": 6277
+    },
+    {
+      "ruta": "gemas/primaria.gestion.md",
+      "sha": "0b233ddde8dc89c8662430619f0301a11ee5c0e4",
+      "bytes": 383
+    },
+    {
+      "ruta": "gemas/primaria.multigrado.md",
+      "sha": "6cbd12b295774f6c5c1ad4ecbe7f135e9aa72b39",
+      "bytes": 9655
+    },
+    {
+      "ruta": "gemas/rol-direccion.md",
+      "sha": "6d2168de45967781f09cb21ac659f46af4b4485a",
+      "bytes": 7266
+    },
+    {
+      "ruta": "gemas/rol-sector.md",
+      "sha": "5bcdaedcacd907fe004c2faa9624a3b031c783f8",
+      "bytes": 7797
+    },
+    {
+      "ruta": "gemas/rol-supervision.md",
+      "sha": "1b6552fea418b54a8fc577e51ab0e5010affcc3f",
+      "bytes": 7453
+    },
+    {
+      "ruta": "gemas/secundaria.atp.md",
+      "sha": "fd76cd381c89a5b78e5a1a42d8a0f24e418b6972",
+      "bytes": 9488
+    },
+    {
+      "ruta": "gemas/secundaria.docente.md",
+      "sha": "56a1f666bf2c4a3a233b05b22eec9d9110d5eee1",
+      "bytes": 9391
+    },
+    {
+      "ruta": "gemas/secundaria.gestion.md",
+      "sha": "902e2fcc2eaef44e7fa7b64cc2f1070b4fcb9103",
+      "bytes": 385
+    },
+    {
+      "ruta": "gemas/secundaria.telesecundaria.md",
+      "sha": "6c900be528cc988e48d0f0c75947f7222cb2b6f7",
+      "bytes": 9684
+    },
+    {
+      "ruta": "grok-video-3ab718b7-b540-4c1e-b2c2-bebd28cd699a.mp4",
+      "sha": "bdb7852da4610a5fbc9712593aed2f9c22a42e22",
+      "bytes": 4657031
+    },
+    {
+      "ruta": "grok-video-422d11fa-6435-4a67-9297-396d9efb962f.mp4",
+      "sha": "0506699ab3bc976633ea52544f485bf5584099b2",
+      "bytes": 2402023
+    },
+    {
+      "ruta": "grok-video-55364e15-8733-4458-b34b-f4e378fb42b5.mp4",
+      "sha": "86b45cc2b0a9aa3e0516055fcbf95afcde55a28a",
+      "bytes": 2674367
+    },
+    {
+      "ruta": "hd-caracter.jpg",
+      "sha": "357c838956770df8bb7f532c94412902c497a333",
+      "bytes": 21011
+    },
+    {
+      "ruta": "hd-diagnostico.jpg",
+      "sha": "8a38d8b5aecb9fdacd70527c23e79a168dd908b3",
+      "bytes": 19582
+    },
+    {
+      "ruta": "hd-evaluacion.jpg",
+      "sha": "15a715029f529663859c90e95a900c62482d31c5",
+      "bytes": 20894
+    },
+    {
+      "ruta": "hd-leo.jpg",
+      "sha": "5c90a44c01228e29e868478046a747042c1a63c4",
+      "bytes": 23505
+    },
+    {
+      "ruta": "hd-matematicas.jpg",
+      "sha": "073fb21e41ceacdc22cfcff2a401a4801066196d",
+      "bytes": 21637
+    },
+    {
+      "ruta": "hd-planeacion.jpg",
+      "sha": "c9577c7bce3e3b7060580a3fa36a0c17a8c4d4ec",
+      "bytes": 22699
+    },
+    {
+      "ruta": "hd-proyectos.jpg",
+      "sha": "13dca06770cdfcc6a171a00ebf87c2d215899eb8",
+      "bytes": 23349
+    },
+    {
+      "ruta": "hero-1-docentes.jpg",
+      "sha": "e322972463bc6a41b7d65084976a4e07c3e05b1e",
+      "bytes": 89052
+    },
+    {
+      "ruta": "hero-1.png",
+      "sha": "af3ba275e82066fbb61f44c9a602e30c33cab284",
+      "bytes": 1729001
+    },
+    {
+      "ruta": "hero-2.png",
+      "sha": "e905ce5abdf7b963f1472d4ccef2669d39267c6b",
+      "bytes": 1592816
+    },
+    {
+      "ruta": "hero-3.png",
+      "sha": "59df27a47ce8185fd90a2531fd7ae95e311581cb",
+      "bytes": 1535729
+    },
+    {
+      "ruta": "home-image-adjustments.css",
+      "sha": "cd69678a0698e476dd2f9f1f2cbf1c4367b0d10c",
+      "bytes": 1193
+    },
+    {
+      "ruta": "index.html",
+      "sha": "8064431d35ab1ecda3f29242e5df85d0cce9768e",
+      "bytes": 1154
+    },
+    {
+      "ruta": "interactive-hover-button.css",
+      "sha": "8643b4bb5329a40c36441d26fba6ec35223a48d6",
+      "bytes": 1664
+    },
+    {
+      "ruta": "interactive-hover-button.js",
+      "sha": "e62aeccdaf1cc13dac4807cbfd5c97d229053065",
+      "bytes": 2800
+    },
+    {
+      "ruta": "internal-mobile-banners.css",
+      "sha": "37b0cb011d1b84783a00fa8b490867f0028ea565",
+      "bytes": 11291
+    },
+    {
+      "ruta": "kit-herramientas-neon.jpg",
+      "sha": "c2c8bdc667b84a059bcfb1d38f74992efb1bde5f",
+      "bytes": 171589
+    },
+    {
+      "ruta": "kit-herramientas.png",
+      "sha": "a3f3adec1f8080d6e0f2c9458045179a18f5a619",
+      "bytes": 1001781
+    },
+    {
+      "ruta": "kit-recursos.css",
+      "sha": "0c7b56da7fa500f92c6ccf39a947c1432cc36fe6",
+      "bytes": 7928
+    },
+    {
+      "ruta": "leccion-1-v2.html",
+      "sha": "9aa866eebe88e6ed0da94622bb99c21db0b141af",
+      "bytes": 15774
+    },
+    {
+      "ruta": "leccion-1.html",
+      "sha": "70fc2bbf7b92a972901815a53ffa91f2c773119c",
+      "bytes": 15749
+    },
+    {
+      "ruta": "logo-gobierno-jalisco-2024.svg",
+      "sha": "6c4dfd2cefae5f4aba51b7b5704ebc07613a47e8",
+      "bytes": 30635
+    },
+    {
+      "ruta": "logo-sej-2024.svg",
+      "sha": "4b49b7399ffd42a1e03cac40be5fd50c12deda21",
+      "bytes": 17803
+    },
+    {
+      "ruta": "logo-sej.svg",
+      "sha": "4b49b7399ffd42a1e03cac40be5fd50c12deda21",
+      "bytes": 17803
+    },
+    {
+      "ruta": "maestra.png",
+      "sha": "353aa7aaab35704e0e1f28b7be5fe29053526335",
+      "bytes": 391119
+    },
+    {
+      "ruta": "mesa-ayuda-hero.jpg",
+      "sha": "49ab8d4598ab1732c4523e207d58f48f28723425",
+      "bytes": 77359
+    },
+    {
+      "ruta": "mesa-ayuda-hero.png",
+      "sha": "c0f187d93cff3156e59c1e7ad36d294713bc8e8e",
+      "bytes": 1647791
+    },
+    {
+      "ruta": "mesa-ayuda-llave.jpg",
+      "sha": "d57fef6573dfc2f8a4d68f440cfc3a05a9ad7be1",
+      "bytes": 221691
+    },
+    {
+      "ruta": "mobile-demo-preview.html",
+      "sha": "e41a1ea5ac41e6a6280f2ba16751d358a4504c8b",
+      "bytes": 3800
+    },
+    {
+      "ruta": "mobile-demo.css",
+      "sha": "45aa08adb2c693df3705f30830a159f05de8083f",
+      "bytes": 30224
+    },
+    {
+      "ruta": "mobile-demo.js",
+      "sha": "d997187403a4f4634420553cc8e4b6db337cf039",
+      "bytes": 3196
+    },
+    {
+      "ruta": "nueva-seccion.png",
+      "sha": "4694dd08f35e029d3e25e31593c94089fb80b166",
+      "bytes": 1775130
+    },
+    {
+      "ruta": "orbit-card-png.css",
+      "sha": "2eb5a46060daec0ed07d6314fb29fac8881884ca",
+      "bytes": 954
+    },
+    {
+      "ruta": "portal-a11y.css",
+      "sha": "7f6868a286b75fe5016211e3d09d897f0ee8f15e",
+      "bytes": 5614
+    },
+    {
+      "ruta": "portal-accessibility.css",
+      "sha": "0739df3f67bf5b0e803ee87be709566792733e3f",
+      "bytes": 1727
+    },
+    {
+      "ruta": "portal-accessibility.js",
+      "sha": "9da7f0325218467b0d8669fd219b58469196b5e8",
+      "bytes": 13369
+    },
+    {
+      "ruta": "preparar-gemas.html",
+      "sha": "434b3a7f8aef4aaeba5a502f2f537b1fa80becc2",
+      "bytes": 306122
+    },
+    {
+      "ruta": "promate-aula-geogebra.html",
+      "sha": "7b23e82550e5ef5b0946ad07d9e1e825e2758476",
+      "bytes": 53225
+    },
+    {
+      "ruta": "proyecto-preescolar.jpg",
+      "sha": "bbde806a95014bbe730f7703dc18cb34ca16e1c9",
+      "bytes": 250569
+    },
+    {
+      "ruta": "proyecto-primaria-multigrado.jpg",
+      "sha": "ec9c32f2a3a152601b525b0e2cc5924b07adeec2",
+      "bytes": 277904
+    },
+    {
+      "ruta": "proyecto-primaria.jpg",
+      "sha": "23bb5120377a21bb930597820e542ffd3aeddea6",
+      "bytes": 254823
+    },
+    {
+      "ruta": "proyecto-secundaria-multigrado.jpg",
+      "sha": "7c79ba49a3bfaaf494e6f9c885585e0a1b1e895a",
+      "bytes": 247958
+    },
+    {
+      "ruta": "proyecto-secundaria.jpg",
+      "sha": "c3073de61b85870a741b688bcb9cdca035b749b5",
+      "bytes": 215664
+    },
+    {
+      "ruta": "recuperar-bg.png",
+      "sha": "4df39f5d1c7e046ca26ca222dceb61d6e516bda0",
+      "bytes": 1769209
+    },
+    {
+      "ruta": "recuperar-cuenta-v2.html",
+      "sha": "d402a532d2cebe9c56f6e0f2af0b97b0677f75a9",
+      "bytes": 1079
+    },
+    {
+      "ruta": "recuperar-cuenta.html",
+      "sha": "d402a532d2cebe9c56f6e0f2af0b97b0677f75a9",
+      "bytes": 1079
+    },
+    {
+      "ruta": "recursos-matematicas.jpg",
+      "sha": "be57f615578122ff11fa71c3dc9875b3c849f8c4",
+      "bytes": 384649
+    },
+    {
+      "ruta": "recursos-programa-leo.jpg",
+      "sha": "96c2e118c0c6db25f181d327ef15dda2e4d7d80d",
+      "bytes": 601878
+    },
+    {
+      "ruta": "recursos-proyectos-integradores.jpg",
+      "sha": "9976286699e2a06221f99f5c1b476c4090a034c6",
+      "bytes": 387966
+    },
+    {
+      "ruta": "resource-dialog.js",
+      "sha": "197a98fe07445ed668994ae69ce818b369b62a53",
+      "bytes": 7606
+    },
+    {
+      "ruta": "responsive-compat.css",
+      "sha": "ed7190ae5dd60619669582f72affccbfc48c1e26",
+      "bytes": 11063
+    },
+    {
+      "ruta": "ruta-banner.jpg",
+      "sha": "d4456bfc895b712833ca767470435feac6e9c58e",
+      "bytes": 155434
+    },
+    {
+      "ruta": "ruta-general.html",
+      "sha": "d9ef634aa45b8271124b29dbf7acec7d22203ec9",
+      "bytes": 32436
+    },
+    {
+      "ruta": "ruta-v2.html",
+      "sha": "abaa5e66083981dd7836a2d69627fbd82c787609",
+      "bytes": 35682
+    },
+    {
+      "ruta": "ruta.html",
+      "sha": "f4f9e52a1623e8d97b8e1a8664e7146323ef4f10",
+      "bytes": 94417
+    },
+    {
+      "ruta": "servicios-digitales-dti.css",
+      "sha": "3810a151d475480bcf1dc1643cdf3a49b09454af",
+      "bytes": 8579
+    },
+    {
+      "ruta": "servicios-digitales-dti.html",
+      "sha": "82595b0ce39cb4f47bc31caf722fe6e6c553f357",
+      "bytes": 28826
+    },
+    {
+      "ruta": "servicios-dti-promocion.css",
+      "sha": "3f1b4683fa2e6d74b4ba7f4a778d639043fa2b42",
+      "bytes": 4502
+    },
+    {
+      "ruta": "servicios-dti-promocion.js",
+      "sha": "8595f8e96e41451ef2703cfbcc5aa01a8493d2eb",
+      "bytes": 4456
+    },
+    {
+      "ruta": "tests/measurement.test.cjs",
+      "sha": "0ffa14a2ec4e3b859fbba0ae526ac27da7fe108c",
+      "bytes": 2588
+    },
+    {
+      "ruta": "tests/recorrido.test.cjs",
+      "sha": "8bfaaa9fc7999f511bb3a2310bb3b11f90ebc6c2",
+      "bytes": 3431
+    },
+    {
+      "ruta": "trazo-laboratorio.html",
+      "sha": "c6cff0be58b49bcd3b70d14c7f32f8b3e1df2aa2",
+      "bytes": 1289119
+    },
+    {
+      "ruta": "tri-password.jpg",
+      "sha": "254abf7d3a8c23bcd3a27c1ad5bbbae12dff5a84",
+      "bytes": 41584
+    },
+    {
+      "ruta": "tri-ticket.jpg",
+      "sha": "846806ecaffd5d0a029f7669f5b8d479d202a848",
+      "bytes": 39313
+    },
+    {
+      "ruta": "tri-usuario.jpg",
+      "sha": "0b12b7626ef17037e53612d236a9bf5cc459ab01",
+      "bytes": 37537
+    },
+    {
+      "ruta": "wordpress/docente-ia-contador/docente-ia-contador.php",
+      "sha": "01f08d5b9cb1ffeb193af5f1caff212e12abaac6",
+      "bytes": 7044
+    }
+  ],
+  "cambios_posteriores": [
+    {
+      "ruta": "academia-docente-jalisco-mobile-demo.html",
+      "estado": "modified"
+    },
+    {
+      "ruta": "academia-docente-jalisco-v2.html",
+      "estado": "modified"
+    },
+    {
+      "ruta": "assets/constructor-niveles/asset-0.svg",
+      "estado": "added"
+    },
+    {
+      "ruta": "assets/constructor-niveles/asset-1.jpg",
+      "estado": "added"
+    },
+    {
+      "ruta": "assets/constructor-niveles/asset-2.svg",
+      "estado": "added"
+    },
+    {
+      "ruta": "assets/constructor-niveles/asset-3.svg",
+      "estado": "added"
+    },
+    {
+      "ruta": "constructor-border-beam.css",
+      "estado": "modified"
+    },
+    {
+      "ruta": "constructor-catalogo.json",
+      "estado": "added"
+    },
+    {
+      "ruta": "constructor-gemas-config.js",
+      "estado": "added"
+    },
+    {
+      "ruta": "constructor-recorrido.css",
+      "estado": "added"
+    },
+    {
+      "ruta": "constructor-recorrido.js",
+      "estado": "added"
+    },
+    {
+      "ruta": "constructor-uso.js",
+      "estado": "added"
+    },
+    {
+      "ruta": "docs/GEMAS_CREADAS.md",
+      "estado": "added"
+    },
+    {
+      "ruta": "docs/INTEGRACION_CONSTRUCTORES.md",
+      "estado": "added"
+    },
+    {
+      "ruta": "evidencias/constructor-escritorio.jpg",
+      "estado": "added"
+    },
+    {
+      "ruta": "evidencias/constructor-movil.jpg",
+      "estado": "added"
+    },
+    {
+      "ruta": "evidencias/gema-acceso-publico.jpg",
+      "estado": "added"
+    },
+    {
+      "ruta": "evidencias/portal-enlaces-verificados.json",
+      "estado": "added"
+    },
+    {
+      "ruta": "gemas-creacion.json",
+      "estado": "added"
+    },
+    {
+      "ruta": "gemas-creadas.json",
+      "estado": "added"
+    },
+    {
+      "ruta": "gemas/especial.atp.md",
+      "estado": "added"
+    },
+    {
+      "ruta": "gemas/especial.docente.md",
+      "estado": "added"
+    },
+    {
+      "ruta": "gemas/especial.gestion.md",
+      "estado": "added"
+    },
+    {
+      "ruta": "gemas/fisica.atp.md",
+      "estado": "added"
+    },
+    {
+      "ruta": "gemas/fisica.fisica.md",
+      "estado": "added"
+    },
+    {
+      "ruta": "gemas/fisica.gestion.md",
+      "estado": "added"
+    },
+    {
+      "ruta": "gemas/indigena.atp.md",
+      "estado": "added"
+    },
+    {
+      "ruta": "gemas/indigena.docente.md",
+      "estado": "added"
+    },
+    {
+      "ruta": "gemas/indigena.gestion.md",
+      "estado": "added"
+    },
+    {
+      "ruta": "gemas/inicial.atp.md",
+      "estado": "added"
+    },
+    {
+      "ruta": "gemas/inicial.docente.md",
+      "estado": "added"
+    },
+    {
+      "ruta": "gemas/inicial.gestion.md",
+      "estado": "added"
+    },
+    {
+      "ruta": "gemas/media-superior.atp.md",
+      "estado": "added"
+    },
+    {
+      "ruta": "gemas/media-superior.docente.md",
+      "estado": "added"
+    },
+    {
+      "ruta": "gemas/media-superior.gestion.md",
+      "estado": "added"
+    },
+    {
+      "ruta": "gemas/perfiles/direccion.md",
+      "estado": "added"
+    },
+    {
+      "ruta": "gemas/perfiles/jefatura-sector.md",
+      "estado": "added"
+    },
+    {
+      "ruta": "gemas/perfiles/preescolar.md",
+      "estado": "added"
+    },
+    {
+      "ruta": "gemas/perfiles/primaria.md",
+      "estado": "added"
+    },
+    {
+      "ruta": "gemas/perfiles/supervision.md",
+      "estado": "added"
+    },
+    {
+      "ruta": "gemas/preescolar.atp.md",
+      "estado": "added"
+    },
+    {
+      "ruta": "gemas/preescolar.docente.md",
+      "estado": "added"
+    },
+    {
+      "ruta": "gemas/preescolar.gestion.md",
+      "estado": "added"
+    },
+    {
+      "ruta": "gemas/primaria.atp.md",
+      "estado": "added"
+    },
+    {
+      "ruta": "gemas/primaria.docente.md",
+      "estado": "added"
+    },
+    {
+      "ruta": "gemas/primaria.gestion.md",
+      "estado": "added"
+    },
+    {
+      "ruta": "gemas/primaria.multigrado.md",
+      "estado": "added"
+    },
+    {
+      "ruta": "gemas/rol-direccion.md",
+      "estado": "added"
+    },
+    {
+      "ruta": "gemas/rol-sector.md",
+      "estado": "added"
+    },
+    {
+      "ruta": "gemas/rol-supervision.md",
+      "estado": "added"
+    },
+    {
+      "ruta": "gemas/secundaria.atp.md",
+      "estado": "added"
+    },
+    {
+      "ruta": "gemas/secundaria.docente.md",
+      "estado": "added"
+    },
+    {
+      "ruta": "gemas/secundaria.gestion.md",
+      "estado": "added"
+    },
+    {
+      "ruta": "gemas/secundaria.telesecundaria.md",
+      "estado": "added"
+    },
+    {
+      "ruta": "preparar-gemas.html",
+      "estado": "added"
+    },
+    {
+      "ruta": "ruta-general.html",
+      "estado": "added"
+    },
+    {
+      "ruta": "ruta-v2.html",
+      "estado": "modified"
+    },
+    {
+      "ruta": "tests/measurement.test.cjs",
+      "estado": "added"
+    },
+    {
+      "ruta": "tests/recorrido.test.cjs",
+      "estado": "added"
+    },
+    {
+      "ruta": "wordpress/docente-ia-contador/docente-ia-contador.php",
+      "estado": "added"
+    }
+  ],
+  "documentos_oficiales_enlazados": [
+    "https://apprende.jalisco.gob.mx/wp-content/uploads/2026/10/Cambio_de_Contrasena_Alumnos.pdf",
+    "https://apprende.jalisco.gob.mx/wp-content/uploads/2026/10/Manual_de_Creacion_de_Cuentas_de_Correo_Estructura_Educativa.pdf",
+    "https://apprende.jalisco.gob.mx/wp-content/uploads/2026/10/Manual_de_Creacion_de_Cuentas_de_Correo_Alumnos.pdf",
+    "https://apprende.jalisco.gob.mx/wp-content/uploads/2026/10/Instrucciones_para_activar_su_cuenta_de_correo.pdf",
+    "https://apprende.jalisco.gob.mx/wp-content/uploads/2026/10/Manual_Creacion_masiva_de_cuentas.pdf",
+    "https://apprende.jalisco.gob.mx/wp-content/uploads/2026/10/Formato_para_solicitud_cuentas_de_Alumnos_de_Manera_Masiva.pdf",
+    "https://apprende.jalisco.gob.mx/wp-content/uploads/2026/10/Manual_Credencial_Institucional.pdf",
+    "https://apprende.jalisco.gob.mx/wp-content/uploads/2026/10/Manual_Carga_de_foto_credencial.pdf",
+    "https://apprende.jalisco.gob.mx/wp-content/uploads/2026/10/Manual_de_Descarga_de_Credencial_de_alumnos.pdf",
+    "https://apprende.jalisco.gob.mx/wp-content/uploads/2026/10/Pasos_ingreso_a_PrecepThor.pdf"
+  ]
+}
