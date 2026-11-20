@@ -13,6 +13,7 @@ button,a,summary{touch-action:manipulation}
 #catalog-title,#profiles-title,#work-title,#complete-title,#module-title{scroll-margin-top:16px}
 .app-profiles h1:focus,.app-workspace h1:focus,.app-complete h1:focus,#catalog-title:focus{outline:none}
 .app-profiles .eyebrow,.app-workspace .work-context .eyebrow{color:rgb(var(--section-rgb))}
+.app-profiles>.eyebrow,.app-workspace .work-context .eyebrow{font-size:18px;line-height:1.4;font-weight:750;letter-spacing:1px;margin-bottom:8px}
 #resume-route{border:1px solid #745336;border-radius:16px;background:#30251b;padding:18px 20px;display:flex;justify-content:space-between;gap:18px;align-items:center;margin-bottom:22px}
 #resume-route strong{font-size:16px}
 #resume-route p{font-size:14px;line-height:1.5;color:#d8cabc;margin-top:5px}
@@ -94,6 +95,7 @@ button,a,summary{touch-action:manipulation}
 .handoff-footer p{font-size:12px;line-height:1.4;text-align:center;margin-top:8px}
 .already-copied .handoff-body :is(label,textarea,#manual-copy){display:none}
 @media(max-width:800px){
+  .app-profiles>.eyebrow,.app-workspace .work-context .eyebrow{font-size:16px}
   .profile-options{grid-template-columns:1fr;gap:9px}
   .profile-option{min-height:74px;padding:13px 14px}
   .profile-option strong{font-size:17px}
