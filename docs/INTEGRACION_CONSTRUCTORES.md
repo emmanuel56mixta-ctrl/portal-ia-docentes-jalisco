@@ -3,9 +3,9 @@
 ## Estado de la entrega
 
 - Diseño aprobado incorporado a `ruta-v2.html`: cinco secciones principales, cuatro áreas dentro de Integral y 26 constructores.
-- Una gema por constructor, cada una con cuatro etapas. Gestión adapta su alcance a la función elegida; no requiere tres gemas duplicadas.
-- Las 26 instrucciones están en `gemas/`, el catálogo en `constructor-catalogo.json` y el asistente de carga en `preparar-gemas.html`.
-- **No se han creado ni verificado las nuevas gemas en Gemini.** Sus enlaces son `null`; el portal muestra esos accesos como no disponibles. No hay enlaces ficticios.
+- 26 gemas cubren los 26 constructores y sus cuatro etapas. En Preescolar, Primaria y Secundaria, Gestión elige entre las gemas de Dirección, Supervisión y Jefatura de Sector; los demás servicios tienen gestión especializada.
+- Las 26 configuraciones de gemas están en `gemas-creacion.json`, sus instrucciones en `gemas/`, el catálogo de constructores en `constructor-catalogo.json` y el administrador en `preparar-gemas.html`.
+- **Las 26 gemas están creadas y abiertas para cualquier usuario con el enlace, con permiso de lector, por indicación de Emmanuel.** Los 26 enlaces se comprobaron desde otra cuenta. Ver `docs/GEMAS_CREADAS.md` y `gemas-creadas.json`.
 - `ruta-general.html` conserva la página actual y sus cuatro enlaces originales como alternativa funcional. Los enlaces a esa página no han sido verificados dentro de la cuenta institucional.
 - La medición está implementada pero desactivada hasta instalar y probar el receptor de WordPress. No hay conteos históricos ni demostrativos que se presenten como reales.
 - Esta entrega es un borrador para integrar; no sustituye por sí sola la instalación de WordPress que administra DTI.
@@ -16,8 +16,8 @@
 2. Elegir un constructor. Copiar su nombre e instrucciones en una nueva gema. Guardar.
 3. Incorporar únicamente fuentes oficiales pertinentes, verificando vigencia y permisos. Los enlaces de las instrucciones no equivalen a archivos cargados en Conocimientos. No subir datos de alumnado.
 4. Probar las cuatro etapas. Para gestión probar alcance de escuela, zona y sector; ajustar si alguna función no corresponde al servicio. Para indígena comprobar que pide nivel y lengua; para especial que parte de barreras y apoyos; para media superior que solicita el programa del subsistema.
-5. Compartir con acceso de lector según el alcance permitido por la cuenta y la política institucional. Comprobar el enlace desde otra cuenta educativa antes de marcarlo como listo. No ampliar automáticamente el acceso a público ni dar edición.
-6. Registrar cada enlace y exportar `constructor-gemas-config.js`. Sustituir el archivo homónimo. Conservar la configuración de medición si DTI ya la activó; la exportación de esta página la deja apagada por seguridad operativa.
+5. Compartir con acceso de lector según el alcance permitido por la cuenta y la política institucional. Comprobar el enlace desde otra cuenta educativa antes de marcarlo como listo. El acceso público de lector de estas 26 gemas fue autorizado expresamente por Emmanuel. No dar edición a los visitantes.
+6. Registrar cada enlace y exportar `constructor-gemas-config.js`. Sustituir el archivo homónimo. Conservar la configuración de medición si DTI ya la activó; la exportación conserva la medición definida en el archivo de configuración cargado; si no existe, la deja desactivada.
 7. Verificar los 26 accesos, las etapas, la navegación de regreso y la versión móvil antes de publicar el reemplazo de `ruta-v2.html`.
 
 El portal copia una indicación de etapa que el usuario debe pegar en Gemini. No asume parámetros de URL no documentados ni transfiere automáticamente texto a Gemini. Una nueva conversación no hereda el trabajo anterior: guardar y pegar el resumen para continuar.
@@ -52,7 +52,7 @@ El receptor usa incremento atómico para evitar pérdidas por visitas simultáne
 
 - Pruebas de JavaScript: `node --test tests/measurement.test.cjs`.
 - Revisión sintáctica de scripts incluidos y correspondencia de 26 configuraciones.
-- Pendientes: prueba visual en navegador, creación y prueba de gemas, validación PHP/WordPress en un servidor de pruebas e instalación/configuración del receptor. No había PHP, WordPress ni control de navegador disponibles en la sesión de preparación.
+- Pendientes: validación PHP/WordPress en un servidor de pruebas e instalación/configuración del receptor; revisión pedagógica continua de respuestas. Las 26 gemas están creadas y su acceso fue comprobado. Las pruebas de interfaz se registran en la entrega.
 - `ruta-general.html` mantiene los enlaces y código de la versión de GitHub consultada al preparar la entrega. La carpeta local `site-edit` contenía otros cambios; esta entrega no los sobrescribe.
 
 ## Fuentes de preparación (consultadas el 20 de noviembre de 2026)

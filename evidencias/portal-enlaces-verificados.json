@@ -1,0 +1,212 @@
+[
+  {
+    "key": "inicial.docente",
+    "role": "",
+    "url": "https://gemini.google.com/gem/f213e3b7d7e4"
+  },
+  {
+    "key": "inicial.gestion",
+    "role": "direccion",
+    "url": "https://gemini.google.com/gem/8f9579716123"
+  },
+  {
+    "key": "inicial.gestion",
+    "role": "supervision",
+    "url": "https://gemini.google.com/gem/8f9579716123"
+  },
+  {
+    "key": "inicial.gestion",
+    "role": "sector",
+    "url": "https://gemini.google.com/gem/8f9579716123"
+  },
+  {
+    "key": "inicial.atp",
+    "role": "",
+    "url": "https://gemini.google.com/gem/7fc11c259d17"
+  },
+  {
+    "key": "especial.docente",
+    "role": "",
+    "url": "https://gemini.google.com/gem/96fa4979d4d5"
+  },
+  {
+    "key": "especial.gestion",
+    "role": "direccion",
+    "url": "https://gemini.google.com/gem/4fc0d8670a58"
+  },
+  {
+    "key": "especial.gestion",
+    "role": "supervision",
+    "url": "https://gemini.google.com/gem/4fc0d8670a58"
+  },
+  {
+    "key": "especial.gestion",
+    "role": "sector",
+    "url": "https://gemini.google.com/gem/4fc0d8670a58"
+  },
+  {
+    "key": "especial.atp",
+    "role": "",
+    "url": "https://gemini.google.com/gem/4ec983f70268"
+  },
+  {
+    "key": "indigena.docente",
+    "role": "",
+    "url": "https://gemini.google.com/gem/8cda6687cca1"
+  },
+  {
+    "key": "indigena.gestion",
+    "role": "direccion",
+    "url": "https://gemini.google.com/gem/a3b6fb6990ee"
+  },
+  {
+    "key": "indigena.gestion",
+    "role": "supervision",
+    "url": "https://gemini.google.com/gem/a3b6fb6990ee"
+  },
+  {
+    "key": "indigena.gestion",
+    "role": "sector",
+    "url": "https://gemini.google.com/gem/a3b6fb6990ee"
+  },
+  {
+    "key": "indigena.atp",
+    "role": "",
+    "url": "https://gemini.google.com/gem/daf7c745a74c"
+  },
+  {
+    "key": "fisica.fisica",
+    "role": "",
+    "url": "https://gemini.google.com/gem/76e1d48ea0f8"
+  },
+  {
+    "key": "fisica.gestion",
+    "role": "direccion",
+    "url": "https://gemini.google.com/gem/325149cf3b08"
+  },
+  {
+    "key": "fisica.gestion",
+    "role": "supervision",
+    "url": "https://gemini.google.com/gem/325149cf3b08"
+  },
+  {
+    "key": "fisica.gestion",
+    "role": "sector",
+    "url": "https://gemini.google.com/gem/325149cf3b08"
+  },
+  {
+    "key": "fisica.atp",
+    "role": "",
+    "url": "https://gemini.google.com/gem/ac53951273dd"
+  },
+  {
+    "key": "preescolar.docente",
+    "role": "",
+    "url": "https://gemini.google.com/gem/ef992e8e397b"
+  },
+  {
+    "key": "preescolar.gestion",
+    "role": "direccion",
+    "url": "https://gemini.google.com/gem/de9957f3edb7"
+  },
+  {
+    "key": "preescolar.gestion",
+    "role": "supervision",
+    "url": "https://gemini.google.com/gem/426e9aaa8b5d"
+  },
+  {
+    "key": "preescolar.gestion",
+    "role": "sector",
+    "url": "https://gemini.google.com/gem/1cbdb166d7bc"
+  },
+  {
+    "key": "preescolar.atp",
+    "role": "",
+    "url": "https://gemini.google.com/gem/77db068984d2"
+  },
+  {
+    "key": "primaria.docente",
+    "role": "",
+    "url": "https://gemini.google.com/gem/8eebce7f64aa"
+  },
+  {
+    "key": "primaria.multigrado",
+    "role": "",
+    "url": "https://gemini.google.com/gem/e6f412a86c44"
+  },
+  {
+    "key": "primaria.gestion",
+    "role": "direccion",
+    "url": "https://gemini.google.com/gem/de9957f3edb7"
+  },
+  {
+    "key": "primaria.gestion",
+    "role": "supervision",
+    "url": "https://gemini.google.com/gem/426e9aaa8b5d"
+  },
+  {
+    "key": "primaria.gestion",
+    "role": "sector",
+    "url": "https://gemini.google.com/gem/1cbdb166d7bc"
+  },
+  {
+    "key": "primaria.atp",
+    "role": "",
+    "url": "https://gemini.google.com/gem/e2b48e41a025"
+  },
+  {
+    "key": "secundaria.docente",
+    "role": "",
+    "url": "https://gemini.google.com/gem/7914610b14e9"
+  },
+  {
+    "key": "secundaria.telesecundaria",
+    "role": "",
+    "url": "https://gemini.google.com/gem/965a751a0e84"
+  },
+  {
+    "key": "secundaria.gestion",
+    "role": "direccion",
+    "url": "https://gemini.google.com/gem/de9957f3edb7"
+  },
+  {
+    "key": "secundaria.gestion",
+    "role": "supervision",
+    "url": "https://gemini.google.com/gem/426e9aaa8b5d"
+  },
+  {
+    "key": "secundaria.gestion",
+    "role": "sector",
+    "url": "https://gemini.google.com/gem/1cbdb166d7bc"
+  },
+  {
+    "key": "secundaria.atp",
+    "role": "",
+    "url": "https://gemini.google.com/gem/cbdfabbe69ef"
+  },
+  {
+    "key": "media-superior.docente",
+    "role": "",
+    "url": "https://gemini.google.com/gem/a783f9ce615d"
+  },
+  {
+    "key": "media-superior.gestion",
+    "role": "direccion",
+    "url": "https://gemini.google.com/gem/5a7232dbab64"
+  },
+  {
+    "key": "media-superior.gestion",
+    "role": "supervision",
+    "url": "https://gemini.google.com/gem/5a7232dbab64"
+  },
+  {
+    "key": "media-superior.gestion",
+    "role": "sector",
+    "url": "https://gemini.google.com/gem/5a7232dbab64"
+  },
+  {
+    "key": "media-superior.atp",
+    "role": "",
+    "url": "https://gemini.google.com/gem/8dbdd8c07b15"
+  }
+]
