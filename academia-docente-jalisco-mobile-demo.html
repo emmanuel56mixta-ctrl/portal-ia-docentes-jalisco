@@ -276,7 +276,7 @@
   /* banner banco de gemas */
   .banco-banner{position:relative;display:block;margin-top:26px;border-radius:min(26px,2.7vw);overflow:hidden;border:1px solid var(--line);aspect-ratio:2172/724;transition:.2s border-color,.2s transform}
   .banco-banner:hover{border-color:#3a3a40;transform:translateY(-2px)}
-  .bb-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:left center;z-index:0}
+  .bb-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:left top;z-index:0}
   .banco-banner::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(270deg,rgba(8,8,10,.94) 0%,rgba(8,8,10,.82) 34%,rgba(10,10,12,.45) 60%,rgba(10,10,12,.12) 82%,rgba(8,8,10,0) 100%),linear-gradient(0deg,rgba(8,8,10,.35) 0%,transparent 40%)}
   .bb-text{position:absolute;z-index:2;right:44px;top:50%;transform:translateY(-50%);max-width:470px;text-align:left}
   .bb-kick{color:var(--lime);font-family:'Archivo';font-weight:800;font-size:13px;letter-spacing:3px;text-transform:uppercase}
@@ -348,6 +348,21 @@
 <link rel="stylesheet" href="aula-google-banner.css?v=20260926-identidad">
 <link rel="stylesheet" href="servicios-dti-promocion.css?v=20261013-3">
 <script src="servicios-dti-promocion.js?v=20261013-3" defer></script>
+<style>
+  .mobile-demo .mobile-bento-grid{grid-auto-rows:minmax(136px,auto)}
+  @media(min-width:391px){.mobile-demo .mobile-bento-grid{grid-auto-rows:minmax(142px,auto)}}
+  .mobile-demo .mobile-constructor-entry{justify-content:flex-start;grid-row:span 3;display:flex;flex-direction:column;border-color:rgba(255,155,50,.7);border-radius:22px;background:#351d10}
+  .mobile-constructor-photo{height:190px;flex:none;overflow:hidden;background:#e8dfd6}
+  .mobile-constructor-photo img{display:block;width:140%;height:100%;max-width:none;object-fit:cover;object-position:left top}
+  .mobile-constructor-copy{display:flex;flex:1;flex-direction:column;align-items:flex-start;gap:11px;padding:18px 20px 20px}
+  .mobile-constructor-kicker{color:#ffd6a3;font-size:10px;font-weight:800;line-height:1.4;letter-spacing:2px;text-transform:uppercase}
+  .mobile-constructor-copy h3{font-family:'Archivo',system-ui,sans-serif;color:#fff;font-size:25px;font-weight:900;line-height:1.06;letter-spacing:-.4px}
+  .mobile-constructor-copy p{color:#f8eee7;font-size:14px;line-height:1.55}
+  .mobile-constructor-cta{display:inline-flex;align-items:center;gap:9px;min-height:44px;margin-top:auto;padding:10px 14px;border-radius:999px;background:#ff8a00;color:#17100a;font-size:13px;font-weight:750;line-height:1.3}
+  .mobile-constructor-cta::before{content:'';width:6px;height:6px;flex:none;border-radius:50%;background:#ff8a00}
+  .mobile-constructor-cta:focus-visible{outline:3px solid #ffb861;outline-offset:4px}
+  @media(max-width:360px){.mobile-constructor-photo{height:165px}.mobile-constructor-copy{padding:16px;gap:10px}.mobile-constructor-copy h3{font-size:24px}}
+</style>
 </head>
 <body class="mobile-demo home-demo mobile-explorer-demo">
 <a class="skip-link" href="#contenido-principal">Saltar al contenido principal</a>
@@ -389,7 +404,7 @@
   <section class="mobile-explore" id="primeros-pasos" aria-labelledby="mobileExploreTitle">
     <div class="mobile-explore-head">
       <div><span>Encuentra tu punto de partida</span><h2 id="mobileExploreTitle">Explora</h2></div>
-      <output id="mobileExploreCount" aria-live="polite">11 accesos</output>
+      <output id="mobileExploreCount" aria-live="polite">8 accesos</output>
     </div>
 
     <div class="mobile-bento-grid" id="mobileBentoGrid">
@@ -405,32 +420,17 @@
         <span class="mobile-card-title">Aprende<br>paso a paso</span>
       </a>
 
-      <a class="mobile-bento-card mobile-nav-card" href="https://gemini.google.com/gem/1E997ysThV6qkHsQ-QFZU5elj2GhuqSsL?usp=sharing" data-gem="true" data-category="ruta herramientas" data-search="diagnóstico inicial grupo contexto gema">
-        <img src="hd-diagnostico.jpg" alt="">
-        <span class="mobile-card-shade"></span>
-        <span class="mobile-card-kind">Gema</span>
-        <span class="mobile-card-title">Diagnóstico<br>inicial</span>
-      </a>
-
-      <a class="mobile-bento-card mobile-nav-card mobile-card-program" href="https://gemini.google.com/gem/1CJf1Zh-EW8V9-WQgj1riJ9FWxeKAH_Tr?usp=sharing" data-gem="true" data-category="ruta herramientas" data-search="programa analítico comunidad campos formativos gema">
-        <span class="mobile-card-symbol" aria-hidden="true"><svg viewBox="0 0 64 64"><path d="M10 14c9-2 16 0 22 6v34c-6-6-13-8-22-6z"></path><path d="M54 14c-9-2-16 0-22 6v34c6-6 13-8 22-6z"></path><path d="M32 20v34"></path><path class="leaf" d="M39 12c7-7 13-5 15-4-1 7-5 12-14 12"></path></svg></span>
-        <span class="mobile-card-kind">Gema</span>
-        <span class="mobile-card-title">Programa<br>analítico</span>
-      </a>
-
-      <a class="mobile-bento-card mobile-nav-card" href="https://gemini.google.com/gem/1iCr-u-5XCdeL78-Oy5ogxRCq8VZQwa0L?usp=sharing" data-gem="true" data-category="ruta herramientas" data-search="planeación didáctica actividades materiales pda gema">
-        <img src="hd-planeacion.jpg" alt="">
-        <span class="mobile-card-shade"></span>
-        <span class="mobile-card-kind">Gema</span>
-        <span class="mobile-card-title">Planeación<br>didáctica</span>
-      </a>
-
-      <a class="mobile-bento-card mobile-nav-card" href="https://gemini.google.com/gem/1IjMLbQRkWqpdcYe0fc-8ib-ngWFqb1HZ?usp=sharing" data-gem="true" data-category="ruta herramientas" data-search="evaluación retroalimentación rúbricas instrumentos gema">
-        <img src="hd-evaluacion.jpg" alt="">
-        <span class="mobile-card-shade"></span>
-        <span class="mobile-card-kind">Gema</span>
-        <span class="mobile-card-title">Evaluación y<br>retroalimentación</span>
-      </a>
+      <article class="mobile-bento-card mobile-bento-wide mobile-nav-card mobile-constructor-entry" data-category="ruta herramientas" data-search="constructor pedagógico niveles perfiles integral inicial especial indígena física preescolar primaria secundaria media superior docente gestión ATP diagnóstico programa analítico planeación evaluación" id="mobile-constructor" aria-labelledby="mobile-constructor-title">
+        <div class="mobile-constructor-photo">
+          <img src="constructor-pedagogico-inicio.png" alt="Dos docentes colaboran frente a una computadora portátil" loading="lazy">
+        </div>
+        <div class="mobile-constructor-copy">
+          <span class="mobile-constructor-kicker">Del diagnóstico a la acción</span>
+          <h3 id="mobile-constructor-title">Constructor pedagógico</h3>
+          <p>Elige tu nivel y perfil para trabajar el diagnóstico, el programa analítico, la planeación y la evaluación con acompañamiento especializado.</p>
+          <a class="mobile-constructor-cta" href="ruta-v2.html#niveles">Constructor pedagógico <span aria-hidden="true">→</span></a>
+        </div>
+      </article>
 
       <a class="mobile-bento-card mobile-bento-wide mobile-nav-card" href="gemas-mobile-demo.html?view=mobile&amp;v=20260826-kitclean1" data-category="herramientas" data-search="kit herramientas gemas recursos planeación evaluación inclusión">
         <img src="kit-herramientas-neon.jpg" alt="">
@@ -531,7 +531,7 @@
     <div class="mobile-menu-head"><div><span>Explorar</span><h2 id="mobileMenuTitle">Más secciones</h2></div><button type="button" class="mobile-menu-close" aria-label="Cerrar menú">×</button></div>
     <nav class="mobile-menu-links" aria-label="Otras secciones del portal">
       <a href="aula-google.html"><span>Aula Google</span><b aria-hidden="true">›</b></a>
-      <a href="ruta-v2.html"><span>Ruta con las Gemas</span><b aria-hidden="true">›</b></a>
+      <a href="ruta-v2.html"><span>Constructor pedagógico</span><b aria-hidden="true">›</b></a>
       <a href="banco-gemas-v2.html"><span>Banco de Gemas</span><b aria-hidden="true">›</b></a>
       <a href="formacion-caracter-v2.html"><span>Formación del Carácter</span><b aria-hidden="true">›</b></a>
       <a href="curso-herramientas-ia-v2.html"><span>Aprende a usar la IA</span><b aria-hidden="true">›</b></a>

@@ -149,12 +149,12 @@
   .tag.lime{color:var(--lime);border-color:rgba(255,138,0,.3)}
 
   /* ---------- program banner ---------- */
-  .program{position:relative;isolation:isolate;display:flex;align-items:center;justify-content:flex-end;min-height:390px;margin-top:52px;padding:42px 46px;border:1px solid rgba(255,138,0,.42);border-radius:26px;overflow:hidden;background:#e8dfd6 url('constructor-pedagogico-inicio.png') center/cover no-repeat;box-shadow:0 22px 64px rgba(0,0,0,.24)}
-  .program::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(7,9,13,0) 22%,rgba(7,9,13,.12) 42%,rgba(7,9,13,.84) 65%,rgba(7,9,13,.97) 100%)}
-  .program .head{width:min(48%,590px);margin-left:auto;min-width:0;flex-shrink:0}
-  .program .kick{font-family:'Archivo';font-weight:900;font-size:14px;color:#ffad45;letter-spacing:2px;text-transform:uppercase;text-shadow:0 2px 12px rgba(0,0,0,.45)}
-  .program h2{font-family:'Archivo';font-weight:900;font-size:38px;line-height:1.05;letter-spacing:-.8px;margin-top:10px;color:#fff;text-shadow:0 2px 16px rgba(0,0,0,.45)}
-  .program .lead{color:#eef0f4;font-size:16.5px;max-width:570px;margin-top:15px;line-height:1.68;text-shadow:0 1px 8px rgba(0,0,0,.55)}
+  .constructor-home{position:relative;isolation:isolate;display:flex;align-items:center;justify-content:flex-end;min-height:390px;margin-top:52px;padding:42px 46px;border:1px solid rgba(255,138,0,.42);border-radius:26px;overflow:hidden;background:#e8dfd6 url('constructor-pedagogico-inicio.png') center/cover no-repeat;box-shadow:0 22px 64px rgba(0,0,0,.24)}
+  .constructor-home::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(7,9,13,0) 22%,rgba(7,9,13,.12) 42%,rgba(7,9,13,.84) 65%,rgba(7,9,13,.97) 100%)}
+  .constructor-home .constructor-home-copy{width:min(48%,590px);margin-left:auto;min-width:0;flex-shrink:0}
+  .constructor-home .constructor-home-eyebrow{font-family:'Archivo';font-weight:900;font-size:14px;color:#ffad45;letter-spacing:2px;text-transform:uppercase;text-shadow:0 2px 12px rgba(0,0,0,.45)}
+  .constructor-home h2{font-family:'Archivo';font-weight:900;font-size:38px;line-height:1.05;letter-spacing:-.8px;margin-top:10px;color:#fff;text-shadow:0 2px 16px rgba(0,0,0,.45)}
+  .constructor-home .constructor-home-description{color:#eef0f4;font-size:16.5px;max-width:570px;margin-top:15px;line-height:1.68;text-shadow:0 1px 8px rgba(0,0,0,.55)}
   .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:20px;position:relative}
   .step{position:relative;overflow:hidden;border:none;border-radius:20px;padding:24px 22px 52px;min-height:230px;display:flex;flex-direction:column;background:radial-gradient(60% 45% at 7% 5%,rgba(234,67,53,.22),transparent 60%),radial-gradient(55% 45% at 96% 5%,rgba(66,133,244,.22),transparent 60%),radial-gradient(55% 50% at 6% 97%,rgba(52,168,83,.20),transparent 60%),#0a0a0b}
   .step::before{content:"";position:absolute;inset:0;border-radius:20px;padding:1.5px;background:conic-gradient(from 210deg,#ea4335,#fbbc05,#34a853,#4285f4,#a142f4,#ea4335);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
@@ -265,26 +265,26 @@
     .conn{display:none}
     .videos{grid-template-columns:1fr}
     .hero h2{font-size:30px}
-    .program{min-height:430px;padding:34px 28px;background-position:38% center}
-    .program::after{background:linear-gradient(90deg,rgba(7,9,13,.08) 0%,rgba(7,9,13,.38) 34%,rgba(7,9,13,.9) 62%,rgba(7,9,13,.98) 100%)}
-    .program .head{width:min(62%,520px)}
-    .program .lead{margin-left:0}
+    .constructor-home{min-height:430px;padding:34px 28px;background-position:38% center}
+    .constructor-home::after{background:linear-gradient(90deg,rgba(7,9,13,.08) 0%,rgba(7,9,13,.38) 34%,rgba(7,9,13,.9) 62%,rgba(7,9,13,.98) 100%)}
+    .constructor-home .constructor-home-copy{width:min(62%,520px)}
+    .constructor-home .constructor-home-description{margin-left:0}
   }
   @media(max-width:520px){
     .slide .inner{padding:24px 34px 42px}
     .hero h2{font-size:27px}
     .slide p{font-size:14px;line-height:1.45}
-    .program{min-height:500px;padding:28px 22px;align-items:flex-end;background-position:32% center}
-    .program::after{background:linear-gradient(180deg,rgba(7,9,13,.06) 0%,rgba(7,9,13,.22) 26%,rgba(7,9,13,.9) 58%,rgba(7,9,13,.98) 100%)}
-    .program .head{width:100%;margin-top:auto}
-    .program h2{font-size:29px}
-    .program .lead{font-size:15px;line-height:1.58}
+    .constructor-home{min-height:500px;padding:28px 22px;align-items:flex-end;background-position:32% center}
+    .constructor-home::after{background:linear-gradient(180deg,rgba(7,9,13,.06) 0%,rgba(7,9,13,.22) 26%,rgba(7,9,13,.9) 58%,rgba(7,9,13,.98) 100%)}
+    .constructor-home .constructor-home-copy{width:100%;margin-top:auto}
+    .constructor-home h2{font-size:29px}
+    .constructor-home .constructor-home-description{font-size:15px;line-height:1.58}
   }
 
   /* banner banco de gemas */
   .banco-banner{position:relative;display:block;margin-top:26px;border-radius:min(26px,2.7vw);overflow:hidden;border:1px solid var(--line);aspect-ratio:2172/724;transition:.2s border-color,.2s transform}
   .banco-banner:hover{border-color:#3a3a40;transform:translateY(-2px)}
-  .bb-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:left center;z-index:0}
+  .bb-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:left top;z-index:0}
   .banco-banner::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(270deg,rgba(8,8,10,.94) 0%,rgba(8,8,10,.82) 34%,rgba(10,10,12,.45) 60%,rgba(10,10,12,.12) 82%,rgba(8,8,10,0) 100%),linear-gradient(0deg,rgba(8,8,10,.35) 0%,transparent 40%)}
   .bb-text{position:absolute;z-index:2;right:44px;top:50%;transform:translateY(-50%);max-width:470px;text-align:left}
   .bb-kick{color:var(--lime);font-family:'Archivo';font-weight:800;font-size:13px;letter-spacing:3px;text-transform:uppercase}
@@ -356,6 +356,22 @@
 <link rel="stylesheet" href="servicios-digitales-dti.css?v=20261013-4">
 <link rel="stylesheet" href="servicios-dti-promocion.css?v=20261013-3">
 <script src="servicios-dti-promocion.js?v=20261013-3" defer></script>
+<style>
+  .constructor-home-photo{display:none}
+  .constructor-home .constructor-home-copy{display:block;position:relative;background:none;border:0;border-radius:0;box-shadow:none;overflow:visible;padding:0}
+  .constructor-home h2{text-transform:uppercase}
+  @media(max-width:760px){
+    .constructor-home{display:block;min-height:0;margin-top:30px;padding:0;border-color:rgba(255,155,50,.7);border-radius:24px;background:#351d10}
+    .constructor-home::after{display:none}
+    .constructor-home-photo{display:block;width:100%;height:clamp(170px,43vw,245px);overflow:hidden;background:#e8dfd6}
+    .constructor-home-photo img{display:block;width:140%;height:100%;max-width:none;object-fit:cover;object-position:left top}
+    .constructor-home .constructor-home-copy{width:100%;margin:0;padding:22px 20px 24px}
+    .constructor-home .constructor-home-eyebrow{font-size:11px;line-height:1.4;letter-spacing:2px;color:#ffd6a3;text-shadow:none}
+    .constructor-home h2{font-size:clamp(24px,5.2vw,28px);line-height:1.08;letter-spacing:-.4px;text-transform:none;text-shadow:none;margin:12px 0 0}
+    .constructor-home .constructor-home-description{font-size:15px;line-height:1.55;margin:15px 0 0;max-width:none;text-shadow:none}
+    .constructor-home .cta{min-height:44px;max-width:100%;margin-top:22px;padding:11px 18px;background:#ff8a00;color:#17100a;font-size:14px;white-space:normal;text-align:left}
+  }
+</style>
 </head>
 <body>
 <a class="skip-link" href="#contenido-principal">Saltar al contenido principal</a>
@@ -420,12 +436,15 @@
   </section>
 
   <!-- PROGRAMA -->
-  <section class="program">
-    <div class="head">
-      <div class="kick">✦ DEL DIAGNÓSTICO A LA ACCIÓN ✦</div>
-      <h2>CONSTRUCTOR PEDAGÓGICO</h2>
-      <div class="lead">Convierte las necesidades de tu grupo en una planeación contextualizada y alineada con la Nueva Escuela Mexicana. Entra al Constructor Pedagógico y crea, paso a paso, una propuesta lista para llevar al aula.</div>
-      <a class="cta" href="ruta-v2.html">Entrar al Constructor Pedagógico</a>
+  <section class="constructor-home" id="constructor-home" aria-labelledby="constructor-home-title">
+    <div class="constructor-home-photo">
+      <img src="constructor-pedagogico-inicio.png" alt="Dos docentes colaboran frente a una computadora portátil" loading="lazy">
+    </div>
+    <div class="constructor-home-copy">
+      <div class="constructor-home-eyebrow">Del diagnóstico a la acción</div>
+      <h2 id="constructor-home-title">Constructor pedagógico</h2>
+      <div class="constructor-home-description">Elige tu nivel y perfil para trabajar el diagnóstico, el programa analítico, la planeación y la evaluación con acompañamiento especializado.</div>
+      <a class="cta" href="ruta-v2.html#niveles">Constructor pedagógico →</a>
     </div>
   </section>
 
