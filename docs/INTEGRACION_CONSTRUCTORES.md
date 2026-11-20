@@ -3,6 +3,7 @@
 ## Estado de la entrega
 
 - Diseño aprobado incorporado a `ruta-v2.html`: cinco secciones principales, cuatro áreas dentro de Integral y 26 constructores.
+- Recorrido móvil reorganizado en niveles, perfiles compactos y espacio de trabajo independiente. Dirección, Supervisión y Jefatura se eligen directamente. Conserva los tonos por sección y el bisel animado.
 - 26 gemas cubren los 26 constructores y sus cuatro etapas. En Preescolar, Primaria y Secundaria, Gestión elige entre las gemas de Dirección, Supervisión y Jefatura de Sector; los demás servicios tienen gestión especializada.
 - Las 26 configuraciones de gemas están en `gemas-creacion.json`, sus instrucciones en `gemas/`, el catálogo de constructores en `constructor-catalogo.json` y el administrador en `preparar-gemas.html`.
 - **Las 26 gemas están creadas y abiertas para cualquier usuario con el enlace, con permiso de lector, por indicación de Emmanuel.** Los 26 enlaces se comprobaron desde otra cuenta. Ver `docs/GEMAS_CREADAS.md` y `gemas-creadas.json`.
@@ -21,6 +22,15 @@
 7. Verificar los 26 accesos, las etapas, la navegación de regreso y la versión móvil antes de publicar el reemplazo de `ruta-v2.html`.
 
 El portal copia una indicación de etapa que el usuario debe pegar en Gemini. No asume parámetros de URL no documentados ni transfiere automáticamente texto a Gemini. Una nueva conversación no hereda el trabajo anterior: guardar y pegar el resumen para continuar.
+
+## Recorrido y continuidad en móvil
+
+- Publicar juntos `ruta-v2.html`, `constructor-recorrido.js`, `constructor-recorrido.css`, `constructor-border-beam.css`, `constructor-gemas-config.js` y `constructor-uso.js`, además de los recursos ya incluidos. Conservar el orden de los scripts del HTML: configuración, medición, catálogo y controlador del recorrido.
+- La selección se refleja en el fragmento de URL (`#perfiles/primaria`, `#trabajo/primaria/docente/2`). Atrás, Adelante, recarga y enlaces directos recuperan la pantalla correspondiente.
+- `localStorage`, clave `docente-ia-recorrido-v1`, recuerda únicamente el último perfil, función, etapa y marcas de revisión de ese navegador. No guarda documentos, conversaciones ni datos personales; no se envía al contador. Si no está disponible, el recorrido sigue funcionando mediante la URL.
+- La acción principal intenta copiar la indicación y abrir la gema. El usuario debe pegarla en Gemini. Si falla el portapapeles o se bloquea la pestaña, aparece una alternativa manual cuyo botón de apertura permanece visible en pantallas pequeñas. “Solo copiar” permite continuar en una conversación existente.
+- El cierre muestra solo las etapas marcadas expresamente como revisadas por el usuario. Visitar una etapa no acredita su realización ni implica que el portal haya guardado su resultado.
+- Pruebas de interfaz: ventanas de 320 × 568, 390 × 844, 430 × 932 y escritorio. Son pruebas de navegador con viewport reducido; no sustituyen pruebas físicas de Safari/iOS, Android o teclado virtual.
 
 ## Qué contará
 
@@ -41,7 +51,7 @@ El módulo manda solo evento, sección, tipo de constructor, número de etapa y 
 2. La activación crea una tabla propia de conteos agregados diarios. No modifica tablas de usuarios. El informe aparece en **Herramientas → Uso del Constructor**, restringido a administradores.
 3. Comprobar la zona horaria de WordPress (preferentemente America/Mexico_City) y el prefijo de instalación. Obtener la ruta real del receptor: `https://HOST/RUTA-WORDPRESS/wp-json/docente-ia/v1/event`.
 4. En `constructor-gemas-config.js`, activar `measurement.enabled` y poner esa ruta en `measurement.endpoint`. Debe estar en el mismo origen HTTPS que la página: no se envían eventos desde GitHub Pages a WordPress.
-5. Configurar el formulario/página o plantilla WordPress con los tres recursos: `constructor-gemas-config.js`, `constructor-uso.js` y el contenido del Constructor. Si se incrusta en un iframe de otro origen, esta versión de la medición no funcionará; alojar la página y receptor en el mismo origen.
+5. Configurar la página o plantilla WordPress con el HTML y los recursos enumerados en “Recorrido y continuidad en móvil”. Conservar los fragmentos de navegación y el orden de los scripts. Si se incrusta en un iframe de otro origen, esta versión de la medición no funcionará; alojar la página y receptor en el mismo origen.
 6. Probar desde una ventana sin sesión: una carga genera una visita; abrir Primaria genera sección; elegir Docente genera constructor; cambiar a Evaluación genera etapa; hacer clic final en una gema configurada genera salida. Revisar el aumento correspondiente en el informe. No confundir la apertura del aviso con la salida efectiva.
 7. Comprobar que los cuerpos con campos extra, nombres de evento inventados, niveles fuera del catálogo y combinaciones incompatibles se rechazan. Comprobar que un visitante no puede leer el informe.
 8. Revisar el aviso institucional de privacidad y los registros del servidor por separado. Aunque este módulo no guarda IP, el hosting puede conservarla en logs. Establecer conservación de agregados y protección ante abuso en el servidor; el filtro de origen no detiene bots que falsifiquen encabezados.
@@ -50,7 +60,7 @@ El receptor usa incremento atómico para evitar pérdidas por visitas simultáne
 
 ## Validación y pendientes
 
-- Pruebas de JavaScript: `node --test tests/measurement.test.cjs`.
+- Pruebas de JavaScript: `node --test tests/measurement.test.cjs tests/recorrido.test.cjs` (11 pruebas: eventos, persistencia validada, navegación de 42 perfiles y cuatro etapas, roles y continuidad de contexto).
 - Revisión sintáctica de scripts incluidos y correspondencia de 26 configuraciones.
 - Pendientes: validación PHP/WordPress en un servidor de pruebas e instalación/configuración del receptor; revisión pedagógica continua de respuestas. Las 26 gemas están creadas y su acceso fue comprobado. Las pruebas de interfaz se registran en la entrega.
 - `ruta-general.html` mantiene los enlaces y código de la versión de GitHub consultada al preparar la entrega. La carpeta local `site-edit` contenía otros cambios; esta entrega no los sobrescribe.
