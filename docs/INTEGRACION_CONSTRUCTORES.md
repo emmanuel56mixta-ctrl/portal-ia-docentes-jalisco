@@ -48,7 +48,7 @@ El módulo manda solo evento, sección, tipo de constructor, número de etapa y 
 ## Activación en WordPress por DTI
 
 1. En un entorno de pruebas, instalar la carpeta `wordpress/docente-ia-contador` como plugin de WordPress y activarlo. Usar una cuenta con permisos para instalar plugins. No instalar sobre producción sin validar compatibilidad y respaldo.
-2. La activación crea una tabla propia de conteos agregados diarios. No modifica tablas de usuarios. El informe aparece en **Herramientas → Uso del Constructor**, restringido a administradores.
+2. La activación crea una tabla propia de conteos agregados diarios y el perfil **Consulta de métricas Docente IA**. No crea cuentas ni asigna ese perfil a usuarios. El informe aparece en el menú **Métricas Docente IA**, disponible para administradores y cuentas con el permiso específico de consulta.
 3. Comprobar la zona horaria de WordPress (preferentemente America/Mexico_City) y el prefijo de instalación. Obtener la ruta real del receptor: `https://HOST/RUTA-WORDPRESS/wp-json/docente-ia/v1/event`.
 4. En `constructor-gemas-config.js`, activar `measurement.enabled` y poner esa ruta en `measurement.endpoint`. Debe estar en el mismo origen HTTPS que la página: no se envían eventos desde GitHub Pages a WordPress.
 5. Configurar la página o plantilla WordPress con el HTML y los recursos enumerados en “Recorrido y continuidad en móvil”. Conservar los fragmentos de navegación y el orden de los scripts. Si se incrusta en un iframe de otro origen, esta versión de la medición no funcionará; alojar la página y receptor en el mismo origen.
@@ -57,6 +57,21 @@ El módulo manda solo evento, sección, tipo de constructor, número de etapa y 
 8. Revisar el aviso institucional de privacidad y los registros del servidor por separado. Aunque este módulo no guarda IP, el hosting puede conservarla en logs. Establecer conservación de agregados y protección ante abuso en el servidor; el filtro de origen no detiene bots que falsifiquen encabezados.
 
 El receptor usa incremento atómico para evitar pérdidas por visitas simultáneas. No identifica personas ni promete exactitud frente a robots. El navegador elimina doble clic inmediato y limita eventos por carga, pero esos límites no sustituyen controles del servidor.
+
+## Acceso de consulta para Emmanuel (versión 0.2.0)
+
+DTI debe habilitar una cuenta individual y asignarle el perfil **Consulta de métricas Docente IA** (`dia_metrics_viewer`). Ese perfil concede únicamente los permisos `read` y `dia_view_metrics`: acceso a su cuenta y al reporte. No concede edición de páginas, instalación de complementos, ajustes del portal ni administración de usuarios. No usar una cuenta administradora compartida. Si se reutiliza una cuenta que ya tiene otros permisos, revisarlos por separado.
+
+Al iniciar sesión con este perfil, el complemento dirige al reporte. La dirección directa es la URL administrativa real de esa instalación más `admin.php?page=dia-usage`; DTI debe proporcionar a Emmanuel la liga completa y el procedimiento institucional para establecer su contraseña. No se debe asumir la ruta pública de Docente IA como raíz de WordPress.
+
+DTI debe comprobar en su entorno de pruebas:
+
+1. El perfil de consulta puede abrir el reporte, incluso desde una liga directa después de iniciar sesión.
+2. Ese usuario no puede editar páginas, instalar complementos ni entrar a configuración. Una cuenta visitante, suscriptora o editora sin `dia_view_metrics` no puede consultar el reporte.
+3. Los administradores conservan el acceso. Actualizar desde 0.1.0 registra los permisos sin requerir desactivar y reactivar el complemento.
+4. El receptor y el contador se activan y producen eventos reales antes de entregar la liga. Este cambio de permisos por sí solo no inicia la medición.
+
+La entrega no crea todavía la cuenta ni la liga institucional activa. La instalación, asignación del perfil y validación de autenticación corresponden a DTI. No se ejecutaron pruebas PHP/WordPress en este entorno, que no cuenta con PHP ni con una instalación de WordPress.
 
 ## Validación y pendientes
 

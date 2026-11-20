@@ -2,10 +2,30 @@
 /**
  * Plugin Name: Docente IA · Contador agregado
  * Description: Conteos diarios del Constructor, sin identificadores de visitantes. Activación y prueba a cargo de DTI.
- * Version: 0.1.0
+ * Version: 0.2.0
  * Requires PHP: 7.4
  */
 defined('ABSPATH') || exit;
+
+function dia_count_install_access() {
+    // Consulta propia; no concede edición, configuración ni gestión de usuarios.
+    $viewer = get_role('dia_metrics_viewer');
+    if (!$viewer) {
+        add_role('dia_metrics_viewer', 'Consulta de métricas Docente IA', array(
+            'read' => true,
+            'dia_view_metrics' => true,
+        ));
+    } else {
+        $viewer->add_cap('dia_view_metrics');
+    }
+    $admin = get_role('administrator');
+    if ($admin) $admin->add_cap('dia_view_metrics');
+    update_option('dia_count_access_version', '1', false);
+}
+// La actualización de un plugin activo no ejecuta de nuevo su activación.
+add_action('plugins_loaded', function() {
+    if (get_option('dia_count_access_version') !== '1') dia_count_install_access();
+});
 
 function dia_count_install() {
     global $wpdb;
@@ -22,6 +42,7 @@ function dia_count_install() {
       total bigint unsigned NOT NULL DEFAULT 0,
       PRIMARY KEY  (day,event,section,constructor,stage,role)
     ) $charset;");
+    dia_count_install_access();
 }
 register_activation_hook(__FILE__, 'dia_count_install');
 
@@ -70,7 +91,9 @@ add_action('rest_api_init', function() {
 });
 
 function dia_count_report() {
-    if (!current_user_can('manage_options')) return;
+    if (!current_user_can('dia_view_metrics')) {
+        wp_die('Tu cuenta no tiene permiso para consultar estas métricas.', 'Acceso restringido', array('response'=>403));
+    }
     global $wpdb;
     $table=$wpdb->prefix . 'dia_usage_daily';
     $since=current_datetime()->modify('-29 days')->format('Y-m-d');
@@ -81,4 +104,13 @@ function dia_count_report() {
     foreach($rows as $row) {echo '<tr>';foreach(array('event','section','constructor','stage','role','total') as $key) echo '<td>'.esc_html($row[$key]).'</td>';echo '</tr>';}
     echo '</tbody></table><p>El módulo no almacena IP, nombres, correos, cookies, texto libre ni identificadores de visitantes. Los registros técnicos del servidor se administran por separado.</p></div>';
 }
-add_action('admin_menu',function(){add_management_page('Uso del Constructor','Uso del Constructor','manage_options','dia-usage','dia_count_report');});
+add_action('admin_menu', function() {
+    add_menu_page('Uso del Constructor', 'Métricas Docente IA', 'dia_view_metrics', 'dia-usage', 'dia_count_report', 'dashicons-chart-bar', 3);
+});
+add_filter('login_redirect', function($redirect_to, $requested_redirect_to, $user) {
+    if ($user instanceof WP_User && in_array('dia_metrics_viewer', $user->roles, true)
+        && user_can($user, 'dia_view_metrics') && !user_can($user, 'manage_options')) {
+        return admin_url('admin.php?page=dia-usage');
+    }
+    return $redirect_to;
+}, 10, 3);
